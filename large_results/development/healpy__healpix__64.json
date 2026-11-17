@@ -1,0 +1,42 @@
+{
+  "status": "completed",
+  "package": "healpy",
+  "grid": "healpix",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "healpy",
+      "repeat": 0,
+      "setup_seconds": 0.0013316949998625205,
+      "apply_seconds": 0.00044451500070863403,
+      "total_seconds": 0.0017762100005711545,
+      "setup_wall_seconds": 0.0013316949998625205,
+      "apply_wall_seconds": 0.00044451500070863403,
+      "input_preparation_seconds": 0.0019026380005016108,
+      "import_seconds": 0.8248810139994021,
+      "grid": "healpix",
+      "scale": 64,
+      "nside": 32,
+      "source_geometry_sha256": "afe0a8f4f30a21c6fb26fecb01706458db0a3ff9c6dba672300a04ed55500d94",
+      "destination_geometry_sha256": "b890c0c53c816a6c7c2fcf906175c78b59b559a700f86698257956de8e4eb9dc",
+      "values_sha256": "b5ec638f3cd9e713c23d793f2927591536f3930ecf3e094a89c60703a7cf3504",
+      "source_shape": [
+        12288
+      ],
+      "target_shape": [
+        64,
+        128
+      ],
+      "source_cells": 12288,
+      "target_cells": 8192,
+      "rmse": 0.00026772048687187663,
+      "max_error": 0.0013088820580569038,
+      "finite_fraction": 1.0,
+      "actual_output_cells": 8192,
+      "setup_note": "Healpy four-neighbour weights built once; same weights used in application",
+      "warnings": []
+    }
+  ],
+  "peak_rss_mib": 186.671875,
+  "worker_seconds": 0.9515713230002802
+}

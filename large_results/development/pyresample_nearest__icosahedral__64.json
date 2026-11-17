@@ -1,0 +1,41 @@
+{
+  "status": "completed",
+  "package": "pyresample_nearest",
+  "grid": "icosahedral",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "pyresample_nearest",
+      "repeat": 0,
+      "setup_seconds": 0.00310616799924901,
+      "apply_seconds": 0.00012790100026904838,
+      "total_seconds": 0.0032340689995180583,
+      "setup_wall_seconds": 0.00310616799924901,
+      "apply_wall_seconds": 0.00012790100026904838,
+      "input_preparation_seconds": 0.002426418000140984,
+      "import_seconds": 0.6113357120002547,
+      "grid": "icosahedral",
+      "scale": 64,
+      "subdivisions": 3,
+      "source_geometry_sha256": "6ee9161fdaf5413673f997e6f198b181050761a4c5c053a7fa877fa8b211e99a",
+      "destination_geometry_sha256": "b890c0c53c816a6c7c2fcf906175c78b59b559a700f86698257956de8e4eb9dc",
+      "values_sha256": "9a67e6303e55bda1b3c95dd91378208e0fd4a886a372dc864fa648b58eef7f3f",
+      "source_shape": [
+        1280
+      ],
+      "target_shape": [
+        64,
+        128
+      ],
+      "source_cells": 1280,
+      "target_cells": 8192,
+      "rmse": 0.028486082478507604,
+      "max_error": 0.12569174861505705,
+      "finite_fraction": 1.0,
+      "actual_output_cells": 8192,
+      "warnings": []
+    }
+  ],
+  "peak_rss_mib": 242.3671875,
+  "worker_seconds": 1.0113121690001208
+}

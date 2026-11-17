@@ -1,0 +1,42 @@
+{
+  "status": "completed",
+  "package": "xesmf_conservative",
+  "grid": "roms",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "xesmf_conservative",
+      "repeat": 0,
+      "setup_seconds": 0.14093098400007875,
+      "apply_seconds": 0.0028892899999846122,
+      "total_seconds": 0.14382027400006336,
+      "setup_wall_seconds": 0.14093098400007875,
+      "apply_wall_seconds": 0.0028892899999846122,
+      "input_preparation_seconds": 0.0008906459997888305,
+      "import_seconds": 0.5044923160003236,
+      "grid": "roms",
+      "scale": 64,
+      "source_geometry_sha256": "48cd6486705c2aa54f72624aee1e58b831342eba038b4d4859562628b16e6664",
+      "destination_geometry_sha256": "82fe2a12b8d73d6f6d25cc8f75dc288c564d392243886e40001e24bc0cd874db",
+      "values_sha256": "41621256f51ed31e9143850d31ed4ff2fdf6e7236af4c86ccb2f22ce136cee87",
+      "source_shape": [
+        64,
+        64
+      ],
+      "target_shape": [
+        64,
+        64
+      ],
+      "source_cells": 4096,
+      "target_cells": 4096,
+      "rmse": 0.0005306639406079186,
+      "max_error": 0.001860429867504898,
+      "finite_fraction": 1.0,
+      "actual_output_cells": 4096,
+      "weights_nnz": 13666,
+      "warnings": []
+    }
+  ],
+  "peak_rss_mib": 278.7421875,
+  "worker_seconds": 1.6537567629993646
+}

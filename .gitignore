@@ -6,3 +6,6 @@ __pycache__/
 *.pyc
 .openai/
 publication.json
+
+/PET*.ESMF_LogFile
+/finish_large.py

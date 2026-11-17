@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "package": "pyresample_gauss",
+  "grid": "satellite_swath",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "pyresample_gauss",
+      "repeat": 0,
+      "setup_seconds": 0.049474100999759685,
+      "apply_seconds": 0.004442939000000479,
+      "total_seconds": 0.053917039999760163,
+      "setup_wall_seconds": 0.049474100999759685,
+      "apply_wall_seconds": 0.004442939000000479,
+      "input_preparation_seconds": 0.002081781000015326,
+      "import_seconds": 0.7682430269996985,
+      "grid": "satellite_swath",
+      "scale": 64,
+      "source_geometry_sha256": "48ee00894228ec4aedfee2dbe407b0d521fe73d8e9a9574cd4a43a3e1bbbe9e6",
+      "destination_geometry_sha256": "9af1314e4d6e9873c5b324d49960106a155fdf10aa5660af1e70a8a6f19b40a1",
+      "values_sha256": "34af214050b12b2df0d9cc240c925ec260ab9a3dd49a275e1bda48707eb80721",
+      "source_shape": [
+        128,
+        64
+      ],
+      "target_shape": [
+        128,
+        64
+      ],
+      "source_cells": 8192,
+      "target_cells": 8192,
+      "rmse": 0.0015750151431061258,
+      "max_error": 0.010170097317114268,
+      "finite_fraction": 0.9237060546875,
+      "actual_output_cells": 8192,
+      "warnings": [
+        "Possible more than 8 neighbours within 300000 m for some data points"
+      ]
+    }
+  ],
+  "peak_rss_mib": 226.671875,
+  "worker_seconds": 1.2897579350001251
+}

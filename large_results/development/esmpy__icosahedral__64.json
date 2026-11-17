@@ -1,0 +1,42 @@
+{
+  "status": "completed",
+  "package": "esmpy",
+  "grid": "icosahedral",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "esmpy",
+      "repeat": 0,
+      "setup_seconds": 0.2607720229998449,
+      "apply_seconds": 0.00010187200041400502,
+      "total_seconds": 0.2608738950002589,
+      "setup_wall_seconds": 0.2607720229998449,
+      "apply_wall_seconds": 0.00010187200041400502,
+      "input_preparation_seconds": 0.0022499500000776607,
+      "import_seconds": 0.02579804300057731,
+      "grid": "icosahedral",
+      "scale": 64,
+      "subdivisions": 3,
+      "source_geometry_sha256": "6ee9161fdaf5413673f997e6f198b181050761a4c5c053a7fa877fa8b211e99a",
+      "destination_geometry_sha256": "b890c0c53c816a6c7c2fcf906175c78b59b559a700f86698257956de8e4eb9dc",
+      "values_sha256": "9a67e6303e55bda1b3c95dd91378208e0fd4a886a372dc864fa648b58eef7f3f",
+      "source_shape": [
+        1280
+      ],
+      "target_shape": [
+        64,
+        128
+      ],
+      "source_cells": 1280,
+      "target_cells": 8192,
+      "rmse": 0.020648386019759112,
+      "max_error": 0.09177305081494058,
+      "finite_fraction": 1.0,
+      "actual_output_cells": 8192,
+      "setup_note": "Triangular mesh to the shared lat/lon destination; source/destination geometry matches other icosahedral adapters",
+      "warnings": []
+    }
+  ],
+  "peak_rss_mib": 188.6171875,
+  "worker_seconds": 1.0379869830003372
+}

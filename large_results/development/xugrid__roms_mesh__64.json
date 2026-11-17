@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "package": "xugrid",
+  "grid": "roms_mesh",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "xugrid",
+      "repeat": 0,
+      "setup_seconds": 0.11744124300003023,
+      "apply_seconds": 0.0009217810002155602,
+      "total_seconds": 0.11836302400024579,
+      "setup_wall_seconds": 0.11744124300003023,
+      "apply_wall_seconds": 0.0009217810002155602,
+      "input_preparation_seconds": 0.0011741449998226017,
+      "import_seconds": 0.6010173989998293,
+      "grid": "roms_mesh",
+      "scale": 64,
+      "source_geometry_sha256": "3f1b863170bfe071af78e2ebba6ee75e90724258f8cb83b084de9da56b28a772",
+      "destination_geometry_sha256": "fab7901797e62c9d755d48c6d9fdbfd6e76e90b77bbbb56c629a88897a546025",
+      "values_sha256": "729e05290ac78adb94415a6c794457a91b3c03e239d69cd42e91d9a7e9cc1cad",
+      "source_shape": [
+        64,
+        64
+      ],
+      "target_shape": [
+        64,
+        64
+      ],
+      "source_cells": 4096,
+      "target_cells": 4096,
+      "rmse": 1.2095911087230719e-07,
+      "max_error": 1.6201296260121012e-07,
+      "finite_fraction": 1.0,
+      "actual_output_cells": 7938,
+      "actual_target_cells": 7938,
+      "setup_note": "Projected local triangular mesh; own mesh-centred test family, not ranked against raster targets",
+      "warnings": []
+    }
+  ],
+  "peak_rss_mib": 345.16015625,
+  "worker_seconds": 6.8089815000003
+}

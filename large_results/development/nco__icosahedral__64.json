@@ -1,0 +1,9 @@
+{
+  "status": "error",
+  "package": "nco",
+  "grid": "icosahedral",
+  "scale": 64,
+  "error": "\u274c ABORT DUE TO NON-ZERO COMMAND EXIT CODE\nFailed Command: 'which ncks'\nLine Number   : 511\nExit Status   : 1\n\u274c ABORT DUE TO NON-ZERO COMMAND EXIT CODE\nFailed Command: 'nco_exe=$(which ncks)'\nLine Number   : 511\nExit Status   : 1\n",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/regridding-benchmarks/large_bench.py\", line 304, in <module>\n    try:result=run(pkg,grid,int(n),int(repeats))\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/regridding-benchmarks/large_bench.py\", line 287, in run\n    app,ext,clean=build(pkg,grid,warm,Path(tmp));a=app();clean();del a,app,warm;gc.collect()\n                                                   ^^^^^\n  File \"/workspace/regridding-benchmarks/large_bench.py\", line 236, in apply\n    else:command(['ncremap','-m',str(work/'weights.nc'),'-i',str(work/'data.nc'),'-o',str(work/'output.nc')])\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/regridding-benchmarks/large_bench.py\", line 220, in command\n    if p.returncode:raise RuntimeError(p.stderr[-2000:]+p.stdout[-1000:])\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: \u274c ABORT DUE TO NON-ZERO COMMAND EXIT CODE\nFailed Command: 'which ncks'\nLine Number   : 511\nExit Status   : 1\n\u274c ABORT DUE TO NON-ZERO COMMAND EXIT CODE\nFailed Command: 'nco_exe=$(which ncks)'\nLine Number   : 511\nExit Status   : 1\n\n",
+  "worker_seconds": 0.9453655009992872
+}

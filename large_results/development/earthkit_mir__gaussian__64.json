@@ -1,0 +1,44 @@
+{
+  "status": "completed",
+  "package": "earthkit_mir",
+  "grid": "gaussian",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "earthkit_mir",
+      "repeat": 0,
+      "setup_seconds": 0.0009100470006160322,
+      "apply_seconds": 0.12709206899944547,
+      "total_seconds": 0.1280021160000615,
+      "setup_wall_seconds": 0.0009100470006160322,
+      "apply_wall_seconds": 0.12709206899944547,
+      "input_preparation_seconds": 0.002383749999353313,
+      "import_seconds": 0.11885822099975485,
+      "grid": "gaussian",
+      "scale": 64,
+      "source_geometry_sha256": "d5b6f1f0dc3af46b2294316676d0e67048e0a43d7b8f53e09f9eba32c48e07b8",
+      "destination_geometry_sha256": "b890c0c53c816a6c7c2fcf906175c78b59b559a700f86698257956de8e4eb9dc",
+      "values_sha256": "8969e40b535e879b14ca1e73168134e1e23940d4d950fffe3c5670449735c9ff",
+      "source_shape": [
+        64,
+        128
+      ],
+      "target_shape": [
+        64,
+        128
+      ],
+      "source_cells": 8192,
+      "target_cells": 8192,
+      "rmse": 0.006857209661582159,
+      "max_error": 0.05509228659981247,
+      "finite_fraction": 1.0,
+      "actual_output_cells": 8320,
+      "setup_note": "MIR high-level interface fuses weight work and application; total is measured in apply",
+      "mir_step": 2.8125,
+      "output_kind": "mir",
+      "warnings": []
+    }
+  ],
+  "peak_rss_mib": 248.9921875,
+  "worker_seconds": 1.4700065839997478
+}

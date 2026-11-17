@@ -1,0 +1,7 @@
+Cache file /tmp/cache/mir/weights/18/linear/F16-85.7606:0:-85.7606:354.375/LL-5.625x5.625-90:0:-90:354.375-f3e2687a9e17a15009edabde4ff39a5c.mat does not exist
+Creating cache file /tmp/cache/mir/weights/18/linear/F16-85.7606:0:-85.7606:354.375/LL-5.625x5.625-90:0:-90:354.375-f3e2687a9e17a15009edabde4ff39a5c.mat
+CacheManager creating file /tmp/cache/mir/weights/18/linear/F16-85.7606:0:-85.7606:354.375/LL-5.625x5.625-90:0:-90:354.375-f3e2687a9e17a15009edabde4ff39a5c.mat
+Cache file /tmp/cache/mir/weights/18/linear/F32-87.8638:0:-87.8638:357.188/LL-2.8125x2.8125-90:0:-90:357.188-764034d1acbf200852575989e220cfda.mat does not exist
+Creating cache file /tmp/cache/mir/weights/18/linear/F32-87.8638:0:-87.8638:357.188/LL-2.8125x2.8125-90:0:-90:357.188-764034d1acbf200852575989e220cfda.mat
+CacheManager creating file /tmp/cache/mir/weights/18/linear/F32-87.8638:0:-87.8638:357.188/LL-2.8125x2.8125-90:0:-90:357.188-764034d1acbf200852575989e220cfda.mat
+{"status": "completed", "package": "earthkit_mir", "grid": "gaussian", "scale": 64, "peak_rss_mib": 248.9921875, "worker_seconds": 1.4700065839997478}

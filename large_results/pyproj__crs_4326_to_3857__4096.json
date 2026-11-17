@@ -1,0 +1,112 @@
+{
+  "status": "completed",
+  "package": "pyproj",
+  "grid": "crs_4326_to_3857",
+  "scale": 4096,
+  "runs": [
+    {
+      "package": "pyproj",
+      "repeat": 0,
+      "setup_seconds": 0.0009882230006041937,
+      "apply_seconds": 1.8070938609998848,
+      "total_seconds": 1.808082084000489,
+      "setup_wall_seconds": 0.0009882230006041937,
+      "apply_wall_seconds": 1.8070938609998848,
+      "input_preparation_seconds": 7.87813031099904,
+      "import_seconds": 0.0682525779993739,
+      "grid": "crs_4326_to_3857",
+      "scale": 4096,
+      "dst_crs": 3857,
+      "source_geometry_sha256": "9602aa68a736d311b0ead9f715039af4570e4cf740a3ea0eeb166f11b5cad127",
+      "destination_geometry_sha256": "47f15006e6ec75a0d26a5b9c1f5947ab91de6032cf4a96b732ec12feab7baa14",
+      "values_sha256": "2967c62b4052a985529c41d8bc4bc963970cf8cb790ca0f2b5fb045b50c0eb11",
+      "source_shape": [
+        4096,
+        4096
+      ],
+      "target_shape": [
+        4096,
+        4096
+      ],
+      "source_cells": 16777216,
+      "target_cells": 16777216,
+      "roundtrip_max_degrees": 1.687538997430238e-14,
+      "finite_fraction": 1.0,
+      "setup_note": "Coordinate transformation only; no raster interpolation",
+      "output_kind": "coordinate_arrays",
+      "timing_mode": "fused",
+      "warmup": "One complete 32-scale operation before recorded repetitions",
+      "warnings": []
+    },
+    {
+      "package": "pyproj",
+      "repeat": 1,
+      "setup_seconds": 0.0005404090006777551,
+      "apply_seconds": 1.9470000370001799,
+      "total_seconds": 1.9475404460008576,
+      "setup_wall_seconds": 0.0005404090006777551,
+      "apply_wall_seconds": 1.9470000370001799,
+      "input_preparation_seconds": 7.87813031099904,
+      "import_seconds": 0.0682525779993739,
+      "grid": "crs_4326_to_3857",
+      "scale": 4096,
+      "dst_crs": 3857,
+      "source_geometry_sha256": "9602aa68a736d311b0ead9f715039af4570e4cf740a3ea0eeb166f11b5cad127",
+      "destination_geometry_sha256": "47f15006e6ec75a0d26a5b9c1f5947ab91de6032cf4a96b732ec12feab7baa14",
+      "values_sha256": "2967c62b4052a985529c41d8bc4bc963970cf8cb790ca0f2b5fb045b50c0eb11",
+      "source_shape": [
+        4096,
+        4096
+      ],
+      "target_shape": [
+        4096,
+        4096
+      ],
+      "source_cells": 16777216,
+      "target_cells": 16777216,
+      "roundtrip_max_degrees": 1.687538997430238e-14,
+      "finite_fraction": 1.0,
+      "setup_note": "Coordinate transformation only; no raster interpolation",
+      "output_kind": "coordinate_arrays",
+      "timing_mode": "fused",
+      "warmup": "One complete 32-scale operation before recorded repetitions",
+      "warnings": []
+    },
+    {
+      "package": "pyproj",
+      "repeat": 2,
+      "setup_seconds": 0.0005869569995411439,
+      "apply_seconds": 1.87143044000004,
+      "total_seconds": 1.8720173969995813,
+      "setup_wall_seconds": 0.0005869569995411439,
+      "apply_wall_seconds": 1.87143044000004,
+      "input_preparation_seconds": 7.87813031099904,
+      "import_seconds": 0.0682525779993739,
+      "grid": "crs_4326_to_3857",
+      "scale": 4096,
+      "dst_crs": 3857,
+      "source_geometry_sha256": "9602aa68a736d311b0ead9f715039af4570e4cf740a3ea0eeb166f11b5cad127",
+      "destination_geometry_sha256": "47f15006e6ec75a0d26a5b9c1f5947ab91de6032cf4a96b732ec12feab7baa14",
+      "values_sha256": "2967c62b4052a985529c41d8bc4bc963970cf8cb790ca0f2b5fb045b50c0eb11",
+      "source_shape": [
+        4096,
+        4096
+      ],
+      "target_shape": [
+        4096,
+        4096
+      ],
+      "source_cells": 16777216,
+      "target_cells": 16777216,
+      "roundtrip_max_degrees": 1.687538997430238e-14,
+      "finite_fraction": 1.0,
+      "setup_note": "Coordinate transformation only; no raster interpolation",
+      "output_kind": "coordinate_arrays",
+      "timing_mode": "fused",
+      "warmup": "One complete 32-scale operation before recorded repetitions",
+      "warnings": []
+    }
+  ],
+  "peak_rss_mib": 1974.61328125,
+  "worker_seconds": 14.309352224001486
+}

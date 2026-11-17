@@ -1,0 +1,45 @@
+{
+  "status": "completed",
+  "package": "cdo_bilinear",
+  "grid": "healpix",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "cdo_bilinear",
+      "repeat": 0,
+      "setup_seconds": 0.05924042999959056,
+      "apply_seconds": 0.13705260700044164,
+      "total_seconds": 0.1962930370000322,
+      "setup_wall_seconds": 0.06593239799985895,
+      "apply_wall_seconds": 0.1441260510000575,
+      "input_preparation_seconds": 0.00167124400013563,
+      "import_seconds": 2.499999936844688e-06,
+      "grid": "healpix",
+      "scale": 64,
+      "nside": 32,
+      "source_geometry_sha256": "afe0a8f4f30a21c6fb26fecb01706458db0a3ff9c6dba672300a04ed55500d94",
+      "destination_geometry_sha256": "2a461e1c25596471aa0ad97ea57d50d7f06fc1b1a6593c804c202164b89212e4",
+      "values_sha256": "b5ec638f3cd9e713c23d793f2927591536f3930ecf3e094a89c60703a7cf3504",
+      "source_shape": [
+        12288
+      ],
+      "target_shape": [
+        57,
+        128
+      ],
+      "source_cells": 12288,
+      "target_cells": 7296,
+      "rmse": 0.00024042351568420101,
+      "max_error": 0.0012272963117039293,
+      "finite_fraction": 1.0,
+      "actual_output_cells": 7296,
+      "io_prepare_seconds": 0.006691968000268389,
+      "native_weight_command_seconds": 0.05892040500020812,
+      "setup_note": "CDO setup includes writing source/target files; core setup subtracts input I/O. Native commands include process launch and native file I/O.",
+      "output_read_seconds": 0.007073443999615847,
+      "warnings": []
+    }
+  ],
+  "peak_rss_mib": 269.84375,
+  "worker_seconds": 3.346222647999639
+}

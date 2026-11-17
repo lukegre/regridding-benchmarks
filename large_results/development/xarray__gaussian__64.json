@@ -1,0 +1,42 @@
+{
+  "status": "completed",
+  "package": "xarray",
+  "grid": "gaussian",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "xarray",
+      "repeat": 0,
+      "setup_seconds": 0.0008289030001833453,
+      "apply_seconds": 0.005341298000530514,
+      "total_seconds": 0.00617020100071386,
+      "setup_wall_seconds": 0.0008289030001833453,
+      "apply_wall_seconds": 0.005341298000530514,
+      "input_preparation_seconds": 0.003598815000259492,
+      "import_seconds": 0.12171673900047608,
+      "grid": "gaussian",
+      "scale": 64,
+      "source_geometry_sha256": "d5b6f1f0dc3af46b2294316676d0e67048e0a43d7b8f53e09f9eba32c48e07b8",
+      "destination_geometry_sha256": "2a461e1c25596471aa0ad97ea57d50d7f06fc1b1a6593c804c202164b89212e4",
+      "values_sha256": "8969e40b535e879b14ca1e73168134e1e23940d4d950fffe3c5670449735c9ff",
+      "source_shape": [
+        64,
+        128
+      ],
+      "target_shape": [
+        57,
+        128
+      ],
+      "source_cells": 8192,
+      "target_cells": 7296,
+      "rmse": 0.00025761824567725885,
+      "max_error": 0.0005274601582924143,
+      "finite_fraction": 1.0,
+      "actual_output_cells": 7296,
+      "setup_note": "xarray interp constructs interpolation machinery during apply; weights not exposed separately",
+      "warnings": []
+    }
+  ],
+  "peak_rss_mib": 218.9921875,
+  "worker_seconds": 0.9688312669995867
+}

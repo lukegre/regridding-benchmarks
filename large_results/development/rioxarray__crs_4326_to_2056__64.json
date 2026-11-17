@@ -1,0 +1,48 @@
+{
+  "status": "completed",
+  "package": "rioxarray",
+  "grid": "crs_4326_to_2056",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "rioxarray",
+      "repeat": 0,
+      "setup_seconds": 0.0029667959997823345,
+      "apply_seconds": 0.00693838900042465,
+      "total_seconds": 0.009905185000206984,
+      "setup_wall_seconds": 0.0029667959997823345,
+      "apply_wall_seconds": 0.00693838900042465,
+      "input_preparation_seconds": 0.012911009000163176,
+      "import_seconds": 0.595910444000765,
+      "grid": "crs_4326_to_2056",
+      "scale": 64,
+      "dst_crs": 2056,
+      "source_geometry_sha256": "8444737748653a52ca2a499effa3b8af8bf3b5eb5f6c21d1c36582eb4913697d",
+      "destination_geometry_sha256": "58ebc44b1a70b988e65db5b9787cd2f1baa4f46bee6aca581b3cdce7f9756adc",
+      "values_sha256": "506c75c3fe8f4ec2dbdacccf2391e36f0ddc038c2fb96ada89abe2656eefa74e",
+      "source_shape": [
+        64,
+        64
+      ],
+      "target_shape": [
+        64,
+        64
+      ],
+      "source_cells": 4096,
+      "target_cells": 4096,
+      "rmse": 3.038689626762752e-05,
+      "max_error": 0.00047134240529445037,
+      "finite_fraction": 0.951416015625,
+      "actual_output_cells": 4096,
+      "setup_note": "Warp geometry and resampling fused during apply",
+      "warnings": [
+        "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+        "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+        "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+        "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+      ]
+    }
+  ],
+  "peak_rss_mib": 259.08984375,
+  "worker_seconds": 0.9298973250006384
+}

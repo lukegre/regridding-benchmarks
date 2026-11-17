@@ -1,0 +1,41 @@
+{
+  "status": "completed",
+  "package": "pyresample_nearest",
+  "grid": "gaussian",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "pyresample_nearest",
+      "repeat": 0,
+      "setup_seconds": 0.007223718000204826,
+      "apply_seconds": 0.0002523500006645918,
+      "total_seconds": 0.007476068000869418,
+      "setup_wall_seconds": 0.007223718000204826,
+      "apply_wall_seconds": 0.0002523500006645918,
+      "input_preparation_seconds": 0.002933712999947602,
+      "import_seconds": 0.5533993519993601,
+      "grid": "gaussian",
+      "scale": 64,
+      "source_geometry_sha256": "d5b6f1f0dc3af46b2294316676d0e67048e0a43d7b8f53e09f9eba32c48e07b8",
+      "destination_geometry_sha256": "b890c0c53c816a6c7c2fcf906175c78b59b559a700f86698257956de8e4eb9dc",
+      "values_sha256": "8969e40b535e879b14ca1e73168134e1e23940d4d950fffe3c5670449735c9ff",
+      "source_shape": [
+        64,
+        128
+      ],
+      "target_shape": [
+        64,
+        128
+      ],
+      "source_cells": 8192,
+      "target_cells": 8192,
+      "rmse": 0.010774210810602081,
+      "max_error": 0.033661736088919314,
+      "finite_fraction": 1.0,
+      "actual_output_cells": 8192,
+      "warnings": []
+    }
+  ],
+  "peak_rss_mib": 224.37109375,
+  "worker_seconds": 0.6752026780004599
+}

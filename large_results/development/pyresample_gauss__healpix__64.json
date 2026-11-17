@@ -1,0 +1,43 @@
+{
+  "status": "completed",
+  "package": "pyresample_gauss",
+  "grid": "healpix",
+  "scale": 64,
+  "runs": [
+    {
+      "package": "pyresample_gauss",
+      "repeat": 0,
+      "setup_seconds": 0.01585994600009144,
+      "apply_seconds": 0.0012692869995589717,
+      "total_seconds": 0.017129232999650412,
+      "setup_wall_seconds": 0.01585994600009144,
+      "apply_wall_seconds": 0.0012692869995589717,
+      "input_preparation_seconds": 0.0019535069995981758,
+      "import_seconds": 0.560820319999948,
+      "grid": "healpix",
+      "scale": 64,
+      "nside": 32,
+      "source_geometry_sha256": "afe0a8f4f30a21c6fb26fecb01706458db0a3ff9c6dba672300a04ed55500d94",
+      "destination_geometry_sha256": "2a461e1c25596471aa0ad97ea57d50d7f06fc1b1a6593c804c202164b89212e4",
+      "values_sha256": "b5ec638f3cd9e713c23d793f2927591536f3930ecf3e094a89c60703a7cf3504",
+      "source_shape": [
+        12288
+      ],
+      "target_shape": [
+        57,
+        128
+      ],
+      "source_cells": 12288,
+      "target_cells": 7296,
+      "rmse": 0.0028838462862372316,
+      "max_error": 0.010190719493097244,
+      "finite_fraction": 1.0,
+      "actual_output_cells": 7296,
+      "warnings": [
+        "Possible more than 8 neighbours within 900000 m for some data points"
+      ]
+    }
+  ],
+  "peak_rss_mib": 279.91015625,
+  "worker_seconds": 2.0715922849994968
+}

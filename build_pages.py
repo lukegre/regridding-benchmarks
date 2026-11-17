@@ -5,12 +5,18 @@ root=Path(__file__).parent
 for script in ['report.py','plot.py','build_artifact.py','update_figures.py']:
  subprocess.run([sys.executable,str(root/script)],cwd=root,check=True)
 docs=root/'docs';docs.mkdir(exist_ok=True)
+if (root/'large_results/combined.json').exists():
+ subprocess.run([sys.executable,str(root/'large_report.py')],cwd=root,check=True)
+ subprocess.run([sys.executable,str(root/'integrate_large.py')],cwd=root,check=True)
 html=(root/'geospatial-benchmark-report.html').read_text()
 html=html.replace('<div class="provenance">','<p><a href="benchmark-source-and-results.tar.gz" download>Download code, inputs, results and logs</a> · <a href="results.csv" download>Results CSV</a> · <a href="results.json" download>Results JSON</a></p><div class="provenance">')
 (docs/'index.html').write_text(html)
 shutil.copy2(root/'all_results.csv',docs/'results.csv');shutil.copy2(root/'all_results.json',docs/'results.json')
 (docs/'.nojekyll').touch()
-excluded={'.git','.venv','compiled','mamba-root','bin','__pycache__','docs','.openai'}
+if (root/'large_results/combined.json').exists():
+ shutil.copy2(root/'large_results/combined.json',docs/'large-results.json')
+ shutil.copy2(root/'large_results/measurements.csv',docs/'large-measurements.csv')
+excluded={'.git','.venv','compiled','mamba-root','bin','__pycache__','docs','.openai','finish_large.py'}
 with tarfile.open(docs/'benchmark-source-and-results.tar.gz','w:gz') as archive:
  for path in sorted(root.iterdir()):
   if path.name not in excluded and path.name!='geospatial-benchmark-report.html':
