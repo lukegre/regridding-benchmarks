@@ -8,7 +8,7 @@ The home page presents larger shared-grid timings and chunked-array experiments.
 
 The separate small-grid survey covers satellite swaths, rectilinear grids, ROMS-style curvilinear grids, icosahedral meshes, HEALPix and Gaussian grids. It includes 519 attempted operations (484 returned outputs and 35 errors) and 405 combinations outside the tested adapter scope. An output is not a correctness verdict; errors include deliberately malformed inputs. Its diagnostic timings include startup and other overheads and are not a controlled performance ranking.
 
-The [tool guide](TOOL_GUIDE.md) describes data requirements, geometry and missing-value contracts, chunking constraints and interpolation choices for categories, packed integers, counts, booleans, flags and timestamps. [Machine-readable contracts](tool_contracts.json) support future agents; these advisory contracts require version-specific validation.
+The [tool guide](TOOL_GUIDE.md) describes data requirements, geometry and missing-value contracts, chunking constraints and interpolation choices for categories, packed integers, counts, booleans, flags and timestamps. [Agent skill in Markdown](skills/regridding-tool-selection/SKILL.md) gives a decision workflow and evidence-based preferences. [Machine-readable contracts](tool_contracts.json) support future agents; these advisory contracts require version-specific validation.
 
 ## Larger shared-grid timing tier
 

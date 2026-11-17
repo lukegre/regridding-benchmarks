@@ -54,6 +54,18 @@ with sync_playwright() as p:
  contracts=json.loads((root/'docs/tool_contracts.json').read_text())
  assert len(contracts['tools'])==15
  assert page.locator('#contracts details').count()==15
+ assert page.locator('#recommendations article').count()==11
+ assert page.locator('a[href="tool-selection-skill.md"]').count()==1
+ skill=(root/'skills/regridding-tool-selection/SKILL.md').read_text()
+ assert skill==(root/'docs/tool-selection-skill.md').read_text()
+ assert skill.startswith('---\nname: select-geospatial-regridding-tool\n')
+ assert '## Workflow' in skill and '## Non-float rules' in skill
+ assert '257 fields' in page.locator('#recommendations').inner_text()
+ assert 'Finite coverage' in page.locator('#recommendations').inner_text()
+ rules=json.loads((root/'tool_recommendations.json').read_text())
+ for rule,article in zip(rules['recommendations'],page.locator('#recommendations article').all()):
+  assert rule['preferred'] in article.inner_text()
+  assert article.locator('tbody tr').count()==len(rule['packages'])
  for phrase in ['2^53','bit flags','scale_factor','globally constrained rounding']:
   assert phrase in page.locator('body').inner_text(),phrase
  page.locator('#contracts details').filter(has=page.locator('summary',has_text='xESMF')).first.locator('summary').click()

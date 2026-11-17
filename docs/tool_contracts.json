@@ -341,5 +341,6 @@
         "validity": "Check input validity and transformation errors (errcheck=True); propagate validity independently."
       }
     }
-  ]
+  ],
+  "recommendations_file": "tool_recommendations.json"
 }

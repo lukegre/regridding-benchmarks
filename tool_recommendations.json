@@ -1,0 +1,152 @@
+{
+  "evidence": "large_results/combined.json",
+  "statistic": "Arithmetic mean of three measured repeats; total range is min\u2013max of per-repeat setup + application.",
+  "policy": "Choose quantity semantics, acceptable coverage and geometry first; then compare speed within the valid method. These are conditional recommendations on synthetic data, not universal package rankings.",
+  "recommendations": [
+    {
+      "task": "Rectilinear continuous fields",
+      "preferred": "SciPy linear; xarray linear when labelled arrays matter",
+      "reason": "SciPy is the fastest measured linear point interpolator here, with effectively the same smooth-field RMSE as xarray and CDO. Prefer CDO conservative when preserving cell integrals is the requirement; linear point interpolation cannot replace it. For many fields on fixed geometry, Iris has faster measured conservative application than CDO despite slower construction; the illustrative mean-time crossover is about 242 fields, assuming weights are reused.",
+      "scale": 1024,
+      "grid": "rectilinear",
+      "packages": [
+        "scipy",
+        "xarray",
+        "cdo_bilinear",
+        "xesmf_bilinear",
+        "cdo_conservative",
+        "iris"
+      ]
+    },
+    {
+      "task": "Full Gaussian continuous fields",
+      "preferred": "SciPy/xarray for separable point interpolation; CDO conservative for cell averages",
+      "reason": "The tested full Gaussian grid has separable latitude/longitude axes: SciPy is much faster at similar smooth-field RMSE. This recommendation does not cover reduced Gaussian grids. Use MIR for supported native meteorological grid workflows, rather than assuming reduced grids can be reshaped.",
+      "scale": 1024,
+      "grid": "gaussian",
+      "packages": [
+        "scipy",
+        "xarray",
+        "cdo_bilinear",
+        "earthkit_mir",
+        "cdo_conservative"
+      ]
+    },
+    {
+      "task": "ROMS / curvilinear continuous fields",
+      "preferred": "CDO bilinear for measured speed and accuracy; xESMF for a Python weight workflow",
+      "reason": "CDO and xESMF have very similar smooth-field error and complete coverage here; CDO is faster for both setup and application in this adapter. Prefer CDO conservative for cell averages requiring overlap remapping. Choose xESMF for Python integration and explicit weight management, not a measured speed advantage.",
+      "scale": 1024,
+      "grid": "roms",
+      "packages": [
+        "cdo_bilinear",
+        "xesmf_bilinear",
+        "cdo_conservative",
+        "xesmf_conservative"
+      ]
+    },
+    {
+      "task": "Satellite swaths",
+      "preferred": "Pyresample nearest for fast geolocated centre sampling; CDO bilinear for the tested structured swath",
+      "reason": "Pyresample nearest is the speed choice when nearest sampling and a finite search radius are acceptable. The structured-swath CDO bilinear adapter has much lower smooth-field RMSE but lower coverage. These RMSE values use different finite subsets: they do not establish an accuracy winner on a common footprint. Irregular/folded swaths need additional geometry checks; do not treat every swath as a structured cell grid.",
+      "scale": 1024,
+      "grid": "satellite_swath",
+      "packages": [
+        "pyresample_nearest",
+        "pyresample_gauss",
+        "cdo_bilinear",
+        "xesmf_bilinear"
+      ]
+    },
+    {
+      "task": "Raster CRS conversion: WGS84 \u2192 Web Mercator",
+      "preferred": "Rasterio bilinear; rioxarray for labelled-array integration",
+      "reason": "Rasterio has the best mean total time at 4096\u00b2, with essentially identical RMSE and coverage across the three raster wrappers. odc-geo remains the choice among the tested adapters when retaining tiled lazy output is required; verify its chunked result separately.",
+      "scale": 4096,
+      "grid": "crs_4326_to_3857",
+      "packages": [
+        "rasterio",
+        "rioxarray",
+        "odc_geo"
+      ]
+    },
+    {
+      "task": "Raster CRS conversion: WGS84 \u2192 Swiss LV95",
+      "preferred": "Rasterio or rioxarray bilinear; no robust speed winner between them at 4096\u00b2",
+      "reason": "rioxarray has the lowest mean total at 4096\u00b2, but the observed total-time ranges overlap Rasterio. Their outputs have the same measured RMSE and coverage. Prefer Rasterio for direct warp control, rioxarray for labelled arrays. odc-geo is slower here and the separate 256\u00b2 chunk layout changes four finite-mask values; validate tiled LV95 output before relying on equivalence.",
+      "scale": 4096,
+      "grid": "crs_4326_to_2056",
+      "packages": [
+        "rasterio",
+        "rioxarray",
+        "odc_geo"
+      ]
+    },
+    {
+      "task": "HEALPix continuous intensities",
+      "preferred": "Healpy native interpolation; MIR if lower smooth-field error justifies its cost",
+      "reason": "Healpy is the fastest measured native interpolation, at essentially the same RMSE as astropy-healpix and CDO bilinear. MIR has lower RMSE on this smooth field but much higher total time. Choose nearest native pixel lookup for categorical IDs; bilinear intensity interpolation does not preserve per-pixel totals.",
+      "scale": 1024,
+      "grid": "healpix",
+      "packages": [
+        "healpy",
+        "astropy_healpix",
+        "earthkit_mir",
+        "cdo_bilinear"
+      ]
+    },
+    {
+      "task": "Icosahedral centres: nearest or smoothing",
+      "preferred": "Pyresample nearest for categories/centre sampling; Gaussian only for justified smoothing",
+      "reason": "Nearest gives approximately the same smooth-field RMSE as CDO nearest and UXarray, with lower mean setup and application times. Gaussian reduces this smooth-field error but changes the operation into smoothing; it is not an overlap-conservative substitute. UXarray remains useful for its mesh data model, rather than a measured speed advantage in this nearest adapter.",
+      "scale": 1024,
+      "grid": "icosahedral",
+      "packages": [
+        "pyresample_nearest",
+        "cdo_nearest",
+        "uxarray",
+        "pyresample_gauss"
+      ]
+    },
+    {
+      "task": "Icosahedral cell averages: conservative overlap",
+      "preferred": "CDO conservative for a small number of fields; ESMPy when weights are reused many times",
+      "reason": "CDO and ESMPy have nearly identical smooth-field RMSE and complete coverage. CDO constructs weights faster; ESMPy applies them faster. Using mean setup + N \u00d7 mean application gives an illustrative crossover near 257 fields on this fixture. This assumes the same geometry/masks and reusable weights; verify integral conservation independently. TempestRemap/NCO large regional overlap pilots timed out, so this suite supplies no completed large speed ranking for them.",
+      "scale": 1024,
+      "grid": "icosahedral",
+      "packages": [
+        "cdo_conservative",
+        "esmpy"
+      ]
+    },
+    {
+      "task": "Local projected triangular meshes",
+      "preferred": "Xugrid when planar mesh geometry is appropriate; no measured cross-tool winner",
+      "reason": "Xugrid is the only adapter in this separate mesh-centred family. Its small smooth-field RMSE and fast application support suitability for this fixture, not superiority over raster or spherical adapters with different targets. Reuse weights to amortize setup; never apply planar lon/lat overlap as though it were spherical.",
+      "scale": 1024,
+      "grid": "roms_mesh",
+      "packages": [
+        "xugrid"
+      ]
+    },
+    {
+      "task": "Coordinate transformation without raster interpolation",
+      "preferred": "pyproj",
+      "reason": "Use pyproj when the requested output is transformed coordinates. It performs a different task from raster reprojection; the table reports maximum round-trip coordinate error instead of field RMSE. Do not rank its speed against raster interpolation.",
+      "scale": 4096,
+      "grid": "crs_4326_to_2056",
+      "packages": [
+        "pyproj"
+      ]
+    }
+  ],
+  "interpretation": [
+    "Choose quantity semantics, acceptable coverage and geometry first; then compare speed within the valid method. These are conditional recommendations on synthetic data, not universal package rankings.",
+    "Arithmetic mean of three measured repeats; total range is min\u2013max of per-repeat setup + application.",
+    "Setup and application are separate. Fused APIs include weight/geometry work in application; CDO includes native file I/O and process launch. These are measured workflows, not isolated kernel timings. The local mesh family has different targets and cannot be ranked against raster targets.",
+    "RMSE is against a smooth analytic scalar field on each output\u2019s finite cells; it does not measure conservation, categorical correctness, edge preservation or uncertainty. Different coverage can hide difficult cells. Validate error on a common footprint and test real fields before adopting a recommendation.",
+    "For repeated fields on fixed grids, estimate setup + N \u00d7 application rather than multiplying total time by N. Reuse weights only when coordinates, bounds, masks, method and periodicity match. The crossover estimate is illustrative, not a new measured multi-field benchmark.",
+    "Chunked choice: use xarray linear for separable rectilinear data, xESMF for curvilinear reusable weights, and odc-geo for the tested tiled lazy CRS workflow. All use the common 4 \u00d7 512 \u00d7 512 cube. xESMF compute changes from 5.36 s to 0.084 s between (1,128,128) and full-cube chunks, but uses full-horizontal output chunks in both; this is not evidence of distributed spatial output. odc-geo LV95 has four mask differences at (1,256,256). The NetCDF control is warm-cache only. See the chunked results for graph timings and full accuracy checks.",
+    "Non-float preferences follow semantics below: nearest for nominal classes, explicit mode for an area-majority class, conservative density/area conversion for counts, and explicit logical rules for flags. The smooth-field RMSE ranking supplies no evidence that bilinear is suitable for these variables."
+  ]
+}
