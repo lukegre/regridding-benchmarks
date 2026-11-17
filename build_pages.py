@@ -16,7 +16,7 @@ def run(script):
 
 
 def nav(current):
-    links = [('index.html', 'Large &amp; chunked'), ('small-data.html', 'Small-grid survey'), ('tool-guide.html', 'Tool guide')]
+    links = [('index.html', 'Large &amp; chunked'), ('small-data.html', 'Small-grid survey'), ('tool-guide.html', 'Tool guide'), ('comparison.html', 'External benchmarks')]
     return '<nav class="site-nav" aria-label="Report pages">' + ''.join(
         f'<a href="{url}"' + (' aria-current="page"' if url == current else '') + f'>{label}</a>'
         for url, label in links) + '</nav>'
@@ -68,6 +68,7 @@ for source, target in [('all_results.csv', 'results.csv'), ('all_results.json', 
 (DOCS / '.nojekyll').touch()
 if (ROOT / 'build_guide.py').exists():
     run('build_guide.py')
+run('build_comparison.py')
 excluded = {'.git', '.venv', 'compiled', 'mamba-root', 'bin', '__pycache__', 'docs', '.openai', 'finish_large.py'}
 with tarfile.open(DOCS / 'benchmark-source-and-results.tar.gz', 'w:gz') as archive:
     for path in sorted(ROOT.iterdir()):

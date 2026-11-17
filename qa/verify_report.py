@@ -72,6 +72,26 @@ with sync_playwright() as p:
  assert 'nearest_s2d' in page.locator('body').inner_text()
  for width in [390,700,1360]:
   page.set_viewport_size({'width':width,'height':900});assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'),f'Guide overflow at {width}'
+ comparison=json.loads((root/'external_comparisons.json').read_text())
+ page.set_content((root/'docs/comparison.html').read_text())
+ assert page.locator('nav[aria-label="Report pages"] a[aria-current="page"]').get_attribute('href')=='comparison.html'
+ assert page.locator('.source-card').count()==len(comparison['sources'])
+ assert page.locator('#source-count').inner_text()==f"{len(comparison['sources'])} of {len(comparison['sources'])} sources"
+ page.locator('#topic-filter').select_option('Chunking')
+ assert page.locator('.source-card:visible').count()==sum('Chunking' in x['topics'] for x in comparison['sources'])
+ page.locator('#relation-filter').select_option('consistent')
+ assert page.locator('.source-card:visible').count()==sum('Chunking' in x['topics'] and x['relation']=='consistent' for x in comparison['sources'])
+ page.locator('#topic-filter').select_option('');page.locator('#relation-filter').select_option('')
+ assert '31.7' in page.locator('#cnes-pyinterp-benchmark').inner_text()
+ assert 'not a wall-clock' in page.locator('#mira-2022').inner_text()
+ for width in [390,700,1360]:
+  page.set_viewport_size({'width':width,'height':900})
+  assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'),f'Comparison overflow at {width}'
+ page.screenshot(path='/tmp/regridding-comparison.png',full_page=False)
+ for file in ['index.html','small-data.html','tool-guide.html','comparison.html']:
+  page.goto('about:blank')
+  page.set_content((root/'docs'/file).read_text())
+  assert page.locator('nav[aria-label="Report pages"] a[href="comparison.html"]').count()==1
  assert not errors,errors
  browser.close()
-print('Verified large/chunked home, separate small-grid page, guide/contracts, timing filters, CRS distinction, chunk diagnostics, navigation, responsive layout and no JavaScript errors.')
+print('Verified four report pages, external topic/relation filters, recommendation evidence, timing controls, downloads, navigation, responsive layout and no JavaScript errors.')

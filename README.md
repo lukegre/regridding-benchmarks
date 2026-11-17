@@ -2,6 +2,8 @@
 
 Synthetic interoperability and numerical-suitability tests for geospatial remapping tools.
 
+[External benchmark comparison](https://lukegre.github.io/regridding-benchmarks/comparison.html) · [Comparison methodology and sources](EXTERNAL_COMPARISON.md)
+
 **[Large and chunked results](https://lukegre.github.io/regridding-benchmarks/)** · [Small-grid survey](https://lukegre.github.io/regridding-benchmarks/small-data.html) · [Tool selection and input specifications](https://lukegre.github.io/regridding-benchmarks/tool-guide.html)
 
 The home page presents larger shared-grid timings and chunked-array experiments. Setup, lazy graph construction and completed interpolation are reported separately where applicable. Interactive filters and per-repeat inspection expose the recorded evidence.
@@ -45,6 +47,10 @@ bash reproduce.sh
 ```
 
 Fixture generation is deterministic. There are no real satellite downloads and no memory-exhaustion tests. Conservative workflows need correct cell geometry; coordinate conventions, masks, pixel ordering and variable semantics are part of the tested interfaces. The report documents the adapters and their limits.
+
+## External comparisons
+
+The comparison page reviews published experiments and versioned implementation evidence. It records grids, hardware, timing boundaries, accuracy scope, disagreements and limitations. The topic/relation filters separate numerical studies, speed measurements and qualitative guidance. Sources were accessed on 2026-11-17; no cross-machine speed ranking is inferred. Research notes are in `research/`, curated page data in `external_comparisons.json`, and the renderer in `build_comparison.py`.
 
 ## Files
 

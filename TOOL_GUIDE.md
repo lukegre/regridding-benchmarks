@@ -33,9 +33,11 @@ Chunked choice: use xarray linear for separable rectilinear data, xESMF for curv
 
 Non-float preferences follow semantics below: nearest for nominal classes, explicit mode for an area-majority class, conservative density/area conversion for counts, and explicit logical rules for flags. The smooth-field RMSE ranking supplies no evidence that bilinear is suitable for these variables.
 
+External benchmark comparison: CNES reverses our SciPy/xarray ordering on a different target grid; xarray-regrid changes order with chunk layout; cloud tile readers can change Rasterio/rioxarray/odc-geo performance. Consult the External benchmarks page. pyinterp, xarray-regrid and MBTempest are untested local candidates, not measured local winners.
+
 ### Rectilinear continuous fields
 
-**Preferred: SciPy linear; xarray linear when labelled arrays matter.** SciPy is the fastest measured linear point interpolator here, with effectively the same smooth-field RMSE as xarray and CDO. Prefer CDO conservative when preserving cell integrals is the requirement; linear point interpolation cannot replace it. For many fields on fixed geometry, Iris has faster measured conservative application than CDO despite slower construction; the illustrative mean-time crossover is about 242 fields, assuming weights are reused.
+**Preferred: SciPy linear; xarray linear when labelled arrays matter.** SciPy is the fastest measured linear point interpolator here, with effectively the same smooth-field RMSE as xarray and CDO. Prefer CDO conservative when preserving cell integrals is the requirement; linear point interpolation cannot replace it. For many fields on fixed geometry, Iris has faster measured conservative application than CDO despite slower construction; the illustrative mean-time crossover is about 242 fields, assuming weights are reused. CNES reports the opposite SciPy/xarray ordering on another structured target grid; validate the exact API and query layout. This preference is local, not a portable package ranking.
 
 Measured family: `rectilinear`, shared scale 1024.
 

@@ -1,0 +1,60 @@
+{
+  "reviewed_on": "2026-11-17",
+  "topic": "Spherical remapping, HEALPix and conservative overlap",
+  "sources": [
+    {
+      "id": "astropy-healpix-performance",
+      "title": "astropy-healpix Performance (v2.0.1 documentation)",
+      "url": "https://docs.astropy.org/projects/astropy-healpix/en/stable/performance.html",
+      "kind": "Maintainer-published microbenchmark",
+      "published": "Publication date not stated; page reports updated 2026-07-20",
+      "locator": "Performance → Benchmark, pix2ang table",
+      "evidence_quote": "For larger arrays, the difference is a factor of a few at most.",
+      "external_result": "For pix2ang with NESTED=True, nside=128 and 1,000,000 indices, the printed table reports healpy 0.0364285 s, astropy-healpix 0.1383810 s, ratio 3.80. The supplied command is python -m astropy_healpix.bench.",
+      "grid_and_method": "HEALPix pixel-index-to-angle conversion, RING/NESTED, nside 1/128, vector sizes 10/1000/1000000; not field interpolation.",
+      "hardware": "Not stated on the benchmark page.",
+      "timing_boundary": "Function timings in the printed microbenchmark; setup/application separation and repetitions not specified on this page.",
+      "relationship": "Qualitative support only",
+      "comparison": "Our HEALPix scale-1024 bilinear-weight workflows also favor healpy in construction (0.226 versus 1.358 s), while application is similar (~0.040 s each) and smooth-field RMSE is effectively equal (~9.28e-7). The external conversion operation cannot validate those interpolation timings or a portable speedup.",
+      "recommendation_effect": "Retain healpy as a performance preference for the measured native workflow; do not quote the external 3.80 ratio as an interpolation speedup.",
+      "limitations": "No external accuracy measurement or hardware metadata; the table is illustrative and version-sensitive."
+    },
+    {
+      "id": "mahadevan-2020-mbtempest",
+      "title": "Improving climate model coupling through a complete mesh representation: a case study with E3SM (v1) and MOAB (v5.x)",
+      "url": "https://gmd.copernicus.org/articles/13/2355/2020/",
+      "doi": "10.5194/gmd-13-2355-2020",
+      "kind": "Peer-reviewed primary performance benchmark",
+      "published": "2020-05-26",
+      "locator": "Section 4.1 / Figure 8; Section 4.3.1 / Figure 11",
+      "evidence_quote": "the MBTempest remapper consistently outperforms both tools, with a 2× speedup on average.",
+      "external_result": "Serial TempestRemap is comparable to ESMF and can be faster for highly refined cases; MBTempest averages about 2× faster than both in the reported conservative construction comparison.",
+      "grid_and_method": "Cubed-sphere to polygonal MPAS finite-volume conservative maps at multiple resolutions. A separate parallel study uses 614,400 to 153,600 cubed-sphere quadrilaterals.",
+      "hardware": "Serial study: 8 Intel Xeon E7-4820 CPUs, 2.00 GHz, 64 available cores, 1.47 TB RAM; runs described as serial.",
+      "timing_boundary": "Supermesh/intersection plus conservative weight generation; not field application. Parallel scaling is separately reported.",
+      "relationship": "Different workload; counters a broad failure inference",
+      "comparison": "Our regional SCRIP overlap-generation timeout before completed weights is not evidence of global TempestRemap unsuitability. The paper completes different spherical meshes and reinforces separating construction from application; MBTempest is a distinct implementation absent from our suite.",
+      "recommendation_effect": "Keep the timeout scoped to our adapter/input/time limit. Add MBTempest as an untested future candidate, not a measured local winner.",
+      "limitations": "Different geometry, implementations, versions and hardware; no transferable absolute-time comparison."
+    },
+    {
+      "id": "mira-2022",
+      "title": "Metrics for Intercomparison of Remapping Algorithms (MIRA) protocol applied to Earth system models",
+      "url": "https://gmd.copernicus.org/articles/15/6601/2022/",
+      "doi": "10.5194/gmd-15-6601-2022",
+      "kind": "Peer-reviewed primary numerical benchmark; not a wall-clock speed benchmark",
+      "published": "2022-09-02",
+      "locator": "Sections 4–5; Section 6.4; Conclusions",
+      "evidence_quote": "our intercomparison study specifically compares only the numerical performance of each algorithm",
+      "external_result": "The study evaluates accuracy, conservation, monotonicity and feature preservation for ESMF, TempestRemap, GMLS and WLS-ENOR. In tested smooth cases, TempestRemap p=2 reaches high-order convergence; ESMF conserve2nd improves errors over conserve but exhibits degraded convergence. Bounds are not guaranteed without filtering.",
+      "grid_and_method": "Cubed-sphere, MPAS and regular latitude–longitude meshes, uniform and regionally refined; analytic and realistic scalar fields; generally 1000 cyclic source→target→source remaps.",
+      "hardware": "No hardware-normalized runtime comparison; numerical efficacy is the focus.",
+      "timing_boundary": "No measured cross-package wall-clock ranking. Section 6.4 discusses offline setup and online application conceptually and leaves same-machine runtime comparison as future work.",
+      "relationship": "Supports semantic caution; exposes gaps in our accuracy ranking",
+      "comparison": "Our single-remap smooth-field RMSE and same-field repeat timings cannot establish convergence order, long-cycle dissipation, conservation or monotonicity. A faster/low-RMSE interpolator is not thereby preferable for conservative climate coupling.",
+      "recommendation_effect": "Retain conditional recommendations. Add repeated-remap, discontinuity, bounds and common-domain integral tests before a general accuracy verdict.",
+      "limitations": "Different order, fields and meshes; no direct numerical RMSE or speed ratio with our fixtures."
+    }
+  ],
+  "synthesis": "External evidence supports conditional tool selection and separating construction from application. It does not independently reproduce our package ranking. HEALPix microbenchmarks support a qualitative healpy preference, while spherical papers show why a local TempestRemap timeout and one smooth scalar error metric must not become universal conclusions."
+}

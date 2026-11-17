@@ -1,0 +1,181 @@
+{
+  "sources": [
+    {
+      "id": "development-seed-warp-profiling",
+      "title": "Cloud-native resampling and reprojection in Python \u2014 Development Seed",
+      "url": "https://developmentseed.org/warp-resample-profiling/examples/summarize-results.html",
+      "type": "published benchmark / reproducible profiling notebooks",
+      "date": "Results page processes results/2024-11-01; source repository inspected at a611e4fea1027f460625cea5c67760b9d10573cc (2026-04-03). These dates describe different artifacts.",
+      "accessed": "2026-11-17",
+      "benchmark_setup": {
+        "data": "One timestep and variable from real MUR SST and GPM IMERG; full resolution input, Web Mercator 256\u00d7256 output tiles at multiple zoom extents. MUR SST input is 0.01-degree global.",
+        "methods": "Initial comparison uses nearest neighbour, including Rasterio, rioxarray, odc-geo, Pyresample and xESMF with/without pre-generated weights. Local/cloud NetCDF, virtualized Zarr, converted Zarr and overview-enabled formats.",
+        "hardware": "JupyterHub/Docker environment documented; exact CPU model/count, RAM and thread settings not found in inspected summary and runner source.",
+        "timing": "utils.process_results takes pyinstrument_data[\"duration\"] from a fresh profiled script. Script includes imports, file opening/read/crop and completed load/compute. Weight-free and cached xESMF are separate variants. Not matched to our import-excluded timing.",
+        "accuracy": "Not a numerical-accuracy or conservation benchmark; no RMSE-based ranking is supplied."
+      },
+      "evidence": [
+        {
+          "url": "https://developmentseed.org/warp-resample-profiling/examples/summarize-results.html",
+          "excerpt": "ODC and Rioxarray (both based on GDAL) consistently had relatively fast times and low memory usage."
+        },
+        {
+          "url": "https://developmentseed.org/warp-resample-profiling/examples/summarize-results.html",
+          "excerpt": "Rasterio had similar memory usage and time for local tile generation to ODC and Rioxarray, but was much slower for remote files."
+        },
+        {
+          "url": "https://developmentseed.org/warp-resample-profiling/examples/summarize-results.html",
+          "excerpt": "XESMF without pre-generated weights was consistently the slowest method."
+        },
+        {
+          "url": "https://developmentseed.org/warp-resample-profiling/examples/process-results.html",
+          "excerpt": "MUR SST zoom 0 saved table: rasterio / COG / local duration 0.451393 s; rioxarray / NetCDF / h5netcdf / local 24.109180 s; odc / NetCDF / h5netcdf / local 29.754768 s. These rows differ in storage/overview configuration and are not a pure library comparison."
+        },
+        {
+          "url": "https://github.com/developmentseed/warp-resample-profiling/blob/a611e4fea1027f460625cea5c67760b9d10573cc/examples/utils.py",
+          "excerpt": "df.loc[ind, \"duration (s)\"] = pyinstrument_data[\"duration\"]"
+        },
+        {
+          "url": "https://developmentseed.org/warp-resample-profiling/examples/resample-netcdf-odc-h5netcdf-local.html",
+          "excerpt": "da.load() precedes return xr_reproject(da, gbox).load(); this ODC example materializes cropped input before reprojection."
+        }
+      ],
+      "comparison": {
+        "relationship": "Directional agreement with major scope differences",
+        "our_evidence": "Our rectilinear 1024 xESMF bilinear means: 37.990 s setup + 0.447 s application. Our Web Mercator 4096 total means: Rasterio 1.23 s, rioxarray 1.39 s, odc-geo 1.88 s, essentially identical smooth-field RMSE/coverage.",
+        "interpretation": "Supports separating xESMF weight construction from reuse and treating GDAL raster wrappers as competitive local reprojection workflows. It also limits our preference: the external remote-file result reverses a simplistic Rasterio-is-always-fastest conclusion because readers and access patterns matter. Our in-memory kernels and warm NetCDF control cannot establish cloud tile-serving performance.",
+        "recommendation_effect": "Keep Rasterio/rioxarray local-raster preference conditional; add explicit reader/overview/network caveat and cache weight advice."
+      },
+      "limitations": [
+        "No direct throughput or speedup ratio against our runs: different hardware, real input dimensions, 256\u00b2 tile outputs, nearest rather than our bilinear CRS kernels, process/import/I/O boundaries and data locality.",
+        "Published summary warns that xESMF may be appropriate for conservation/curvilinear workloads despite slow setup; its nearest tile benchmark does not adjudicate conservative accuracy.",
+        "The ODC example is not proof of fully lazy out-of-core input execution; it calls load() before warp."
+      ]
+    },
+    {
+      "id": "geoutils-reprojection-scaling",
+      "title": "GeoUtils scaling benchmarks \u2014 reprojection by raster size",
+      "url": "https://glaciohack.github.io/geoutils/comparisons/scaling.html",
+      "type": "published benchmark dashboard / machine-readable ASV-derived measurements",
+      "date": "Raw JSON metadata date 2026-09-19T21:32:05Z; commit a31a03838b63bb9e39d21d0d956c72f1bcad2282. Dashboard summary and raw JSON can refer to different revisions; values below are from raw JSON.",
+      "accessed": "2026-11-17",
+      "benchmark_setup": {
+        "data": "WGS84 EPSG:4326 raster \u2192 UTM32N EPSG:32632, nearest neighbour, preserving selected output dimensions. Raster side lengths 1024,2048,4096.",
+        "methods": "GeoUtils Rasterio/GDAL calculation engine under eager, Dask and multiprocessing execution; standalone GDAL CLI also supplied. Summary reference workload uses 512\u00d7512 chunks.",
+        "hardware": "Machine github-actions-x64-f56edd1d, Python /home/runner/miniconda3/envs/geoutils-dev/bin/python. Published dashboard states one computational process and one thread; detailed CPU model not in downloaded metadata.",
+        "timing": "Raw JSON distinguishes operation_time_s (after execution-mode initialization) from end_to_end_time_s (prepared inputs through completed output). The latter includes worker/CLI startup.",
+        "accuracy": "Timing and memory dashboard; no common-footprint RMSE or conservation evidence in these records."
+      },
+      "evidence": [
+        {
+          "url": "https://glaciohack.github.io/geoutils/",
+          "excerpt": "All options run without parallelism: one computational process using one thread."
+        },
+        {
+          "url": "https://glaciohack.github.io/geoutils/comparisons/scaling.html",
+          "excerpt": "Reprojects a WGS84 (EPSG:4326) raster to UTM zone 32N (EPSG:32632) with nearest-neighbor resampling while preserving the selected output dimensions."
+        },
+        {
+          "url": "https://glaciohack.github.io/geoutils/comparisons/comparisons.json",
+          "excerpt": "reprojection-raster-size, parameter 2048: eager operation_time_s 1.0428038770000967, end_to_end_time_s 1.049540535000233; Dask operation_time_s 1.888733711499981, end_to_end_time_s 3.6690352219998204."
+        },
+        {
+          "url": "https://glaciohack.github.io/geoutils/comparisons/comparisons.json",
+          "excerpt": "reprojection-raster-size, parameter 4096: eager operation_time_s 4.118796545499663, end_to_end_time_s 4.134179817000586; Dask operation_time_s 8.59900268899969, end_to_end_time_s 10.462309581999762."
+        }
+      ],
+      "comparison": {
+        "relationship": "Agreement that lazy/chunked execution has nontrivial overhead in serial runs",
+        "our_evidence": "Our synchronous single-thread chunk suite keeps geometry fixed: xarray rectilinear compute medians 0.508/0.094/0.039 s for (1,128,128)/(1,256,256)/(4,512,512). odc-geo Web Mercator 0.239/0.129/0.085 s; graph task counts128/32/2.",
+        "interpretation": "The external eager/Dask gap supports our warning that chunking is an execution strategy rather than an automatic speed gain. Its separate operation/end-to-end measurements also reinforce exposing execution initialization costs. It does not validate our exact optimal chunk size or our odc-geo accuracy discrepancy.",
+        "recommendation_effect": "Continue to require measured compute rather than graph construction alone, and use eager/full chunks when data fits and latency dominates."
+      },
+      "limitations": [
+        "Different wrapper, nearest kernel, UTM destination, and dataset geometry; no cross-site seconds or package speedups are comparable.",
+        "Dask is intentionally single-worker, so this cannot establish multiworker or distributed scaling.",
+        "No claim that lower eager time is preferable when dataset exceeds available memory.",
+        "No external accuracy evidence for our four finite-mask differences in one odc-geo LV95 layout."
+      ]
+    },
+    {
+      "id": "sertit-large-raster-reprojection",
+      "title": "SERTIT Open Source Rasters Comparison \u2014 use case reprojection benchmark",
+      "url": "https://github.com/sertit/open_source_rasters_comparison/blob/30575de1f0c2e6241f87cfebecb52659ea7be21d/notebooks/08_usecase_reproj_dask.ipynb",
+      "type": "exploratory benchmark notebook with saved outputs; methodological caveats",
+      "date": "Repository inspected at 30575de1f0c2e6241f87cfebecb52659ea7be21d (2026-07-21); execution date not recorded in inspected notebook.",
+      "accessed": "2026-11-17",
+      "benchmark_setup": {
+        "data": "Real Pl\u00e9iades Neo image subsets: one band, 9104\u00d75758 (~100MB),29135\u00d718426 (~1GB),71367\u00d745135 (~6GB). Target EPSG4326; notebook says source EPSG:324643, which appears suspect and is not independently resolved.",
+        "methods": "Bilinear Rasterio file-to-file, rioxarray open/reproject/to_raster, and Dask-backed opening followed by rio.reproject/to_raster with varying input chunks.",
+        "hardware": "Intel Core i7-12700K @3.6GHz,64GB RAM,Windows11. Thread and scheduler details not explicitly controlled in inspected timing cells.",
+        "timing": "perf_counter encloses memory_profiler.memory_usage invocation of full file open \u2192 default target transform \u2192 reprojection \u2192 raster write. Profiling overhead/I/O included; no separate setup/application timing, systematic repeat distribution or warm/cold cache control.",
+        "accuracy": "No numerical reference-error or finite-mask comparison in saved timing cells."
+      },
+      "evidence": [
+        {
+          "url": "https://github.com/sertit/open_source_rasters_comparison/blob/30575de1f0c2e6241f87cfebecb52659ea7be21d/notebooks/08_usecase_reproj_dask.ipynb",
+          "excerpt": "The resampling method used for all reprojection scenarios is bilinear."
+        },
+        {
+          "url": "https://github.com/sertit/open_source_rasters_comparison/blob/30575de1f0c2e6241f87cfebecb52659ea7be21d/notebooks/08_usecase_reproj_dask.ipynb",
+          "excerpt": "Saved outputs: Rasterio durations 6.74,30.18,175.71 seconds; rioxarray durations 6.2,25.24,162.83 seconds, for 100MB,1GB,6GB respectively."
+        },
+        {
+          "url": "https://github.com/sertit/open_source_rasters_comparison/blob/30575de1f0c2e6241f87cfebecb52659ea7be21d/notebooks/08_usecase_reproj_dask.ipynb",
+          "excerpt": "At 1GB, Dask-opening chunk1024 duration31.32s and chunk2048 duration25.45s; at6GB chunk2048 164.25s,chunk4096 164.14s,auto166.14s."
+        },
+        {
+          "url": "https://github.com/sertit/open_source_rasters_comparison/blob/30575de1f0c2e6241f87cfebecb52659ea7be21d/notebooks/08_usecase_reproj_dask.ipynb",
+          "excerpt": "The written conclusion says Rasterio: Fastest for simple reprojections; this conflicts with its own saved rioxarray timings."
+        }
+      ],
+      "comparison": {
+        "relationship": "Mixed/contrary ordering; useful only with explicit critique",
+        "our_evidence": "Our4096LV95 rioxarray total mean2.05s versus Rasterio2.16s; WebMercator Rasterio1.23s versus rioxarray1.39s.",
+        "interpretation": "Its saved outputs reinforce that Rasterio/rioxarray ordering depends on the workload and wrappers; do not repeat the notebook claim that Rasterio always wins. Its chunk-input timings do not prove lazy warp execution: rio.reproject can materialize .values. Versioned primary source below supports this caveat.",
+        "recommendation_effect": "Keep both Rasterio/rioxarray as conditional preferences rather than one universal winner; require checking output array type before describing a Dask-backed call as lazy."
+      },
+      "limitations": [
+        "Exploratory single-notebook measurements, no fixed canonical target shape/hash across adapters is demonstrated.",
+        "The companion03_reprojection notebook claims rio.reproject creates a lazy Dask graph, which conflicts with verified rioxarray0.19 implementation and docs. Dask on opening does not prove Dask warp.",
+        "Source-CRS identifier appears suspect; notebook conclusions contain a timing-order inconsistency. Treat it as lower-confidence evidence, not a validation of our recommendations.",
+        "No independently validated error/conservation metric."
+      ]
+    },
+    {
+      "id": "rioxarray-eager-source",
+      "title": "rioxarray0.19.0 reproject implementation and Dask note",
+      "url": "https://github.com/corteva/rioxarray/blob/0.19.0/rioxarray/raster_array.py",
+      "type": "versioned implementation/documentation, not a benchmark",
+      "date": "Version0.19.0",
+      "accessed": "2026-11-17",
+      "benchmark_setup": {
+        "data": "Not applicable",
+        "methods": "RasterArray.reproject",
+        "hardware": "Not applicable",
+        "timing": "No timings",
+        "accuracy": "No accuracy measurements"
+      },
+      "evidence": [
+        {
+          "url": "https://github.com/corteva/rioxarray/blob/0.19.0/rioxarray/raster_array.py",
+          "excerpt": "To re-project with dask, see odc-geo & pyresample."
+        },
+        {
+          "url": "https://github.com/corteva/rioxarray/blob/0.19.0/rioxarray/raster_array.py",
+          "excerpt": "rasterio.warp.reproject(source=self._obj.values, destination=dst_data, ...)"
+        }
+      ],
+      "comparison": {
+        "relationship": "Implementation support for our execution-model caveat",
+        "our_evidence": "Our large rioxarray adapter is timed eagerly; chunk suite uses odc-geo for tiled lazy reprojection rather than assuming rio.reproject preserves laziness.",
+        "interpretation": "Corroborates checking actual execution/output chunks instead of treating Dask-backed input as proof of lazy output. Also supplies a primary-source correction to SERTIT companion notebook narration.",
+        "recommendation_effect": "Retain existing separation between eager rioxarray and tested lazy odc-geo; do not infer behavior of newer versions without inspection."
+      },
+      "limitations": [
+        "Not an independent speed benchmark; no performance ratio or error ranking follows from source code alone.",
+        "Version-specific evidence."
+      ]
+    }
+  ]
+}

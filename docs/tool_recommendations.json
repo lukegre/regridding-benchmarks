@@ -6,7 +6,7 @@
     {
       "task": "Rectilinear continuous fields",
       "preferred": "SciPy linear; xarray linear when labelled arrays matter",
-      "reason": "SciPy is the fastest measured linear point interpolator here, with effectively the same smooth-field RMSE as xarray and CDO. Prefer CDO conservative when preserving cell integrals is the requirement; linear point interpolation cannot replace it. For many fields on fixed geometry, Iris has faster measured conservative application than CDO despite slower construction; the illustrative mean-time crossover is about 242 fields, assuming weights are reused.",
+      "reason": "SciPy is the fastest measured linear point interpolator here, with effectively the same smooth-field RMSE as xarray and CDO. Prefer CDO conservative when preserving cell integrals is the requirement; linear point interpolation cannot replace it. For many fields on fixed geometry, Iris has faster measured conservative application than CDO despite slower construction; the illustrative mean-time crossover is about 242 fields, assuming weights are reused. CNES reports the opposite SciPy/xarray ordering on another structured target grid; validate the exact API and query layout. This preference is local, not a portable package ranking.",
       "scale": 1024,
       "grid": "rectilinear",
       "packages": [
@@ -147,6 +147,7 @@
     "RMSE is against a smooth analytic scalar field on each output\u2019s finite cells; it does not measure conservation, categorical correctness, edge preservation or uncertainty. Different coverage can hide difficult cells. Validate error on a common footprint and test real fields before adopting a recommendation.",
     "For repeated fields on fixed grids, estimate setup + N \u00d7 application rather than multiplying total time by N. Reuse weights only when coordinates, bounds, masks, method and periodicity match. The crossover estimate is illustrative, not a new measured multi-field benchmark.",
     "Chunked choice: use xarray linear for separable rectilinear data, xESMF for curvilinear reusable weights, and odc-geo for the tested tiled lazy CRS workflow. All use the common 4 \u00d7 512 \u00d7 512 cube. xESMF compute changes from 5.36 s to 0.084 s between (1,128,128) and full-cube chunks, but uses full-horizontal output chunks in both; this is not evidence of distributed spatial output. odc-geo LV95 has four mask differences at (1,256,256). The NetCDF control is warm-cache only. See the chunked results for graph timings and full accuracy checks.",
-    "Non-float preferences follow semantics below: nearest for nominal classes, explicit mode for an area-majority class, conservative density/area conversion for counts, and explicit logical rules for flags. The smooth-field RMSE ranking supplies no evidence that bilinear is suitable for these variables."
+    "Non-float preferences follow semantics below: nearest for nominal classes, explicit mode for an area-majority class, conservative density/area conversion for counts, and explicit logical rules for flags. The smooth-field RMSE ranking supplies no evidence that bilinear is suitable for these variables.",
+    "External benchmark comparison: CNES reverses our SciPy/xarray ordering on a different target grid; xarray-regrid changes order with chunk layout; cloud tile readers can change Rasterio/rioxarray/odc-geo performance. Consult the External benchmarks page. pyinterp, xarray-regrid and MBTempest are untested local candidates, not measured local winners."
   ]
 }

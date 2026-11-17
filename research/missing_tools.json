@@ -1,0 +1,95 @@
+{
+  "accessed": "2026-11-17",
+  "scope": "Prioritized omissions from this repository, verified against current primary documentation. This is a proposed benchmark backlog, not a ranking of unmeasured tools.",
+  "audit": "The current guide covers 15 tool families. Large timings include SciPy RegularGridInterpolator/xarray.interp, xESMF, CDO, Pyresample nearest/Gaussian, rasterio/rioxarray/odc-geo, MIR, native HEALPix, ESMPy, Xugrid, UXarray and iris-esmf-regrid. A package's inclusion does not establish coverage of every backend or method.",
+  "prioritized_tools": [
+    {
+      "name": "xarray-regrid",
+      "url": "https://xarray-regrid.readthedocs.io/en/latest/",
+      "benchmark_priority": "High: next addition",
+      "geometry": "Rectilinear source and target grids",
+      "methods": "Linear, nearest, cubic, conservative and zonal statistics including most/least common classes",
+      "why": "Adds a directly relevant lazy conservative implementation and categorical coarsening workflow. Its published chunk benchmark changes relative ordering with layout and skipna, making it particularly important for the new chunked tier.",
+      "overlap_existing": "Separate package from the existing xarray.interp adapter. Linear interpolation overlaps xarray; conservative and mode-style aggregation extend the tested operations.",
+      "proposed_test": "Use identical rectilinear grids, three chunk layouts, complete compute timers, missing fractions and normalization. Include categorical coarsening and an area-integral check.",
+      "benchmark_source": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html"
+    },
+    {
+      "name": "CNES pyinterp",
+      "url": "https://cnes.github.io/pangeo-pyinterp/",
+      "benchmark_priority": "High: next addition",
+      "geometry": "Rectilinear interpolation/conservative grids; separate scattered-point tree workflows",
+      "methods": "Structured interpolation, conservative rectilinear remapping, scattered interpolation",
+      "why": "Adds a distinct implementation exploiting separable rectilinear axes. Official documentation supports periodic longitude and distinguishes spherical/ellipsoidal areas and NaN normalization; these are central correctness cases in our survey.",
+      "overlap_existing": "Overlaps SciPy/xarray point interpolation and xESMF conservative roles, but conservative cells follow meridians/parallels rather than ESMF great-circle edges. It is not a general curvilinear conservative substitute.",
+      "proposed_test": "Compare structured target and scattered query APIs separately; include dateline padding/wrapping, explicit bounds, NaNs, normalized versus unnormalized coverage, and one-thread timings before optional parallel scaling.",
+      "benchmark_source": "https://cnes.github.io/pangeo-pyinterp/benchmarks.html",
+      "contract_source": "https://cnes.github.io/pangeo-pyinterp/api/regrid.html"
+    },
+    {
+      "name": "MBTempest / MOAB",
+      "url": "https://web.cels.anl.gov/projects/sigma/docs/moab/tools_mbtempest.html",
+      "benchmark_priority": "High for spherical conservative comparison",
+      "geometry": "Spherical structured/unstructured meshes including cubed-sphere, regular lat/lon and icosahedral",
+      "methods": "Overlap mesh construction and conservative weight generation; high-order and monotonic variants",
+      "why": "The published E3SM/MOAB construction study includes this implementation, whereas our suite tests serial TempestRemap and NCO applying those maps. It is the most direct missing spherical construction candidate.",
+      "overlap_existing": "Uses MOAB plus TempestRemap but has a distinct mesh/intersection workflow; it is not covered by an NCO application that reuses serial TempestRemap weights.",
+      "proposed_test": "Use the same native closed spherical meshes for ESMF, TempestRemap and MBTempest; time conversion, overlap, weights and application separately and check common-domain conservation.",
+      "benchmark_source": "https://gmd.copernicus.org/articles/13/2355/2020/"
+    },
+    {
+      "name": "XRegrid",
+      "url": "https://noaa-emc.github.io/xregrid/",
+      "benchmark_priority": "Medium: evaluate after the above",
+      "geometry": "Structured grids and documented MPAS/ICON/UGRID/UXarray unstructured workflows",
+      "methods": "ESMF-based regridding; documented unstructured nearest and conservative methods, reusable sparse weights and Dask support",
+      "why": "Relevant alternative ESMF wrapper for distributed/chunked weight construction and application usability. Documentation includes performance claims, but local matched tests are needed before recommending it over xESMF.",
+      "overlap_existing": "Shares the ESMF engine already exercised by xESMF/ESMPy/iris-esmf-regrid. Wrapper, sparse application and distribution can still change speed and usability; do not count it as an independent numerical kernel.",
+      "proposed_test": "Compare identical ESMF methods/grids and equal thread/scheduler settings; check whether lazy execution is retained, sparse weights agree and masks/metadata survive. Record any triangulation and aggregation effects.",
+      "contract_source": "https://noaa-emc.github.io/xregrid/user-guide/unstructured/",
+      "benchmark_source": "https://noaa-emc.github.io/xregrid/user-guide/performance/",
+      "benchmark_caution": "Performance guide includes an explicitly estimated xESMF timing at 0.1 degree; do not treat every table entry as a measured value. This backlog makes no numeric speed claim."
+    },
+    {
+      "name": "YAC",
+      "url": "https://yac.gitlab-pages.dkrz.de/YAC-dev/d0/da2/interp_methods.html",
+      "benchmark_priority": "Medium for climate-coupling scope",
+      "geometry": "Supported spherical coupling grids with grid geometry and masks",
+      "methods": "Conservative, nearest, average, spherical patch and configurable interpolation stacks",
+      "why": "Adds a distinct coupling/remapping implementation and explicit fallback stacks, broadening beyond the currently tested ESMF/Tempest/CDO configurations.",
+      "overlap_existing": "The repository does not explicitly exercise a YAC configuration; inclusion of CDO as a package is insufficient to claim YAC method coverage.",
+      "proposed_test": "Start with first-order conservative and nearest on the same closed spherical fixtures; validate masks and covered-domain integral, then consider higher-order/fallback-stack behavior. Keep coupling communication costs distinct from map construction/application."
+    }
+  ],
+  "untested_operations_in_existing_tools": [
+    {
+      "name": "SciPy ndimage.map_coordinates",
+      "url": "https://docs.scipy.org/doc/scipy/reference/generated/scipy.ndimage.map_coordinates.html",
+      "why": "The existing SciPy adapter uses RegularGridInterpolator. This index-coordinate interpolation API supplies a different fast path for regularly spaced axes, including grid-wrap boundaries; it needs explicit coordinate-to-index conversion and separate boundary/NaN/dtype validation.",
+      "priority": "High, inexpensive baseline addition"
+    },
+    {
+      "name": "Pyresample gradient search, bilinear and scan-aware workflows",
+      "url": "https://pyresample.readthedocs.io/en/latest/concepts/resampling.html",
+      "why": "Current tests cover k-d-tree nearest/Gaussian, not the documented gradient-search or standalone bilinear algorithms. These have topology and interface constraints, so suitability and laziness cannot be inferred from the nearest adapter.",
+      "priority": "High for satellite-specific follow-up"
+    },
+    {
+      "name": "Native Iris area weighting",
+      "url": "https://scitools-iris.readthedocs.io/en/latest/user_manual/explanation/which_regridder_to_use.html",
+      "why": "The package labelled iris in our timing suite uses iris-esmf-regrid ESMFAreaWeighted. Native iris.analysis.AreaWeighted is a different bounded-1D-axis scheme with different cell-edge geometry and is not measured by those results.",
+      "priority": "Medium for rectilinear conservative comparison"
+    },
+    {
+      "name": "Higher-order remapping and repeated remap quality",
+      "url": "https://gmd.copernicus.org/articles/15/6601/2022/",
+      "why": "Patch, second-order conservative and high-order/limited spherical variants are not established by the current single-remap nearest/bilinear/first-order results. Test convergence, bounds, discontinuities and long-cycle dissipation rather than ranking these only by smooth-field RMSE.",
+      "priority": "Medium; expand accuracy protocol before performance ranking"
+    }
+  ],
+  "not_distinct_kernel_priorities": [
+    "GDAL command-line warp is useful for CLI/I/O usability coverage, but Rasterio and rioxarray already expose GDAL reprojection; it is not automatically a new interpolation engine.",
+    "GeoUtils and similar raster wrappers can provide useful workflow baselines, but first document their underlying resampling backend so wrapper overhead is not mistaken for a distinct numerical algorithm.",
+    "Chunked tests currently cover only xESMF, xarray and odc-geo. Missing chunked tests for an existing tool mean unknown execution behavior, not lack of Dask support."
+  ]
+}

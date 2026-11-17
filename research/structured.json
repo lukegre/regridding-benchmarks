@@ -1,0 +1,119 @@
+{
+  "accessed": "2026-11-17",
+  "researcher": "external_structured",
+  "sources": [
+    {
+      "id": "cnes-pyinterp-benchmark",
+      "title": "CNES pyinterp: Benchmarks",
+      "url": "https://cnes.github.io/pangeo-pyinterp/benchmarks.html",
+      "type": "maintainer-published executable benchmark",
+      "date": "Undated live page; describes development version after 2026.10.0",
+      "accessed": "2026-11-17",
+      "benchmark_setup": "Apple M3 Max, macOS, Python 3.13; best of at least three runs. Source 1440\u00d7720 global 0.25\u00b0 grid. Bilinear target 0.1\u00b0, 80\u00b0S\u201380\u00b0N, 5.76 million points. Competitors one thread; pyinterp separately one/all cores. Versions: SciPy 1.18.1, xarray 2026.9.0, xESMF 0.9.2.",
+      "evidence": [
+        "Quote: Each time is the best of at least three runs.",
+        "Bilinear application seconds: xESMF 1.4578; SciPy RegularGridInterpolator 0.1381; xarray.DataArray.interp 0.0317; pyinterp one thread 0.0096. Separate xESMF construction: 42.2 s.",
+        "Conservative application seconds: xESMF 0.1183; pyinterp one thread 0.0012. Separate xESMF construction: 11.2 s. Geometry differs: meridian/parallel boxes versus ESMF great-circle edges."
+      ],
+      "comparison": "Agrees that structured-grid specialization can avoid expensive general ESMF construction. Challenges a universal SciPy-over-xarray ranking: here xarray structured-target application is faster than SciPy; ours ranks SciPy first on its own rectilinear adapter. pyinterp was not measured locally and is a candidate, not a validated local winner.",
+      "local_evidence": {
+        "path": "large_results/combined.json",
+        "grid": "rectilinear",
+        "scale": 1024,
+        "apply_seconds_mean": {
+          "scipy": 0.0735,
+          "xarray": 0.0951,
+          "xesmf_bilinear": 0.4468
+        }
+      },
+      "limitations": "Different hardware, target construction, versions and best-versus-mean statistic. No cross-site speedup ratio is valid. Claimed numerical agreement between libraries is not analytic accuracy. Pure rectilinear interpolation/conservation does not establish ROMS or mesh support. Periodic-longitude handling must be supplied for SciPy/xarray."
+    },
+    {
+      "id": "xarray-regrid-chunk-benchmark",
+      "title": "xarray-regrid: Performance of xesmf vs xarray-regrid",
+      "url": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "type": "maintainer-published executed notebook benchmark",
+      "date": "Undated live stable documentation (0.4.2)",
+      "accessed": "2026-11-17",
+      "benchmark_setup": "8-core Intel i7 Ubuntu desktop. About 4 GB synthetic Dask float32 cube, 1000 times, global 0.25\u00b0\u21921\u00b0 conservative coarsening. Layouts (1,all,all), (25,all,all), (all,32,32), (all,160,160). Minimum of two repeats. xESMF weights preconstructed; timed calls include .compute(), including generation of lazy random source values.",
+      "evidence": [
+        "Quote: xarray-regrid is much faster for small chunks, especially churro-style.",
+        "Published xESMF/xarray-regrid execution ratios for skipna=False/True: (1,all,all) 3.7/7.2; (25,all,all) 0.6/1.1; (all,32,32) 14.2/16.9; (all,160,160) 1.8/2.4.",
+        "Notebook records xESMF output-chunk count warnings of 72\u00d7 for 32-cell chunks and 6\u00d7 for 160-cell chunks."
+      ],
+      "comparison": "Supports our observation that spatial chunk layout and output-chunk amplification can dominate completed compute. It also shows a ranking reversal between layouts, so no universal chunked winner is justified. xarray-regrid is a separate, locally untested package; it is not our xarray.interp adapter.",
+      "local_evidence": {
+        "path": "chunked_results/combined.json",
+        "profile": "xesmf/rectilinear",
+        "median_compute_seconds": {
+          "1,128,128": 5.359,
+          "4,512,512": 0.084
+        },
+        "diagnostic": "1024 graph-only default-output diagnostic: 42,497 tasks, warning 64\u00d7 output chunks"
+      },
+      "limitations": "Conservative downsampling versus our bilinear near-resolution mapping; 1000 times versus four; full desktop versus two-vCPU quota; source graph computation included. Absolute seconds are not shown on the published page. Accuracy is not assessed in this performance notebook. Minimum-of-two differs from our three-run medians."
+    },
+    {
+      "id": "xesmf-backend-benchmark",
+      "title": "xESMF backend usage and benchmark",
+      "url": "https://xesmf.readthedocs.io/en/latest/notebooks/Backend.html",
+      "type": "official executed tutorial microbenchmark",
+      "date": "Undated live development documentation",
+      "accessed": "2026-11-17",
+      "benchmark_setup": "Bilinear weights for 400\u00d7600 source \u2192300\u00d7400 target, applied over 10 times \u00d750 levels. NumPy arrays; SciPy sparse application versus ESMPy native application of the same weights. Notebook CPU/wall outputs; hardware, thread controls and repetition statistic not supplied.",
+      "evidence": [
+        "Quote: It also writes weights to disk so we can then read them back for Scipy.",
+        "Executed wall-time outputs: weight generation 4.35 s; ESMPy application 12.3 s; SciPy application 6.07 s.",
+        "Notebook checks exact equality with np.testing.assert_equal(data_out_scipy, data_out_esmpy). Nearby prose still says about 7 s construction and about 3 s ESMPy application; executed outputs differ."
+      ],
+      "comparison": "Supports separating construction from application and illustrates that wrapper/backend strategy changes runtime without changing supplied weights. This is NOT a SciPy RegularGridInterpolator benchmark. Our ESMPy results are on an icosahedral conservative profile, not the notebook's structured bilinear case; no direct local winner can be inferred.",
+      "local_evidence": {
+        "path": "large_results/combined.json",
+        "methodology": "Construction and eager application separated; ESMF geometry reused only within each measured application."
+      },
+      "limitations": "Single visible timings with unspecified hardware; stale prose conflicts with executed cells. Use numeric cell outputs and disclose inconsistency. Same-weight equality does not prove accuracy versus a physical truth. No basis for cross-machine or current-version speedup guarantees."
+    },
+    {
+      "id": "iris-regridder-selection",
+      "title": "Iris: Which Regridder to Use",
+      "url": "https://scitools-iris.readthedocs.io/en/latest/user_manual/explanation/which_regridder_to_use.html",
+      "type": "official qualitative guidance, NOT a measured benchmark",
+      "date": "Undated live unreleased documentation; fetched page identifies 3.17.0.dev8",
+      "accessed": "2026-11-17",
+      "benchmark_setup": "No timing experiment or hardware specification. Describes native Iris and iris-esmf-regrid schemes, caching, coordinate requirements, conservation and mask semantics.",
+      "evidence": [
+        "Quote: Generally, the prepare step is the more expensive of the two.",
+        "Native AreaWeighted needs bounded 1-D lat/lon axes; ESMFAreaWeighted also supports bounded 2-D coordinates and face-located meshes. Both cache weights.",
+        "ESMFAreaWeighted represents edges as great-circle arcs, unlike native AreaWeighted latitude/longitude boundaries; masks and mdtol alter covered-area conservation."
+      ],
+      "comparison": "Supports our semantics-first selection, repeated-field weight reuse and explicit geometry/mask contracts. It does not validate our approximately 242-field Iris/CDO or 257-field ESMPy/CDO crossover estimates; those remain illustrative estimates from local means.",
+      "local_evidence": {
+        "path": "tool_recommendations.json",
+        "note": "The local package named iris uses iris-esmf-regrid ESMFAreaWeighted, not native iris.analysis.AreaWeighted."
+      },
+      "limitations": "Qualitative documentation must be separated from benchmark confirmation. Do not attribute local speed advantages to all Iris schemes. Great-circle versus parallel-bounded conservation methods are not numerically identical even when both are valid for their chosen cell geometry."
+    },
+    {
+      "id": "xarray-regrid-bilinear-accuracy",
+      "title": "xarray-regrid: Benchmarking bilinear regridding",
+      "url": "https://xarray-regrid.readthedocs.io/en/latest/notebooks/benchmarks/benchmarking_bilinear.html",
+      "type": "maintainer-published real-data comparison notebook",
+      "date": "Undated documentation; embedded dataset history is 2023-06-19",
+      "accessed": "2026-11-17",
+      "benchmark_setup": "ERA5 monthly dewpoint for 2000, 12 time slices; target 265\u00d7530 points, 45\u201390\u00b0N and 90\u2013180\u00b0E at 0.17\u00b0. CDO files converted to 64-bit. Dask distributed client; hardware and repetition statistic unspecified.",
+      "evidence": [
+        "Quote: xESMF seems to (subtly) deviate from the CDO and xarray-regrid results.",
+        "Notebook reports approximately 1e-8 relative differences between CDO and xarray-regrid; these are pairwise differences, not error against independent truth.",
+        "Visible times: xarray-regrid 0.070 s with explicit compute; xESMF 9.683 s includes constructor but no explicit compute in that timed cell. CDO is run separately without a timing."
+      ],
+      "comparison": "Supports our observation that bilinear implementations can differ slightly, and qualifies treating CDO and xESMF as numerically interchangeable. Does not establish CDO as ground truth or prove that its errors are lower. The notebook wraps xarray.interp; it is separate from the conservative chunk benchmark.",
+      "local_evidence": {
+        "path": "large_results/combined.json",
+        "grid": "rectilinear",
+        "scale": 1024,
+        "note": "Our CDO/SciPy/xarray smooth analytic RMSE is about 1.96e-7; xESMF about 1.95e-7. This local analytic comparison is not validated by pairwise ERA5 differences."
+      },
+      "limitations": "Do not report the visible times as a controlled head-to-head speedup: setup/application and lazy materialization boundaries differ. Pairwise agreement cannot establish physical accuracy. ERA5, polar target and interpolation kernels differ from our fixtures."
+    }
+  ]
+}
