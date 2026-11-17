@@ -1,0 +1,493 @@
+[
+  {
+    "package": "odc_geo",
+    "grid": "rectilinear",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592423,
+    "max_error": 0.0005243063960338468,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 3.035174714999812
+  },
+  {
+    "package": "odc_geo",
+    "grid": "rectilinear",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0,
+    "max_error": 0.0,
+    "output_min": 7.0,
+    "output_max": 7.0,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.03986401800011663
+  },
+  {
+    "package": "odc_geo",
+    "grid": "rectilinear",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.9453781512605042,
+    "rmse": 0.0013742509280607637,
+    "max_error": 0.01115272717182414,
+    "output_min": 2.774357623194319,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.03062176499997804
+  },
+  {
+    "package": "odc_geo",
+    "grid": "rectilinear",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.9453781512605042,
+    "rmse": 0.0013742509280607637,
+    "max_error": 0.01115272717182414,
+    "output_min": 2.774357623194319,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.032691244999796254
+  },
+  {
+    "package": "odc_geo",
+    "grid": "rectilinear",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592423,
+    "max_error": 0.0005243063960338468,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.031858568999950876
+  },
+  {
+    "package": "odc_geo",
+    "grid": "rectilinear",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.5294117647058824,
+    "rmse": 0.00028036943582594476,
+    "max_error": 0.0005181884829994488,
+    "output_min": 2.780263131756872,
+    "output_max": 3.1839774567099286,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.03050028999996357
+  },
+  {
+    "package": "odc_geo",
+    "grid": "rectilinear",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592423,
+    "max_error": 0.0005243063960338468,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.03384347899987006
+  },
+  {
+    "package": "odc_geo",
+    "grid": "rectilinear",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592423,
+    "max_error": 0.0005243063960338468,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.06106775200009906
+  },
+  {
+    "package": "odc_geo",
+    "grid": "rectilinear",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.12862393885688164,
+    "max_error": 0.75,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.03105113999981768
+  },
+  {
+    "package": "odc_geo",
+    "grid": "roms",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00035370699993109156
+  },
+  {
+    "package": "odc_geo",
+    "grid": "roms",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00035049000007347786
+  },
+  {
+    "package": "odc_geo",
+    "grid": "roms",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.000374474999944141
+  },
+  {
+    "package": "odc_geo",
+    "grid": "roms",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00032343300017600995
+  },
+  {
+    "package": "odc_geo",
+    "grid": "roms",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00032576700004938175
+  },
+  {
+    "package": "odc_geo",
+    "grid": "roms",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0002569279999988794
+  },
+  {
+    "package": "odc_geo",
+    "grid": "roms",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0003765280000607163
+  },
+  {
+    "package": "odc_geo",
+    "grid": "roms",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0005624979999083735
+  },
+  {
+    "package": "odc_geo",
+    "grid": "roms",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00033887700010382105
+  },
+  {
+    "package": "odc_geo",
+    "grid": "satellite_swath",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00040462499987370393
+  },
+  {
+    "package": "odc_geo",
+    "grid": "satellite_swath",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0005006219998904271
+  },
+  {
+    "package": "odc_geo",
+    "grid": "satellite_swath",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00048575400001027447
+  },
+  {
+    "package": "odc_geo",
+    "grid": "satellite_swath",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00032581799996478367
+  },
+  {
+    "package": "odc_geo",
+    "grid": "satellite_swath",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00035524300005818077
+  },
+  {
+    "package": "odc_geo",
+    "grid": "satellite_swath",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0005256800000097428
+  },
+  {
+    "package": "odc_geo",
+    "grid": "satellite_swath",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0004505580000113696
+  },
+  {
+    "package": "odc_geo",
+    "grid": "satellite_swath",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0003107640000052925
+  },
+  {
+    "package": "odc_geo",
+    "grid": "satellite_swath",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0005562259998441732
+  },
+  {
+    "package": "odc_geo",
+    "grid": "icosahedral",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.1636367550001978
+  },
+  {
+    "package": "odc_geo",
+    "grid": "icosahedral",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0010816300000442425
+  },
+  {
+    "package": "odc_geo",
+    "grid": "icosahedral",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0009458790000280715
+  },
+  {
+    "package": "odc_geo",
+    "grid": "icosahedral",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.000996714999928372
+  },
+  {
+    "package": "odc_geo",
+    "grid": "icosahedral",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0009520270000393793
+  },
+  {
+    "package": "odc_geo",
+    "grid": "icosahedral",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.001130000000102882
+  },
+  {
+    "package": "odc_geo",
+    "grid": "icosahedral",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0009539440000025934
+  },
+  {
+    "package": "odc_geo",
+    "grid": "icosahedral",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0013926670001183084
+  },
+  {
+    "package": "odc_geo",
+    "grid": "icosahedral",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0009823709999636776
+  },
+  {
+    "package": "odc_geo",
+    "grid": "healpix",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.7770988820000184
+  },
+  {
+    "package": "odc_geo",
+    "grid": "healpix",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0009483329999966372
+  },
+  {
+    "package": "odc_geo",
+    "grid": "healpix",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0009173440000722621
+  },
+  {
+    "package": "odc_geo",
+    "grid": "healpix",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0004195550000076764
+  },
+  {
+    "package": "odc_geo",
+    "grid": "healpix",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0003728379999756726
+  },
+  {
+    "package": "odc_geo",
+    "grid": "healpix",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00039632199991501693
+  },
+  {
+    "package": "odc_geo",
+    "grid": "healpix",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0003704830000970105
+  },
+  {
+    "package": "odc_geo",
+    "grid": "healpix",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0003241230001549411
+  },
+  {
+    "package": "odc_geo",
+    "grid": "healpix",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00046552499998142594
+  },
+  {
+    "package": "odc_geo",
+    "grid": "gaussian",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0012780719998772838
+  },
+  {
+    "package": "odc_geo",
+    "grid": "gaussian",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0012746600000355102
+  },
+  {
+    "package": "odc_geo",
+    "grid": "gaussian",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0026173820001531567
+  },
+  {
+    "package": "odc_geo",
+    "grid": "gaussian",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0009308399999099493
+  },
+  {
+    "package": "odc_geo",
+    "grid": "gaussian",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0013417360000858025
+  },
+  {
+    "package": "odc_geo",
+    "grid": "gaussian",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0013501500000074884
+  },
+  {
+    "package": "odc_geo",
+    "grid": "gaussian",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0010045400001672533
+  },
+  {
+    "package": "odc_geo",
+    "grid": "gaussian",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0008994489999167854
+  },
+  {
+    "package": "odc_geo",
+    "grid": "gaussian",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0009767579999788722
+  }
+]

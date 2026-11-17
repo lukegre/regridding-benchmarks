@@ -1,0 +1,538 @@
+[
+  {
+    "package": "rioxarray",
+    "grid": "rectilinear",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592423,
+    "max_error": 0.0005243063960338468,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "flags": [],
+    "seconds": 1.2683031890001075
+  },
+  {
+    "package": "rioxarray",
+    "grid": "rectilinear",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0,
+    "max_error": 0.0,
+    "output_min": 7.0,
+    "output_max": 7.0,
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "flags": [],
+    "seconds": 0.006922657000131949
+  },
+  {
+    "package": "rioxarray",
+    "grid": "rectilinear",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.9453781512605042,
+    "rmse": 0.0013742509280607637,
+    "max_error": 0.01115272717182414,
+    "output_min": 2.774357623194319,
+    "output_max": 3.183702632731063,
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "flags": [],
+    "seconds": 0.007915883000123358
+  },
+  {
+    "package": "rioxarray",
+    "grid": "rectilinear",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.9453781512605042,
+    "rmse": 0.0013742509280607637,
+    "max_error": 0.01115272717182414,
+    "output_min": 2.774357623194319,
+    "output_max": 3.183702632731063,
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "flags": [],
+    "seconds": 0.007476641000039308
+  },
+  {
+    "package": "rioxarray",
+    "grid": "rectilinear",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592423,
+    "max_error": 0.0005243063960338468,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "flags": [],
+    "seconds": 0.007469280000123035
+  },
+  {
+    "package": "rioxarray",
+    "grid": "rectilinear",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.6176470588235294,
+    "rmse": 0.06642781824940029,
+    "max_error": 0.15671077033997705,
+    "output_min": 2.929448841251538,
+    "output_max": 3.1839774567099286,
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "flags": [],
+    "seconds": 0.007967650999944453
+  },
+  {
+    "package": "rioxarray",
+    "grid": "rectilinear",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.009660910922394237,
+    "max_error": 0.023855898518652996,
+    "output_min": 2.7577738721641403,
+    "output_max": 3.183977456709928,
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "flags": [],
+    "seconds": 0.040517270000009376
+  },
+  {
+    "package": "rioxarray",
+    "grid": "rectilinear",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592423,
+    "max_error": 0.0005243063960338468,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.008405087000028288
+  },
+  {
+    "package": "rioxarray",
+    "grid": "rectilinear",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.12862393885688164,
+    "max_error": 0.75,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication",
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.008538896999880308
+  },
+  {
+    "package": "rioxarray",
+    "grid": "roms",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.000407438000138427
+  },
+  {
+    "package": "rioxarray",
+    "grid": "roms",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00025002799998219416
+  },
+  {
+    "package": "rioxarray",
+    "grid": "roms",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0005799240000214922
+  },
+  {
+    "package": "rioxarray",
+    "grid": "roms",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00022717499996360857
+  },
+  {
+    "package": "rioxarray",
+    "grid": "roms",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0005845890000273357
+  },
+  {
+    "package": "rioxarray",
+    "grid": "roms",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0005308839999997872
+  },
+  {
+    "package": "rioxarray",
+    "grid": "roms",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0002450730000873591
+  },
+  {
+    "package": "rioxarray",
+    "grid": "roms",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0013986629999180877
+  },
+  {
+    "package": "rioxarray",
+    "grid": "roms",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0005829840001752018
+  },
+  {
+    "package": "rioxarray",
+    "grid": "satellite_swath",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0012666899999658199
+  },
+  {
+    "package": "rioxarray",
+    "grid": "satellite_swath",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0006566940000993782
+  },
+  {
+    "package": "rioxarray",
+    "grid": "satellite_swath",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0003010769999036711
+  },
+  {
+    "package": "rioxarray",
+    "grid": "satellite_swath",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0007190059998265497
+  },
+  {
+    "package": "rioxarray",
+    "grid": "satellite_swath",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00034563799999887124
+  },
+  {
+    "package": "rioxarray",
+    "grid": "satellite_swath",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0002943790000244917
+  },
+  {
+    "package": "rioxarray",
+    "grid": "satellite_swath",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0002906699999130069
+  },
+  {
+    "package": "rioxarray",
+    "grid": "satellite_swath",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00028349100011837436
+  },
+  {
+    "package": "rioxarray",
+    "grid": "satellite_swath",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0004433040001003974
+  },
+  {
+    "package": "rioxarray",
+    "grid": "icosahedral",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.39556655599994883
+  },
+  {
+    "package": "rioxarray",
+    "grid": "icosahedral",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0014261830001487397
+  },
+  {
+    "package": "rioxarray",
+    "grid": "icosahedral",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00164937599993209
+  },
+  {
+    "package": "rioxarray",
+    "grid": "icosahedral",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0011448569998719904
+  },
+  {
+    "package": "rioxarray",
+    "grid": "icosahedral",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00099808100003429
+  },
+  {
+    "package": "rioxarray",
+    "grid": "icosahedral",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0017678220001471345
+  },
+  {
+    "package": "rioxarray",
+    "grid": "icosahedral",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00121881899985965
+  },
+  {
+    "package": "rioxarray",
+    "grid": "icosahedral",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.000868234999870765
+  },
+  {
+    "package": "rioxarray",
+    "grid": "icosahedral",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.001439690000097471
+  },
+  {
+    "package": "rioxarray",
+    "grid": "healpix",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 1.48540144399999
+  },
+  {
+    "package": "rioxarray",
+    "grid": "healpix",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0006563529998402373
+  },
+  {
+    "package": "rioxarray",
+    "grid": "healpix",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.000870531999908053
+  },
+  {
+    "package": "rioxarray",
+    "grid": "healpix",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0003769490001559461
+  },
+  {
+    "package": "rioxarray",
+    "grid": "healpix",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00030818499999440974
+  },
+  {
+    "package": "rioxarray",
+    "grid": "healpix",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00029695499983972695
+  },
+  {
+    "package": "rioxarray",
+    "grid": "healpix",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.00030882800001563737
+  },
+  {
+    "package": "rioxarray",
+    "grid": "healpix",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0003001190000304632
+  },
+  {
+    "package": "rioxarray",
+    "grid": "healpix",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0017728290001741698
+  },
+  {
+    "package": "rioxarray",
+    "grid": "gaussian",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0014665800001694151
+  },
+  {
+    "package": "rioxarray",
+    "grid": "gaussian",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0011215380000066943
+  },
+  {
+    "package": "rioxarray",
+    "grid": "gaussian",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0012578149999171728
+  },
+  {
+    "package": "rioxarray",
+    "grid": "gaussian",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0010754330000963819
+  },
+  {
+    "package": "rioxarray",
+    "grid": "gaussian",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.032813535000059346
+  },
+  {
+    "package": "rioxarray",
+    "grid": "gaussian",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0008619519999228942
+  },
+  {
+    "package": "rioxarray",
+    "grid": "gaussian",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0016640540000025794
+  },
+  {
+    "package": "rioxarray",
+    "grid": "gaussian",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0009261180000521563
+  },
+  {
+    "package": "rioxarray",
+    "grid": "gaussian",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Affine raster workflow: curvilinear/swath/mesh geolocation requires a different adapter",
+    "seconds": 0.0010055689999717288
+  }
+]

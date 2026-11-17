@@ -1,0 +1,4 @@
+gridtype = healpix
+gridsize = 768
+refinement_level = 3
+indexing_scheme = ring

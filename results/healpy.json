@@ -1,0 +1,494 @@
+[
+  {
+    "package": "healpy",
+    "grid": "rectilinear",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0003727560001607344
+  },
+  {
+    "package": "healpy",
+    "grid": "rectilinear",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00041811899995991553
+  },
+  {
+    "package": "healpy",
+    "grid": "rectilinear",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0005804760000955866
+  },
+  {
+    "package": "healpy",
+    "grid": "rectilinear",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.001155560999904992
+  },
+  {
+    "package": "healpy",
+    "grid": "rectilinear",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.000563963999866246
+  },
+  {
+    "package": "healpy",
+    "grid": "rectilinear",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00037623299999722803
+  },
+  {
+    "package": "healpy",
+    "grid": "rectilinear",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0001665209999828221
+  },
+  {
+    "package": "healpy",
+    "grid": "rectilinear",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.001082477999943876
+  },
+  {
+    "package": "healpy",
+    "grid": "rectilinear",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0007508819999202387
+  },
+  {
+    "package": "healpy",
+    "grid": "roms",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0006060140001409309
+  },
+  {
+    "package": "healpy",
+    "grid": "roms",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00047106099987104244
+  },
+  {
+    "package": "healpy",
+    "grid": "roms",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0012503059999744437
+  },
+  {
+    "package": "healpy",
+    "grid": "roms",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0007454819999566098
+  },
+  {
+    "package": "healpy",
+    "grid": "roms",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00044366199995238276
+  },
+  {
+    "package": "healpy",
+    "grid": "roms",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0004434630000105244
+  },
+  {
+    "package": "healpy",
+    "grid": "roms",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00021156899993002298
+  },
+  {
+    "package": "healpy",
+    "grid": "roms",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00047861699999884877
+  },
+  {
+    "package": "healpy",
+    "grid": "roms",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00032963100011329516
+  },
+  {
+    "package": "healpy",
+    "grid": "satellite_swath",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.000374041999975816
+  },
+  {
+    "package": "healpy",
+    "grid": "satellite_swath",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0003977190001478448
+  },
+  {
+    "package": "healpy",
+    "grid": "satellite_swath",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00031276700019589043
+  },
+  {
+    "package": "healpy",
+    "grid": "satellite_swath",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0006205990000580641
+  },
+  {
+    "package": "healpy",
+    "grid": "satellite_swath",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0007767149998016976
+  },
+  {
+    "package": "healpy",
+    "grid": "satellite_swath",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0002939230000720272
+  },
+  {
+    "package": "healpy",
+    "grid": "satellite_swath",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0006669689998943795
+  },
+  {
+    "package": "healpy",
+    "grid": "satellite_swath",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00042511700007707987
+  },
+  {
+    "package": "healpy",
+    "grid": "satellite_swath",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00032024999995883263
+  },
+  {
+    "package": "healpy",
+    "grid": "icosahedral",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.393338963999895
+  },
+  {
+    "package": "healpy",
+    "grid": "icosahedral",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0014296500000909873
+  },
+  {
+    "package": "healpy",
+    "grid": "icosahedral",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.001452584999924511
+  },
+  {
+    "package": "healpy",
+    "grid": "icosahedral",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0008230829998865374
+  },
+  {
+    "package": "healpy",
+    "grid": "icosahedral",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0380837000000156
+  },
+  {
+    "package": "healpy",
+    "grid": "icosahedral",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0007981629998994322
+  },
+  {
+    "package": "healpy",
+    "grid": "icosahedral",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0012382089998936863
+  },
+  {
+    "package": "healpy",
+    "grid": "icosahedral",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0011948019998726522
+  },
+  {
+    "package": "healpy",
+    "grid": "icosahedral",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.001739694999969288
+  },
+  {
+    "package": "healpy",
+    "grid": "healpix",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0040109034745839,
+    "max_error": 0.017414363540051436,
+    "output_min": 0.8215415775024815,
+    "output_max": 3.1784584224975188,
+    "warnings": [],
+    "flags": [],
+    "seconds": 1.2588598419999926
+  },
+  {
+    "package": "healpy",
+    "grid": "healpix",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 4.881615836846586e-16,
+    "max_error": 1.7763568394002505e-15,
+    "output_min": 6.999999999999998,
+    "output_max": 7.000000000000002,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.032723504999921715
+  },
+  {
+    "package": "healpy",
+    "grid": "healpix",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.7925347222222222,
+    "rmse": 0.004015457128691151,
+    "max_error": 0.017414363540051436,
+    "output_min": 0.8215415775024815,
+    "output_max": 3.1784584224975188,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0025983699999869714
+  },
+  {
+    "package": "healpy",
+    "grid": "healpix",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.7925347222222222,
+    "rmse": 0.004015457128691151,
+    "max_error": 0.017414363540051436,
+    "output_min": 0.8215415775024815,
+    "output_max": 3.1784584224975188,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0009618390001833177
+  },
+  {
+    "package": "healpy",
+    "grid": "healpix",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.375946320394572,
+    "max_error": 0.581750380703357,
+    "output_min": 0.8290864555647212,
+    "output_max": 3.1709135444352787,
+    "warnings": [],
+    "flags": [
+      "large_error"
+    ],
+    "seconds": 0.0011724990001766855
+  },
+  {
+    "package": "healpy",
+    "grid": "healpix",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0040109034745839,
+    "max_error": 0.017414363540051436,
+    "output_min": 0.8215415775024815,
+    "output_max": 3.1784584224975188,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0013407969997842883
+  },
+  {
+    "package": "healpy",
+    "grid": "healpix",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0040109034745839,
+    "max_error": 0.017414363540051436,
+    "output_min": 0.8215415775024815,
+    "output_max": 3.1784584224975188,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0010844859998542233
+  },
+  {
+    "package": "healpy",
+    "grid": "healpix",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0040109034745839,
+    "max_error": 0.017414363540051436,
+    "output_min": 0.8215415775024815,
+    "output_max": 3.1784584224975188,
+    "warnings": [],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.0007518719999097812
+  },
+  {
+    "package": "healpy",
+    "grid": "healpix",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0966635772183787,
+    "max_error": 0.6296413566717061,
+    "output_min": 0.0,
+    "output_max": 1.0000000000000002,
+    "warnings": [],
+    "flags": [
+      "fractional_categories"
+    ],
+    "seconds": 0.0008754780001254403
+  },
+  {
+    "package": "healpy",
+    "grid": "gaussian",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0011827580001408933
+  },
+  {
+    "package": "healpy",
+    "grid": "gaussian",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0009507679999387619
+  },
+  {
+    "package": "healpy",
+    "grid": "gaussian",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0008887490000688558
+  },
+  {
+    "package": "healpy",
+    "grid": "gaussian",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0011125000000902219
+  },
+  {
+    "package": "healpy",
+    "grid": "gaussian",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0008563140002024738
+  },
+  {
+    "package": "healpy",
+    "grid": "gaussian",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0009818800001539785
+  },
+  {
+    "package": "healpy",
+    "grid": "gaussian",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0008750590000090597
+  },
+  {
+    "package": "healpy",
+    "grid": "gaussian",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.003340016000038304
+  },
+  {
+    "package": "healpy",
+    "grid": "gaussian",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0010718780001752748
+  }
+]

@@ -1,0 +1,33 @@
+<xarray.Dataset> Size: 124kB
+Dimensions:        (src_grid_rank: 1, dst_grid_rank: 2, n_a: 320, n_b: 648,
+                    nv_a: 3, nv_b: 4, lat_b: 18, lon_b: 36, bnds: 2, n_s: 2172)
+Dimensions without coordinates: src_grid_rank, dst_grid_rank, n_a, n_b, nv_a,
+                                nv_b, lat_b, lon_b, bnds, n_s
+Data variables: (12/21)
+    src_grid_dims  (src_grid_rank) int32 4B 320
+    dst_grid_dims  (dst_grid_rank) int32 8B 36 18
+    yc_a           (n_a) float64 3kB -81.4 -66.27 -72.49 ... 49.7 40.26 33.39
+    yc_b           (n_b) float64 5kB -85.0 -85.0 -85.0 -85.0 ... 85.0 85.0 85.0
+    xc_a           (n_a) float64 3kB 54.0 77.24 54.0 30.76 ... 62.59 68.01 60.04
+    xc_b           (n_b) float64 5kB 5.0 15.0 25.0 35.0 ... 335.0 345.0 355.0
+    ...             ...
+    area_b         (n_b) float64 5kB 0.002638 0.002638 ... 0.002638 0.002638
+    frac_a         (n_a) float64 3kB 1.0 1.0 1.0 1.0 1.0 ... 1.0 1.0 1.0 1.0 1.0
+    frac_b         (n_b) float64 5kB 1.0 1.0 1.0 1.0 1.0 ... 1.0 1.0 1.0 1.0 1.0
+    row            (n_s) int32 9kB 1 2 2 3 4 5 6 ... 643 644 645 646 647 647 648
+    col            (n_s) int32 9kB 17 1 17 1 1 1 1 ... 266 266 266 250 266 250
+    S              (n_s) float64 17kB 1.0 0.2005 0.7995 ... 0.7995 0.2005 1.0
+Attributes: (12/19)
+    Title:               TempestRemap Offline Regridding Weight Generator
+    concave_dst:         false
+    concave_src:         false
+    domain_a:            ico.g
+    domain_b:            rll.g
+    grid_file_dst:       rll.g
+    ...                  ...
+    np_dst:              4
+    np_src:              4
+    sparse_constraints:  false
+    type_dst:            fv
+    type_src:            fv
+    version:             GenerateOfflineMap 2.6 : 2022-10-11

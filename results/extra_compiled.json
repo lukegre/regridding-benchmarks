@@ -1,0 +1,49 @@
+[
+  {
+    "package": "iris-esmf-regrid",
+    "case": "smooth",
+    "rmse": 0.00048210008360448223,
+    "finite_fraction": 1.0,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 1.5192152199999782
+  },
+  {
+    "package": "iris-esmf-regrid",
+    "case": "constant",
+    "rmse": 8.44350501840969e-16,
+    "finite_fraction": 1.0,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.014884122000012212
+  },
+  {
+    "package": "iris-esmf-regrid",
+    "case": "mask",
+    "rmse": 0.00047631999975991,
+    "finite_fraction": 0.8823529411764706,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.01552090599989242
+  },
+  {
+    "package": "iris-esmf-regrid",
+    "case": "missing_bounds",
+    "rmse": 0.00048210008360448223,
+    "finite_fraction": 1.0,
+    "status": "completed",
+    "warnings": [
+      "Coordinate 'longitude' is not bounded, guessing contiguous bounds."
+    ],
+    "seconds": 0.016422205000026224
+  },
+  {
+    "package": "iris-esmf-regrid",
+    "case": "bilinear",
+    "rmse": 0.00025703637338431645,
+    "finite_fraction": 1.0,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.010139195999954609
+  }
+]

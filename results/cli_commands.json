@@ -1,0 +1,187 @@
+[
+  {
+    "command": [
+      "GenerateICOMesh",
+      "--res",
+      "4",
+      "--file",
+      "ico.g"
+    ],
+    "returncode": 0,
+    "seconds": 0.04819329799988736,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "GenerateRLLMesh",
+      "--lon",
+      "36",
+      "--lat",
+      "18",
+      "--file",
+      "rll.g"
+    ],
+    "returncode": 0,
+    "seconds": 0.024279960000058054,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "GenerateOverlapMesh",
+      "--a",
+      "ico.g",
+      "--b",
+      "rll.g",
+      "--out",
+      "overlap.g"
+    ],
+    "returncode": 0,
+    "seconds": 0.04094347399995968,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "GenerateOfflineMap",
+      "--in_mesh",
+      "ico.g",
+      "--out_mesh",
+      "rll.g",
+      "--ov_mesh",
+      "overlap.g",
+      "--in_type",
+      "fv",
+      "--out_type",
+      "fv",
+      "--out_map",
+      "weights.nc",
+      "--mono"
+    ],
+    "returncode": 0,
+    "seconds": 0.043891962000088824,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ApplyOfflineMap",
+      "--map",
+      "weights.nc",
+      "--in_data",
+      "smooth.nc",
+      "--out_data",
+      "smooth_tempest.nc",
+      "--var",
+      "z",
+      "--out_double"
+    ],
+    "returncode": 0,
+    "seconds": 0.026367270000037024,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ncremap",
+      "-m",
+      "weights.nc",
+      "-i",
+      "smooth.nc",
+      "-o",
+      "smooth_nco.nc"
+    ],
+    "returncode": 0,
+    "seconds": 0.14889723700002833,
+    "stderr": "ncks: INFO Reducing user-requested thread number = 2 to maximum thread number omp_get_max_threads() allows = 1\nncks: WARNING NC_DOUBLE version of \"_FillValue\" attribute for z is NaN and this value fails isfinite(). Therefore valid values cannot be arithmetically compared to the _FillValue, and this can lead to unpredictable results.\nHINT: If arithmetic results (e.g., from regridding) fails or values seem weird, retry after first converting _FillValue to a normal number with, e.g., \"ncatted --type_match -a _FillValue,z,m,f,1.0e36 -a _FillValue,z,m,d,1.0e36 in.nc out.nc\"\n"
+  },
+  {
+    "command": [
+      "ApplyOfflineMap",
+      "--map",
+      "weights.nc",
+      "--in_data",
+      "constant.nc",
+      "--out_data",
+      "constant_tempest.nc",
+      "--var",
+      "z",
+      "--out_double"
+    ],
+    "returncode": 0,
+    "seconds": 0.030276884000159043,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ncremap",
+      "-m",
+      "weights.nc",
+      "-i",
+      "constant.nc",
+      "-o",
+      "constant_nco.nc"
+    ],
+    "returncode": 0,
+    "seconds": 0.12719348900009209,
+    "stderr": "ncks: INFO Reducing user-requested thread number = 2 to maximum thread number omp_get_max_threads() allows = 1\nncks: WARNING NC_DOUBLE version of \"_FillValue\" attribute for z is NaN and this value fails isfinite(). Therefore valid values cannot be arithmetically compared to the _FillValue, and this can lead to unpredictable results.\nHINT: If arithmetic results (e.g., from regridding) fails or values seem weird, retry after first converting _FillValue to a normal number with, e.g., \"ncatted --type_match -a _FillValue,z,m,f,1.0e36 -a _FillValue,z,m,d,1.0e36 in.nc out.nc\"\n"
+  },
+  {
+    "command": [
+      "ApplyOfflineMap",
+      "--map",
+      "weights.nc",
+      "--in_data",
+      "categorical.nc",
+      "--out_data",
+      "categorical_tempest.nc",
+      "--var",
+      "z",
+      "--out_double"
+    ],
+    "returncode": 0,
+    "seconds": 0.021076482000125907,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ncremap",
+      "-m",
+      "weights.nc",
+      "-i",
+      "categorical.nc",
+      "-o",
+      "categorical_nco.nc"
+    ],
+    "returncode": 0,
+    "seconds": 0.15613482200001272,
+    "stderr": "ncks: INFO Reducing user-requested thread number = 2 to maximum thread number omp_get_max_threads() allows = 1\nncks: WARNING NC_DOUBLE version of \"_FillValue\" attribute for z is NaN and this value fails isfinite(). Therefore valid values cannot be arithmetically compared to the _FillValue, and this can lead to unpredictable results.\nHINT: If arithmetic results (e.g., from regridding) fails or values seem weird, retry after first converting _FillValue to a normal number with, e.g., \"ncatted --type_match -a _FillValue,z,m,f,1.0e36 -a _FillValue,z,m,d,1.0e36 in.nc out.nc\"\n"
+  },
+  {
+    "command": [
+      "ApplyOfflineMap",
+      "--map",
+      "weights.nc",
+      "--in_data",
+      "nan_hole.nc",
+      "--out_data",
+      "nan_hole_tempest.nc",
+      "--var",
+      "z",
+      "--out_double"
+    ],
+    "returncode": 0,
+    "seconds": 0.022315484000046126,
+    "stderr": ""
+  },
+  {
+    "command": [
+      "ncremap",
+      "-m",
+      "weights.nc",
+      "-i",
+      "nan_hole.nc",
+      "-o",
+      "nan_hole_nco.nc"
+    ],
+    "returncode": 0,
+    "seconds": 0.15045669300002373,
+    "stderr": "ncks: INFO Reducing user-requested thread number = 2 to maximum thread number omp_get_max_threads() allows = 1\nncks: WARNING NC_DOUBLE version of \"_FillValue\" attribute for z is NaN and this value fails isfinite(). Therefore valid values cannot be arithmetically compared to the _FillValue, and this can lead to unpredictable results.\nHINT: If arithmetic results (e.g., from regridding) fails or values seem weird, retry after first converting _FillValue to a normal number with, e.g., \"ncatted --type_match -a _FillValue,z,m,f,1.0e36 -a _FillValue,z,m,d,1.0e36 in.nc out.nc\"\n"
+  }
+]

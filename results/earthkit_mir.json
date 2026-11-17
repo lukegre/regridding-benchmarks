@@ -1,0 +1,554 @@
+[
+  {
+    "package": "earthkit_mir",
+    "grid": "rectilinear",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.13301422699987597
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "rectilinear",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0003990449999946577
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "rectilinear",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0004154139999172912
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "rectilinear",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00038878400005160074
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "rectilinear",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00027121700009047345
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "rectilinear",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00028234299998075585
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "rectilinear",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00017114899992520805
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "rectilinear",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0002545390000250336
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "rectilinear",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00035939999997935956
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "roms",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0005616410001039185
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "roms",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00034302900007787684
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "roms",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0003255929998431384
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "roms",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00023762999990140088
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "roms",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00026989299999513605
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "roms",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0003201030001491745
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "roms",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00030264899987741956
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "roms",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00032449500008624454
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "roms",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0002996910000092612
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "satellite_swath",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0006514479998713796
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "satellite_swath",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0004196999998384854
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "satellite_swath",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0006977829998504603
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "satellite_swath",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0005922679999912361
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "satellite_swath",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00036959099998057354
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "satellite_swath",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00047420100008821464
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "satellite_swath",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0003496420001738443
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "satellite_swath",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00045433899981617287
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "satellite_swath",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.00034248799988745304
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "icosahedral",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.2848186359999545
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "icosahedral",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.001784494000048653
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "icosahedral",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0013825829998950212
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "icosahedral",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0014350060000651865
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "icosahedral",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.001826489999984915
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "icosahedral",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0012001369998415612
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "icosahedral",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.0013581910000084463
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "icosahedral",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.001159341999937169
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "icosahedral",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "MIR gridspec workflow tested for HEALPix and full Gaussian only",
+    "seconds": 0.001247765000016443
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "healpix",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.012307541324978239,
+    "max_error": 0.0506991059846893,
+    "output_min": 0.8172380799453566,
+    "output_max": 3.1827619200546438,
+    "warnings": [],
+    "flags": [],
+    "seconds": 1.8038557089998903
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "healpix",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 3.6054988939778337e-16,
+    "max_error": 1.7763568394002505e-15,
+    "output_min": 6.999999999999998,
+    "output_max": 7.000000000000002,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.013929778999909104
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "healpix",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.838963963963964,
+    "rmse": 0.013327877517547892,
+    "max_error": 0.0506991059846893,
+    "output_min": 0.8172380799453566,
+    "output_max": 3.1827619200546438,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.013893278000068676
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "healpix",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.838963963963964,
+    "rmse": 0.013327877517547892,
+    "max_error": 0.0506991059846893,
+    "output_min": 0.8172380799453566,
+    "output_max": 3.1827619200546438,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.01272349300006681
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "healpix",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.3536514512231241,
+    "max_error": 0.5932496683382569,
+    "output_min": 0.8193691090859203,
+    "output_max": 3.1806308909140797,
+    "warnings": [],
+    "flags": [
+      "large_error"
+    ],
+    "seconds": 0.012504979999903298
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "healpix",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.012307541324978239,
+    "max_error": 0.0506991059846893,
+    "output_min": 0.8172380799453566,
+    "output_max": 3.1827619200546438,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.013591442000006282
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "healpix",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.012307541324978239,
+    "max_error": 0.0506991059846893,
+    "output_min": 0.8172380799453566,
+    "output_max": 3.1827619200546438,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.013191168999810543
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "healpix",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.012307541324978239,
+    "max_error": 0.0506991059846893,
+    "output_min": 0.8172380799453566,
+    "output_max": 3.1827619200546438,
+    "warnings": [],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.013101033000111784
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "healpix",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.1563344223740199,
+    "max_error": 0.5348707494135193,
+    "output_min": 0.0,
+    "output_max": 1.0000000000000002,
+    "warnings": [],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.011772868999969432
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "gaussian",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.019369432017590168,
+    "max_error": 0.0912472150940018,
+    "output_min": 0.8121225281068467,
+    "output_max": 3.1878774718931537,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.03361801000005471
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "gaussian",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 3.539185208633381e-16,
+    "max_error": 1.7763568394002505e-15,
+    "output_min": 6.999999999999998,
+    "output_max": 7.000000000000001,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.012642981999988478
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "gaussian",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.8543543543543544,
+    "rmse": 0.020950938488332863,
+    "max_error": 0.0912472150940018,
+    "output_min": 0.8121225281068467,
+    "output_max": 3.1798369318237683,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.013338496999949712
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "gaussian",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.8543543543543544,
+    "rmse": 0.020950938488332863,
+    "max_error": 0.0912472150940018,
+    "output_min": 0.8121225281068467,
+    "output_max": 3.1798369318237683,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.012229251000007935
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "gaussian",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.019369432017590168,
+    "max_error": 0.0912472150940018,
+    "output_min": 0.8121225281068467,
+    "output_max": 3.1878774718931537,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.013010700999984692
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "gaussian",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.019369432017590168,
+    "max_error": 0.0912472150940018,
+    "output_min": 0.8121225281068467,
+    "output_max": 3.1878774718931537,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.012181758999986414
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "gaussian",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.019369432017590168,
+    "max_error": 0.0912472150940018,
+    "output_min": 0.8121225281068467,
+    "output_max": 3.1878774718931537,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.012784197999962998
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "gaussian",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.019369432017590168,
+    "max_error": 0.0912472150940018,
+    "output_min": 0.8121225281068467,
+    "output_max": 3.1878774718931537,
+    "warnings": [],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.014217492999932801
+  },
+  {
+    "package": "earthkit_mir",
+    "grid": "gaussian",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.16540227379624003,
+    "max_error": 1.0,
+    "output_min": 0.0,
+    "output_max": 1.0000000000000002,
+    "warnings": [],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.01257655899985366
+  }
+]

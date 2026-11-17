@@ -1,0 +1,157 @@
+[
+  {
+    "package": "UXarray",
+    "case": "icosahedral_smooth",
+    "rmse": 0.056394598683261944,
+    "finite_fraction": 1.0,
+    "max_error": 0.15101495767526063,
+    "status": "completed",
+    "warnings": [
+      "No spatial coordinate variables found in `source`."
+    ],
+    "seconds": 1.9690837590001138
+  },
+  {
+    "package": "UXarray",
+    "case": "icosahedral_constant",
+    "rmse": 0.0,
+    "finite_fraction": 1.0,
+    "max_error": 0.0,
+    "status": "completed",
+    "warnings": [
+      "No spatial coordinate variables found in `source`."
+    ],
+    "seconds": 0.016484721000097124
+  },
+  {
+    "package": "UXarray",
+    "case": "icosahedral_nan_hole",
+    "rmse": 0.05634168825748068,
+    "finite_fraction": 0.9552951388888888,
+    "max_error": 0.15101495767526063,
+    "status": "completed",
+    "warnings": [
+      "No spatial coordinate variables found in `source`."
+    ],
+    "seconds": 0.01678755199986881
+  },
+  {
+    "package": "UXarray",
+    "case": "icosahedral_wrong_face_count",
+    "status": "error",
+    "error": "IndexError: index 319 is out of bounds for axis 0 with size 319",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/native.py\", line 13, in probe\n    warnings.simplefilter('always');r.update(f() or {})\n                                             ^^^\n  File \"/workspace/geospatial-benchmarks/native.py\", line 143, in <lambda>\n    for c in ['smooth','constant','nan_hole','wrong_face_count']:probe('UXarray',f'icosahedral_{c}',lambda c=c:ux_mesh(c))\n                                                                                                               ^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/native.py\", line 86, in ux_mesh\n    a=da.remap.to_rectilinear(x,y).values;tx,ty=np.meshgrid(x,y)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/uxarray/remap/accessor.py\", line 242, in to_rectilinear\n    return _native_remap_to_rectilinear(self.ux_obj, lon, lat)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/uxarray/remap/structured.py\", line 197, in _native_remap_to_rectilinear\n    remapped = _nearest_neighbor_remap(\n               ^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/uxarray/remap/nearest_neighbor.py\", line 127, in _nearest_neighbor_remap\n    da_remap = da.isel({source_dim: indexer}, ignore_grid=True)\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/uxarray/core/dataarray.py\", line 2212, in isel\n    super().isel(\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/dataarray.py\", line 1706, in isel\n    ds = self._to_temp_dataset()._isel_fancy(\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/dataset.py\", line 2979, in _isel_fancy\n    new_var = var.isel(indexers=var_indexers)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/variable.py\", line 1155, in isel\n    return self[key]\n           ~~~~^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/variable.py\", line 842, in __getitem__\n    data = indexing.apply_indexer(indexable, indexer)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/indexing.py\", line 1190, in apply_indexer\n    return indexable.oindex[indexer]\n           ~~~~~~~~~~~~~~~~^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/indexing.py\", line 472, in __getitem__\n    return self.getter(key)\n           ^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/indexing.py\", line 1719, in _oindex_get\n    return self.array[key]\n           ~~~~~~~~~~^^^^^\nIndexError: index 319 is out of bounds for axis 0 with size 319\n",
+    "seconds": 0.028985988999920664
+  },
+  {
+    "package": "Xugrid",
+    "case": "smooth",
+    "rmse": 0.0002589581753113693,
+    "finite_fraction": 1.0,
+    "max_error": 0.0006585670202700067,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 5.8529375650000475
+  },
+  {
+    "package": "Xugrid",
+    "case": "constant",
+    "rmse": 8.936441846407657e-16,
+    "finite_fraction": 1.0,
+    "max_error": 2.6645352591003757e-15,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.013328044000218142
+  },
+  {
+    "package": "Xugrid",
+    "case": "overlap",
+    "rmse": 0.008042366026105025,
+    "finite_fraction": 1.0,
+    "max_error": 0.015187148824102492,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 1.6125075519998973
+  },
+  {
+    "package": "Xugrid",
+    "case": "spherical",
+    "rmse": 0.0002589581753113693,
+    "finite_fraction": 1.0,
+    "max_error": 0.0006585670202700067,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.011620817999983046
+  },
+  {
+    "package": "Rasterio",
+    "case": "4326_to_2056_smooth",
+    "rmse": 0.0001291066450983208,
+    "finite_fraction": 0.9473493100944081,
+    "max_error": 0.0008835754574092469,
+    "status": "completed",
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "seconds": 0.07747345899997526
+  },
+  {
+    "package": "Rasterio",
+    "case": "4326_to_2056_constant",
+    "rmse": 7.493231137388057e-16,
+    "finite_fraction": 0.9473493100944081,
+    "max_error": 2.6645352591003757e-15,
+    "status": "completed",
+    "warnings": [
+      "Use `@` matmul instead of `*` mul operator for matrix multiplication"
+    ],
+    "seconds": 0.011250427000049967
+  },
+  {
+    "package": "Healpy",
+    "case": "nested_correct",
+    "rmse": 0.004016662455372454,
+    "finite_fraction": 1.0,
+    "max_error": 0.011337620992366126,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.9392478269999174
+  },
+  {
+    "package": "Healpy",
+    "case": "nested_wrong",
+    "rmse": 0.6580555458108198,
+    "finite_fraction": 1.0,
+    "max_error": 2.0929300198751544,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.00052239899991946
+  },
+  {
+    "package": "Healpy",
+    "case": "ud_grade_intensive",
+    "rmse": 0.004680766144250254,
+    "finite_fraction": 1.0,
+    "max_error": 0.014381645504778717,
+    "mean_change": 0.0,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.00048575400001027447
+  },
+  {
+    "package": "Healpy",
+    "case": "ud_grade_extensive",
+    "relative_sum_error": 0.0,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.00039836899986767094
+  },
+  {
+    "package": "Healpy",
+    "case": "wrong_scaling",
+    "mean_ratio": 4.0,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.0004944190000060189
+  }
+]

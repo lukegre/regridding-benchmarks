@@ -1,0 +1,577 @@
+[
+  {
+    "package": "xesmf_conservative",
+    "grid": "rectilinear",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0013839408680537272,
+    "max_error": 0.003998719527300576,
+    "output_min": 2.7743711450540585,
+    "output_max": 3.18378873524064,
+    "warnings": [],
+    "build_seconds": 1.223729478999985,
+    "weights_nnz": 2220,
+    "flags": [],
+    "seconds": 2.4375489449998895
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "rectilinear",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 6.350348260214088e-16,
+    "max_error": 1.7763568394002505e-15,
+    "output_min": 6.999999999999998,
+    "output_max": 7.000000000000002,
+    "warnings": [],
+    "build_seconds": 0.06307448200004728,
+    "weights_nnz": 2220,
+    "flags": [],
+    "seconds": 0.06848611300006269
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "rectilinear",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.9677871148459384,
+    "rmse": 0.0020828271971874267,
+    "max_error": 0.011430530015299034,
+    "output_min": 2.774394106280427,
+    "output_max": 3.18378873524064,
+    "warnings": [],
+    "build_seconds": 0.03375139199988553,
+    "weights_nnz": 2220,
+    "flags": [],
+    "seconds": 0.03905074799990871
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "rectilinear",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.9677871148459384,
+    "rmse": 0.0020828271971874267,
+    "max_error": 0.011430530015299034,
+    "output_min": 2.774394106280427,
+    "output_max": 3.18378873524064,
+    "warnings": [],
+    "build_seconds": 0.2994803219999085,
+    "weights_nnz": 2109,
+    "flags": [],
+    "seconds": 0.3037545070001215
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "rectilinear",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0013839408680537337,
+    "max_error": 0.003998719527300132,
+    "output_min": 2.7743711450540585,
+    "output_max": 3.1837887352406407,
+    "warnings": [],
+    "build_seconds": 0.0816954590000023,
+    "weights_nnz": 2220,
+    "flags": [],
+    "seconds": 0.08540627899992614
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "rectilinear",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.9117647058823529,
+    "rmse": 0.015819044032668057,
+    "max_error": 0.08914333411997788,
+    "output_min": 2.774371145054058,
+    "output_max": 3.1828715798699934,
+    "warnings": [],
+    "build_seconds": 0.08830203799993797,
+    "weights_nnz": 2316,
+    "flags": [],
+    "seconds": 0.09224321900001087
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "rectilinear",
+    "scenario": "duplicate",
+    "status": "error",
+    "error": "ValueError: ESMC_FieldRegridStore failed with rc = 506. Please check the log files (named \"*ESMF_LogFile\").",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 179, in run\n    warnings.simplefilter('always');res=apply(pkg,kind,scenario,*args[:-1])\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 116, in apply\n    start=time.perf_counter();r=xe.Regridder(src,dst,method,periodic=(kind=='gaussian' and method!='conservative'),unmapped_to_nan=True)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 1031, in __init__\n    super().__init__(\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 423, in __init__\n    weights = self._compute_weights(grid_in, grid_out)  # Dictionary of weights\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 509, in _compute_weights\n    regrid = esmf_regrid_build(\n             ^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/backend.py\", line 511, in esmf_regrid_build\n    regrid = ESMF.Regrid(sourcefield, destfield, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/esmpy/util/decorators.py\", line 59, in new_func\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/esmpy/api/regrid.py\", line 194, in __init__\n    self._routehandle = ESMP_FieldRegridStore(\n                        ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/esmpy/interface/cbindings.py\", line 2174, in ESMP_FieldRegridStore\n    handle_esmf_error(rc, 'ESMC_FieldRegridStore')\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/esmpy/interface/cbindings.py\", line 26, in handle_esmf_error\n    raise ValueError(msg)\nValueError: ESMC_FieldRegridStore failed with rc = 506. Please check the log files (named \"*ESMF_LogFile\").\n",
+    "seconds": 0.02108140999985153
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "rectilinear",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0013839408680537272,
+    "max_error": 0.003998719527300576,
+    "output_min": 2.7743711450540585,
+    "output_max": 3.18378873524064,
+    "warnings": [
+      "Latitude is outside of [-90, 90]"
+    ],
+    "build_seconds": 0.07127548900007241,
+    "weights_nnz": 2220,
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.07486416900019321
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "rectilinear",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.1429163270979453,
+    "max_error": 0.8333386210095761,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [],
+    "build_seconds": 0.08368661500003327,
+    "weights_nnz": 2220,
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.08735315099988838
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "roms",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0010563520002051519
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "roms",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0010457939999923838
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "roms",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0015366149998499168
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "roms",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0011174730000220734
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "roms",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.001000738000129786
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "roms",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0008232629998019547
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "roms",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0009134590000030585
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "roms",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0008790469998984918
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "roms",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0009685380000519217
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "satellite_swath",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0010876789999656467
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "satellite_swath",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0009315080001215392
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "satellite_swath",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0008762660002048506
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "satellite_swath",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0009744419999151432
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "satellite_swath",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0010759920000964485
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "satellite_swath",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0009664550000252348
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "satellite_swath",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0007664199999908305
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "satellite_swath",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0014434480001455086
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "satellite_swath",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Conservative curvilinear/swath remapping needs supplied cell corners; centres alone are insufficient",
+    "seconds": 0.0010725140000431566
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "icosahedral",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 1.0344589659998746
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "icosahedral",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0015390610001304594
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "icosahedral",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0015069180001319182
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "icosahedral",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0014559119999830727
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "icosahedral",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0014593010000680806
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "icosahedral",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.001366607000136355
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "icosahedral",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0013046070000655163
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "icosahedral",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0016559600001073704
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "icosahedral",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0015112490000319667
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "healpix",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 2.5501360509999813
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "healpix",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0008652579999761656
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "healpix",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0006409750001239445
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "healpix",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0010146080001049995
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "healpix",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0006381370001236064
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "healpix",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0009867380001651327
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "healpix",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0009459479999804898
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "healpix",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.000788113999988127
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "healpix",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "This structured adapter requires 2D grids; unstructured cells need ESMF mesh handling",
+    "seconds": 0.0007814719999714725
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "gaussian",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.002509835905691345,
+    "max_error": 0.006476178404057453,
+    "output_min": 0.8173022095016527,
+    "output_max": 3.182697790498348,
+    "warnings": [],
+    "build_seconds": 0.16550532299993392,
+    "weights_nnz": 8160,
+    "flags": [],
+    "seconds": 0.17367347000003974
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "gaussian",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 6.77599954797753e-16,
+    "max_error": 2.6645352591003757e-15,
+    "output_min": 6.999999999999997,
+    "output_max": 7.000000000000003,
+    "warnings": [],
+    "build_seconds": 0.1508108269999866,
+    "weights_nnz": 8160,
+    "flags": [],
+    "seconds": 0.15681670200001463
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "gaussian",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.9639756944444444,
+    "rmse": 0.00554234518927339,
+    "max_error": 0.05200122627437187,
+    "output_min": 0.8173022095016527,
+    "output_max": 3.178946351040874,
+    "warnings": [],
+    "build_seconds": 0.16401326499999413,
+    "weights_nnz": 8160,
+    "flags": [],
+    "seconds": 0.17059362300005887
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "gaussian",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.9639756944444444,
+    "rmse": 0.00554234518927339,
+    "max_error": 0.05200122627437187,
+    "output_min": 0.8173022095016527,
+    "output_max": 3.178946351040874,
+    "warnings": [],
+    "build_seconds": 0.16329793199997766,
+    "weights_nnz": 7732,
+    "flags": [],
+    "seconds": 0.17011590700008128
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "gaussian",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.002509835905691346,
+    "max_error": 0.006476178404057453,
+    "output_min": 0.8173022095016527,
+    "output_max": 3.1826977904983473,
+    "warnings": [],
+    "build_seconds": 0.1694028619999699,
+    "weights_nnz": 8160,
+    "flags": [],
+    "seconds": 0.17575883499989686
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "gaussian",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.002509835905691345,
+    "max_error": 0.006476178404057453,
+    "output_min": 0.8173022095016527,
+    "output_max": 3.182697790498348,
+    "warnings": [],
+    "build_seconds": 0.1647047260000818,
+    "weights_nnz": 8160,
+    "flags": [],
+    "seconds": 0.17142985800001043
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "gaussian",
+    "scenario": "duplicate",
+    "status": "error",
+    "error": "ValueError: ESMC_FieldRegridStore failed with rc = 506. Please check the log files (named \"*ESMF_LogFile\").",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 179, in run\n    warnings.simplefilter('always');res=apply(pkg,kind,scenario,*args[:-1])\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 116, in apply\n    start=time.perf_counter();r=xe.Regridder(src,dst,method,periodic=(kind=='gaussian' and method!='conservative'),unmapped_to_nan=True)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 1031, in __init__\n    super().__init__(\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 423, in __init__\n    weights = self._compute_weights(grid_in, grid_out)  # Dictionary of weights\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 509, in _compute_weights\n    regrid = esmf_regrid_build(\n             ^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/backend.py\", line 511, in esmf_regrid_build\n    regrid = ESMF.Regrid(sourcefield, destfield, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/esmpy/util/decorators.py\", line 59, in new_func\n    return func(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/esmpy/api/regrid.py\", line 194, in __init__\n    self._routehandle = ESMP_FieldRegridStore(\n                        ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/esmpy/interface/cbindings.py\", line 2174, in ESMP_FieldRegridStore\n    handle_esmf_error(rc, 'ESMC_FieldRegridStore')\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/esmpy/interface/cbindings.py\", line 26, in handle_esmf_error\n    raise ValueError(msg)\nValueError: ESMC_FieldRegridStore failed with rc = 506. Please check the log files (named \"*ESMF_LogFile\").\n",
+    "seconds": 0.043865366999852995
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "gaussian",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.07941395795280305,
+    "max_error": 0.3846096599141726,
+    "output_min": 0.8173022095016527,
+    "output_max": 3.1360528573312783,
+    "warnings": [
+      "Latitude is outside of [-90, 90]"
+    ],
+    "build_seconds": 0.23696577900000193,
+    "weights_nnz": 10472,
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.24398401999997077
+  },
+  {
+    "package": "xesmf_conservative",
+    "grid": "gaussian",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.09374897449943427,
+    "max_error": 0.562519377775135,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [],
+    "build_seconds": 0.15271952700004476,
+    "weights_nnz": 8160,
+    "flags": [
+      "fractional_categories"
+    ],
+    "seconds": 0.15886246300010498
+  }
+]

@@ -1,0 +1,17 @@
+<section id="interactive-figures">
+<h2>Explore the figures</h2>
+<p class="note">Choose a scenario, then point to or focus a cell for exact metrics. Select a cell to show its recorded probe in the evidence table. Grey cells distinguish errors from combinations outside the adapter scope. Raw longitude conventions are retained.</p>
+<label class="figure-control">Scenario<select id="figure-scenario"><option value="smooth">Smooth analytic field</option><option value="constant">Constant field</option><option value="nan_hole">NaN holes</option><option value="mask_hole">Mask holes</option><option value="reverse">Reversed traversal</option><option value="lon360">0–360 longitudes</option><option value="duplicate">Duplicate coordinates</option><option value="bad_lat">Invalid latitude</option><option value="categorical">Categorical values</option></select></label>
+<div class="interactive-panels"><figure><figcaption><strong>Finite output coverage</strong><br><span class="note">0–100% · darker cells = more coverage</span></figcaption><div class="table-wrap" id="coverage-figure"></div></figure><figure><figcaption><strong>Analytic-field RMSE</strong><br><span class="note">Log scale: 10⁻⁴–10⁻¹ · darker cells = larger error</span></figcaption><div class="table-wrap" id="rmse-figure"></div></figure></div>
+<p class="note">Each cell includes its exact value. RMSE colours saturate above 0.1; saturation does not hide the recorded value. Methods, targets and coverage differ, so these figures are not a ranking.</p>
+<div id="figure-detail" class="figure-detail" role="status" aria-live="polite">Select a cell to inspect its recorded result.</div>
+</section>
+<section id="timings"><h2>Recorded timings</h2>
+<p>These are <strong>single-run wall-clock measurements</strong>, including adapter work and, depending on the probe, imports, JIT compilation, geometry construction, file I/O or process launch. The first case in a process is often much slower. Package runs overlapped. Use these to inspect execution costs, not to rank package speed.</p>
+<label class="figure-control">Source grid<select id="timing-grid"><option value="roms">ROMS-style curvilinear</option><option value="rectilinear">Rectilinear</option><option value="satellite_swath">Satellite swath</option><option value="icosahedral">Icosahedral</option><option value="healpix">HEALPix</option><option value="gaussian">Gaussian</option></select></label>
+<p class="note">Smooth-field probes only. xESMF measures weight construction separately; it remains part of the total. Other packages' missing build values mean “not measured separately”.</p>
+<div class="table-wrap"><table><thead><tr><th>Adapter</th><th>Total wall time (ms)</th><th>Weight construction (ms)</th><th>Finite output</th></tr></thead><tbody id="timing-rows"></tbody></table></div>
+<h3>TempestRemap / NCO command timings</h3>
+<p class="note">Native icosahedral → 36×18 global raster workflow. Command times include process startup and file I/O. The four application runs use different fields, not repeated identical timing trials.</p>
+<div class="table-wrap"><table><thead><tr><th>Operation</th><th>Recorded wall time</th></tr></thead><tbody id="native-timing-rows"></tbody></table></div>
+</section>

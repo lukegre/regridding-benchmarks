@@ -1,0 +1,865 @@
+[
+  {
+    "package": "pyresample_gauss",
+    "grid": "rectilinear",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0011990168258934094,
+    "max_error": 0.0032379024965192293,
+    "output_min": 2.774070849781315,
+    "output_max": 3.1832925862775125,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 1.0884442460001083
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "rectilinear",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 1.0394905327397993e-15,
+    "max_error": 3.552713678800501e-15,
+    "output_min": 6.9999999999999964,
+    "output_max": 7.000000000000003,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.0024537699998745666
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "rectilinear",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.001859781333093745,
+    "max_error": 0.008349084333434842,
+    "output_min": 2.7716438998952673,
+    "output_max": 3.1832925862775125,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.002421882999897207
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "rectilinear",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.001859781333093745,
+    "max_error": 0.008349084333434842,
+    "output_min": 2.7716438998952673,
+    "output_max": 3.1832925862775125,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.0023173669999323465
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "rectilinear",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0011975065966510871,
+    "max_error": 0.0032379024965192293,
+    "output_min": 2.774070849781315,
+    "output_max": 3.1832925862775125,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.0021528080001189664
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "rectilinear",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.6470588235294118,
+    "rmse": 0.0035658880951676343,
+    "max_error": 0.014015552865013436,
+    "output_min": 2.7820710661457393,
+    "output_max": 3.183848780665624,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.032329140000001644
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "rectilinear",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0011989523820299236,
+    "max_error": 0.0032379024965192293,
+    "output_min": 2.774070849781315,
+    "output_max": 3.1832925862775125,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.004364771000155088
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "rectilinear",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.001248204468399353,
+    "max_error": 0.00524439956835554,
+    "output_min": 2.774070849781315,
+    "output_max": 3.1832925862775125,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.0024916690001646202
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "rectilinear",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.12103429324843841,
+    "max_error": 0.6916356665973467,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.0028423920000477665
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "roms",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0013139003285118464,
+    "max_error": 0.00418396113277586,
+    "output_min": 2.77205796300806,
+    "output_max": 3.1835305181570877,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.0024739789998875494
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "roms",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 1.0405528636585724e-15,
+    "max_error": 3.552713678800501e-15,
+    "output_min": 6.999999999999997,
+    "output_max": 7.0000000000000036,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.0029909150000548834
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "roms",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.001810098618879131,
+    "max_error": 0.0066933748211446265,
+    "output_min": 2.7761118622925864,
+    "output_max": 3.1835305181570877,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.0029970559999128454
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "roms",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.001810098618879131,
+    "max_error": 0.0066933748211446265,
+    "output_min": 2.7761118622925864,
+    "output_max": 3.1835305181570877,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.0027614410000751377
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "roms",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0013139003285118464,
+    "max_error": 0.00418396113277586,
+    "output_min": 2.77205796300806,
+    "output_max": 3.1835305181570877,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.00280338000015945
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "roms",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.6400560224089635,
+    "rmse": 0.003915823814681601,
+    "max_error": 0.041843884094101114,
+    "output_min": 2.780568937255768,
+    "output_max": 3.1822119335512187,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.002487107000206379
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "roms",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0016489217738534792,
+    "max_error": 0.012636184377243787,
+    "output_min": 2.7685705673307983,
+    "output_max": 3.1835305181570877,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.002593486000023404
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "roms",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0013475838638191415,
+    "max_error": 0.004851041803771494,
+    "output_min": 2.77205796300806,
+    "output_max": 3.1835305181570877,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.003159609000022101
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "roms",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.08265550921025255,
+    "max_error": 0.6020029728347019,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [
+      "fractional_categories"
+    ],
+    "seconds": 0.0028254459998606762
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "satellite_swath",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.004922432797213406,
+    "max_error": 0.023198149871638263,
+    "output_min": 0.8121979323529679,
+    "output_max": 1.510415830542679,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.0027123559998472047
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "satellite_swath",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 1.0655639472320224e-15,
+    "max_error": 3.552713678800501e-15,
+    "output_min": 6.9999999999999964,
+    "output_max": 7.000000000000003,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.002828685999929803
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "satellite_swath",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0050624715053142096,
+    "max_error": 0.023198149871638263,
+    "output_min": 0.8121979323529679,
+    "output_max": 1.510415830542679,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.002440013000068575
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "satellite_swath",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0050624715053142096,
+    "max_error": 0.023198149871638263,
+    "output_min": 0.8121979323529679,
+    "output_max": 1.510415830542679,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.002605076999998346
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "satellite_swath",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.004922432797213406,
+    "max_error": 0.023198149871638263,
+    "output_min": 0.8121979323529679,
+    "output_max": 1.510415830542679,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.002585259000170481
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "satellite_swath",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.9185867895545314,
+    "rmse": 0.005752572960684488,
+    "max_error": 0.041702762327100906,
+    "output_min": 0.8125600298041082,
+    "output_max": 1.5091011374667738,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.0023406349998822407
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "satellite_swath",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.005127466621295641,
+    "max_error": 0.024601078673557097,
+    "output_min": 0.8121979323529679,
+    "output_max": 1.514717816736851,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.03537279500005752
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "satellite_swath",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.00492225898222271,
+    "max_error": 0.023198149871638263,
+    "output_min": 0.8121979323529679,
+    "output_max": 1.510415830542679,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.002600614000130008
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "satellite_swath",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.13477386231777863,
+    "max_error": 0.6121204787972172,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.0031808620001356758
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "icosahedral",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 0.9618055555555556,
+    "rmse": 0.04977736973381529,
+    "max_error": 0.15101495767526063,
+    "output_min": 0.826682191267632,
+    "output_max": 3.173317808732368,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.5323421679997864
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "icosahedral",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 0.9618055555555556,
+    "rmse": 5.353197653923557e-16,
+    "max_error": 1.7763568394002505e-15,
+    "output_min": 6.999999999999998,
+    "output_max": 7.000000000000002,
+    "warnings": [],
+    "flags": [
+      "constant_or_coverage"
+    ],
+    "seconds": 0.005072227000027851
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "icosahedral",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.9496527777777778,
+    "rmse": 0.051009453586848046,
+    "max_error": 0.15101495767526063,
+    "output_min": 0.826682191267632,
+    "output_max": 3.173317808732368,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.006552102999876297
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "icosahedral",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.9496527777777778,
+    "rmse": 0.051009453586848046,
+    "max_error": 0.15101495767526063,
+    "output_min": 0.826682191267632,
+    "output_max": 3.173317808732368,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0048954159999539115
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "icosahedral",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 0.9618055555555556,
+    "rmse": 0.04977736973381529,
+    "max_error": 0.15101495767526063,
+    "output_min": 0.826682191267632,
+    "output_max": 3.173317808732368,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.042618987999958335
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "icosahedral",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.5347222222222222,
+    "rmse": 0.05013149418696302,
+    "max_error": 0.15101495767526063,
+    "output_min": 0.8266821912676321,
+    "output_max": 3.173317808732368,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0043176700000913115
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "icosahedral",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 0.9618055555555556,
+    "rmse": 0.04986284885314066,
+    "max_error": 0.15101495767526063,
+    "output_min": 0.826682191267632,
+    "output_max": 3.173317808732368,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.004918669000062437
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "icosahedral",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 0.9613715277777778,
+    "rmse": 0.049908675881973175,
+    "max_error": 0.15101495767526063,
+    "output_min": 0.826682191267632,
+    "output_max": 3.173317808732368,
+    "warnings": [],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.004901748000065709
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "icosahedral",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 0.9618055555555556,
+    "rmse": 0.19284767844525613,
+    "max_error": 1.0,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.0050533480000467534
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "healpix",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 0.5486111111111112,
+    "rmse": 0.023574229644022757,
+    "max_error": 0.05605472846787718,
+    "output_min": 0.8169734338791641,
+    "output_max": 3.183026566120836,
+    "warnings": [],
+    "flags": [],
+    "seconds": 2.091762921000054
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "healpix",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 0.5486111111111112,
+    "rmse": 8.060315557941734e-16,
+    "max_error": 2.6645352591003757e-15,
+    "output_min": 6.999999999999997,
+    "output_max": 7.000000000000003,
+    "warnings": [],
+    "flags": [
+      "constant_or_coverage"
+    ],
+    "seconds": 0.003690154999958395
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "healpix",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.5477430555555556,
+    "rmse": 0.025558580543212323,
+    "max_error": 0.09254491099997608,
+    "output_min": 0.8169734338791641,
+    "output_max": 3.183026566120836,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0035869139999249455
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "healpix",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.5477430555555556,
+    "rmse": 0.025558580543212323,
+    "max_error": 0.09254491099997608,
+    "output_min": 0.8169734338791641,
+    "output_max": 3.183026566120836,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.004204820000040854
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "healpix",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 0.5486111111111112,
+    "rmse": 0.023574229644022757,
+    "max_error": 0.05605472846787718,
+    "output_min": 0.8169734338791641,
+    "output_max": 3.183026566120836,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.004047021999895151
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "healpix",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.5486111111111112,
+    "rmse": 0.023574229644022757,
+    "max_error": 0.05605472846787718,
+    "output_min": 0.8169734338791641,
+    "output_max": 3.183026566120836,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.004055917999949088
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "healpix",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 0.5486111111111112,
+    "rmse": 0.023574229644022757,
+    "max_error": 0.05605472846787718,
+    "output_min": 0.8169734338791641,
+    "output_max": 3.183026566120836,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0035209729999223782
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "healpix",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 0.5486111111111112,
+    "rmse": 0.023574229644022757,
+    "max_error": 0.05605472846787718,
+    "output_min": 0.8169734338791641,
+    "output_max": 3.183026566120836,
+    "warnings": [],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.0033612699999139295
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "healpix",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 0.5486111111111112,
+    "rmse": 0.2626027357380266,
+    "max_error": 1.0,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.0034149459997934173
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "gaussian",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 0.5833333333333334,
+    "rmse": 0.011920488591810906,
+    "max_error": 0.036881158823157456,
+    "output_min": 0.8118784104217481,
+    "output_max": 3.188121589578252,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.004892860999916593
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "gaussian",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 0.5833333333333334,
+    "rmse": 1.2258026759723504e-15,
+    "max_error": 3.552713678800501e-15,
+    "output_min": 6.9999999999999964,
+    "output_max": 7.0000000000000036,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [
+      "constant_or_coverage"
+    ],
+    "seconds": 0.004923750999978438
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "gaussian",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.5828993055555556,
+    "rmse": 0.013214547467699676,
+    "max_error": 0.056314661306403835,
+    "output_min": 0.8118784104217481,
+    "output_max": 3.181390836397504,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.005047608000040782
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "gaussian",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.5828993055555556,
+    "rmse": 0.013214547467699676,
+    "max_error": 0.056314661306403835,
+    "output_min": 0.8118784104217481,
+    "output_max": 3.181390836397504,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.005230486999835193
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "gaussian",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 0.5833333333333334,
+    "rmse": 0.011920488591810906,
+    "max_error": 0.036881158823157456,
+    "output_min": 0.8118784104217481,
+    "output_max": 3.188121589578252,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.004905642000039734
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "gaussian",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.5833333333333334,
+    "rmse": 0.011920488591810906,
+    "max_error": 0.036881158823157456,
+    "output_min": 0.8118784104217481,
+    "output_max": 3.188121589578252,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.004921742999840717
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "gaussian",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 0.5833333333333334,
+    "rmse": 0.011920488591810906,
+    "max_error": 0.036881158823157456,
+    "output_min": 0.8118784104217481,
+    "output_max": 3.188121589578252,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [],
+    "seconds": 0.004981053999927099
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "gaussian",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 0.5828993055555556,
+    "rmse": 0.011933783571376748,
+    "max_error": 0.036881158823157456,
+    "output_min": 0.8118784104217481,
+    "output_max": 3.188121589578252,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.005285663999984536
+  },
+  {
+    "package": "pyresample_gauss",
+    "grid": "gaussian",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 0.5833333333333334,
+    "rmse": 0.28373203356727805,
+    "max_error": 1.0,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [
+      "Possible more than 8 neighbours within 900000 m for some data points"
+    ],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.006108535999828746
+  }
+]

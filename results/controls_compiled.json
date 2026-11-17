@@ -1,0 +1,22 @@
+[
+  {
+    "package": "xESMF",
+    "case": "stale_weight_file",
+    "stale_rmse": 0.022923874263880897,
+    "rebuilt_rmse": 0.0002819781653358295,
+    "accepted_reuse_with_changed_coordinates": true,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 2.0449751689998266
+  },
+  {
+    "package": "CDO",
+    "case": "forced_healpix_conservative",
+    "rmse": 0.017494075749806704,
+    "finite_fraction": 1.0,
+    "stderr": "/home/conda/feedstock_root/build_artifacts/hdf5_1790972885900/work/src/H5VLcallback.c line 4045 in H5VL__file_specific(): file specific failed\n    major: Virtual Object Layer\n    minor: Can't operate on object\n  #003: /home/conda/feedstock_root/build_artifacts/hdf5_1790972885900/work/src/H5VLnative_file.c line 344 in H5VL__native_file_specific(): error in HDF5 file check\n    major: File accessibility\n    minor: Can't get value\n  #004: /home/conda/feedstock_root/build_artifacts/hdf5_1790972885900/work/src/H5Fint.c line 1084 in H5F__is_hdf5(): unable to open file\n    major: File accessibility\n    minor: Unable to initialize object\n  #005: /home/conda/feedstock_root/build_artifacts/hdf5_1790972885900/work/src/H5FD.c line 967 in H5FD_open(): can't open file\n    major: Virtual File Layer\n    minor: Unable to open file\n  #006: /home/conda/feedstock_root/build_artifacts/hdf5_1790972885900/work/src/H5FDsec2.c line 285 in H5FD__sec2_open(): unable to open file: name = '/workspace/geospatial-benchmarks/results/cdo_conservative_healpix_smooth/forced.nc', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0\n    major: File accessibility\n    minor: Unable to open file\n",
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.9005137990002368
+  }
+]

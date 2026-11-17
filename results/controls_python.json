@@ -1,0 +1,80 @@
+[
+  {
+    "package": "astropy-healpix",
+    "case": "longitude_wrapped_False",
+    "finite_fraction": 0.7825520833333334,
+    "rmse": 1406094647296.4197,
+    "max_abs_value": 44813432062752.25,
+    "status": "completed",
+    "warnings": [
+      "divide by zero encountered in bilinear_interpolation_weights",
+      "invalid value encountered in bilinear_interpolation_weights",
+      "invalid value encountered in reduce"
+    ],
+    "seconds": 1.3112466210000093
+  },
+  {
+    "package": "SciPy",
+    "case": "longitude_wrapped_False",
+    "finite_fraction": 0.5,
+    "rmse": 0.0011501047449980356,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.22251381400019454
+  },
+  {
+    "package": "Pyresample",
+    "case": "healpix_longitude_wrapped_False",
+    "finite_fraction": 0.5486111111111112,
+    "rmse": 0.0316716206006895,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 1.082114362000084
+  },
+  {
+    "package": "Pyresample",
+    "case": "gaussian_longitude_wrapped_False",
+    "finite_fraction": 0.5833333333333334,
+    "rmse": 0.023642856453565696,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.003199074999884033
+  },
+  {
+    "package": "astropy-healpix",
+    "case": "longitude_wrapped_True",
+    "finite_fraction": 1.0,
+    "rmse": 0.0040109034745838745,
+    "max_abs_value": 3.178458422497519,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.002993244999743183
+  },
+  {
+    "package": "SciPy",
+    "case": "longitude_wrapped_True",
+    "finite_fraction": 0.9861111111111112,
+    "rmse": 0.0011251801706773123,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.001900359000046592
+  },
+  {
+    "package": "Pyresample",
+    "case": "healpix_longitude_wrapped_True",
+    "finite_fraction": 1.0,
+    "rmse": 0.03205748384252971,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.003107920000275044
+  },
+  {
+    "package": "Pyresample",
+    "case": "gaussian_longitude_wrapped_True",
+    "finite_fraction": 1.0,
+    "rmse": 0.02335171421975259,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.003864985999825876
+  }
+]

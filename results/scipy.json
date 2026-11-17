@@ -1,0 +1,531 @@
+[
+  {
+    "package": "scipy",
+    "grid": "rectilinear",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592357,
+    "max_error": 0.0005243063960342909,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 1.0469204829998944
+  },
+  {
+    "package": "scipy",
+    "grid": "rectilinear",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0,
+    "max_error": 0.0,
+    "output_min": 7.0,
+    "output_max": 7.0,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0007192840000698197
+  },
+  {
+    "package": "scipy",
+    "grid": "rectilinear",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.7969187675070029,
+    "rmse": 0.0002851921079525505,
+    "max_error": 0.0005243063960342909,
+    "output_min": 2.780263131756872,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0006186900000102469
+  },
+  {
+    "package": "scipy",
+    "grid": "rectilinear",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.7969187675070029,
+    "rmse": 0.0002851921079525505,
+    "max_error": 0.0005243063960342909,
+    "output_min": 2.780263131756872,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0006994859998030734
+  },
+  {
+    "package": "scipy",
+    "grid": "rectilinear",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592357,
+    "max_error": 0.0005243063960342909,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0010220900001058908
+  },
+  {
+    "package": "scipy",
+    "grid": "rectilinear",
+    "scenario": "lon360",
+    "status": "error",
+    "error": "ValueError: The points in dimension 1 must be strictly ascending or descending",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 179, in run\n    warnings.simplefilter('always');res=apply(pkg,kind,scenario,*args[:-1])\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 85, in apply\n    return RegularGridInterpolator((la[:,0],lo[0]),v,bounds_error=False,fill_value=np.nan)(np.stack([ty,tx],-1))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/scipy/interpolate/_rgi.py\", line 314, in __init__\n    self._grid, self._descending_dimensions = _check_points(points)\n                                              ^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/scipy/interpolate/_rgi.py\", line 33, in _check_points\n    raise ValueError(\nValueError: The points in dimension 1 must be strictly ascending or descending\n",
+    "seconds": 0.0017542839998441195
+  },
+  {
+    "package": "scipy",
+    "grid": "rectilinear",
+    "scenario": "duplicate",
+    "status": "error",
+    "error": "ValueError: The points in dimension 1 must be strictly ascending or descending",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 179, in run\n    warnings.simplefilter('always');res=apply(pkg,kind,scenario,*args[:-1])\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 85, in apply\n    return RegularGridInterpolator((la[:,0],lo[0]),v,bounds_error=False,fill_value=np.nan)(np.stack([ty,tx],-1))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/scipy/interpolate/_rgi.py\", line 314, in __init__\n    self._grid, self._descending_dimensions = _check_points(points)\n                                              ^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/scipy/interpolate/_rgi.py\", line 33, in _check_points\n    raise ValueError(\nValueError: The points in dimension 1 must be strictly ascending or descending\n",
+    "seconds": 0.0009998199998335622
+  },
+  {
+    "package": "scipy",
+    "grid": "rectilinear",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592357,
+    "max_error": 0.0005243063960342909,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.0008705499999450694
+  },
+  {
+    "package": "scipy",
+    "grid": "rectilinear",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.12862393885688164,
+    "max_error": 0.75,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.0025223500001629873
+  },
+  {
+    "package": "scipy",
+    "grid": "roms",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005594589999873278
+  },
+  {
+    "package": "scipy",
+    "grid": "roms",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.038539777000096365
+  },
+  {
+    "package": "scipy",
+    "grid": "roms",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0018121680000149354
+  },
+  {
+    "package": "scipy",
+    "grid": "roms",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0004307500000777509
+  },
+  {
+    "package": "scipy",
+    "grid": "roms",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005292119999467104
+  },
+  {
+    "package": "scipy",
+    "grid": "roms",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.000928711999904408
+  },
+  {
+    "package": "scipy",
+    "grid": "roms",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0003967269999520795
+  },
+  {
+    "package": "scipy",
+    "grid": "roms",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005030429999806074
+  },
+  {
+    "package": "scipy",
+    "grid": "roms",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0003908129999672383
+  },
+  {
+    "package": "scipy",
+    "grid": "satellite_swath",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0006447559999287478
+  },
+  {
+    "package": "scipy",
+    "grid": "satellite_swath",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0004879970001638867
+  },
+  {
+    "package": "scipy",
+    "grid": "satellite_swath",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0007973389999733627
+  },
+  {
+    "package": "scipy",
+    "grid": "satellite_swath",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.001456402000030721
+  },
+  {
+    "package": "scipy",
+    "grid": "satellite_swath",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0010997219999353547
+  },
+  {
+    "package": "scipy",
+    "grid": "satellite_swath",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.010286068999903364
+  },
+  {
+    "package": "scipy",
+    "grid": "satellite_swath",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0006587210000361665
+  },
+  {
+    "package": "scipy",
+    "grid": "satellite_swath",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0007141789999423054
+  },
+  {
+    "package": "scipy",
+    "grid": "satellite_swath",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005143850000877137
+  },
+  {
+    "package": "scipy",
+    "grid": "icosahedral",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 1.078585399000076
+  },
+  {
+    "package": "scipy",
+    "grid": "icosahedral",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.002472010000019509
+  },
+  {
+    "package": "scipy",
+    "grid": "icosahedral",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.001770854000142208
+  },
+  {
+    "package": "scipy",
+    "grid": "icosahedral",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0017801619999318063
+  },
+  {
+    "package": "scipy",
+    "grid": "icosahedral",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0014398350001556537
+  },
+  {
+    "package": "scipy",
+    "grid": "icosahedral",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.001980148000029658
+  },
+  {
+    "package": "scipy",
+    "grid": "icosahedral",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0018264269999690441
+  },
+  {
+    "package": "scipy",
+    "grid": "icosahedral",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0013116560000980826
+  },
+  {
+    "package": "scipy",
+    "grid": "icosahedral",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0013041590000284486
+  },
+  {
+    "package": "scipy",
+    "grid": "healpix",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 9.636846750000132
+  },
+  {
+    "package": "scipy",
+    "grid": "healpix",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.02860208600009173
+  },
+  {
+    "package": "scipy",
+    "grid": "healpix",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005590549999396899
+  },
+  {
+    "package": "scipy",
+    "grid": "healpix",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0004496470000958652
+  },
+  {
+    "package": "scipy",
+    "grid": "healpix",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0007811010000295937
+  },
+  {
+    "package": "scipy",
+    "grid": "healpix",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005447220000860398
+  },
+  {
+    "package": "scipy",
+    "grid": "healpix",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005917910000334814
+  },
+  {
+    "package": "scipy",
+    "grid": "healpix",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0007203529999060265
+  },
+  {
+    "package": "scipy",
+    "grid": "healpix",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0007398779998766258
+  },
+  {
+    "package": "scipy",
+    "grid": "gaussian",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 0.0011501047449980356,
+    "max_error": 0.004027986243578696,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1825331235622984,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.004347348999999667
+  },
+  {
+    "package": "scipy",
+    "grid": "gaussian",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 4.053961296325412e-16,
+    "max_error": 1.7763568394002505e-15,
+    "output_min": 6.999999999999998,
+    "output_max": 7.000000000000002,
+    "warnings": [],
+    "flags": [
+      "constant_or_coverage"
+    ],
+    "seconds": 0.0022659530000055383
+  },
+  {
+    "package": "scipy",
+    "grid": "gaussian",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.39453125,
+    "rmse": 0.0011486416116078299,
+    "max_error": 0.004027986243578696,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1720217003108324,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.001840026000081707
+  },
+  {
+    "package": "scipy",
+    "grid": "gaussian",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.39453125,
+    "rmse": 0.0011486416116078299,
+    "max_error": 0.004027986243578696,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1720217003108324,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0019715749999704713
+  },
+  {
+    "package": "scipy",
+    "grid": "gaussian",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 0.0011501047449980356,
+    "max_error": 0.004027986243578696,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1825331235622984,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.001663170000028913
+  },
+  {
+    "package": "scipy",
+    "grid": "gaussian",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 0.0011501047449980356,
+    "max_error": 0.004027986243578696,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1825331235622984,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.0021157870000934054
+  },
+  {
+    "package": "scipy",
+    "grid": "gaussian",
+    "scenario": "duplicate",
+    "status": "error",
+    "error": "ValueError: The points in dimension 1 must be strictly ascending or descending",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 179, in run\n    warnings.simplefilter('always');res=apply(pkg,kind,scenario,*args[:-1])\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 85, in apply\n    return RegularGridInterpolator((la[:,0],lo[0]),v,bounds_error=False,fill_value=np.nan)(np.stack([ty,tx],-1))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/scipy/interpolate/_rgi.py\", line 314, in __init__\n    self._grid, self._descending_dimensions = _check_points(points)\n                                              ^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/scipy/interpolate/_rgi.py\", line 33, in _check_points\n    raise ValueError(\nValueError: The points in dimension 1 must be strictly ascending or descending\n",
+    "seconds": 0.0021783050001431548
+  },
+  {
+    "package": "scipy",
+    "grid": "gaussian",
+    "scenario": "bad_lat",
+    "status": "error",
+    "error": "ValueError: The points in dimension 0 must be strictly ascending or descending",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 179, in run\n    warnings.simplefilter('always');res=apply(pkg,kind,scenario,*args[:-1])\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 85, in apply\n    return RegularGridInterpolator((la[:,0],lo[0]),v,bounds_error=False,fill_value=np.nan)(np.stack([ty,tx],-1))\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/scipy/interpolate/_rgi.py\", line 314, in __init__\n    self._grid, self._descending_dimensions = _check_points(points)\n                                              ^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/scipy/interpolate/_rgi.py\", line 33, in _check_points\n    raise ValueError(\nValueError: The points in dimension 0 must be strictly ascending or descending\n",
+    "seconds": 0.0017641669999193255
+  },
+  {
+    "package": "scipy",
+    "grid": "gaussian",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 0.09259259259259259,
+    "max_error": 0.5555555555555556,
+    "output_min": 0.44444444444444436,
+    "output_max": 1.0000000000000002,
+    "warnings": [],
+    "flags": [
+      "fractional_categories"
+    ],
+    "seconds": 0.0020123480001075222
+  }
+]

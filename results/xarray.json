@@ -1,0 +1,543 @@
+[
+  {
+    "package": "xarray",
+    "grid": "rectilinear",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592357,
+    "max_error": 0.0005243063960342909,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 1.5030488069999137
+  },
+  {
+    "package": "xarray",
+    "grid": "rectilinear",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0,
+    "max_error": 0.0,
+    "output_min": 7.0,
+    "output_max": 7.0,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.00370364399987011
+  },
+  {
+    "package": "xarray",
+    "grid": "rectilinear",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.7969187675070029,
+    "rmse": 0.0002851921079525505,
+    "max_error": 0.0005243063960342909,
+    "output_min": 2.780263131756872,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.004309111999873494
+  },
+  {
+    "package": "xarray",
+    "grid": "rectilinear",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.7969187675070029,
+    "rmse": 0.0002851921079525505,
+    "max_error": 0.0005243063960342909,
+    "output_min": 2.780263131756872,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.05124222200015538
+  },
+  {
+    "package": "xarray",
+    "grid": "rectilinear",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592357,
+    "max_error": 0.0005243063960342909,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.004450785000017277
+  },
+  {
+    "package": "xarray",
+    "grid": "rectilinear",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 0.00028496835631469186,
+    "max_error": 0.0005181884829994488,
+    "output_min": 2.780263131756872,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.004225315999974555
+  },
+  {
+    "package": "xarray",
+    "grid": "rectilinear",
+    "scenario": "duplicate",
+    "status": "error",
+    "error": "InvalidIndexError: Reindexing only valid with uniquely valued Index objects",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 179, in run\n    warnings.simplefilter('always');res=apply(pkg,kind,scenario,*args[:-1])\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 87, in apply\n    return da.interp(lat=xr.DataArray(ty,dims=('y','x')),lon=xr.DataArray(tx,dims=('y','x'))).values\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/dataarray.py\", line 2546, in interp\n    ds = self._to_temp_dataset().interp(\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/dataset.py\", line 3988, in interp\n    obj, newidx = missing._localize(obj, {k: v})\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/missing.py\", line 591, in _localize\n    imin, imax = index.get_indexer(pd.Index([minval, maxval]), method=\"nearest\")\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/pandas/core/indexes/base.py\", line 3903, in get_indexer\n    raise InvalidIndexError(self._requires_unique_msg)\npandas.errors.InvalidIndexError: Reindexing only valid with uniquely valued Index objects\n",
+    "seconds": 0.12157445399998323
+  },
+  {
+    "package": "xarray",
+    "grid": "rectilinear",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.0002868967780592357,
+    "max_error": 0.0005243063960342909,
+    "output_min": 2.7743438354251255,
+    "output_max": 3.183702632731063,
+    "warnings": [],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.0046333320001394895
+  },
+  {
+    "package": "xarray",
+    "grid": "rectilinear",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.12862393885688164,
+    "max_error": 0.75,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.003689517000111664
+  },
+  {
+    "package": "xarray",
+    "grid": "roms",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0003499729998566181
+  },
+  {
+    "package": "xarray",
+    "grid": "roms",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.00035537200005819614
+  },
+  {
+    "package": "xarray",
+    "grid": "roms",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.00038408099999287515
+  },
+  {
+    "package": "xarray",
+    "grid": "roms",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.000391085999808638
+  },
+  {
+    "package": "xarray",
+    "grid": "roms",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.00042141700009779015
+  },
+  {
+    "package": "xarray",
+    "grid": "roms",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005306069999733154
+  },
+  {
+    "package": "xarray",
+    "grid": "roms",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.00046400100018217927
+  },
+  {
+    "package": "xarray",
+    "grid": "roms",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.00028599799998119124
+  },
+  {
+    "package": "xarray",
+    "grid": "roms",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0003390640001725842
+  },
+  {
+    "package": "xarray",
+    "grid": "satellite_swath",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0024021680001169443
+  },
+  {
+    "package": "xarray",
+    "grid": "satellite_swath",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0003524740000102611
+  },
+  {
+    "package": "xarray",
+    "grid": "satellite_swath",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.000997309000013047
+  },
+  {
+    "package": "xarray",
+    "grid": "satellite_swath",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.00035392399990996637
+  },
+  {
+    "package": "xarray",
+    "grid": "satellite_swath",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0003908510000201204
+  },
+  {
+    "package": "xarray",
+    "grid": "satellite_swath",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.00033822299997154914
+  },
+  {
+    "package": "xarray",
+    "grid": "satellite_swath",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.000269534999915777
+  },
+  {
+    "package": "xarray",
+    "grid": "satellite_swath",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0002819329999965703
+  },
+  {
+    "package": "xarray",
+    "grid": "satellite_swath",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0003383109999504086
+  },
+  {
+    "package": "xarray",
+    "grid": "icosahedral",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 1.028867855000044
+  },
+  {
+    "package": "xarray",
+    "grid": "icosahedral",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.002028151999866168
+  },
+  {
+    "package": "xarray",
+    "grid": "icosahedral",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0018706349999320082
+  },
+  {
+    "package": "xarray",
+    "grid": "icosahedral",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.001593603000173971
+  },
+  {
+    "package": "xarray",
+    "grid": "icosahedral",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.002339656999993167
+  },
+  {
+    "package": "xarray",
+    "grid": "icosahedral",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0009936700000707788
+  },
+  {
+    "package": "xarray",
+    "grid": "icosahedral",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0016579219998220651
+  },
+  {
+    "package": "xarray",
+    "grid": "icosahedral",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0014381789999333705
+  },
+  {
+    "package": "xarray",
+    "grid": "icosahedral",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0011516689999098162
+  },
+  {
+    "package": "xarray",
+    "grid": "healpix",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 9.994060137999895
+  },
+  {
+    "package": "xarray",
+    "grid": "healpix",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005603730000984797
+  },
+  {
+    "package": "xarray",
+    "grid": "healpix",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0007173510000484384
+  },
+  {
+    "package": "xarray",
+    "grid": "healpix",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0004958060001172271
+  },
+  {
+    "package": "xarray",
+    "grid": "healpix",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0006062780000775092
+  },
+  {
+    "package": "xarray",
+    "grid": "healpix",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0004885979999471601
+  },
+  {
+    "package": "xarray",
+    "grid": "healpix",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005942909999703261
+  },
+  {
+    "package": "xarray",
+    "grid": "healpix",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.00040279499989992473
+  },
+  {
+    "package": "xarray",
+    "grid": "healpix",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "Rectilinear coordinates required",
+    "seconds": 0.0005171220000192989
+  },
+  {
+    "package": "xarray",
+    "grid": "gaussian",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 0.0011501047449980356,
+    "max_error": 0.004027986243578696,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1825331235622984,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.009758730000157811
+  },
+  {
+    "package": "xarray",
+    "grid": "gaussian",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 4.053961296325412e-16,
+    "max_error": 1.7763568394002505e-15,
+    "output_min": 6.999999999999998,
+    "output_max": 7.000000000000002,
+    "warnings": [],
+    "flags": [
+      "constant_or_coverage"
+    ],
+    "seconds": 0.007465079000212427
+  },
+  {
+    "package": "xarray",
+    "grid": "gaussian",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.39453125,
+    "rmse": 0.0011486416116078299,
+    "max_error": 0.004027986243578696,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1720217003108324,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.007258288999992146
+  },
+  {
+    "package": "xarray",
+    "grid": "gaussian",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.39453125,
+    "rmse": 0.0011486416116078299,
+    "max_error": 0.004027986243578696,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1720217003108324,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.03962908700009393
+  },
+  {
+    "package": "xarray",
+    "grid": "gaussian",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 0.0011501047449980356,
+    "max_error": 0.004027986243578696,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1825331235622984,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.006694001000141725
+  },
+  {
+    "package": "xarray",
+    "grid": "gaussian",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 0.0011501047449980356,
+    "max_error": 0.004027986243578696,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1825331235622984,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.005870263999895542
+  },
+  {
+    "package": "xarray",
+    "grid": "gaussian",
+    "scenario": "duplicate",
+    "status": "error",
+    "error": "InvalidIndexError: Reindexing only valid with uniquely valued Index objects",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 179, in run\n    warnings.simplefilter('always');res=apply(pkg,kind,scenario,*args[:-1])\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/suite.py\", line 87, in apply\n    return da.interp(lat=xr.DataArray(ty,dims=('y','x')),lon=xr.DataArray(tx,dims=('y','x'))).values\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/dataarray.py\", line 2546, in interp\n    ds = self._to_temp_dataset().interp(\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/dataset.py\", line 3988, in interp\n    obj, newidx = missing._localize(obj, {k: v})\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray/core/missing.py\", line 591, in _localize\n    imin, imax = index.get_indexer(pd.Index([minval, maxval]), method=\"nearest\")\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/pandas/core/indexes/base.py\", line 3903, in get_indexer\n    raise InvalidIndexError(self._requires_unique_msg)\npandas.errors.InvalidIndexError: Reindexing only valid with uniquely valued Index objects\n",
+    "seconds": 0.004912172000103965
+  },
+  {
+    "package": "xarray",
+    "grid": "gaussian",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 0.0013627499599696137,
+    "max_error": 0.008225767724362676,
+    "output_min": 0.8174668764377016,
+    "output_max": 3.1825331235622984,
+    "warnings": [],
+    "flags": [
+      "invalid_coordinate_accepted"
+    ],
+    "seconds": 0.00605760200005534
+  },
+  {
+    "package": "xarray",
+    "grid": "gaussian",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 0.5,
+    "rmse": 0.09259259259259259,
+    "max_error": 0.5555555555555556,
+    "output_min": 0.44444444444444436,
+    "output_max": 1.0000000000000002,
+    "warnings": [],
+    "flags": [
+      "fractional_categories"
+    ],
+    "seconds": 0.006864189999987502
+  }
+]

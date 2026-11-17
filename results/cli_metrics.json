@@ -1,0 +1,70 @@
+[
+  {
+    "package": "TempestRemap",
+    "case": "smooth",
+    "status": "completed",
+    "rmse": 0.03165051903440254,
+    "finite_fraction": 1.0,
+    "constant_max_error": null,
+    "relative_integral_error": 1.4135957392449785e-16,
+    "cli_vs_sparse_max_error": 0.0
+  },
+  {
+    "package": "NCO ncremap",
+    "case": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "vs_tempest_max_error": 0.0
+  },
+  {
+    "package": "TempestRemap",
+    "case": "constant",
+    "status": "completed",
+    "rmse": 6.251226429989865e-16,
+    "finite_fraction": 1.0,
+    "constant_max_error": 2.6645352591003757e-15,
+    "relative_integral_error": 3.2310396764073815e-16,
+    "cli_vs_sparse_max_error": 0.0
+  },
+  {
+    "package": "NCO ncremap",
+    "case": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "vs_tempest_max_error": 0.0
+  },
+  {
+    "package": "TempestRemap",
+    "case": "categorical",
+    "status": "completed",
+    "rmse": null,
+    "finite_fraction": 1.0,
+    "constant_max_error": null,
+    "relative_integral_error": 0.0,
+    "cli_vs_sparse_max_error": 0.0
+  },
+  {
+    "package": "NCO ncremap",
+    "case": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "vs_tempest_max_error": 0.0
+  },
+  {
+    "package": "TempestRemap",
+    "case": "nan_hole",
+    "status": "completed",
+    "rmse": null,
+    "finite_fraction": 0.8040123456790124,
+    "constant_max_error": null,
+    "relative_integral_error": null,
+    "cli_vs_sparse_max_error": 0.0
+  },
+  {
+    "package": "NCO ncremap",
+    "case": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.8040123456790124,
+    "vs_tempest_max_error": 0.0
+  }
+]

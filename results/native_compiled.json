@@ -1,0 +1,134 @@
+[
+  {
+    "package": "ESMPy",
+    "case": "icosahedral_CONSERVE_False",
+    "rmse": 0.008675554586712066,
+    "finite_fraction": 1.0,
+    "max_error": 0.018507013918370063,
+    "relative_integral_error": 4.240739575284689e-16,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.3517580589996214
+  },
+  {
+    "package": "ESMPy",
+    "case": "icosahedral_CONSERVE_True",
+    "rmse": 5.383379747478058e-15,
+    "finite_fraction": 1.0,
+    "max_error": 1.4210854715202004e-14,
+    "relative_integral_error": 6.462079352814763e-16,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.014368486000421399
+  },
+  {
+    "package": "ESMPy",
+    "case": "icosahedral_NEAREST_STOD_False",
+    "rmse": 0.00033359551275705427,
+    "finite_fraction": 1.0,
+    "max_error": 0.0005617585469090969,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.005269734000194148
+  },
+  {
+    "package": "ESMPy",
+    "case": "icosahedral_NEAREST_STOD_True",
+    "rmse": 0.0,
+    "finite_fraction": 1.0,
+    "max_error": 0.0,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.005705017000309454
+  },
+  {
+    "package": "xESMF",
+    "case": "roms_conservative_smooth",
+    "rmse": 0.0028633979013421413,
+    "finite_fraction": 1.0,
+    "max_error": 0.014758958920997767,
+    "weight_row_sum_min": 0.995262343007001,
+    "weight_row_sum_max": 1.0000000000000013,
+    "relative_integral_error": 9.939478360060409e-05,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 2.4371500980000746
+  },
+  {
+    "package": "xESMF",
+    "case": "roms_conservative_constant",
+    "rmse": 0.006356194908249044,
+    "finite_fraction": 1.0,
+    "max_error": 0.033163598950993745,
+    "weight_row_sum_min": 0.995262343007001,
+    "weight_row_sum_max": 1.0000000000000013,
+    "relative_integral_error": 0.00010519575786028557,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.09369030300013037
+  },
+  {
+    "package": "xESMF",
+    "case": "roms_conservative_constant_identity",
+    "rmse": 0.0,
+    "finite_fraction": 1.0,
+    "max_error": 0.0,
+    "weight_row_sum_min": 1.0,
+    "weight_row_sum_max": 1.0,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.047501827999894886
+  },
+  {
+    "package": "xESMF",
+    "case": "roms_conservative_constant_normed",
+    "rmse": 7.742959950613001e-16,
+    "finite_fraction": 1.0,
+    "max_error": 1.7763568394002505e-15,
+    "weight_row_sum_min": 0.9999999999999996,
+    "weight_row_sum_max": 1.0000000000000002,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.0666213859999516
+  },
+  {
+    "package": "xESMF",
+    "case": "roms_conservative_mask",
+    "rmse": 0.6189791978864011,
+    "finite_fraction": 1.0,
+    "max_error": 3.1157119145833416,
+    "weight_row_sum_min": 0.00011848324092684757,
+    "weight_row_sum_max": 1.0000000000000013,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.08351934600023014
+  },
+  {
+    "package": "xESMF",
+    "case": "roms_conservative_missing_corners",
+    "status": "error",
+    "error": "KeyError: \"Dataset.cf does not understand the key 'longitude'. Use 'repr(Dataset.cf)' (or 'Dataset.cf' in a Jupyter environment) to see a list of key names that can be interpreted.\"",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/native.py\", line 13, in probe\n    warnings.simplefilter('always');r.update(f() or {})\n                                             ^^^\n  File \"/workspace/geospatial-benchmarks/native.py\", line 144, in <lambda>\n    for c in ['smooth','constant','constant_identity','constant_normed','mask','missing_corners','folded_cell','staggered_vector']:probe('xESMF',f'roms_conservative_{c}',lambda c=c:roms_conserve(c))\n                                                                                                                                                                                     ^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/native.py\", line 62, in roms_conserve\n    r=xe.Regridder(src,dst,'conservative_normed' if case=='constant_normed' else 'conservative',unmapped_to_nan=True)\n      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 1016, in __init__\n    grid_in, shape_in, input_dims = ds_to_ESMFgrid(\n                                    ^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 166, in ds_to_ESMFgrid\n    lon_b, lat_b = _get_lon_lat_bounds(ds)\n                   ^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 99, in _get_lon_lat_bounds\n    if ds.cf['longitude'].ndim > 1:\n       ~~~~~^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/cf_xarray/accessor.py\", line 2838, in __getitem__\n    return _getitem(self, key)\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/cf_xarray/accessor.py\", line 1318, in _getitem\n    raise KeyError(\nKeyError: \"Dataset.cf does not understand the key 'longitude'. Use 'repr(Dataset.cf)' (or 'Dataset.cf' in a Jupyter environment) to see a list of key names that can be interpreted.\"\n",
+    "seconds": 0.009555545000239363
+  },
+  {
+    "package": "xESMF",
+    "case": "roms_conservative_folded_cell",
+    "rmse": 0.3941931101435308,
+    "finite_fraction": 1.0,
+    "max_error": 2.90300594121963,
+    "weight_row_sum_min": 0.995262343007001,
+    "weight_row_sum_max": 1.938551146301931,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.043681254999683006
+  },
+  {
+    "package": "xESMF",
+    "case": "roms_conservative_staggered_vector",
+    "status": "error",
+    "error": "ValueError: The horizontal shape of input data is (20, 29), different from that of the regridder (20, 30)!",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/native.py\", line 13, in probe\n    warnings.simplefilter('always');r.update(f() or {})\n                                             ^^^\n  File \"/workspace/geospatial-benchmarks/native.py\", line 144, in <lambda>\n    for c in ['smooth','constant','constant_identity','constant_normed','mask','missing_corners','folded_cell','staggered_vector']:probe('xESMF',f'roms_conservative_{c}',lambda c=c:roms_conserve(c))\n                                                                                                                                                                                     ^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/native.py\", line 75, in roms_conserve\n    r(xr.DataArray(np.ones((20,29)),dims=('y','x')))\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 610, in __call__\n    return self.regrid_dataarray(\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 727, in regrid_dataarray\n    dr_out = xr.apply_ufunc(\n             ^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xarray/computation/apply_ufunc.py\", line 1292, in apply_ufunc\n    return apply_dataarray_vfunc(\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xarray/computation/apply_ufunc.py\", line 312, in apply_dataarray_vfunc\n    result_var = func(*data_vars)\n                 ^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xarray/computation/apply_ufunc.py\", line 820, in apply_variable_ufunc\n    result_data = func(*input_data)\n                  ^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/frontend.py\", line 662, in regrid_array\n    check_shapes(indata, weights, **kwargs)\n  File \"/workspace/geospatial-benchmarks/compiled/lib/python3.12/site-packages/xesmf/smm.py\", line 147, in check_shapes\n    raise ValueError(\nValueError: The horizontal shape of input data is (20, 29), different from that of the regridder (20, 30)!\n",
+    "seconds": 0.07802821600034804
+  }
+]

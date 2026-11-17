@@ -1,0 +1,545 @@
+[
+  {
+    "package": "astropy_healpix",
+    "grid": "rectilinear",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0005486459999701765
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "rectilinear",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00030274000005192647
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "rectilinear",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0003909800000201358
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "rectilinear",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00031073699983608094
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "rectilinear",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00039449999985663453
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "rectilinear",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00041102099999079655
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "rectilinear",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00040544399985265045
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "rectilinear",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0005758469999364024
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "rectilinear",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0003235229999063449
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "roms",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0005568269998548203
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "roms",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0004126549999909912
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "roms",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0003567369999473158
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "roms",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0016803930000151013
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "roms",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.000798170000052778
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "roms",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0004964879999533878
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "roms",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00039575100004185515
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "roms",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0005775289998837252
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "roms",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0005414900001596834
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "satellite_swath",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0006122090001099423
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "satellite_swath",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.000585819999969317
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "satellite_swath",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0006127500000729924
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "satellite_swath",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0004481799999211944
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "satellite_swath",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0004983900000752328
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "satellite_swath",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0005383329998949193
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "satellite_swath",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.00044969999999011634
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "satellite_swath",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0004943339999954333
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "satellite_swath",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0005251299999144976
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "icosahedral",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.5078017929999987
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "icosahedral",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0014787669999805075
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "icosahedral",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.001567850999890652
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "icosahedral",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0016066589998899872
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "icosahedral",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0012910530001590814
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "icosahedral",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0016714519999823096
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "icosahedral",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0013367409999318625
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "icosahedral",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0017486409999492025
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "icosahedral",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.001552281000158473
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "healpix",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 0.7825520833333334,
+    "rmse": 1406094647296.4197,
+    "max_error": 44813432062753.37,
+    "output_min": -44813432062752.25,
+    "output_max": 38943945457295.0,
+    "warnings": [
+      "divide by zero encountered in bilinear_interpolation_weights",
+      "invalid value encountered in bilinear_interpolation_weights",
+      "invalid value encountered in reduce"
+    ],
+    "flags": [
+      "large_error"
+    ],
+    "seconds": 1.7881881390001126
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "healpix",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 0.7825520833333334,
+    "rmse": 0.04288170527779756,
+    "max_error": 1.0,
+    "output_min": 6.0,
+    "output_max": 7.5,
+    "warnings": [
+      "divide by zero encountered in bilinear_interpolation_weights",
+      "invalid value encountered in bilinear_interpolation_weights",
+      "invalid value encountered in reduce"
+    ],
+    "flags": [
+      "constant_or_coverage"
+    ],
+    "seconds": 0.008032481000100233
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "healpix",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.6354166666666666,
+    "rmse": 1560421336314.2917,
+    "max_error": 44813432062753.37,
+    "output_min": -44813432062752.25,
+    "output_max": 38943945457295.0,
+    "warnings": [
+      "divide by zero encountered in bilinear_interpolation_weights",
+      "invalid value encountered in bilinear_interpolation_weights",
+      "invalid value encountered in reduce"
+    ],
+    "flags": [
+      "large_error"
+    ],
+    "seconds": 0.008655247000206145
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "healpix",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.6354166666666666,
+    "rmse": 1560421336314.2917,
+    "max_error": 44813432062753.37,
+    "output_min": -44813432062752.25,
+    "output_max": 38943945457295.0,
+    "warnings": [
+      "divide by zero encountered in bilinear_interpolation_weights",
+      "invalid value encountered in bilinear_interpolation_weights",
+      "invalid value encountered in reduce"
+    ],
+    "flags": [
+      "masked_sentinel_leak",
+      "large_error"
+    ],
+    "seconds": 0.0044751719999567285
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "healpix",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 0.7825520833333334,
+    "rmse": 1406094647296.423,
+    "max_error": 44813432062753.12,
+    "output_min": -44813432062752.0,
+    "output_max": 38943945457295.5,
+    "warnings": [
+      "divide by zero encountered in bilinear_interpolation_weights",
+      "invalid value encountered in bilinear_interpolation_weights",
+      "invalid value encountered in reduce"
+    ],
+    "flags": [
+      "large_error"
+    ],
+    "seconds": 0.047357333000036306
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "healpix",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 0.7825520833333334,
+    "rmse": 1406094647296.4197,
+    "max_error": 44813432062753.37,
+    "output_min": -44813432062752.25,
+    "output_max": 38943945457295.0,
+    "warnings": [
+      "divide by zero encountered in bilinear_interpolation_weights",
+      "invalid value encountered in bilinear_interpolation_weights",
+      "invalid value encountered in reduce"
+    ],
+    "flags": [
+      "large_error"
+    ],
+    "seconds": 0.007326286000079563
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "healpix",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 0.7825520833333334,
+    "rmse": 1406094647296.4197,
+    "max_error": 44813432062753.37,
+    "output_min": -44813432062752.25,
+    "output_max": 38943945457295.0,
+    "warnings": [
+      "divide by zero encountered in bilinear_interpolation_weights",
+      "invalid value encountered in bilinear_interpolation_weights",
+      "invalid value encountered in reduce"
+    ],
+    "flags": [
+      "large_error"
+    ],
+    "seconds": 0.003757871000061641
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "healpix",
+    "scenario": "bad_lat",
+    "status": "completed",
+    "finite_fraction": 0.7825520833333334,
+    "rmse": 1406094647296.4197,
+    "max_error": 44813432062753.37,
+    "output_min": -44813432062752.25,
+    "output_max": 38943945457295.0,
+    "warnings": [
+      "divide by zero encountered in bilinear_interpolation_weights",
+      "invalid value encountered in bilinear_interpolation_weights",
+      "invalid value encountered in reduce"
+    ],
+    "flags": [
+      "invalid_coordinate_accepted",
+      "large_error"
+    ],
+    "seconds": 0.003110128999878725
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "healpix",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 0.7825520833333334,
+    "rmse": 2466328475148.2393,
+    "max_error": 104687177814265.81,
+    "output_min": -104687177814265.81,
+    "output_max": 2800034806023.6606,
+    "warnings": [
+      "divide by zero encountered in bilinear_interpolation_weights",
+      "invalid value encountered in bilinear_interpolation_weights",
+      "invalid value encountered in multiply"
+    ],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.007670884999924965
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "gaussian",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.004750255000089965
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "gaussian",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0038210100001379033
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "gaussian",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0015196169999853737
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "gaussian",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0018335019999540236
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "gaussian",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0014671159999579686
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "gaussian",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.03428260200007571
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "gaussian",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.001267620000135139
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "gaussian",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0013971529999707855
+  },
+  {
+    "package": "astropy_healpix",
+    "grid": "gaussian",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "HEALPix-only input",
+    "seconds": 0.0017194269998981326
+  }
+]

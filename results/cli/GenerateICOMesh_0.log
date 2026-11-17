@@ -1,0 +1,13 @@
+Parameters:
+  --res <integer> [4] 
+  --dual <bool> [false] 
+  --file <string> ["ico.g"] 
+  --out_format <string> ["Netcdf4"] 
+------------------------------------------------------------
+Generating Mesh.. Done
+Writing Mesh to file
+..Mesh size: Nodes [162] Elements [320]
+..Nodes per element
+....Block 1 (3 nodes): 320
+..Done
+

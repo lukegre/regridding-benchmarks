@@ -1,0 +1,91 @@
+20261117 170301.048 ERROR            PET0 ~~~~~~~~~~~~~~~~~~~~ Degenerate Element Detected ~~~~~~~~~~~~~~~~~~~~
+20261117 170301.048 ERROR            PET0   degenerate elem. id=30
+20261117 170301.048 ERROR            PET0 
+20261117 170301.048 ERROR            PET0   degenerate elem. coords (lon [-180 to 180], lat [-90 to 90]) (x,y,z)
+20261117 170301.048 ERROR            PET0   -----------------------------------------------------------------
+20261117 170301.048 ERROR            PET0     0  (28.000000,  -20.000000)  (0.829699, 0.441159, -0.342020)
+20261117 170301.048 ERROR            PET0     1  (28.000000,  -20.000000)  (0.829699, 0.441159, -0.342020)
+20261117 170301.048 ERROR            PET0     2  (28.000000,  -18.000000)  (0.839733, 0.446494, -0.309017)
+20261117 170301.048 ERROR            PET0     3  (28.000000,  -18.000000)  (0.839733, 0.446494, -0.309017)
+20261117 170301.048 ERROR            PET0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20261117 170301.048 ERROR            PET0 ESMCI_Mesh_Regrid_Glue.C:271 ESMCI_regrid_create() Invalid argument  - - Src contains a cell that has corners close enough that the cell collapses to a line or point
+20261117 170301.049 ERROR            PET0 ESMCI_Mesh_Regrid_Glue.C:839 ESMCI_regrid_create() Invalid argument  - Internal subroutine call returned Error
+20261117 170301.049 ERROR            PET0 ESMCI_MeshCap.C:1681 MeshCap::regrid_create() Invalid argument  - Internal subroutine call returned Error
+20261117 170301.049 ERROR            PET0 ESMF_Regrid.F90:384 ESMF_RegridStore Invalid argument  - Internal subroutine call returned Error
+20261117 170301.050 ERROR            PET0 ESMF_FieldRegrid.F90:1302 ESMF_FieldRegridStoreNX Invalid argument  - Internal subroutine call returned Error
+20261117 170301.050 ERROR            PET0 ESMF_Field_C.F90:1157 f_esmf_regridstore Invalid argument  - Internal subroutine call returned Error
+20261117 170301.050 ERROR            PET0 ESMCI_Field.C:1472 ESMCI::Field::regridstore() Invalid argument  - Internal subroutine call returned Error
+20261117 170301.050 ERROR            PET0 ESMC_Field.C:473 ESMC_FieldRegridStore() Invalid argument  - Internal subroutine call returned Error
+20261117 170301.575 ERROR            PET0 ~~~~~~~~~~~~~~~~~~~~ Degenerate Element Detected ~~~~~~~~~~~~~~~~~~~~
+20261117 170301.575 ERROR            PET0   degenerate elem. id=30
+20261117 170301.575 ERROR            PET0 
+20261117 170301.575 ERROR            PET0   degenerate elem. coords (lon [-180 to 180], lat [-90 to 90]) (x,y,z)
+20261117 170301.575 ERROR            PET0   -----------------------------------------------------------------
+20261117 170301.575 ERROR            PET0     0  (26.030384,  -18.508217)  (0.852086, 0.416150, -0.317441)
+20261117 170301.575 ERROR            PET0     1  (26.030384,  -18.508217)  (0.852086, 0.416150, -0.317441)
+20261117 170301.575 ERROR            PET0     2  (26.097887,  -16.508217)  (0.861026, 0.421773, -0.284153)
+20261117 170301.575 ERROR            PET0     3  (26.097887,  -16.508217)  (0.861026, 0.421773, -0.284153)
+20261117 170301.575 ERROR            PET0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20261117 170301.575 ERROR            PET0 ESMCI_Mesh_Regrid_Glue.C:271 ESMCI_regrid_create() Invalid argument  - - Src contains a cell that has corners close enough that the cell collapses to a line or point
+20261117 170301.575 ERROR            PET0 ESMCI_Mesh_Regrid_Glue.C:839 ESMCI_regrid_create() Invalid argument  - Internal subroutine call returned Error
+20261117 170301.575 ERROR            PET0 ESMCI_MeshCap.C:1681 MeshCap::regrid_create() Invalid argument  - Internal subroutine call returned Error
+20261117 170301.575 ERROR            PET0 ESMF_Regrid.F90:384 ESMF_RegridStore Invalid argument  - Internal subroutine call returned Error
+20261117 170301.575 ERROR            PET0 ESMF_FieldRegrid.F90:1302 ESMF_FieldRegridStoreNX Invalid argument  - Internal subroutine call returned Error
+20261117 170301.575 ERROR            PET0 ESMF_Field_C.F90:1157 f_esmf_regridstore Invalid argument  - Internal subroutine call returned Error
+20261117 170301.575 ERROR            PET0 ESMCI_Field.C:1472 ESMCI::Field::regridstore() Invalid argument  - Internal subroutine call returned Error
+20261117 170301.576 ERROR            PET0 ESMC_Field.C:473 ESMC_FieldRegridStore() Invalid argument  - Internal subroutine call returned Error
+20261117 170306.442 ERROR            PET0 ~~~~~~~~~~~~~~~~~~~~ Degenerate Element Detected ~~~~~~~~~~~~~~~~~~~~
+20261117 170306.442 ERROR            PET0   degenerate elem. id=64
+20261117 170306.442 ERROR            PET0 
+20261117 170306.442 ERROR            PET0   degenerate elem. coords (lon [-180 to 180], lat [-90 to 90]) (x,y,z)
+20261117 170306.442 ERROR            PET0   -----------------------------------------------------------------
+20261117 170306.442 ERROR            PET0     0  (-11.250000,  -88.506491)  (0.025563, -0.005085, -0.999660)
+20261117 170306.442 ERROR            PET0     1  (-11.250000,  -88.506491)  (0.025563, -0.005085, -0.999660)
+20261117 170306.442 ERROR            PET0     2  (-11.250000,  -83.014683)  (0.119278, -0.023726, -0.992577)
+20261117 170306.442 ERROR            PET0     3  (-11.250000,  -83.014683)  (0.119278, -0.023726, -0.992577)
+20261117 170306.442 ERROR            PET0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20261117 170306.442 ERROR            PET0 ESMCI_Mesh_Regrid_Glue.C:271 ESMCI_regrid_create() Invalid argument  - - Src contains a cell that has corners close enough that the cell collapses to a line or point
+20261117 170306.442 ERROR            PET0 ESMCI_Mesh_Regrid_Glue.C:839 ESMCI_regrid_create() Invalid argument  - Internal subroutine call returned Error
+20261117 170306.442 ERROR            PET0 ESMCI_MeshCap.C:1681 MeshCap::regrid_create() Invalid argument  - Internal subroutine call returned Error
+20261117 170306.442 ERROR            PET0 ESMF_Regrid.F90:384 ESMF_RegridStore Invalid argument  - Internal subroutine call returned Error
+20261117 170306.442 ERROR            PET0 ESMF_FieldRegrid.F90:1302 ESMF_FieldRegridStoreNX Invalid argument  - Internal subroutine call returned Error
+20261117 170306.442 ERROR            PET0 ESMF_Field_C.F90:1157 f_esmf_regridstore Invalid argument  - Internal subroutine call returned Error
+20261117 170306.443 ERROR            PET0 ESMCI_Field.C:1472 ESMCI::Field::regridstore() Invalid argument  - Internal subroutine call returned Error
+20261117 170306.443 ERROR            PET0 ESMC_Field.C:473 ESMC_FieldRegridStore() Invalid argument  - Internal subroutine call returned Error
+20261117 170306.852 INFO             PET0  Finalizing ESMF
+~~~ Degenerate Element Detected ~~~~~~~~~~~~~~~~~~~~
+20261117 170306.147 ERROR            PET0   degenerate elem. id=63
+20261117 170306.147 ERROR            PET0 
+20261117 170306.147 ERROR            PET0   degenerate elem. coords (lon [-180 to 180], lat [-90 to 90]) (x,y,z)
+20261117 170306.147 ERROR            PET0   -----------------------------------------------------------------
+20261117 170306.147 ERROR            PET0     0  (-11.250000,  -85.760587)  (0.072504, -0.014422, -0.997264)
+20261117 170306.147 ERROR            PET0     1  (-11.250000,  -85.760587)  (0.072504, -0.014422, -0.997264)
+20261117 170306.147 ERROR            PET0     2  (-11.250000,  -80.268779)  (0.165779, -0.032975, -0.985612)
+20261117 170306.147 ERROR            PET0     3  (-11.250000,  -80.268779)  (0.165779, -0.032975, -0.985612)
+20261117 170306.147 ERROR            PET0 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20261117 170306.147 ERROR            PET0 ESMCI_Mesh_Regrid_Glue.C:271 ESMCI_regrid_create() Invalid argument  - - Src contains a cell that has corners close enough that the cell collapses to a line or point
+20261117 170306.148 ERROR            PET0 ESMCI_Mesh_Regrid_Glue.C:839 ESMCI_regrid_create() Invalid argument  - Internal subroutine call returned Error
+20261117 170306.148 ERROR            PET0 ESMCI_MeshCap.C:1681 MeshCap::regrid_create() Invalid argument  - Internal subroutine call returned Error
+20261117 170306.148 ERROR            PET0 ESMF_Regrid.F90:384 ESMF_RegridStore Invalid argument  - Internal subroutine call returned Error
+20261117 170306.148 ERROR            PET0 ESMF_FieldRegrid.F90:1302 ESMF_FieldRegridStoreNX Invalid argument  - Internal subroutine call returned Error
+20261117 170306.148 ERROR            PET0 ESMF_Field_C.F90:1157 f_esmf_regridstore Invalid argument  - Internal subroutine call returned Error
+20261117 170306.148 ERROR            PET0 ESMCI_Field.C:1472 ESMCI::Field::regridstore() Invalid argument  - Internal subroutine call returned Error
+20261117 170306.148 ERROR            PET0 ESMC_Field.C:473 ESMC_FieldRegridStore() Invalid argument  - Internal subroutine call returned Error
+20261117 170306.369 INFO             PET0  Finalizing ESMF
+20261117 170516.042 ERROR            PET0 /home/conda/feedstock_root/build_artifacts/bld/rattler-build_esmf_1783898060/work/src/Infrastructure/Mesh/src/ESMCI_Mesh_Glue.C:1005 ESMCI_meshaddelements() Value unrecognized or out of range  - - elemConn entries should not be greater than number of nodes on processor
+20261117 170516.043 ERROR            PET0 /home/conda/feedstock_root/build_artifacts/bld/rattler-build_esmf_1783898060/work/src/Infrastructure/Mesh/src/ESMCI_Mesh_Glue.C:1602 ESMCI_meshaddelements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.043 ERROR            PET0 ESMCI_MeshCap.C:582 MeshCap::meshaddelements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.043 ERROR            PET0 ESMC_Mesh.C:241 ESMC_MeshAddElements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.047 ERROR            PET0 /home/conda/feedstock_root/build_artifacts/bld/rattler-build_esmf_1783898060/work/src/Infrastructure/Mesh/src/ESMCI_Mesh_Glue.C:1005 ESMCI_meshaddelements() Value unrecognized or out of range  - - elemConn entries should not be greater than number of nodes on processor
+20261117 170516.047 ERROR            PET0 /home/conda/feedstock_root/build_artifacts/bld/rattler-build_esmf_1783898060/work/src/Infrastructure/Mesh/src/ESMCI_Mesh_Glue.C:1602 ESMCI_meshaddelements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.047 ERROR            PET0 ESMCI_MeshCap.C:582 MeshCap::meshaddelements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.047 ERROR            PET0 ESMC_Mesh.C:241 ESMC_MeshAddElements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.050 ERROR            PET0 /home/conda/feedstock_root/build_artifacts/bld/rattler-build_esmf_1783898060/work/src/Infrastructure/Mesh/src/ESMCI_Mesh_Glue.C:1005 ESMCI_meshaddelements() Value unrecognized or out of range  - - elemConn entries should not be greater than number of nodes on processor
+20261117 170516.050 ERROR            PET0 /home/conda/feedstock_root/build_artifacts/bld/rattler-build_esmf_1783898060/work/src/Infrastructure/Mesh/src/ESMCI_Mesh_Glue.C:1602 ESMCI_meshaddelements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.050 ERROR            PET0 ESMCI_MeshCap.C:582 MeshCap::meshaddelements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.050 ERROR            PET0 ESMC_Mesh.C:241 ESMC_MeshAddElements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.053 ERROR            PET0 /home/conda/feedstock_root/build_artifacts/bld/rattler-build_esmf_1783898060/work/src/Infrastructure/Mesh/src/ESMCI_Mesh_Glue.C:1005 ESMCI_meshaddelements() Value unrecognized or out of range  - - elemConn entries should not be greater than number of nodes on processor
+20261117 170516.053 ERROR            PET0 /home/conda/feedstock_root/build_artifacts/bld/rattler-build_esmf_1783898060/work/src/Infrastructure/Mesh/src/ESMCI_Mesh_Glue.C:1602 ESMCI_meshaddelements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.053 ERROR            PET0 ESMCI_MeshCap.C:582 MeshCap::meshaddelements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170516.053 ERROR            PET0 ESMC_Mesh.C:241 ESMC_MeshAddElements() Value unrecognized or out of range  - Internal subroutine call returned Error
+20261117 170517.582 INFO             PET0  Finalizing ESMF

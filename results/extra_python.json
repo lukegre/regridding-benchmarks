@@ -1,0 +1,94 @@
+[
+  {
+    "package": "GDAL geolocation via Rasterio",
+    "case": "smooth",
+    "finite_fraction": 0.5314900153609831,
+    "rmse": 0.013042760093023572,
+    "fractional_categories": null,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.08262864799962699
+  },
+  {
+    "package": "GDAL geolocation via Rasterio",
+    "case": "unwrapped",
+    "finite_fraction": 0.8509984639016898,
+    "rmse": 0.014337569293574121,
+    "fractional_categories": null,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.005573553999965952
+  },
+  {
+    "package": "GDAL geolocation via Rasterio",
+    "case": "constant",
+    "finite_fraction": 0.5314900153609831,
+    "rmse": 1.0252095194107511e-15,
+    "fractional_categories": null,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.006288506000146299
+  },
+  {
+    "package": "GDAL geolocation via Rasterio",
+    "case": "nan_hole",
+    "finite_fraction": 0.5161290322580645,
+    "rmse": 0.013113784849562077,
+    "fractional_categories": null,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.009893688000374823
+  },
+  {
+    "package": "GDAL geolocation via Rasterio",
+    "case": "categorical",
+    "finite_fraction": 0.5314900153609831,
+    "rmse": 0.2296867293123549,
+    "fractional_categories": true,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.006401738000022306
+  },
+  {
+    "package": "pyproj",
+    "case": "roundtrip",
+    "roundtrip_max_degrees": 1.9342987656045807e-08,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.05154370700029176
+  },
+  {
+    "package": "pyproj",
+    "case": "wrong_axis_order",
+    "max_position_error_metres": 6169905.356967855,
+    "status": "completed",
+    "warnings": [],
+    "seconds": 0.010504231000140862
+  },
+  {
+    "package": "pyproj",
+    "case": "invalid_lat",
+    "status": "error",
+    "error": "ProjError: transform error: Invalid coordinate: (Internal Proj Error: push: Invalid latitude)",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/extra.py\", line 11, in probe\n    warnings.simplefilter('always');r.update(f() or {})\n                                             ^^^\n  File \"/workspace/geospatial-benchmarks/extra.py\", line 75, in <lambda>\n    for c in ['roundtrip','wrong_axis_order','invalid_lat']:probe('pyproj',c,lambda c=c:proj(c))\n                                                                                        ^^^^^^^\n  File \"/workspace/geospatial-benchmarks/extra.py\", line 36, in proj\n    east,north=t.transform(lo,la,errcheck=case=='invalid_lat')\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/pyproj/transformer.py\", line 967, in transform\n    self._transformer._transform(\n  File \"pyproj/_transformer.pyx\", line 831, in pyproj._transformer._Transformer._transform\npyproj.exceptions.ProjError: transform error: Invalid coordinate: (Internal Proj Error: push: Invalid latitude)\n",
+    "seconds": 0.0061302079998313275
+  },
+  {
+    "package": "Xugrid global sphere",
+    "case": "barycentric",
+    "status": "error",
+    "error": "ValueError: zero-size array to reduction operation maximum which has no identity",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/geospatial-benchmarks/extra.py\", line 11, in probe\n    warnings.simplefilter('always');r.update(f() or {})\n                                             ^^^\n  File \"/workspace/geospatial-benchmarks/extra.py\", line 76, in <lambda>\n    for c in ['barycentric','overlap']:probe('Xugrid global sphere',c,lambda c=c:xugrid_sphere(c))\n                                                                                 ^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/extra.py\", line 69, in xugrid_sphere\n    r=xu.OverlapRegridder(src,dst,method='mean') if case=='overlap' else xu.BarycentricInterpolator(src,dst)\n                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xugrid/regrid/regridder.py\", line 619, in __init__\n    super().__init__(source, target, tolerance)\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xugrid/regrid/regridder.py\", line 112, in __init__\n    self._compute_weights(self._source, self._target, tolerance)\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xugrid/regrid/regridder.py\", line 634, in _compute_weights\n    source_index, target_index, weights = source.barycentric(target, tolerance)\n                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xugrid/regrid/unstructured.py\", line 156, in barycentric\n    ) = voronoi.voronoi_topology(\n        ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xugrid/ugrid/voronoi.py\", line 438, in voronoi_topology\n    ) = exterior_topology(\n        ^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xugrid/ugrid/voronoi.py\", line 323, in exterior_topology\n    choose_convex(i, j, vor_vertices, orig_vertices, n_interpolated)\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xugrid/ugrid/voronoi.py\", line 208, in choose_convex\n    m = n_vertex.max()\n        ^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/numpy/_core/_methods.py\", line 41, in _amax\n    return umr_maximum(a, axis, None, out, keepdims, initial, where)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: zero-size array to reduction operation maximum which has no identity\n",
+    "seconds": 0.7902267419999589
+  },
+  {
+    "package": "Xugrid global sphere",
+    "case": "overlap",
+    "rmse": 0.5431410774959095,
+    "finite_fraction": 1.0,
+    "qualification": "Coordinates are lon/lat degrees; Xugrid algorithms use planar geometry.",
+    "status": "completed",
+    "warnings": [],
+    "seconds": 5.035326180999618
+  }
+]
