@@ -1,0 +1,87 @@
+{
+  "tool": "xesmf",
+  "grid": "rectilinear",
+  "layout": [
+    1,
+    128,
+    128
+  ],
+  "output_chunks_argument": "default",
+  "setup_seconds": 37.486502166999344,
+  "graph_seconds": 2.7573553639995225,
+  "input_chunks": [
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128
+    ],
+    [
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128
+    ]
+  ],
+  "output_chunks": [
+    [
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128
+    ],
+    [
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128,
+      128
+    ]
+  ],
+  "graph_tasks": 42497,
+  "rechunk_layers": [],
+  "computed": false,
+  "pilot": "Separate earlier default-output compute pilot interrupted after approximately 150 seconds, without a result; a second 1024 pilot with full-horizontal output was also stopped after approximately 120 seconds. Neither is a completed execution measurement.",
+  "interrupted_pilots": [
+    {
+      "output_chunks": "default",
+      "approx_elapsed_seconds": 150,
+      "status": "interrupted; no completed result"
+    },
+    {
+      "output_chunks": [
+        1024,
+        1024
+      ],
+      "approx_elapsed_seconds": 120,
+      "status": "interrupted; no completed result"
+    }
+  ]
+}

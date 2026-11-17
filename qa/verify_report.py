@@ -24,12 +24,42 @@ with sync_playwright() as p:
  assert page.locator('#large-detail').get_attribute('open') is None
  page.locator('#large-grid').select_option('icosahedral');page.locator('#large-scale').select_option('1024')
  assert page.locator('#large-table tr').count()==expected('icosahedral',1024)
- page.locator('#figure-scenario').select_option('constant')
- assert page.locator('#coverage-figure button').count()==96
+ assert page.locator('#figure-scenario').count()==0, 'Small-grid figures must not remain on home'
+ assert page.locator('#explorer').count()==0, 'Small-grid evidence must not remain on home'
+ assert page.locator('#chunked-timings').count()==1
+ assert page.locator('nav[aria-label="Report pages"] a[aria-current="page"]').get_attribute('href')=='index.html'
+ chunk=json.loads((root/'chunked_results/combined.json').read_text())
+ assert page.locator('#chunk-table tr').count()==len(chunk['summary'])
+ assert 'including reads' in page.locator('#chunk-storage').inner_text()
+ assert '42,497' in page.locator('#chunk-diagnostic').inner_text()
+ assert 'no computation completed' in page.locator('#chunk-diagnostic').inner_text()
+ assert '4 finite-mask mismatches' in page.locator('#chunk-accuracy-note').inner_text()
+ if chunk['summary']:
+  chosen=chunk['summary'][0]['tool'];page.locator('#chunk-tool').select_option(chosen)
+  assert page.locator('#chunk-table tr').count()==len([r for r in chunk['summary'] if r['tool']==chosen])
+  page.locator('#chunk-table details').first.click()
+  assert 'synchronous' in page.locator('#chunk-table details pre').first.inner_text()
+  page.locator('#chunk-tool').select_option('')
  for width in [390,700,1360]:
   page.set_viewport_size({'width':width,'height':900})
   assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'),f'Overflow at {width}'
  page.locator('#large-grid').select_option('rectilinear');page.locator('#large-timings').screenshot(path='/tmp/regridding-large-report.png')
+ page.set_content((root/'docs/small-data.html').read_text());page.wait_for_selector('#results tr')
+ assert page.locator('#large-timings').count()==0
+ assert page.locator('nav[aria-label="Report pages"] a[aria-current="page"]').get_attribute('href')=='small-data.html'
+ page.locator('#figure-scenario').select_option('constant');assert page.locator('#coverage-figure button').count()==96
+ page.locator('#pkg').select_option('astropy_healpix');assert '54 of 924' in page.locator('#count').inner_text()
+ page.set_content((root/'docs/tool-guide.html').read_text())
+ assert page.locator('nav[aria-label="Report pages"] a[aria-current="page"]').get_attribute('href')=='tool-guide.html'
+ contracts=json.loads((root/'docs/tool_contracts.json').read_text())
+ assert len(contracts['tools'])==15
+ assert page.locator('#contracts details').count()==15
+ for phrase in ['2^53','bit flags','scale_factor','globally constrained rounding']:
+  assert phrase in page.locator('body').inner_text(),phrase
+ page.locator('#contracts details').filter(has=page.locator('summary',has_text='xESMF')).first.locator('summary').click()
+ assert 'nearest_s2d' in page.locator('body').inner_text()
+ for width in [390,700,1360]:
+  page.set_viewport_size({'width':width,'height':900});assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'),f'Guide overflow at {width}'
  assert not errors,errors
  browser.close()
-print('Verified shared-size filters, timing data, three repeats, CRS distinction, original figures, responsive layout and absence of JavaScript errors.')
+print('Verified large/chunked home, separate small-grid page, guide/contracts, timing filters, CRS distinction, chunk diagnostics, navigation, responsive layout and no JavaScript errors.')

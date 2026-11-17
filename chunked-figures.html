@@ -1,0 +1,14 @@
+<section id="chunked-timings">
+<div class="eyebrow">Chunked arrays · recorded runs</div><h2>Chunk layout and execution</h2>
+<p>The completed experiments use a 4 × 512 × 512 field cube with four time slices, 256 missing values, and in-memory NumPy inputs wrapped as Dask chunks. They run the same fixture with different input chunk layouts. Graph construction and actual computation are timed separately when the adapter returns a lazy array; for eager outputs the application time is reported separately. Setup is shared across repeats and is not included in those times. Use the filters to compare a tool, test and layout.</p>
+<div class="chunk-controls"><label>Tool<select id="chunk-tool"><option value="">All tools</option></select></label><label>Test<select id="chunk-grid"><option value="">All tests</option></select></label><label>Input layout<select id="chunk-layout"><option value="">All layouts</option></select></label></div>
+<p id="chunk-count" class="note" role="status" aria-live="polite"></p>
+<div class="table-wrap"><table><thead><tr><th>Tool / test</th><th>Input layout<br>(time, y, x)</th><th>Setup shared (s)</th><th>Graph median (s)</th><th>Compute median (s)</th><th>Eager application median (s)</th><th>Graph tasks</th><th>Accuracy</th><th>Execution details</th></tr></thead><tbody id="chunk-table"></tbody></table></div>
+<p id="chunk-accuracy-note" class="note"></p>
+<p class="note">Median times are across the recorded repetitions. A dash means that a phase was not separately measured, not zero. Lazy graph construction is not completed interpolation: compare compute time as well. The eager reference and its timing are in each row’s details.</p>
+<h3>Warm-cache storage control</h3><div id="chunk-storage"></div>
+<h3>Earlier default-output graph diagnostic</h3><div id="chunk-diagnostic"></div>
+<details><summary>Interpretation and limits</summary><p>Chunk boundaries are an execution choice, not a change in interpolation method. The recorded input and output chunk tuples, scheduler, task counts and rechunk graph layers are shown for each profile. xESMF was explicitly given full-horizontal 512 × 512 output chunks in the completed experiments. Some adapters may materialize data eagerly or rechunk spatial dimensions; lazy input alone does not establish out-of-core execution. Results reflect these fixtures, library versions and scheduler on the recorded machine, not a general memory-scaling guarantee. Maximum absolute and seam errors compare against the recorded reference; finite-mask mismatches should also be checked.</p></details>
+<details id="chunk-failures"><summary>Failures and unsupported cases</summary><div id="chunk-failure-content"></div></details>
+<div class="actions"><a href="chunked-results.json" download>Download all chunked results and repetitions</a></div>
+</section>

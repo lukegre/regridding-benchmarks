@@ -1,0 +1,813 @@
+{
+  "tool": "odc_geo",
+  "grid": "crs_2056",
+  "summary": [
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        1,
+        128,
+        128
+      ],
+      "repeats": 3,
+      "setup_seconds_shared": 0.1317811860008078,
+      "median_graph_seconds": 0.020524753999779932,
+      "median_compute_seconds": 0.35006138399876363,
+      "median_eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "graph_tasks": 128,
+      "rechunk_layers": [],
+      "reference_seconds": 0.20217070699982287,
+      "reference_was_lazy": false,
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 6.792067996919116e-07,
+        "seam_max_abs_error": 6.792067996919116e-07,
+        "finite_values": 998164
+      },
+      "fixture": {
+        "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+        "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+        "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+        "shape": [
+          4,
+          512,
+          512
+        ],
+        "missing_count": 256
+      },
+      "setup_note": "Warp geometry and interpolation are fused in application; GeoBox construction alone is setup.",
+      "weights_nnz": null
+    },
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        1,
+        256,
+        256
+      ],
+      "repeats": 3,
+      "setup_seconds_shared": 0.1317811860008078,
+      "median_graph_seconds": 0.0111636620003992,
+      "median_compute_seconds": 0.18701658600002702,
+      "median_eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "graph_tasks": 32,
+      "rechunk_layers": [],
+      "reference_seconds": 0.20217070699982287,
+      "reference_was_lazy": false,
+      "correctness": {
+        "finite_mask_mismatches": 4,
+        "max_abs_error": 6.608742624258923e-07,
+        "seam_max_abs_error": 6.386166129246362e-07,
+        "finite_values": 998164
+      },
+      "fixture": {
+        "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+        "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+        "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+        "shape": [
+          4,
+          512,
+          512
+        ],
+        "missing_count": 256
+      },
+      "setup_note": "Warp geometry and interpolation are fused in application; GeoBox construction alone is setup.",
+      "weights_nnz": null
+    },
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        4,
+        512,
+        512
+      ],
+      "repeats": 3,
+      "setup_seconds_shared": 0.1317811860008078,
+      "median_graph_seconds": 0.007351344000198878,
+      "median_compute_seconds": 0.12091414099995745,
+      "median_eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "output_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 2,
+      "rechunk_layers": [],
+      "reference_seconds": 0.20217070699982287,
+      "reference_was_lazy": false,
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 998164
+      },
+      "fixture": {
+        "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+        "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+        "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+        "shape": [
+          4,
+          512,
+          512
+        ],
+        "missing_count": 256
+      },
+      "setup_note": "Warp geometry and interpolation are fused in application; GeoBox construction alone is setup.",
+      "weights_nnz": null
+    }
+  ],
+  "records": [
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        1,
+        128,
+        128
+      ],
+      "repeat": 1,
+      "setup_seconds_shared": 0.1317811860008078,
+      "graph_seconds": 0.107909631999064,
+      "compute_seconds": 0.9424880120004673,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "graph_tasks": 128,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 6.792067996919116e-07,
+        "seam_max_abs_error": 6.792067996919116e-07,
+        "finite_values": 998164
+      },
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        1,
+        128,
+        128
+      ],
+      "repeat": 2,
+      "setup_seconds_shared": 0.1317811860008078,
+      "graph_seconds": 0.020524753999779932,
+      "compute_seconds": 0.35006138399876363,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "graph_tasks": 128,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 6.792067996919116e-07,
+        "seam_max_abs_error": 6.792067996919116e-07,
+        "finite_values": 998164
+      },
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        1,
+        128,
+        128
+      ],
+      "repeat": 3,
+      "setup_seconds_shared": 0.1317811860008078,
+      "graph_seconds": 0.020501529001194285,
+      "compute_seconds": 0.3075921420004306,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "graph_tasks": 128,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 6.792067996919116e-07,
+        "seam_max_abs_error": 6.792067996919116e-07,
+        "finite_values": 998164
+      },
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        1,
+        256,
+        256
+      ],
+      "repeat": 1,
+      "setup_seconds_shared": 0.1317811860008078,
+      "graph_seconds": 0.011555360000784276,
+      "compute_seconds": 0.19085556699974404,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "graph_tasks": 32,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 4,
+        "max_abs_error": 6.608742624258923e-07,
+        "seam_max_abs_error": 6.386166129246362e-07,
+        "finite_values": 998164
+      },
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        1,
+        256,
+        256
+      ],
+      "repeat": 2,
+      "setup_seconds_shared": 0.1317811860008078,
+      "graph_seconds": 0.0111636620003992,
+      "compute_seconds": 0.18701658600002702,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "graph_tasks": 32,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 4,
+        "max_abs_error": 6.608742624258923e-07,
+        "seam_max_abs_error": 6.386166129246362e-07,
+        "finite_values": 998164
+      },
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        1,
+        256,
+        256
+      ],
+      "repeat": 3,
+      "setup_seconds_shared": 0.1317811860008078,
+      "graph_seconds": 0.009434632000193233,
+      "compute_seconds": 0.1575951660015562,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "graph_tasks": 32,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 4,
+        "max_abs_error": 6.608742624258923e-07,
+        "seam_max_abs_error": 6.386166129246362e-07,
+        "finite_values": 998164
+      },
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        4,
+        512,
+        512
+      ],
+      "repeat": 1,
+      "setup_seconds_shared": 0.1317811860008078,
+      "graph_seconds": 0.009094013999856543,
+      "compute_seconds": 0.11623376900024596,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "output_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 2,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 998164
+      },
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        4,
+        512,
+        512
+      ],
+      "repeat": 2,
+      "setup_seconds_shared": 0.1317811860008078,
+      "graph_seconds": 0.00652569600060815,
+      "compute_seconds": 0.12091414099995745,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "output_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 2,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 998164
+      },
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "odc_geo",
+      "grid": "crs_2056",
+      "layout": [
+        4,
+        512,
+        512
+      ],
+      "repeat": 3,
+      "setup_seconds_shared": 0.1317811860008078,
+      "graph_seconds": 0.007351344000198878,
+      "compute_seconds": 0.12135600200053887,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "output_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 2,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 998164
+      },
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    }
+  ],
+  "failures": [],
+  "fixture": {
+    "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+    "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+    "values_sha256": "b7fe8eeafe96d51634ea27860fd728a5e37779dde190bd639835107583020f6b",
+    "shape": [
+      4,
+      512,
+      512
+    ],
+    "missing_count": 256
+  },
+  "import_seconds": 0.5662128800013306,
+  "setup_seconds": 0.1317811860008078,
+  "reference_seconds": 0.20217070699982287,
+  "reference_was_lazy": false,
+  "setup_note": "Warp geometry and interpolation are fused in application; GeoBox construction alone is setup.",
+  "weights_nnz": null
+}

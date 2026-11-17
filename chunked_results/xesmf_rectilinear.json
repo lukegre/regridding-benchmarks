@@ -1,0 +1,781 @@
+{
+  "tool": "xesmf",
+  "grid": "rectilinear",
+  "summary": [
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        1,
+        128,
+        128
+      ],
+      "repeats": 3,
+      "setup_seconds_shared": 9.770786854998732,
+      "median_graph_seconds": 0.04963805099941965,
+      "median_compute_seconds": 5.359171696998601,
+      "median_eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 229,
+      "rechunk_layers": [],
+      "reference_seconds": 0.3560785219997342,
+      "reference_was_lazy": false,
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 8.881784197001252e-16,
+        "seam_max_abs_error": 8.881784197001252e-16,
+        "finite_values": 1048048
+      },
+      "fixture": {
+        "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+        "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+        "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+        "shape": [
+          4,
+          512,
+          512
+        ],
+        "missing_count": 256
+      },
+      "setup_note": "Reusable bilinear sparse weights; explicit full-horizontal output chunks bound graph growth. Inspect rechunk layers; this is not a tiled-output benchmark.",
+      "weights_nnz": 1048576
+    },
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        1,
+        256,
+        256
+      ],
+      "repeats": 3,
+      "setup_seconds_shared": 9.770786854998732,
+      "median_graph_seconds": 0.042410472999108606,
+      "median_compute_seconds": 1.7288785790005932,
+      "median_eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 57,
+      "rechunk_layers": [],
+      "reference_seconds": 0.3560785219997342,
+      "reference_was_lazy": false,
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 8.881784197001252e-16,
+        "seam_max_abs_error": 8.881784197001252e-16,
+        "finite_values": 1048048
+      },
+      "fixture": {
+        "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+        "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+        "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+        "shape": [
+          4,
+          512,
+          512
+        ],
+        "missing_count": 256
+      },
+      "setup_note": "Reusable bilinear sparse weights; explicit full-horizontal output chunks bound graph growth. Inspect rechunk layers; this is not a tiled-output benchmark.",
+      "weights_nnz": 1048576
+    },
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        4,
+        512,
+        512
+      ],
+      "repeats": 3,
+      "setup_seconds_shared": 9.770786854998732,
+      "median_graph_seconds": 0.0461349679990235,
+      "median_compute_seconds": 0.08396239100147795,
+      "median_eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "output_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 6,
+      "rechunk_layers": [],
+      "reference_seconds": 0.3560785219997342,
+      "reference_was_lazy": false,
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 1048048
+      },
+      "fixture": {
+        "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+        "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+        "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+        "shape": [
+          4,
+          512,
+          512
+        ],
+        "missing_count": 256
+      },
+      "setup_note": "Reusable bilinear sparse weights; explicit full-horizontal output chunks bound graph growth. Inspect rechunk layers; this is not a tiled-output benchmark.",
+      "weights_nnz": 1048576
+    }
+  ],
+  "records": [
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        1,
+        128,
+        128
+      ],
+      "repeat": 1,
+      "setup_seconds_shared": 9.770786854998732,
+      "graph_seconds": 2.227663540999856,
+      "compute_seconds": 5.470924515999286,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 229,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 8.881784197001252e-16,
+        "seam_max_abs_error": 8.881784197001252e-16,
+        "finite_values": 1048048
+      },
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        1,
+        128,
+        128
+      ],
+      "repeat": 2,
+      "setup_seconds_shared": 9.770786854998732,
+      "graph_seconds": 0.04963805099941965,
+      "compute_seconds": 5.359171696998601,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 229,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 8.881784197001252e-16,
+        "seam_max_abs_error": 8.881784197001252e-16,
+        "finite_values": 1048048
+      },
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        1,
+        128,
+        128
+      ],
+      "repeat": 3,
+      "setup_seconds_shared": 9.770786854998732,
+      "graph_seconds": 0.04931353299980401,
+      "compute_seconds": 5.227700109999205,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 229,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 8.881784197001252e-16,
+        "seam_max_abs_error": 8.881784197001252e-16,
+        "finite_values": 1048048
+      },
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        1,
+        256,
+        256
+      ],
+      "repeat": 1,
+      "setup_seconds_shared": 9.770786854998732,
+      "graph_seconds": 0.04149009300090256,
+      "compute_seconds": 1.7288785790005932,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 57,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 8.881784197001252e-16,
+        "seam_max_abs_error": 8.881784197001252e-16,
+        "finite_values": 1048048
+      },
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        1,
+        256,
+        256
+      ],
+      "repeat": 2,
+      "setup_seconds_shared": 9.770786854998732,
+      "graph_seconds": 0.04556814300121914,
+      "compute_seconds": 1.7620387010010745,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 57,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 8.881784197001252e-16,
+        "seam_max_abs_error": 8.881784197001252e-16,
+        "finite_values": 1048048
+      },
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        1,
+        256,
+        256
+      ],
+      "repeat": 3,
+      "setup_seconds_shared": 9.770786854998732,
+      "graph_seconds": 0.042410472999108606,
+      "compute_seconds": 1.6962820469998405,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          256,
+          256
+        ],
+        [
+          256,
+          256
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 57,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 8.881784197001252e-16,
+        "seam_max_abs_error": 8.881784197001252e-16,
+        "finite_values": 1048048
+      },
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        4,
+        512,
+        512
+      ],
+      "repeat": 1,
+      "setup_seconds_shared": 9.770786854998732,
+      "graph_seconds": 0.0461349679990235,
+      "compute_seconds": 0.08396239100147795,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "output_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 6,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 1048048
+      },
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        4,
+        512,
+        512
+      ],
+      "repeat": 2,
+      "setup_seconds_shared": 9.770786854998732,
+      "graph_seconds": 0.04509179500018945,
+      "compute_seconds": 0.07958717300061835,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "output_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 6,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 1048048
+      },
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    },
+    {
+      "tool": "xesmf",
+      "grid": "rectilinear",
+      "layout": [
+        4,
+        512,
+        512
+      ],
+      "repeat": 3,
+      "setup_seconds_shared": 9.770786854998732,
+      "graph_seconds": 0.04897280799923465,
+      "compute_seconds": 0.08440828000129841,
+      "eager_application_seconds": null,
+      "output_lazy": true,
+      "input_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "output_chunks": [
+        [
+          4
+        ],
+        [
+          512
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 6,
+      "scheduler": "synchronous",
+      "rechunk_layers": [],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 1048048
+      },
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "missing_count": 256
+    }
+  ],
+  "failures": [],
+  "fixture": {
+    "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+    "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+    "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+    "shape": [
+      4,
+      512,
+      512
+    ],
+    "missing_count": 256
+  },
+  "import_seconds": 0.5554810390003695,
+  "setup_seconds": 9.770786854998732,
+  "reference_seconds": 0.3560785219997342,
+  "reference_was_lazy": false,
+  "setup_note": "Reusable bilinear sparse weights; explicit full-horizontal output chunks bound graph growth. Inspect rechunk layers; this is not a tiled-output benchmark.",
+  "weights_nnz": 1048576
+}

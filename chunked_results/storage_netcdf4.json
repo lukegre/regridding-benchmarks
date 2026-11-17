@@ -1,0 +1,222 @@
+{
+  "tool": "xarray",
+  "grid": "rectilinear",
+  "group": "netcdf4_warm_cache",
+  "fixture": {
+    "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+    "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+    "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf",
+    "shape": [
+      4,
+      512,
+      512
+    ],
+    "missing_count": 256
+  },
+  "storage_chunks": [
+    1,
+    128,
+    128
+  ],
+  "layout": [
+    1,
+    128,
+    128
+  ],
+  "scheduler": "synchronous",
+  "reference_seconds": 0.20653916800074512,
+  "repeats": [
+    {
+      "repeat": 1,
+      "graph_seconds": 0.02600423800140561,
+      "compute_read_seconds": 0.6170358780000242,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 2799,
+      "rechunk_layers": [
+        "rechunk-merge-a85817e062239879bc17076e26f6e4d2",
+        "rechunk-merge-970798cd02287bd71b7dcbe0efa907b0"
+      ],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 1048048
+      }
+    },
+    {
+      "repeat": 2,
+      "graph_seconds": 0.029900783998527913,
+      "compute_read_seconds": 0.48004621399923053,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 2799,
+      "rechunk_layers": [
+        "rechunk-merge-a85817e062239879bc17076e26f6e4d2",
+        "rechunk-merge-970798cd02287bd71b7dcbe0efa907b0"
+      ],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 1048048
+      }
+    },
+    {
+      "repeat": 3,
+      "graph_seconds": 0.020126239000092028,
+      "compute_read_seconds": 0.5517195680004079,
+      "input_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ],
+        [
+          128,
+          128,
+          128,
+          128
+        ]
+      ],
+      "output_chunks": [
+        [
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          37,
+          36,
+          36,
+          36,
+          36,
+          36,
+          36
+        ],
+        [
+          512
+        ]
+      ],
+      "graph_tasks": 2799,
+      "rechunk_layers": [
+        "rechunk-merge-a85817e062239879bc17076e26f6e4d2",
+        "rechunk-merge-970798cd02287bd71b7dcbe0efa907b0"
+      ],
+      "correctness": {
+        "finite_mask_mismatches": 0,
+        "max_abs_error": 0.0,
+        "seam_max_abs_error": 0.0,
+        "finite_values": 1048048
+      }
+    }
+  ],
+  "median_graph_seconds": 0.02600423800140561,
+  "median_compute_read_seconds": 0.5517195680004079,
+  "note": "File creation and opening excluded; full compute includes warm-cache NetCDF reads. OS cache was not cleared; not a cold-disk benchmark."
+}

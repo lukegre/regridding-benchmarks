@@ -1,0 +1,200 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Which tool for which data?</title><style>
+:root{color-scheme:light;--ink:#172b35;--muted:#526570;--paper:#f5f7f7;--line:#d9e2e5;--accent:#075e65;--warm:#a65328}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,sans-serif}a{color:var(--accent);overflow-wrap:anywhere}header,main,footer{max-width:1180px;margin:auto;padding:36px 28px}header{padding-top:64px;padding-bottom:24px}.eyebrow{letter-spacing:.14em;font-size:12px;font-weight:700;color:var(--accent);text-transform:uppercase}h1{font-size:clamp(32px,5vw,56px);line-height:1.1;letter-spacing:-.045em;max-width:820px;margin:18px 0}h2{font-size:27px;letter-spacing:-.025em;margin:0 0 20px}h3{font-size:21px;margin:20px 0 12px}p{max-width:900px}.intro{font-size:19px;color:var(--muted);max-width:850px}nav{display:flex;gap:24px;flex-wrap:wrap;margin-top:30px}nav a{text-decoration:none;border-bottom:2px solid var(--accent);padding:6px 0;font-weight:600}nav a[aria-current]{color:var(--ink);border-color:var(--warm)}section{padding:42px 0;border-bottom:1px solid var(--line);scroll-margin-top:24px}li{padding-left:5px;margin-bottom:14px}code,pre{background:#e9eef0;border-radius:3px;font-size:.88em}code{padding:2px 5px;overflow-wrap:anywhere}pre{padding:18px;overflow:auto;max-width:100%}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th{text-align:left;background:#e8edef;font-weight:600}th,td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}td{overflow-wrap:anywhere}details{background:white;border:1px solid var(--line);border-radius:6px;margin:12px 0;padding:16px 20px}summary{cursor:pointer;font-weight:700;font-size:18px}dl{margin-bottom:0}dt{font-weight:700}dd{margin:2px 0 14px}a:focus-visible,summary:focus-visible{outline:3px solid #367caa;outline-offset:3px}footer{color:var(--muted);font-size:14px}@media(max-width:700px){header,main,footer{padding-left:18px;padding-right:18px}th,td{padding:10px}}@media print{body{background:white}details{break-inside:avoid}nav{display:none}}
+</style></head><body>
+<header><div class="eyebrow">Geospatial interoperability · practical guide</div><h1>Which tool for which data?</h1><p class="intro">Choose by data meaning and geometry before comparing speed. A method that returns numbers is not necessarily valid for your quantity. This guide summarizes documented roles and the specific synthetic adapters tested on 2026-11-17; it is not a guarantee for every version or input.</p><nav aria-label="Report pages"><a href="index.html">Large &amp; chunked</a><a href="small-data.html">Small-grid survey</a><a href="tool-guide.html" aria-current="page">Tool guide</a></nav><nav aria-label="On this page"><a href="#choose">Choose a method</a><a href="#semantics">Non-float data</a><a href="#validate">Validate inputs</a><a href="#contracts">Tool contracts</a></nav></header><main>
+<section id="choose"><h2>Choose geometry and method</h2><div class="table-wrap"><table><thead><tr><th scope="col">Source or task</th><th scope="col">Starting point</th><th scope="col">Required decision</th></tr></thead><tbody>
+<tr><td>Geolocated swath / scattered centres</td><td>Pyresample nearest or Gaussian; GDAL geolocation warp where suitable</td><td>Centre sampling does not conserve cell integrals; select radius and footprint policy.</td></tr>
+<tr><td>Rectilinear 1-D axes or full Gaussian</td><td>SciPy/xarray for point interpolation; xESMF or CDO for appropriate conservative grids; MIR for supported Gaussian grids</td><td>Handle longitude seam; use actual cell bounds for conservation.</td></tr>
+<tr><td>Curvilinear / ROMS</td><td>xESMF or CDO with correct centres and real corners</td><td>Use separate rho/u/v geometries; rotate vector components separately.</td></tr>
+<tr><td>Affine raster with CRS change</td><td>Rasterio/GDAL, rioxarray or odc-geo</td><td>Specify source and destination CRS, transform, shape, nodata and kernel.</td></tr>
+<tr><td>Global spherical unstructured mesh</td><td>ESMPy or TempestRemap for overlap; UXarray or Pyresample for centre-based nearest sampling</td><td>Topology-aware area overlap needs valid nodes and faces; planar lon/lat is not spherical geometry.</td></tr>
+<tr><td>HEALPix</td><td>Healpy / astropy-healpix for native operations; MIR or CDO for supported cross-grid operations</td><td>Carry nside, RING/NESTED ordering, frame and intensity/total semantics.</td></tr>
+<tr><td>Local projected mesh</td><td>Xugrid planar algorithms</td><td>Choose a suitable projected CRS and ensure both meshes share it.</td></tr>
+<tr><td>Coordinate conversion only</td><td>pyproj</td><td>Coordinate transformation alone does not regrid field values.</td></tr>
+</tbody></table></div></section><section id="semantics"><h2>Non-float data: choose by semantics, not dtype</h2><p>Native acceptance of integer arrays does not preserve classes or totals. Define the output meaning first.</p><div class="table-wrap"><table><thead><tr><th scope="col">Meaning</th><th scope="col">Scheme</th><th scope="col">Avoid</th></tr></thead><tbody>
+<tr><td>Categorical identifiers or strings</td><td>Nearest class, with an explicit choice between selecting the nearest cell and retaining its validity versus searching for the nearest valid cell; or an explicitly defined area/distance-weighted mode. Availability of nearest-valid search depends on the tool. Define deterministic ties and an unknown class. Encode labels to integer IDs with a reversible lookup; preserve nodata in a separate validity mask. Use compact codes for identifiers too large for exact float representation (including integers above 2^53); retain the original labels in the lookup and never cast them through float.</td><td>Never bilinear-interpolate class IDs or round blended labels.</td></tr>
+<tr><td>Ordinal values</td><td>Use nearest or mode when ordered labels are classes; interpolate only when distances on a numeric scale are meaningful and the resulting values are valid for the application.</td><td>Do not assume equal spacing between ordinal ranks.</td></tr>
+<tr><td>Continuous quantity stored as integer</td><td>Convert to floating point and use a continuous method appropriate to geometry, error and conservation; retain scale/offset and units. For CF-packed values, decode scale_factor/add_offset and missingness before interpolation; repack only with an explicit precision and overflow policy.</td><td>Storage dtype alone does not make a quantity categorical; integer output can lose precision.</td></tr>
+<tr><td>Extensive counts or totals per cell</td><td>Distribute totals by conservative overlap fractions using cell areas and valid coverage; equivalently remap density then multiply by destination area with consistent normalization. Retain fractional output or use globally constrained rounding if integer totals are required. Ensure areas, masks, covered domain and normalization refer to the same geometry; check total over the common covered domain. For partially covered cells, a coverage-normalized average multiplied by full destination area is not generally conserved; use actual covered area with consistent source and destination masks.</td><td>Never independently round each interpolated count or assume a weighted average preserves sums.</td></tr>
+<tr><td>Boolean occupancy</td><td>Use nearest for a sampled state; mode for dominant class; any/all for stated presence semantics; or area fraction as floating point for coverage. Threshold fractions only if an explicit decision threshold is meaningful.</td><td>Do not choose any/all, mode or fraction interchangeably.</td></tr>
+<tr><td>Packed bit flags</td><td>Nearest for a representative observation, or unpack each bit and apply documented per-bit any/all/weighted rules; repack after aggregation.</td><td>Never average or bilinearly interpolate packed flags.</td></tr>
+<tr><td>Timestamps</td><td>Specify whether values denote instants, intervals or categorical event times, calendar/time zone and missingness; interpolate only when a meaningful temporal model permits, after conversion to a suitable numeric time axis. Use a relative time origin and suitable precision to avoid loss of precision, then restore the calendar and units.</td><td>Do not blend date encodings blindly or treat intervals as point instants.</td></tr>
+</tbody></table></div></section><section id="validate"><h2>Before running</h2><ul>
+<li>Identify source and target geometry, CRS/frame, units, shape and field location before choosing a tool.</li>
+<li>Validate coordinates, uniqueness and order, longitude seam, dimensions and valid topology. Validate actual corners and areas for conservative operations.</li>
+<li>Separate geometry masks from per-variable missing values; reserve a collision-free sentinel or use a separate valid mask.</li>
+<li>Determine intensive versus extensive quantity, coverage, normalization, extrapolation, valid output domain and deterministic tie behavior.</li>
+<li>Test identity, constant, known category and missing-value cases; check finite coverage, edge behavior and area integrals when applicable.</li>
+<li>For reused weights, hash coordinates, topology, bounds, masks, method and periodicity; do not reuse by shape alone.</li>
+<li>For chunked data, distinguish lazy graph construction, weight generation and actual compute; account for rechunking and peak memory.</li>
+</ul><h3>Geometry, missing data and execution</h3>
+<p>For a cell-average intensive quantity, conservative weights generally preserve the area integral over the covered domain, subject to geometry, masks and normalization. For cell totals, divide by source area, remap consistently and multiply by destination area, or use explicit overlap fractions. Compare integrals over the same covered region.</p>
+<p>A grid mask defines geometry excluded when weights are built; a per-variable NaN or nodata describes missing field values. They can have different effects. State how partial destination coverage is normalized and whether unmapped cells are missing or extrapolated.</p>
+<p>Chunks are an execution strategy, not geometry. A lazy graph is not a computed result. Weight generation, source windows, spatial rechunking and output materialization can dominate memory; verify the exact package version and operation with realistic chunks. See the Large &amp; chunked report for measured cases; absence of a test is not evidence of support or non-support.</p>
+<p>Source/destination coordinate systems and units must agree with the operation. Do not infer spatial compatibility from equal array shapes. Validate periodic longitude, unique coordinates, corner orientation and non-self-intersection. Record any datum transformation and axis order.</p>
+<p>The large regional TempestRemap overlap generation profiles timed out at 300 s; NCO depended on those same weights. Small native icosahedral-to-raster tests succeeded. This does not establish that NCO application or global meshes are unsupported.</p>
+<details><summary>Runnable categorical example</summary><p>This nearest-neighbour example selects the nearest source cell, including its validity; it does not search for the nearest valid cell.</p><pre><code># Categorical IDs: keep a separate valid mask and never blend labels.
+import numpy as np
+from scipy.interpolate import RegularGridInterpolator
+lat = np.array([0., 1.]); lon = np.array([10., 11.])
+classes = np.array([[1, 2], [1, 2]])  # 1=forest, 2=water
+valid = np.array([[True, True], [True, False]])
+query = np.array([[0.2, 10.8], [0.9, 10.9], [3., 10.]])  # lat, lon
+lookup = RegularGridInterpolator((lat, lon), classes, method=&quot;nearest&quot;,
+                                 bounds_error=False, fill_value=-1)
+valid_at = RegularGridInterpolator((lat, lon), valid.astype(float),
+                                   method=&quot;nearest&quot;, bounds_error=False, fill_value=0)
+result = lookup(query).astype(int)
+result[valid_at(query) == 0] = -1  # explicit unknown; -1 is not a valid class
+# result: [2, -1, -1]; retain a reversible ID-to-label table.</code></pre></details></section><section id="contracts"><h2>Per-tool input contracts</h2><p>Expand a tool for input shape, geometry, missing data, execution, tested scope and limitations. These are advisory descriptions; consult the linked primary documentation for your version. <a href="tool_contracts.json" download>Download the machine-readable contracts</a>.</p>
+<details><summary>CDO</summary><dl>
+<dt>Use for</dt><dd>Climate-file remapping of structured, Gaussian and supported unstructured grids.</dd>
+<dt>Required input</dt><dd>CF-like NetCDF/GRIB variables with horizontal dimensions and grid metadata; choose a compatible target grid description. Dimensions and data order must match the declared grid.</dd>
+<dt>Geometry and units</dt><dd>Geographic centres in degrees; provide cell vertices/bounds for conservative work and correct grid type/order, seam and periodicity.</dd>
+<dt>Mask and missing data</dt><dd>Set file missing values and grid masks deliberately; inspect target coverage and normalization.</dd>
+<dt>Execution and chunking</dt><dd>CLI consumes and writes files; weight generation and application can be separate. File I/O is materialized.</dd>
+<dt>Tested adapter</dt><dd>Nearest, bilinear and conservative adapters across the synthetic families; not every grid/method combination succeeded.</dd>
+<dt>Non-float method choices</dt><dd>For supported grids, use remapnn / gennn for nearest class sampling; verify method/grid compatibility. Weighted category mode or flag aggregation needs an explicit workflow.</dd>
+<dt>Limits and fallback</dt><dd>Bilinear on the tested triangular mesh was rejected. HEALPix conservative aborted without --force because edges are not great circles; forcing is not proof of exact conservation.</dd>
+<dt>Primary documentation</dt><dd><a href="https://code.mpimet.mpg.de/projects/cdo/embedded/index.html">https://code.mpimet.mpg.de/projects/cdo/embedded/index.html</a></dd></dl></details>
+<details><summary>xESMF</summary><dl>
+<dt>Use for</dt><dd>Rectilinear or curvilinear latitude/longitude grids, reusable weights and conservative remapping.</dd>
+<dt>Required input</dt><dd>xarray Dataset/DataArray grid with lon/lat 1-D axes or matching 2-D centre arrays in degrees; field horizontal dimensions match grid. Destination has corresponding coordinates.</dd>
+<dt>Geometry and units</dt><dd>Conservative methods require valid cell corners/bounds (lon_b, lat_b or supported CF bounds); check orientation, topology and partial coverage. Set periodic for appropriate global non-conservative grids; handle seam consistently.</dd>
+<dt>Mask and missing data</dt><dd>Grid mask uses ESMF convention 1 valid, 0 masked. It is distinct from per-field NaNs; choose skipna and normalization policy explicitly.</dd>
+<dt>Execution and chunking</dt><dd>Weights may be reused; key them by all coordinates, corners, masks, method and periodicity, not shape. Dask data application is supported; weight construction and spatial chunk behavior depend on version/method. The chunked benchmark explicitly sets output_chunks={&#x27;y&#x27;: 512, &#x27;x&#x27;: 512}; it does not demonstrate spatially distributed output. In a separate 1024×1024 default-output pilot, 128×128 input chunks produced a warning of 64× more output chunks and the pilot was stopped after about 150 seconds without completing; this is not a completed timing.</dd>
+<dt>Tested adapter</dt><dd>Bilinear, nearest_s2d and conservative on supported structured grids, including ROMS corners.</dd>
+<dt>Non-float method choices</dt><dd>Use method=&#x27;nearest_s2d&#x27; for source-to-destination nearest classes. Weighted mode, bitwise rules and count conservation require a separate explicit workflow; do not use bilinear for labels.</dd>
+<dt>Limits and fallback</dt><dd>Our adapter did not exercise general unstructured xESMF. Missing/folded corners and stale weights can fail or silently degrade results. Scalar remapping does not rotate vectors.</dd>
+<dt>Primary documentation</dt><dd><a href="https://xesmf.readthedocs.io/en/latest/user_api.html">https://xesmf.readthedocs.io/en/latest/user_api.html</a> · <a href="https://xesmf.readthedocs.io/en/latest/notebooks/Masking.html">https://xesmf.readthedocs.io/en/latest/notebooks/Masking.html</a></dd></dl></details>
+<details><summary>GDAL / Rasterio</summary><dl>
+<dt>Use for</dt><dd>Affine GIS rasters, CRS changes; geolocation-array warping for suitable swaths.</dd>
+<dt>Required input</dt><dd>Raster bands or NumPy arrays with spatial rows/columns, source and destination shape, CRS and affine transform; or explicit 2-D geolocation arrays for the supported warp path. Rasterio geolocation path used CRS objects.</dd>
+<dt>Geometry and units</dt><dd>Provide CRS as EPSG/WKT/CRS object, transform mapping pixel coordinates to CRS coordinates and destination grid. Respect pixel-centre/edge convention; avoid discontinuous longitude for a dateline swath.</dd>
+<dt>Mask and missing data</dt><dd>Set source and destination nodata or masks explicitly; valid pixels and numeric sentinels must not collide.</dd>
+<dt>Execution and chunking</dt><dd>Warp is an eager native operation in tested Rasterio calls; file-backed/windowed workflows need sufficient source overlap and their own memory plan.</dd>
+<dt>Tested adapter</dt><dd>Affine raster reprojection and a separate geolocation-array swath path.</dd>
+<dt>Non-float method choices</dt><dd>Use rasterio.enums.Resampling.nearest or, where supported and appropriate, Resampling.mode. Check tie, nodata and footprint behavior for the installed GDAL version.</dd>
+<dt>Limits and fallback</dt><dd>A swath is not an affine raster; geolocation handling needs explicit support. Dateline coverage was sensitive to longitude continuity. Resampling kernel is not automatically area-conservative.</dd>
+<dt>Primary documentation</dt><dd><a href="https://rasterio.readthedocs.io/en/stable/topics/reproject.html">https://rasterio.readthedocs.io/en/stable/topics/reproject.html</a> · <a href="https://gdal.org/en/stable/programs/gdalwarp.html">https://gdal.org/en/stable/programs/gdalwarp.html</a></dd></dl></details>
+<details><summary>earthkit-geo / MIR</summary><dl>
+<dt>Use for</dt><dd>ECMWF-style Gaussian and HEALPix grids with authoritative grid specifications.</dd>
+<dt>Required input</dt><dd>A named xarray DataArray with geographic coordinate metadata for the tested high-level path, or a supported MIR/earthkit field and explicit input/output gridspec. Values must follow gridspec order.</dd>
+<dt>Geometry and units</dt><dd>Specify Gaussian grid parameters or HEALPix nside/order as appropriate; coordinates and grid definition must agree. Select a supported destination specification.</dd>
+<dt>Mask and missing data</dt><dd>Define missing data according to the field and interpolation configuration; verify output coverage.</dd>
+<dt>Execution and chunking</dt><dd>Tested calls materialized output; caches and native setup affect timing. Chunked/lazy behavior is API- and version-specific, not established by this adapter.</dd>
+<dt>Tested adapter</dt><dd>Full Gaussian and HEALPix high-level xarray/MIR workflows.</dd>
+<dt>Non-float method choices</dt><dd>Choose a documented nearest-neighbour interpolation supported by the exact gridspec and installed MIR version; verify the configuration and class preservation. Otherwise use a suitable nearest-capable tool.</dd>
+<dt>Limits and fallback</dt><dd>Other families were not exercised by this adapter. The installed high-level xarray path required earthkit-utils and named geographic metadata.</dd>
+<dt>Primary documentation</dt><dd><a href="https://earthkit-geo.readthedocs.io/en/latest/">https://earthkit-geo.readthedocs.io/en/latest/</a> · <a href="https://mir.readthedocs.io/en/latest/">https://mir.readthedocs.io/en/latest/</a></dd></dl></details>
+<details><summary>Pyresample</summary><dl>
+<dt>Use for</dt><dd>Geolocated swaths or irregular point centres to another swath or area, using neighbour search.</dd>
+<dt>Required input</dt><dd>SwathDefinition with matching 1-D or 2-D lon/lat arrays and data shape, or an AreaDefinition with CRS, extent and shape; target needs an equivalent geometry. Geographic lon/lat are degrees. Scan-based or EWA workflows can impose additional 2-D layout requirements.</dd>
+<dt>Geometry and units</dt><dd>Use longitudes in the documented −180…180 convention and valid latitudes. Specify radius of influence in metres and neighbour/weight parameters. Search uses centres, not cell polygons.</dd>
+<dt>Mask and missing data</dt><dd>Set fill value or masked output; decide whether invalid samples are dropped before search. Radius can extrapolate beyond the observed footprint.</dd>
+<dt>Execution and chunking</dt><dd>Neighbour info may be reused for matching geometry. Dask-capable APIs exist but vary by algorithm; tested standard adapter was eager.</dd>
+<dt>Tested adapter</dt><dd>Nearest and Gaussian centre-based sampling on all six source families.</dd>
+<dt>Non-float method choices</dt><dd>Use kd_tree.resample_nearest for nearest class sampling with an explicit radius and fill value. Gaussian weighted averaging is not a class mode.</dd>
+<dt>Limits and fallback</dt><dd>Does not make a centre-based nearest/Gaussian sample conservative; use polygon-aware remapping for area integrals.</dd>
+<dt>Primary documentation</dt><dd><a href="https://pyresample.readthedocs.io/en/latest/howtos/swath.html">https://pyresample.readthedocs.io/en/latest/howtos/swath.html</a> · <a href="https://pyresample.readthedocs.io/en/latest/howtos/geometry_utils.html">https://pyresample.readthedocs.io/en/latest/howtos/geometry_utils.html</a></dd></dl></details>
+<details><summary>odc-geo</summary><dl>
+<dt>Use for</dt><dd>Dask-aware xarray reprojection of affine, georeferenced rasters.</dd>
+<dt>Required input</dt><dd>xarray DataArray with spatial y/x dimensions and a valid GeoBox (shape, affine transform, CRS); provide destination GeoBox and resampling.</dd>
+<dt>Geometry and units</dt><dd>Source and destination CRS, pixel geometry and spatial dimension order must agree with array coordinates.</dd>
+<dt>Mask and missing data</dt><dd>Supply nodata consistent with dtype and metadata; choose destination fill and check valid footprint.</dd>
+<dt>Execution and chunking</dt><dd>The tested path chunked y/x and explicitly computed the Dask result. Chunk size and source windows affect memory; graph creation is not completion.</dd>
+<dt>Tested adapter</dt><dd>Affine raster reprojection to an explicit GeoBox.</dd>
+<dt>Non-float method choices</dt><dd>Select resampling=&#x27;nearest&#x27; for classes; use mode only if supported by the exact backend/version and its aggregation semantics fit. Validate nodata and destination dtype.</dd>
+<dt>Limits and fallback</dt><dd>Not a general swath or mesh interface in this adapter; use geolocation or mesh-aware tools when geometry is not affine.</dd>
+<dt>Primary documentation</dt><dd><a href="https://odc-geo.readthedocs.io/en/latest/">https://odc-geo.readthedocs.io/en/latest/</a></dd></dl></details>
+<details><summary>rioxarray</summary><dl>
+<dt>Use for</dt><dd>xarray-facing GIS rasters, CRS metadata and reprojection.</dd>
+<dt>Required input</dt><dd>DataArray/Dataset with identifiable x/y spatial dimensions, CRS (for example rio.write_crs) and transform/coordinates; specify destination CRS or matching raster.</dd>
+<dt>Geometry and units</dt><dd>Rasterio/GDAL affine pixel geometry and CRS must match the array; set spatial dimensions when nonstandard.</dd>
+<dt>Mask and missing data</dt><dd>Use rio nodata/encoded nodata and destination nodata consistently; do not confuse missing values with valid classes.</dd>
+<dt>Execution and chunking</dt><dd>The tested rio.reproject call materialized data. Do not assume Dask-lazy reprojection; use an appropriate lazy alternative and verify its version-specific contract.</dd>
+<dt>Tested adapter</dt><dd>Affine raster reprojection on regular grids.</dd>
+<dt>Non-float method choices</dt><dd>Pass rasterio.enums.Resampling.nearest or supported Resampling.mode to rio.reproject; validate nodata and backend tie handling.</dd>
+<dt>Limits and fallback</dt><dd>A curvilinear/swath grid is not automatically affine; use a geolocation-aware or mesh-aware method.</dd>
+<dt>Primary documentation</dt><dd><a href="https://corteva.github.io/rioxarray/stable/rioxarray.html#rioxarray.raster_array.RasterArray.reproject">https://corteva.github.io/rioxarray/stable/rioxarray.html#rioxarray.raster_array.RasterArray.reproject</a></dd></dl></details>
+<details><summary>SciPy RGI / xarray.interp</summary><dl>
+<dt>Use for</dt><dd>Simple point interpolation on rectilinear axes, including full Gaussian latitude arrays.</dd>
+<dt>Required input</dt><dd>RegularGridInterpolator: strictly ascending or descending 1-D coordinate axes and values with matching leading dimensions; target points in axis order and units. xarray.interp: named dimensions and coordinate labels.</dd>
+<dt>Geometry and units</dt><dd>Coordinates need not be evenly spaced but must be monotonic and unique. Explicitly normalize longitude and extend a cyclic column for global seam interpolation.</dd>
+<dt>Mask and missing data</dt><dd>Define bounds_error/fill_value or xarray extrapolation policy and propagate missing values intentionally.</dd>
+<dt>Execution and chunking</dt><dd>SciPy RGI consumes in-memory numerical arrays in the tested path. xarray may operate on Dask arrays depending on method and chunks; verify compute/memory for the installed version.</dd>
+<dt>Tested adapter</dt><dd>Linear and nearest structured-axis interpolation including full Gaussian grids.</dd>
+<dt>Non-float method choices</dt><dd>Use RegularGridInterpolator(..., method=&#x27;nearest&#x27;) or xarray.interp(..., method=&#x27;nearest&#x27;) for numeric codes; encode labels compactly and retain the validity mask. Neither provides conservative overlap.</dd>
+<dt>Limits and fallback</dt><dd>Not a CRS transformer, 2-D curvilinear grid, polygon overlap or conservative remapper. Interpolate only after coordinating CRS and units.</dd>
+<dt>Primary documentation</dt><dd><a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RegularGridInterpolator.html">https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RegularGridInterpolator.html</a> · <a href="https://docs.xarray.dev/en/stable/generated/xarray.Dataset.interp.html">https://docs.xarray.dev/en/stable/generated/xarray.Dataset.interp.html</a></dd></dl></details>
+<details><summary>Healpy / astropy-healpix</summary><dl>
+<dt>Use for</dt><dd>Native HEALPix indexing, interpolation or resolution changes.</dd>
+<dt>Required input</dt><dd>One value per pixel with length 12 × nside²; record valid nside, RING or NESTED order, frame and units. astropy coordinates use astropy units/SkyCoord; healpy angular APIs may use theta/phi radians or lonlat degrees.</dd>
+<dt>Geometry and units</dt><dd>Source ordering must match declared order; targets must use the same coordinate frame. Wrap target longitude consistently and handle the seam. Validate nside for the selected order (for example healpy.isnsideok(nside, nest=True)); NESTED requires a power-of-two nside.</dd>
+<dt>Mask and missing data</dt><dd>Healpy UNSEEN/masks and NaNs require explicit handling; preserve validity separately from data.</dd>
+<dt>Execution and chunking</dt><dd>Tested native operations use materialized arrays. Resolution changes need an explicit intensity versus total scaling policy (healpy ud_grade power).</dd>
+<dt>Tested adapter</dt><dd>Healpy and astropy-healpix interpolation on HEALPix; Healpy resolution scaling control.</dd>
+<dt>Non-float method choices</dt><dd>For classes, use healpy.ang2pix and gather by pixel index or astropy-healpix coordinate-to-index and gather; do not use bilinear interpolation of codes. Match nside, order and frame.</dd>
+<dt>Limits and fallback</dt><dd>Wrong ordering returned plausible wrong values. In the installed astropy-healpix path negative longitudes produced huge finite values; wrapping to 0…360 fixed that control. Verify installed version and longitude behavior.</dd>
+<dt>Primary documentation</dt><dd><a href="https://healpy.readthedocs.io/en/latest/generated/healpy.pixelfunc.ud_grade.html">https://healpy.readthedocs.io/en/latest/generated/healpy.pixelfunc.ud_grade.html</a> · <a href="https://astropy-healpix.readthedocs.io/en/latest/">https://astropy-healpix.readthedocs.io/en/latest/</a></dd></dl></details>
+<details><summary>ESMPy</summary><dl>
+<dt>Use for</dt><dd>Topology-aware spherical grid or mesh remapping, including conservation.</dd>
+<dt>Required input</dt><dd>ESMF Grid or Mesh and Fields at the correct centre/node location, with compatible source/destination dimensions and geometry; add node coordinates, IDs, element types and connectivity for a mesh.</dd>
+<dt>Geometry and units</dt><dd>Supply valid spherical coordinates, element connectivity and corner geometry; in our Mesh adapter connectivity used zero-based local node indices independent of node IDs. Check API/version and decomposition.</dd>
+<dt>Mask and missing data</dt><dd>ESMF grid/mesh masks and unmapped destination policy are separate from field NaNs; define area/coverage normalization.</dd>
+<dt>Execution and chunking</dt><dd>Weight construction and application are separate; native arrays are materialized in the tested serial adapter. Parallel decomposition is outside these tests.</dd>
+<dt>Tested adapter</dt><dd>Conservative closed spherical triangular mesh remapping with integral checks.</dd>
+<dt>Non-float method choices</dt><dd>Select a documented nearest source-to-destination regridding method for compatible field locations; verify the installed ESMPy API and grid/mask support. Use conservative overlap plus area handling for totals.</dd>
+<dt>Limits and fallback</dt><dd>A mesh of points alone cannot provide conservative cell overlap; validate geometry and source/destination field locations.</dd>
+<dt>Primary documentation</dt><dd><a href="https://earthsystemmodeling.org/esmpy_doc/release/latest/html/">https://earthsystemmodeling.org/esmpy_doc/release/latest/html/</a></dd></dl></details>
+<details><summary>TempestRemap / NCO</summary><dl>
+<dt>Use for</dt><dd>Offline spherical mesh overlap weights and file-based weight application.</dd>
+<dt>Required input</dt><dd>TempestRemap source/destination mesh files with node coordinates and cell connectivity, plus field data in compatible NetCDF dimensions/order. NCO applies compatible generated map weights to a matching file.</dd>
+<dt>Geometry and units</dt><dd>Use valid non-self-intersecting cells, matching topology and coordinates; check mesh area, orientation, coverage and map normalization.</dd>
+<dt>Mask and missing data</dt><dd>Encode missing data and masks separately; our weight application propagated NaNs to affected targets. Define unmapped-cell policy.</dd>
+<dt>Execution and chunking</dt><dd>Native command-line mesh/map generation and file-based application; setup and apply can be reused separately. Tested workflow materializes files.</dd>
+<dt>Tested adapter</dt><dd>TempestRemap conservative mesh-to-mesh and mesh-to-raster; NCO applied the same maps and matched outputs.</dd>
+<dt>Non-float method choices</dt><dd>For classes, apply only a map known to encode the desired nearest or categorical aggregation rule; these tested conservative weights average values and are not category mode. Use a nearest-capable tool if necessary.</dd>
+<dt>Limits and fallback</dt><dd>NCO is a weight application path here, not independent weight generation. Conservation depends on geometry and normalization; arbitrary NaN gaps need explicit handling.</dd>
+<dt>Primary documentation</dt><dd><a href="https://climate.ucdavis.edu/tempestremap.php">https://climate.ucdavis.edu/tempestremap.php</a> · <a href="https://nco.sourceforge.net/nco.html#ncremap">https://nco.sourceforge.net/nco.html#ncremap</a></dd></dl></details>
+<details><summary>Xugrid</summary><dl>
+<dt>Use for</dt><dd>UGRID mesh manipulation and local planar mesh interpolation/overlap.</dd>
+<dt>Required input</dt><dd>xarray data with UGRID topology: node x/y coordinates, face-node connectivity and correctly located face/node values; destination mesh with compatible coordinates.</dd>
+<dt>Geometry and units</dt><dd>Use a suitable projected planar CRS and units for tested Cartesian algorithms; connectivity index base and fill entries must match metadata.</dd>
+<dt>Mask and missing data</dt><dd>Carry mesh masks and missing field values explicitly; verify overlapping valid area.</dd>
+<dt>Execution and chunking</dt><dd>Optional spatial indexing dependencies may be needed; chunk/lazy behavior varies by operation. Tested local workflows used materialized arrays.</dd>
+<dt>Tested adapter</dt><dd>Local planar barycentric and overlap remapping.</dd>
+<dt>Non-float method choices</dt><dd>Choose an explicitly supported nearest or category aggregation operation for the installed version, or use a nearest-capable tool on suitable mesh centres. Tested barycentric/overlap arithmetic is not a class mode.</dd>
+<dt>Limits and fallback</dt><dd>Do not treat the tested Cartesian algorithms on raw global lon/lat as spherical conservative remapping; use ESMPy or TempestRemap for topology-aware spherical overlap.</dd>
+<dt>Primary documentation</dt><dd><a href="https://deltares.github.io/xugrid/">https://deltares.github.io/xugrid/</a></dd></dl></details>
+<details><summary>UXarray</summary><dl>
+<dt>Use for</dt><dd>Native unstructured spherical-grid data and sampling to a target grid.</dd>
+<dt>Required input</dt><dd>Grid/UGRID-style topology and xarray-like data indexed by the correct face/node dimension; target lon/lat in documented units and shape.</dd>
+<dt>Geometry and units</dt><dd>Node coordinates, face connectivity and field location must agree; check face count and longitude convention.</dd>
+<dt>Mask and missing data</dt><dd>Set missing/invalid data explicitly and inspect target coverage; nearest in the test retained NaNs.</dd>
+<dt>Execution and chunking</dt><dd>Tested nearest remap materialized results; check operation-specific Dask behavior before sizing a pipeline.</dd>
+<dt>Tested adapter</dt><dd>Face-centre nearest to a structured target on an icosahedral mesh.</dd>
+<dt>Non-float method choices</dt><dd>Use the documented nearest-neighbour remapping path for face classes, checking input location, output dtype and mask; tested nearest is not conservative.</dd>
+<dt>Limits and fallback</dt><dd>Nearest is not conservative. Wrong face count failed during remapping; validate shape first. Do not infer untested methods from this adapter.</dd>
+<dt>Primary documentation</dt><dd><a href="https://uxarray.readthedocs.io/en/latest/">https://uxarray.readthedocs.io/en/latest/</a></dd></dl></details>
+<details><summary>iris-esmf-regrid</summary><dl>
+<dt>Use for</dt><dd>Iris cubes on supported grids with ESMF-backed bilinear or area-weighted remapping.</dd>
+<dt>Required input</dt><dd>Iris Cube with horizontal coordinates and field dimensions aligned to source grid; supply a compatible target Cube/grid and coordinate system.</dd>
+<dt>Geometry and units</dt><dd>Conservative operation requires cell bounds; supported 1-D bounds may be inferred, but supply real corners for curved cells and verify coordinate units and CRS.</dd>
+<dt>Mask and missing data</dt><dd>Iris masks and ESMF grid masks differ from arbitrary NaNs; choose missing-area tolerance/coverage policy for the scheme.</dd>
+<dt>Execution and chunking</dt><dd>Reusable regridders separate geometry setup from application. Lazy behavior is operation/version-specific; verify actual computed output and chunk sizing.</dd>
+<dt>Tested adapter</dt><dd>Bilinear and conservative Iris workflows on regular grids; 1-D bounds inferred in a control.</dd>
+<dt>Non-float method choices</dt><dd>The tested bilinear and conservative schemes average values; they are not category modes. Use an explicitly supported nearest scheme or a separate nearest-capable tool for class labels.</dd>
+<dt>Limits and fallback</dt><dd>Distribution is named esmf-regrid. Bounds inferred from centres do not establish true curvilinear cell geometry.</dd>
+<dt>Primary documentation</dt><dd><a href="https://iris-esmf-regrid.readthedocs.io/en/latest/">https://iris-esmf-regrid.readthedocs.io/en/latest/</a></dd></dl></details>
+<details><summary>pyproj</summary><dl>
+<dt>Use for</dt><dd>Transform coordinate points between CRSs; prepare geometry for another remapper.</dd>
+<dt>Required input</dt><dd>Source and destination CRS as EPSG, WKT or pyproj CRS; coordinate arrays in the source CRS units, with matching shapes.</dd>
+<dt>Geometry and units</dt><dd>Use Transformer.from_crs(..., always_xy=True) when passing x,y or lon,lat; longitude/latitude degrees for geographic CRS, projected coordinates in CRS units.</dd>
+<dt>Mask and missing data</dt><dd>Check input validity and transformation errors (errcheck=True); propagate validity independently.</dd>
+<dt>Execution and chunking</dt><dd>Coordinate transformations use eager arrays in the tested path; batch points if needed.</dd>
+<dt>Tested adapter</dt><dd>EPSG:4326 to EPSG:2056 and 3857 point transforms with round-trip checks.</dd>
+<dt>Non-float method choices</dt><dd>No value interpolation method: transform the coordinates, then choose a separate nearest, categorical aggregation or conservative remapper according to semantics.</dd>
+<dt>Limits and fallback</dt><dd>Does not resample raster values, calculate overlap, or conserve totals; combine with an appropriate raster or mesh remapper.</dd>
+<dt>Primary documentation</dt><dd><a href="https://pyproj4.github.io/pyproj/stable/api/transformer.html">https://pyproj4.github.io/pyproj/stable/api/transformer.html</a></dd></dl></details>
+</section></main><footer>Tool contracts are advisory and version-sensitive. Benchmark evidence and reproduction details are in the linked reports.</footer></body></html>

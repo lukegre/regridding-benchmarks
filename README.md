@@ -2,11 +2,13 @@
 
 Synthetic interoperability and numerical-suitability tests for geospatial remapping tools.
 
-**[Interactive results on GitHub Pages](https://lukegre.github.io/regridding-benchmarks/)** · [Detailed report](REPORT.md) · [CSV metrics](all_results.csv) · [JSON results](all_results.json)
+**[Large and chunked results](https://lukegre.github.io/regridding-benchmarks/)** · [Small-grid survey](https://lukegre.github.io/regridding-benchmarks/small-data.html) · [Tool selection and input specifications](https://lukegre.github.io/regridding-benchmarks/tool-guide.html)
 
-The original small-grid run covers satellite swaths, rectilinear grids, ROMS-style curvilinear grids, icosahedral meshes, HEALPix, and full Gaussian grids. It includes 519 attempted operations (484 returned outputs and 35 errors) and 405 combinations outside the tested adapter scope. An output is not a correctness verdict; errors include deliberately malformed inputs.
+The home page presents larger shared-grid timings and chunked-array experiments. Setup, lazy graph construction and completed interpolation are reported separately where applicable. Interactive filters and per-repeat inspection expose the recorded evidence.
 
-The report's heatmaps support scenario selection, exact values, keyboard focus, and selecting a cell to inspect its evidence. Its timing tables show diagnostic wall time and separately recorded xESMF weight-construction time. These single-run measurements include variable startup, import, JIT and I/O costs and are not a controlled performance ranking.
+The separate small-grid survey covers satellite swaths, rectilinear grids, ROMS-style curvilinear grids, icosahedral meshes, HEALPix and Gaussian grids. It includes 519 attempted operations (484 returned outputs and 35 errors) and 405 combinations outside the tested adapter scope. An output is not a correctness verdict; errors include deliberately malformed inputs. Its diagnostic timings include startup and other overheads and are not a controlled performance ranking.
+
+The [tool guide](TOOL_GUIDE.md) describes data requirements, geometry and missing-value contracts, chunking constraints and interpolation choices for categories, packed integers, counts, booleans, flags and timestamps. [Machine-readable contracts](tool_contracts.json) support future agents; these advisory contracts require version-specific validation.
 
 ## Larger shared-grid timing tier
 
@@ -20,6 +22,14 @@ The larger tier is separate from the original small adversarial survey. Every ad
 ```
 
 If environments are stored elsewhere, set `BENCH_ENV_ROOT` to the directory containing `.venv/` and `compiled/`. The runner resumes completed profiles. See the [larger-run report](LARGE_REPORT.md) and [large-tier methodology](large_results/README.md). This tier includes WGS84 → Swiss LV95 and WGS84 → Web Mercator, separately comparing coordinate transformation and raster value reprojection.
+
+## Chunked-array tier
+
+[Chunked methodology and results](CHUNKED_REPORT.md) cover a common 4 × 512 × 512 cube, three chunk layouts and three repeats per profile: 45 in-memory measurements across xESMF, xarray and odc-geo, plus three warm-cache NetCDF4 read measurements. Rectilinear, ROMS and two CRS reprojections are included. The larger unchunked tier remains the primary performance comparison. Chunked tests use a common smaller spatial size after expensive 1024-grid pilots; those incomplete pilots are reported separately, not as completed timings.
+
+Weights are constructed once per profile and reused across layouts. Complete compute is timed separately from graph construction. xESMF explicitly uses full-horizontal output chunks, so this is not a demonstration of distributed spatial output. One odc-geo LV95 layout has four finite-mask differences against the eager reference; inspect the accuracy column before assuming equivalence.
+
+After installing the environments below, follow the serial commands in [CHUNKED_REPORT.md](CHUNKED_REPORT.md), then rebuild Pages. Raw measurements and geometry/value hashes are in `chunked_results/`.
 
 ## Reproduce the original small suite
 
@@ -54,4 +64,4 @@ To rebuild Pages from existing recorded results:
 
 GitHub Pages serves `main` → `/docs`. The benchmark environments and site credentials are excluded from Git.
 
-Optional report UI verification (requires Playwright and Chromium): `python qa/verify_report.py`. This checks size filters, separate timings, CRS comparison groups, per-repeat inspection and responsive layout.
+Optional report UI verification (requires Playwright and Chromium): `python qa/verify_report.py`. This checks all three pages, size and chunk filters, separate timings, CRS comparison groups, per-repeat inspection, data contracts and responsive layout.
