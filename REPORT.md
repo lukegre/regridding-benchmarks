@@ -2,12 +2,12 @@
 
 Executed 2026-11-17 on Linux x86_64, Python 3.12. Sources: the Confluence survey “Geospatial data interoperability: regridding and reprojection tools”. All observations concern the installed versions and the adapters included here.
 
-**924 recorded probes: 484 completed, 35 raised errors, 405 combinations deliberately not exercised.** Thus 519 operations were actually attempted. “Completed” means an output was returned, not that it was correct. Errors include intentional malformed-input tests. Unexercised combinations are adapter scope, not proof a library cannot support them. The 16-method matrix includes related wrappers and shared engines; these are not independent implementations.
+**1091 recorded probes: 536 completed, 42 raised errors, 513 combinations deliberately not exercised.** Thus 578 operations were actually attempted. “Completed” means an output was returned, not that it was correct. Errors include intentional malformed-input tests. Unexercised combinations are adapter scope, not proof a library cannot support them. The adapter matrix includes related wrappers and shared engines; these are not independent implementations.
 
 ## What I would use
 
 - **Satellite swaths:** Pyresample with longitude normalization and an explicit radius/missing-data policy. GDAL geolocation warping is an alternative, but crossing the dateline needs particular care.
-- **Rectilinear grids:** xarray/SciPy for simple interpolation; xESMF/CDO when periodicity or conservation matters. Rasterio/rioxarray/odc-geo for affine GIS rasters and CRS changes.
+- **Rectilinear grids:** xarray/SciPy for point interpolation; xarray-regrid for native axis handling and meridian/parallel conservative cells; xESMF/CDO for their supported spherical cell geometry. See the larger shared-grid tier for query-layout controls and timings. Rasterio/rioxarray/odc-geo for affine GIS rasters and CRS changes.
 - **ROMS-style curvilinear grids:** xESMF, or CDO. Supply real cell corners for conservation; scalar, u, and v locations need separate geometry. Rotation of vector components is an additional step not implemented by scalar remapping.
 - **Icosahedral global meshes:** ESMF or TempestRemap for topology-aware conservative remapping. UXarray was convenient for native face data and nearest-neighbour output. Pyresample can sample face centres but does not use cell topology or conserve integrals.
 - **HEALPix:** Healpy for native operations; MIR/CDO for cross-grid operations. Store NESTED/RING and intensive/extensive semantics explicitly. Astropy-healpix required a longitude workaround in this environment.
@@ -33,6 +33,7 @@ Executed 2026-11-17 on Linux x86_64, Python 3.12. Sources: the Confluence survey
 - ESMF/CDO/TempestRemap/NCO/Iris installed through an isolated conda-forge environment; the other tools used wheels in an isolated venv. Both lock files are included.
 - Documentation name `iris-esmf-regrid` corresponds to PyPI distribution `esmf-regrid`. Iris conservative and bilinear workflows worked; missing 1-D bounds were inferred in the tested regular-grid case.
 - Earthkit's high-level xarray path needed a named DataArray, geographic coordinate metadata, and an extra `earthkit-utils` install. A plain earthkit-geo install did not supply the latter for this path. HEALPix and full-Gaussian MIR runs then worked. The config-file path was redirected to the writable workspace/temporary storage.
+- xarray-regrid 0.4.2 was added with linear/nearest/conservative shared-grid and chunked profiles. The malformed bad-latitude arrays were rejected by our lossless 1-D conversion guard, not by the library. Named DataArrays were needed for the tested most-common reduction; direct nearest interpolation lost integer IDs above 2^53 while compact-code decoding preserved them. See `XARRAY_REGRID_REPORT.md`.
 - Xugrid needed optional `numba-celltree`. Local remapping worked after installation.
 - ESMPy connectivity uses zero-based local node indices, despite node IDs being separately supplied. The first adapter attempt used one-based connectivity and failed; correcting the adapter resolved it. This was not counted as a library grid-support failure.
 - Rasterio's geolocation-array path needed a `rasterio.crs.CRS` object, whereas the affine path also accepted integer/string CRS forms. Correcting that adapter resolved the initial AttributeError.
@@ -83,6 +84,10 @@ Pointwise analytic error and area conservation are distinct. Conservative source
 | scipy | 14 | 4 | 36 |
 | xESMF | 7 | 2 | 0 |
 | xarray | 16 | 2 | 36 |
+| xarray_regrid_conservative | 17 | 2 | 36 |
+| xarray_regrid_linear | 16 | 2 | 36 |
+| xarray_regrid_most_common | 1 | 1 | 0 |
+| xarray_regrid_nearest | 18 | 2 | 36 |
 | xesmf_bilinear | 32 | 4 | 18 |
 | xesmf_conservative | 16 | 2 | 36 |
 | xesmf_nearest_s2d | 36 | 0 | 18 |
@@ -171,6 +176,24 @@ Each cell below reports **RMSE / finite coverage** for that adapter's target. �
 | xarray | icosahedral | — |
 | xarray | healpix | — |
 | xarray | gaussian | 0.00115 / 50.0% |
+| xarray_regrid_conservative | rectilinear | 0.001384 / 100.0% |
+| xarray_regrid_conservative | roms | — |
+| xarray_regrid_conservative | satellite_swath | — |
+| xarray_regrid_conservative | icosahedral | — |
+| xarray_regrid_conservative | healpix | — |
+| xarray_regrid_conservative | gaussian | 0.003257 / 100.0% |
+| xarray_regrid_linear | rectilinear | 0.0002869 / 100.0% |
+| xarray_regrid_linear | roms | — |
+| xarray_regrid_linear | satellite_swath | — |
+| xarray_regrid_linear | icosahedral | — |
+| xarray_regrid_linear | healpix | — |
+| xarray_regrid_linear | gaussian | 0.00115 / 100.0% |
+| xarray_regrid_nearest | rectilinear | 0.007596 / 100.0% |
+| xarray_regrid_nearest | roms | — |
+| xarray_regrid_nearest | satellite_swath | — |
+| xarray_regrid_nearest | icosahedral | — |
+| xarray_regrid_nearest | healpix | — |
+| xarray_regrid_nearest | gaussian | 0.02333 / 100.0% |
 | xesmf_bilinear | rectilinear | 0.000285 / 100.0% |
 | xesmf_bilinear | roms | 0.0002909 / 100.0% |
 | xesmf_bilinear | satellite_swath | 0.0002305 / 81.7% |
@@ -192,7 +215,7 @@ Each cell below reports **RMSE / finite coverage** for that adapter's target. �
 
 ## Versions and artifacts
 
-Python-wheel environment: numpy 2.5.5, scipy 1.18.1, xarray 2026.9.0, rasterio 1.5.2, rioxarray 0.23.0, odc-geo 0.5.4, pyresample 1.35.0, healpy 1.20.1, astropy-healpix 2.0.1, earthkit-geo 1.2.0, mir-python 1.30.2.33, earthkit-utils 1.0.4, xugrid 0.15.3, uxarray 2026.10.1. Compiled environment: ESMF 8.9.1, CDO 2.6.5; exact full packages/builds are recorded in `requirements-compiled.lock`.
+Python-wheel environment: numpy 2.5.5, scipy 1.18.1, xarray 2026.9.0, xarray-regrid 0.4.2, rasterio 1.5.2, rioxarray 0.23.0, odc-geo 0.5.4, pyresample 1.35.0, healpy 1.20.1, astropy-healpix 2.0.1, earthkit-geo 1.2.0, mir-python 1.30.2.33, earthkit-utils 1.0.4, xugrid 0.15.3, uxarray 2026.10.1. Compiled environment: ESMF 8.9.1, CDO 2.6.5; exact full packages/builds are recorded in `requirements-compiled.lock`.
 
 - `all_results.csv` and `all_results.json`: machine-readable metrics, status, timings and diagnostics.
 - `results/*.json`: detailed per-adapter results including warnings and exception traces.

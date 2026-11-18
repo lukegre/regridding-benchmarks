@@ -16,4 +16,5 @@ compiled/bin/python extra.py compiled
 compiled/bin/python controls.py compiled
 compiled/bin/python cli_probes.py
 .venv/bin/python reproduce_astropy.py > results/astropy_minimal.log 2>&1
+.venv/bin/python xarray_regrid_controls.py
 .venv/bin/python report.py

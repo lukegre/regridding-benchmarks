@@ -11,7 +11,7 @@ for f in files:
 (ROOT/'all_results.json').write_text(json.dumps(rows,indent=2))
 keys=['package','grid','scenario','case','status','finite_fraction','rmse','max_error','relative_integral_error','seconds','flags','error','source_file']
 with (ROOT/'all_results.csv').open('w') as f:
- w=csv.DictWriter(f,fieldnames=keys,extrasaction='ignore');w.writeheader();w.writerows(rows)
+ w=csv.DictWriter(f,fieldnames=keys,extrasaction='ignore',lineterminator='\n');w.writeheader();w.writerows(rows)
 count=collections.Counter(x['status'] for x in rows)
 summary=[]
 for p in sorted(set(x['package'] for x in rows)):
@@ -24,18 +24,18 @@ for x in base:
  metric=f"{x['rmse']:.4g} / {x['finite_fraction']:.1%}" if x['status']=='completed' else ('error' if x['status']=='error' else '—')
  table.append(f"| {x['package']} | {x['grid']} | {metric} |")
 versions=[]
-for p in ['numpy','scipy','xarray','rasterio','rioxarray','odc-geo','pyresample','healpy','astropy-healpix','earthkit-geo','mir-python','earthkit-utils','xugrid','uxarray']:
+for p in ['numpy','scipy','xarray','xarray-regrid','rasterio','rioxarray','odc-geo','pyresample','healpy','astropy-healpix','earthkit-geo','mir-python','earthkit-utils','xugrid','uxarray']:
  versions.append(f'{p} {md.version(p)}')
 text=f'''# Synthetic geospatial interoperability stress tests
 
 Executed 2026-11-17 on Linux x86_64, Python 3.12. Sources: the Confluence survey “Geospatial data interoperability: regridding and reprojection tools”. All observations concern the installed versions and the adapters included here.
 
-**{len(rows)} recorded probes: {count['completed']} completed, {count['error']} raised errors, {count['not_exercised']} combinations deliberately not exercised.** Thus {count['completed']+count['error']} operations were actually attempted. “Completed” means an output was returned, not that it was correct. Errors include intentional malformed-input tests. Unexercised combinations are adapter scope, not proof a library cannot support them. The 16-method matrix includes related wrappers and shared engines; these are not independent implementations.
+**{len(rows)} recorded probes: {count['completed']} completed, {count['error']} raised errors, {count['not_exercised']} combinations deliberately not exercised.** Thus {count['completed']+count['error']} operations were actually attempted. “Completed” means an output was returned, not that it was correct. Errors include intentional malformed-input tests. Unexercised combinations are adapter scope, not proof a library cannot support them. The adapter matrix includes related wrappers and shared engines; these are not independent implementations.
 
 ## What I would use
 
 - **Satellite swaths:** Pyresample with longitude normalization and an explicit radius/missing-data policy. GDAL geolocation warping is an alternative, but crossing the dateline needs particular care.
-- **Rectilinear grids:** xarray/SciPy for simple interpolation; xESMF/CDO when periodicity or conservation matters. Rasterio/rioxarray/odc-geo for affine GIS rasters and CRS changes.
+- **Rectilinear grids:** xarray/SciPy for point interpolation; xarray-regrid for native axis handling and meridian/parallel conservative cells; xESMF/CDO for their supported spherical cell geometry. See the larger shared-grid tier for query-layout controls and timings. Rasterio/rioxarray/odc-geo for affine GIS rasters and CRS changes.
 - **ROMS-style curvilinear grids:** xESMF, or CDO. Supply real cell corners for conservation; scalar, u, and v locations need separate geometry. Rotation of vector components is an additional step not implemented by scalar remapping.
 - **Icosahedral global meshes:** ESMF or TempestRemap for topology-aware conservative remapping. UXarray was convenient for native face data and nearest-neighbour output. Pyresample can sample face centres but does not use cell topology or conserve integrals.
 - **HEALPix:** Healpy for native operations; MIR/CDO for cross-grid operations. Store NESTED/RING and intensive/extensive semantics explicitly. Astropy-healpix required a longitude workaround in this environment.
@@ -61,6 +61,7 @@ Executed 2026-11-17 on Linux x86_64, Python 3.12. Sources: the Confluence survey
 - ESMF/CDO/TempestRemap/NCO/Iris installed through an isolated conda-forge environment; the other tools used wheels in an isolated venv. Both lock files are included.
 - Documentation name `iris-esmf-regrid` corresponds to PyPI distribution `esmf-regrid`. Iris conservative and bilinear workflows worked; missing 1-D bounds were inferred in the tested regular-grid case.
 - Earthkit's high-level xarray path needed a named DataArray, geographic coordinate metadata, and an extra `earthkit-utils` install. A plain earthkit-geo install did not supply the latter for this path. HEALPix and full-Gaussian MIR runs then worked. The config-file path was redirected to the writable workspace/temporary storage.
+- xarray-regrid 0.4.2 was added with linear/nearest/conservative shared-grid and chunked profiles. The malformed bad-latitude arrays were rejected by our lossless 1-D conversion guard, not by the library. Named DataArrays were needed for the tested most-common reduction; direct nearest interpolation lost integer IDs above 2^53 while compact-code decoding preserved them. See `XARRAY_REGRID_REPORT.md`.
 - Xugrid needed optional `numba-celltree`. Local remapping worked after installation.
 - ESMPy connectivity uses zero-based local node indices, despite node IDs being separately supplied. The first adapter attempt used one-based connectivity and failed; correcting the adapter resolved it. This was not counted as a library grid-support failure.
 - Rasterio's geolocation-array path needed a `rasterio.crs.CRS` object, whereas the affine path also accepted integer/string CRS forms. Correcting that adapter resolved the initial AttributeError.

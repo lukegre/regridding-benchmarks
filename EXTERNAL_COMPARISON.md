@@ -8,17 +8,17 @@ Sources accessed 2026-11-17. Workloads, hardware, methods and timing boundaries 
 
 ## What the external evidence adds
 
-### Our SciPy/xarray ordering is workload-dependent
+### The new axis control qualifies the original ordering
 
-CNES’s global structured-target benchmark reports xarray application faster than SciPy RegularGridInterpolator, reversing our local ordering. It also benchmarks pyinterp, which our suite does not include.
+CNES reports xarray faster than SciPy on a structured target. Our added xarray_axes control now shows the same qualitative ordering on our shared grids; the historical xarray adapter queried 2-D point arrays. xarray-regrid linear uses the axis-based path with extra formatting.
 
-**Implication:** Treat SciPy as fastest among our measured adapters on our fixtures. Benchmark the exact target layout and API before choosing between SciPy and xarray; include pyinterp as an untested candidate.
+**Implication:** The physical grids and values are identical; API representation changes runtime. Prefer axis-based interpolation when the target is separable and retain the original point-query timings as a distinct measured workflow.
 
 ### Chunk layout can reverse the result
 
-The xarray-regrid conservative notebook reports xESMF/xarray-regrid execution ratios from 0.6 to 16.9 across layouts and NaN policies. Its chunk-amplification warnings resemble our default-output xESMF diagnostic.
+The xarray-regrid conservative notebook reports xESMF/xarray-regrid execution ratios from 0.6 to 16.9 across layouts and NaN policies. Its chunk-amplification warnings resemble our default-output xESMF diagnostic. We now also measure xarray-regrid linear, nearest and conservative locally at the existing shared sizes and chunk layouts.
 
-**Implication:** Keep graph construction, completed compute, source generation and output chunks explicit. xarray-regrid is a separate package from our xarray.interp adapter; neither source establishes a universal chunked winner.
+**Implication:** Keep graph construction, completed compute, source generation, output chunks and NaN policy explicit. Local conservative chunk outputs matched their eager reference exactly and retained spatial chunks; this does not reproduce the external 1000-time coarsening workload or establish a universal winner.
 
 ### Raster reprojection preferences depend on I/O
 
@@ -53,11 +53,12 @@ maintainer-published executable benchmark · Date/version Undated live page; des
 - Conservative application seconds: xESMF 0.1183; pyinterp one thread 0.0012. Separate xESMF construction: 11.2 s. Geometry differs: meridian/parallel boxes versus ESMF great-circle edges.
 - Structured 0.1° target over 80°S–80°N, 5.76 million queries: xarray 31.7 ms; SciPy RegularGridInterpolator 138.1 ms; xESMF weight application 1457.8 ms, with 42.2 s construction reported separately. pyinterp one-thread application: 9.6 ms. These are within-source figures, not comparisons to our machine.
 
-**Comparison with our results:** Agrees that structured-grid specialization can avoid expensive general ESMF construction. Challenges a universal SciPy-over-xarray ranking: here xarray structured-target application is faster than SciPy; ours ranks SciPy first on its own rectilinear adapter. pyinterp was not measured locally and is a candidate, not a validated local winner.
+**Comparison with our results:** Our added 1-D-target xarray_axes control is faster than SciPy on the local shared rectilinear and full Gaussian grids, qualitatively agreeing with CNES. The historical 2-D-target xarray adapter was slower. xarray-regrid linear uses axis-based xarray interpolation with additional formatting. This isolates an important API-layout effect without changing canonical geometry or values; no cross-machine speed ratio is justified.
 
 **Local evidence:**
 
 - Local rectilinear shared scale 1024, three-run mean setup/application: SciPy 0.00474 / 0.0735 s; xarray 0.000769 / 0.0951 s; smooth-field RMSE effectively equal at 1.96e-7. Source: large_results/combined.json.
+- Updated local evidence includes xarray_axes and xarray_regrid_linear at both 512/1024. See large-results.json and the tool guide for current measured values. pyinterp remains untested locally.
 
 **Limits:**
 
@@ -75,7 +76,7 @@ maintainer-published executed notebook benchmark · Date/version Undated live st
 - Published xESMF/xarray-regrid execution ratios for skipna=False/True: (1,all,all) 3.7/7.2; (25,all,all) 0.6/1.1; (all,32,32) 14.2/16.9; (all,160,160) 1.8/2.4.
 - Notebook records xESMF output-chunk count warnings of 72× for 32-cell chunks and 6× for 160-cell chunks.
 
-**Comparison with our results:** Supports our observation that spatial chunk layout and output-chunk amplification can dominate completed compute. It also shows a ranking reversal between layouts, so no universal chunked winner is justified. xarray-regrid is a separate, locally untested package; it is not our xarray.interp adapter.
+**Comparison with our results:** Our new xarray-regrid conservative profile retains spatial output chunks and agrees exactly with its eager reference across all three layouts, including missingness. Linear and nearest use xarray interpolation and rechunk. These local tests are near-resolution mapping of four time slices, not the external 1000-time conservative coarsening; the published ratios are not our local speedups.
 
 **Local evidence:**
 
@@ -83,7 +84,7 @@ maintainer-published executed notebook benchmark · Date/version Undated live st
 
 **Limits:**
 
-- Conservative downsampling versus our bilinear near-resolution mapping; 1000 times versus four; full desktop versus two-vCPU quota; source graph computation included. Absolute seconds are not shown on the published page. Accuracy is not assessed in this performance notebook. Minimum-of-two differs from our three-run medians.
+- Conservative downsampling versus our near-resolution linear/nearest/conservative extension; 1000 times versus four; full desktop versus two-vCPU quota; source graph computation included. Absolute seconds are not shown on the published page. Accuracy is not assessed in this performance notebook. Minimum-of-two differs from our three-run medians.
 
 ### [xESMF backend usage and benchmark](https://xesmf.readthedocs.io/en/latest/notebooks/Backend.html)
 
@@ -318,7 +319,7 @@ versioned implementation/documentation, not a benchmark · Date/version Version0
 ## Evidence gaps
 
 - No external source reviewed reproduces our complete grid hashes, masks, methods, hardware, versions and timing boundaries. No direct cross-study speed ratio is justified.
-- pyinterp, xarray-regrid and MBTempest were not run locally. Their external results identify candidates rather than local winners.
+- pyinterp and MBTempest have not been run locally; xarray-regrid has now been added. External results for untested tools identify candidates rather than local winners.
 - Our smooth analytic scalar, mostly single-remap tests do not cover vector rotation, convergence order, long-cycle dissipation or every missing-value/conservation policy.
 - The HEALPix external microbenchmark measures coordinate conversion, not map interpolation. Its speed ratio cannot validate our interpolation timings.
 - Official guidance and issue reports support interpretation; they are explicitly labelled and do not count as independent benchmark replication.

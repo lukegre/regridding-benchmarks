@@ -75,7 +75,8 @@ def import_engine(pkg):
  if pkg.startswith('xesmf'):import xesmf
  elif pkg.startswith('pyresample'):from pyresample import kd_tree
  elif pkg=='scipy':from scipy.interpolate import RegularGridInterpolator
- elif pkg=='xarray':import scipy.interpolate
+ elif pkg in ('xarray','xarray_axes'):import scipy.interpolate
+ elif pkg.startswith('xarray_regrid_'):import xarray_regrid
  elif pkg in ('healpy','astropy_healpix'):
   import healpy
   if pkg=='astropy_healpix':import astropy_healpix
@@ -106,6 +107,22 @@ def build(pkg,grid,f,work):
   da=xr.DataArray(vv,dims=('lat','lon'),coords={'lat':la[:,0],'lon':xx});x=xr.DataArray(tx,dims=('y','x'));y=xr.DataArray(ty,dims=('y','x'))
   extra['setup_note']='xarray interp constructs interpolation machinery during apply; weights not exposed separately'
   return lambda:da.interp(lat=y,lon=x).values,extra,cleanup
+ if pkg=='xarray_axes' or pkg.startswith('xarray_regrid_'):
+  if grid not in ('rectilinear','gaussian'):raise ValueError('Rectilinear axes required; no curvilinear/scattered fallback')
+  xx=lo[0];vv=v
+  if pkg=='xarray_axes' and grid=='gaussian':
+   xx=np.r_[xx,360.];vv=np.concatenate([v,v[:,:1]],axis=1)
+  da=xr.DataArray(vv,dims=('lat','lon'),coords={'lat':la[:,0],'lon':xx})
+  target=xr.Dataset(coords={'lat':ty[:,0],'lon':tx[0]})
+  if pkg=='xarray_axes':
+   extra['setup_note']='1-D target-axis control for existing xarray adapter; identical canonical grid/values, Gaussian seam padded as in existing xarray. Interpolation machinery constructed inside apply.'
+   return lambda:da.interp(lat=target.lat,lon=target.lon,method='linear').transpose('lat','lon').values,extra,cleanup
+  import xarray_regrid
+  from importlib.metadata import version
+  method=pkg.removeprefix('xarray_regrid_')
+  kwargs={'latitude_coord':'lat','skipna':True,'nan_threshold':1.0} if method=='conservative' else {}
+  extra.update(engine_version=version('xarray-regrid'),setup_note='Public xarray-regrid accessor with 1-D source and target axes. Formatting, seam handling and weight/machinery construction occur inside apply on every call; no reusable weight-construction API is exposed. Conservative uses meridian/parallel cells and skipna=True, nan_threshold=1.0; not the great-circle cell geometry of ESMF.')
+  return lambda:getattr(da.regrid,method)(target,**kwargs).transpose('lat','lon').values,extra,cleanup
  if pkg.startswith('xesmf'):
   import xesmf as xe
   method=pkg.split('_',1)[1]

@@ -9,7 +9,7 @@ def esc(s): return html.escape(s, quote=True)
 
 choices = [
  ('Geolocated swath / scattered centres', 'Pyresample nearest or Gaussian; GDAL geolocation warp where suitable', 'Centre sampling does not conserve cell integrals; select radius and footprint policy.'),
- ('Rectilinear 1-D axes or full Gaussian', 'SciPy/xarray for point interpolation; xESMF or CDO for appropriate conservative grids; MIR for supported Gaussian grids', 'Handle longitude seam; use actual cell bounds for conservation.'),
+ ('Rectilinear 1-D axes or full Gaussian', 'Xarray axis-based or SciPy point interpolation; xarray-regrid for meridian/parallel conservative cells; xESMF/CDO for their supported spherical geometry; MIR for native Gaussian workflows', 'Handle longitude seam; use actual cell bounds for conservation.'),
  ('Curvilinear / ROMS', 'xESMF or CDO with correct centres and real corners', 'Use separate rho/u/v geometries; rotate vector components separately.'),
  ('Affine raster with CRS change', 'Rasterio/GDAL, rioxarray or odc-geo', 'Specify source and destination CRS, transform, shape, nodata and kernel.'),
  ('Global spherical unstructured mesh', 'ESMPy or TempestRemap for overlap; UXarray or Pyresample for centre-based nearest sampling', 'Topology-aware area overlap needs valid nodes and faces; planar lon/lat is not spherical geometry.'),
@@ -95,6 +95,7 @@ skill += ['', '## Evidence and companion contracts', '',
  '- [Recommendation rules](https://lukegre.github.io/regridding-benchmarks/tool_recommendations.json)',
  '- [Large-grid evidence](https://lukegre.github.io/regridding-benchmarks/large-results.json)',
  '- [Chunked evidence](https://lukegre.github.io/regridding-benchmarks/chunked-results.json)',
+ '- [xarray-regrid extension and usability controls](https://lukegre.github.io/regridding-benchmarks/xarray-regrid-report.md)',
  '- [Small-grid adversarial survey](https://lukegre.github.io/regridding-benchmarks/small-data.html)', '',
  'In a checkout of lukegre/regridding-benchmarks, the source files are tool_recommendations.json, tool_contracts.json, large_results/combined.json and chunked_results/combined.json. Rebuild this skill and the guide with build_guide.py, or regenerate all Pages output with build_pages.py using the documented Python environment. Do not hand-edit generated recommendations or reinterpret advisory contracts as a formal validator.', '']
 skill_path = ROOT / 'skills/regridding-tool-selection/SKILL.md'

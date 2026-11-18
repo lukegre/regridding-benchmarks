@@ -85,6 +85,16 @@ def apply(pkg,kind,scenario,lo,la,v,mask,tx,ty):
             return RegularGridInterpolator((la[:,0],lo[0]),v,bounds_error=False,fill_value=np.nan)(np.stack([ty,tx],-1))
         da=xr.DataArray(v,dims=('lat','lon'),coords={'lat':la[:,0],'lon':lo[0]})
         return da.interp(lat=xr.DataArray(ty,dims=('y','x')),lon=xr.DataArray(tx,dims=('y','x'))).values
+    if pkg.startswith('xarray_regrid_'):
+        import xarray_regrid
+        if kind not in ('rectilinear','gaussian'):raise Unsupported('This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter')
+        if not (np.allclose(lo,lo[0][None,:],equal_nan=True) and np.allclose(la,la[:,0][:,None],equal_nan=True)):
+            raise ValueError('Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes')
+        da=xr.DataArray(v,dims=('lat','lon'),coords={'lat':la[:,0],'lon':lo[0]})
+        dst=xr.Dataset(coords={'lat':ty[:,0],'lon':tx[0]})
+        method=pkg.removeprefix('xarray_regrid_')
+        kwargs={'latitude_coord':'lat','skipna':True,'nan_threshold':1.0} if method=='conservative' else {}
+        return getattr(da.regrid,method)(dst,**kwargs).transpose('lat','lon').values
     if pkg.startswith('pyresample'):
         from pyresample import geometry as pr_geometry,kd_tree
         src=pr_geometry.SwathDefinition(lons=lo,lats=la);dst=pr_geometry.SwathDefinition(lons=tx,lats=ty)

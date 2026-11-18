@@ -806,6 +806,173 @@ xarray,gaussian,lon360,,completed,0.5,0.0011501047449980356,0.004027986243578696
 xarray,gaussian,duplicate,,error,,,,,0.004912172000103965,,InvalidIndexError: Reindexing only valid with uniquely valued Index objects,xarray.json
 xarray,gaussian,bad_lat,,completed,0.5,0.0013627499599696137,0.008225767724362676,,0.00605760200005534,['invalid_coordinate_accepted'],,xarray.json
 xarray,gaussian,categorical,,completed,0.5,0.09259259259259259,0.5555555555555556,,0.006864189999987502,['fractional_categories'],,xarray.json
+xarray_regrid_conservative,rectilinear,smooth,,completed,1.0,0.001383555479344488,0.003990546347813595,,2.435453575999418,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,rectilinear,constant,,completed,1.0,3.3569988834012605e-16,8.881784197001252e-16,,0.01956809799958137,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,rectilinear,nan_hole,,completed,0.9985994397759104,0.0025828514645988383,0.01819262973939395,,0.02021386899650679,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,rectilinear,mask_hole,,completed,0.9985994397759104,0.0025828514645988383,0.01819262973939395,,0.019476663001114503,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,rectilinear,reverse,,completed,1.0,0.001383555479344488,0.003990546347813595,,0.02107290799904149,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,rectilinear,lon360,,completed,1.0,0.001383555479344488,0.003990546347813595,,0.5263145059980161,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,rectilinear,duplicate,,completed,1.0,0.001383555479344488,0.003990546347813595,,0.01973688300131471,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,rectilinear,bad_lat,,error,,,,,0.0010018129978561774,,ValueError: Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes,xarray_regrid_conservative.json
+xarray_regrid_conservative,rectilinear,categorical,,completed,1.0,0.14291548761875736,0.8333333333333334,,0.018266019000293454,"['fractional_categories', 'large_error']",,xarray_regrid_conservative.json
+xarray_regrid_conservative,roms,smooth,,not_exercised,,,,,0.0004291990007914137,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,roms,constant,,not_exercised,,,,,0.00029017700217082165,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,roms,nan_hole,,not_exercised,,,,,0.00029921399982413277,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,roms,mask_hole,,not_exercised,,,,,0.0002761450014077127,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,roms,reverse,,not_exercised,,,,,0.0002631370007293299,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,roms,lon360,,not_exercised,,,,,0.00022291400091489777,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,roms,duplicate,,not_exercised,,,,,0.00032187200122280046,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,roms,bad_lat,,not_exercised,,,,,0.0003657080014818348,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,roms,categorical,,not_exercised,,,,,0.00027864000003319234,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,satellite_swath,smooth,,not_exercised,,,,,0.00035461399966152385,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,satellite_swath,constant,,not_exercised,,,,,0.0002857139988918789,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,satellite_swath,nan_hole,,not_exercised,,,,,0.0003265940031269565,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,satellite_swath,mask_hole,,not_exercised,,,,,0.00031732100251247175,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,satellite_swath,reverse,,not_exercised,,,,,0.0003379379995749332,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,satellite_swath,lon360,,not_exercised,,,,,0.0003317030023026746,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,satellite_swath,duplicate,,not_exercised,,,,,0.0002855830025509931,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,satellite_swath,bad_lat,,not_exercised,,,,,0.0005233549964032136,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,satellite_swath,categorical,,not_exercised,,,,,0.0003635540015238803,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,icosahedral,smooth,,not_exercised,,,,,0.30173072300021886,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,icosahedral,constant,,not_exercised,,,,,0.0009464300019317307,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,icosahedral,nan_hole,,not_exercised,,,,,0.0009033169990289025,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,icosahedral,mask_hole,,not_exercised,,,,,0.001310486000875244,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,icosahedral,reverse,,not_exercised,,,,,0.0010838220005098265,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,icosahedral,lon360,,not_exercised,,,,,0.0014994809971540235,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,icosahedral,duplicate,,not_exercised,,,,,0.0009362510027131066,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,icosahedral,bad_lat,,not_exercised,,,,,0.0009088090009754524,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,icosahedral,categorical,,not_exercised,,,,,0.001038648002577247,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,healpix,smooth,,not_exercised,,,,,0.9504374339994683,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,healpix,constant,,not_exercised,,,,,0.0006168239997350611,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,healpix,nan_hole,,not_exercised,,,,,0.0005081460003566463,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,healpix,mask_hole,,not_exercised,,,,,0.00028564899912453257,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,healpix,reverse,,not_exercised,,,,,0.00039076199755072594,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,healpix,lon360,,not_exercised,,,,,0.00035386799936532043,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,healpix,duplicate,,not_exercised,,,,,0.0003967100019508507,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,healpix,bad_lat,,not_exercised,,,,,0.0004371069990156684,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,healpix,categorical,,not_exercised,,,,,0.0003975729996454902,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_conservative.json
+xarray_regrid_conservative,gaussian,smooth,,completed,1.0,0.003257198381075525,0.014582826976806018,,0.02577765800015186,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,gaussian,constant,,completed,1.0,4.1869132231567334e-16,1.7763568394002505e-15,,0.021624286000587745,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,gaussian,nan_hole,,completed,0.9995659722222222,0.008662974063884738,0.07995957335855786,,0.022492394000437343,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,gaussian,mask_hole,,completed,0.9995659722222222,0.008662974063884738,0.07995957335855786,,0.024989194000227144,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,gaussian,reverse,,completed,1.0,0.003257198381075525,0.014582826976806018,,0.020073559000593377,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,gaussian,lon360,,completed,1.0,0.003257198381075525,0.014582826976806018,,0.018995130998519016,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,gaussian,duplicate,,completed,1.0,0.00348794122495465,0.017956201189691434,,0.02045157999964431,[],,xarray_regrid_conservative.json
+xarray_regrid_conservative,gaussian,bad_lat,,error,,,,,0.0014765470004931558,,ValueError: Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes,xarray_regrid_conservative.json
+xarray_regrid_conservative,gaussian,categorical,,completed,1.0,0.09375,0.5625,,0.023719061999145197,['fractional_categories'],,xarray_regrid_conservative.json
+xarray_regrid_conservative,rectilinear,,closed_global_integral,completed,1.0,,,0.0,1.2547263609994843,[],,xarray_regrid_controls.json
+xarray_regrid_most_common,rectilinear,,categorical_coarsening_unnamed_input,error,,,,,0.007583381000586087,,ValueError('Cannot group by unnamed DataArrays.'),xarray_regrid_controls.json
+xarray_regrid_most_common,rectilinear,,categorical_coarsening_no_ties,completed,1.0,,0.0,,0.024869259003025945,[],,xarray_regrid_controls.json
+xarray_regrid_nearest,rectilinear,,large_integer_ids_native,completed,,,,,0.11181922499963548,['integer_precision_loss'],,xarray_regrid_controls.json
+xarray_regrid_nearest,rectilinear,,large_integer_ids_compact_codes,completed,,,,,0.008569540997996228,[],,xarray_regrid_controls.json
+xarray_regrid_linear,rectilinear,smooth,,completed,1.0,0.0002868967780592367,0.0005243063960342909,,0.939368404000561,[],,xarray_regrid_linear.json
+xarray_regrid_linear,rectilinear,constant,,completed,1.0,0.0,0.0,,0.009709616999316495,[],,xarray_regrid_linear.json
+xarray_regrid_linear,rectilinear,nan_hole,,completed,0.788515406162465,0.0002864781727082859,0.0005243063960342909,,0.006668735997664044,[],,xarray_regrid_linear.json
+xarray_regrid_linear,rectilinear,mask_hole,,completed,0.788515406162465,0.0002864781727082859,0.0005243063960342909,,0.007429784996929811,[],,xarray_regrid_linear.json
+xarray_regrid_linear,rectilinear,reverse,,completed,1.0,0.0002868967780592367,0.0005243063960342909,,0.007213854001747677,[],,xarray_regrid_linear.json
+xarray_regrid_linear,rectilinear,lon360,,completed,1.0,0.0002868967780592367,0.0005243063960342909,,0.00816296099947067,[],,xarray_regrid_linear.json
+xarray_regrid_linear,rectilinear,duplicate,,completed,1.0,0.0002868967780592367,0.0005243063960342909,,0.02210955699774786,[],,xarray_regrid_linear.json
+xarray_regrid_linear,rectilinear,bad_lat,,error,,,,,0.0008271789993159473,,ValueError: Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes,xarray_regrid_linear.json
+xarray_regrid_linear,rectilinear,categorical,,completed,1.0,0.12862393885688164,0.75,,0.007781937998515787,"['fractional_categories', 'large_error']",,xarray_regrid_linear.json
+xarray_regrid_linear,roms,smooth,,not_exercised,,,,,0.00036218799868947826,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,roms,constant,,not_exercised,,,,,0.00043789199844468385,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,roms,nan_hole,,not_exercised,,,,,0.00028067000312148593,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,roms,mask_hole,,not_exercised,,,,,0.00027640900225378573,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,roms,reverse,,not_exercised,,,,,0.0003008580024470575,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,roms,lon360,,not_exercised,,,,,0.0003663930001494009,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,roms,duplicate,,not_exercised,,,,,0.0002894909994211048,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,roms,bad_lat,,not_exercised,,,,,0.00042037599996547215,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,roms,categorical,,not_exercised,,,,,0.0004818940033146646,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,satellite_swath,smooth,,not_exercised,,,,,0.0003873860005114693,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,satellite_swath,constant,,not_exercised,,,,,0.0003997349995188415,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,satellite_swath,nan_hole,,not_exercised,,,,,0.00037878200237173587,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,satellite_swath,mask_hole,,not_exercised,,,,,0.00040159800118999556,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,satellite_swath,reverse,,not_exercised,,,,,0.0003295980022812728,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,satellite_swath,lon360,,not_exercised,,,,,0.0006315450009424239,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,satellite_swath,duplicate,,not_exercised,,,,,0.00036759299837285653,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,satellite_swath,bad_lat,,not_exercised,,,,,0.00037249299930408597,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,satellite_swath,categorical,,not_exercised,,,,,0.0004493810010899324,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,icosahedral,smooth,,not_exercised,,,,,0.19790470600128174,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,icosahedral,constant,,not_exercised,,,,,0.0012998009988223203,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,icosahedral,nan_hole,,not_exercised,,,,,0.0009685490003903396,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,icosahedral,mask_hole,,not_exercised,,,,,0.0010376720019849017,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,icosahedral,reverse,,not_exercised,,,,,0.0010986960005539004,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,icosahedral,lon360,,not_exercised,,,,,0.0008639510015200358,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,icosahedral,duplicate,,not_exercised,,,,,0.0008751240020501427,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,icosahedral,bad_lat,,not_exercised,,,,,0.0008609280012024101,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,icosahedral,categorical,,not_exercised,,,,,0.0008344800007762387,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,healpix,smooth,,not_exercised,,,,,1.1683577730000252,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,healpix,constant,,not_exercised,,,,,0.0004620469990186393,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,healpix,nan_hole,,not_exercised,,,,,0.00038098200093372725,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,healpix,mask_hole,,not_exercised,,,,,0.00037839699871256016,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,healpix,reverse,,not_exercised,,,,,0.0003243810024287086,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,healpix,lon360,,not_exercised,,,,,0.0003386709977348801,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,healpix,duplicate,,not_exercised,,,,,0.0003344530014146585,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,healpix,bad_lat,,not_exercised,,,,,0.0003556080009730067,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,healpix,categorical,,not_exercised,,,,,0.000352245999238221,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_linear.json
+xarray_regrid_linear,gaussian,smooth,,completed,1.0,0.0011501047449980458,0.004027986243578696,,0.02232214299874613,[],,xarray_regrid_linear.json
+xarray_regrid_linear,gaussian,constant,,completed,1.0,7.327098140524283e-16,1.7763568394002505e-15,,0.01270703800037154,[],,xarray_regrid_linear.json
+xarray_regrid_linear,gaussian,nan_hole,,completed,0.7890625,0.0011508023611885075,0.004027986243578696,,0.013806312999804504,[],,xarray_regrid_linear.json
+xarray_regrid_linear,gaussian,mask_hole,,completed,0.7890625,0.0011508023611885075,0.004027986243578696,,0.01225682299991604,[],,xarray_regrid_linear.json
+xarray_regrid_linear,gaussian,reverse,,completed,1.0,0.0011501047449980458,0.004027986243578696,,0.013863860000128625,[],,xarray_regrid_linear.json
+xarray_regrid_linear,gaussian,lon360,,completed,1.0,0.0011501047449980458,0.004027986243578696,,0.013363538000703556,[],,xarray_regrid_linear.json
+xarray_regrid_linear,gaussian,duplicate,,completed,1.0,0.0014381651534317338,0.009080274083951068,,0.013400659001490567,[],,xarray_regrid_linear.json
+xarray_regrid_linear,gaussian,bad_lat,,error,,,,,0.0014931830010027625,,ValueError: Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes,xarray_regrid_linear.json
+xarray_regrid_linear,gaussian,categorical,,completed,1.0,0.09259259259259259,0.5555555555555556,,0.012881374997959938,['fractional_categories'],,xarray_regrid_linear.json
+xarray_regrid_nearest,rectilinear,smooth,,completed,1.0,0.007596469318995048,0.02386623031709867,,1.1830776110000443,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,rectilinear,constant,,completed,1.0,0.0,0.0,,0.00989821500115795,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,rectilinear,nan_hole,,completed,0.9467787114845938,0.007604884651490046,0.02386623031709867,,0.008770143998845015,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,rectilinear,mask_hole,,completed,0.9467787114845938,0.007604884651490046,0.02386623031709867,,0.007929580002382863,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,rectilinear,reverse,,completed,1.0,0.007596469318995048,0.02386623031709867,,0.007610319000377785,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,rectilinear,lon360,,completed,1.0,0.007596469318995048,0.02386623031709867,,0.016289835999486968,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,rectilinear,duplicate,,completed,1.0,0.007596469318995048,0.02386623031709867,,0.010279572998115327,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,rectilinear,bad_lat,,error,,,,,0.0009815529992920347,,ValueError: Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes,xarray_regrid_nearest.json
+xarray_regrid_nearest,rectilinear,categorical,,completed,1.0,0.17149858514250885,1.0,,0.00753181899926858,['large_error'],,xarray_regrid_nearest.json
+xarray_regrid_nearest,roms,smooth,,not_exercised,,,,,0.0004038119986944366,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,roms,constant,,not_exercised,,,,,0.0002810419973684475,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,roms,nan_hole,,not_exercised,,,,,0.0002863329973479267,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,roms,mask_hole,,not_exercised,,,,,0.0004665460000978783,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,roms,reverse,,not_exercised,,,,,0.00030788900039624423,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,roms,lon360,,not_exercised,,,,,0.0002905370020016562,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,roms,duplicate,,not_exercised,,,,,0.0002477469970472157,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,roms,bad_lat,,not_exercised,,,,,0.00023778399918228388,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,roms,categorical,,not_exercised,,,,,0.0003685530027723871,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,satellite_swath,smooth,,not_exercised,,,,,0.0008890960016287863,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,satellite_swath,constant,,not_exercised,,,,,0.0004366149987617973,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,satellite_swath,nan_hole,,not_exercised,,,,,0.00046509900130331516,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,satellite_swath,mask_hole,,not_exercised,,,,,0.0003196219986421056,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,satellite_swath,reverse,,not_exercised,,,,,0.0002976889991259668,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,satellite_swath,lon360,,not_exercised,,,,,0.000450731000455562,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,satellite_swath,duplicate,,not_exercised,,,,,0.0007055679998302367,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,satellite_swath,bad_lat,,not_exercised,,,,,0.00042597999708959833,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,satellite_swath,categorical,,not_exercised,,,,,0.00033208799868589267,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,icosahedral,smooth,,not_exercised,,,,,0.12451956699806033,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,icosahedral,constant,,not_exercised,,,,,0.0021911870026087854,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,icosahedral,nan_hole,,not_exercised,,,,,0.001215771000715904,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,icosahedral,mask_hole,,not_exercised,,,,,0.0014998030019341968,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,icosahedral,reverse,,not_exercised,,,,,0.0011110790001112036,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,icosahedral,lon360,,not_exercised,,,,,0.000930370999412844,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,icosahedral,duplicate,,not_exercised,,,,,0.0009161669986497145,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,icosahedral,bad_lat,,not_exercised,,,,,0.001002773002255708,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,icosahedral,categorical,,not_exercised,,,,,0.001042362997395685,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,healpix,smooth,,not_exercised,,,,,1.0310085069977504,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,healpix,constant,,not_exercised,,,,,0.0005939210022916086,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,healpix,nan_hole,,not_exercised,,,,,0.0006926969981577713,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,healpix,mask_hole,,not_exercised,,,,,0.00044167499800096266,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,healpix,reverse,,not_exercised,,,,,0.0005309449988999404,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,healpix,lon360,,not_exercised,,,,,0.0003737620027095545,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,healpix,duplicate,,not_exercised,,,,,0.0003713590012921486,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,healpix,bad_lat,,not_exercised,,,,,0.00035430799835012294,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,healpix,categorical,,not_exercised,,,,,0.00038070200025686063,,This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter,xarray_regrid_nearest.json
+xarray_regrid_nearest,gaussian,smooth,,completed,1.0,0.023333466646314253,0.07083651297855043,,0.012958610001078341,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,gaussian,constant,,completed,1.0,0.0,0.0,,0.012675418001890648,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,gaussian,nan_hole,,completed,0.9466145833333334,0.023251337875197835,0.07083651297855043,,0.011432856997998897,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,gaussian,mask_hole,,completed,0.9466145833333334,0.023251337875197835,0.07083651297855043,,0.01499224500003038,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,gaussian,reverse,,completed,1.0,0.023333466646314253,0.07083651297855043,,0.014022194998688065,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,gaussian,lon360,,completed,1.0,0.023333466646314253,0.07083651297855043,,0.0125581640022574,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,gaussian,duplicate,,completed,1.0,0.023375565559432075,0.07083651297855043,,0.012554086002637632,[],,xarray_regrid_nearest.json
+xarray_regrid_nearest,gaussian,bad_lat,,error,,,,,0.0013811220014758874,,ValueError: Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes,xarray_regrid_nearest.json
+xarray_regrid_nearest,gaussian,categorical,,completed,1.0,0.16666666666666666,1.0,,0.013188692002586322,['large_error'],,xarray_regrid_nearest.json
 xesmf_bilinear,rectilinear,smooth,,completed,1.0,0.00028495472157273355,0.0005290405413997945,,2.441143760999921,[],,xesmf_bilinear.json
 xesmf_bilinear,rectilinear,constant,,completed,1.0,4.593754634094551e-16,1.7763568394002505e-15,,0.033063348000041515,[],,xesmf_bilinear.json
 xesmf_bilinear,rectilinear,nan_hole,,completed,0.969187675070028,0.001590827663077133,0.01115272717182414,,0.05677990200001659,[],,xesmf_bilinear.json

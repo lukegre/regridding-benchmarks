@@ -1,6 +1,7 @@
 <section id="large-timings">
 <div class="eyebrow">New run · shared larger grids</div><h2>Setup and interpolation at realistic sizes</h2>
 <p>All packages in a test receive identical source coordinates, destination coordinates and scalar values, verified by SHA-256 fingerprints of the canonical inputs. Adapters may normalize equivalent longitudes, reorder storage, or convert native geometry formats without changing the physical grid. Common 512 and 1024 scales, plus a 4096 scale for all CRS adapters, are run serially with one thread and three repetitions. Package imports, a small warmup, and input generation are outside the timers.</p>
+<p class="note">New: xarray-regrid 0.4.2 linear, nearest and conservative methods, plus an xarray_axes control using 1-D target axes. It shares the original xarray adapter’s physical grid but uses a different query representation. xarray-regrid weight/machinery construction remains inside application; its conservative cells follow meridians/parallels rather than ESMF great circles.</p>
 <div class="large-controls"><label>Test family<select id="large-grid"></select></label><label>Shared size<select id="large-scale"><option value="512">512 scale</option><option value="1024">1024 scale</option></select></label></div>
 <p id="large-profile" class="note" role="status" aria-live="polite"></p>
 <div class="large-legend"><span><i class="setup-swatch"></i>Setup, including weights where exposed</span><span><i class="apply-swatch"></i>Application, or fused regridding</span></div>

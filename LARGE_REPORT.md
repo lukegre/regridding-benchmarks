@@ -1,6 +1,6 @@
 # Larger shared-grid regridding benchmarks
 
-Recorded 378 repetitions across 126 successful grid/size/method profiles; 4 unsuccessful or incomplete profiles are retained in the raw JSON.
+Recorded 426 repetitions across 142 successful grid/size/method profiles; 4 unsuccessful or incomplete profiles are retained in the raw JSON.
 
 **[Interactive report](https://lukegre.github.io/regridding-benchmarks/#large-timings)** · [Per-repeat CSV](large_results/measurements.csv) · [Full results](large_results/combined.json)
 
@@ -13,6 +13,10 @@ Recorded 378 repetitions across 126 successful grid/size/method profiles; 4 unsu
 - MIR repeats use fresh processes and fresh cache directories. Original cached-call observations remain in `large_results/cache_controls/`.
 - Both WGS84 → Swiss LV95 and WGS84 → Web Mercator are included. Pure coordinate transforms are a separate comparison group from raster reprojection.
 - Reported values are arithmetic means and observed min/max of three runs, not confidence intervals. Different numerical kernels are not interchangeable.
+
+## xarray-regrid extension
+
+xarray-regrid 0.4.2 adds linear, nearest and conservative profiles on the existing rectilinear/full Gaussian grids. The xarray_axes control uses 1-D target coordinates instead of the historical xarray 2-D query arrays, without changing physical grids or values. Its public accessor constructs machinery/weights inside application; conservative meridian/parallel cells differ from ESMF great-circle cells. See [extension details](XARRAY_REGRID_REPORT.md).
 
 ## Profile geometry
 
@@ -83,6 +87,10 @@ Times are seconds. `fused` means setup is API preparation and some weight/geomet
 | gaussian | 512 | pyresample_nearest | split | 0.3779 | 0.0089 | 0.3867 | 0.3794–0.3962 | 0.0013 | 100.00% |
 | gaussian | 512 | scipy | fused | 0.0026 | 0.0384 | 0.0410 | 0.0366–0.0481 | 4.08e-06 | 100.00% |
 | gaussian | 512 | xarray | fused | 0.0016 | 0.0497 | 0.0513 | 0.0489–0.0556 | 4.08e-06 | 100.00% |
+| gaussian | 512 | xarray_axes | fused | 0.0014 | 0.0159 | 0.0173 | 0.0162–0.0194 | 4.08e-06 | 100.00% |
+| gaussian | 512 | xarray_regrid_conservative | fused | 0.0021 | 0.1479 | 0.1501 | 0.1341–0.1694 | 1.05e-05 | 100.00% |
+| gaussian | 512 | xarray_regrid_linear | fused | 0.0022 | 0.0375 | 0.0397 | 0.0371–0.0448 | 4.08e-06 | 100.00% |
+| gaussian | 512 | xarray_regrid_nearest | fused | 0.0016 | 0.0245 | 0.0261 | 0.0213–0.0305 | 0.0013 | 100.00% |
 | gaussian | 512 | xesmf_bilinear | split | 17.6662 | 0.1751 | 17.8412 | 16.8060–18.6989 | 4.08e-06 | 100.00% |
 | gaussian | 512 | xesmf_conservative | split | 24.3635 | 0.0955 | 24.4590 | 23.2142–26.3620 | 5.99e-06 | 100.00% |
 | gaussian | 512 | xesmf_nearest_s2d | split | 3.9830 | 0.0493 | 4.0322 | 3.7343–4.2263 | 0.0013 | 100.00% |
@@ -94,6 +102,10 @@ Times are seconds. `fused` means setup is API preparation and some weight/geomet
 | gaussian | 1024 | pyresample_nearest | split | 1.5885 | 0.0333 | 1.6218 | 1.5764–1.6778 | 0.000653 | 100.00% |
 | gaussian | 1024 | scipy | fused | 0.0160 | 0.1361 | 0.1521 | 0.1489–0.1584 | 1.02e-06 | 100.00% |
 | gaussian | 1024 | xarray | fused | 0.0036 | 0.1809 | 0.1845 | 0.1771–0.1932 | 1.02e-06 | 100.00% |
+| gaussian | 1024 | xarray_axes | fused | 0.0041 | 0.0620 | 0.0661 | 0.0626–0.0720 | 1.02e-06 | 100.00% |
+| gaussian | 1024 | xarray_regrid_conservative | fused | 0.0021 | 0.4984 | 0.5005 | 0.4771–0.5203 | 2.65e-06 | 100.00% |
+| gaussian | 1024 | xarray_regrid_linear | fused | 0.0016 | 0.0752 | 0.0768 | 0.0708–0.0861 | 1.02e-06 | 100.00% |
+| gaussian | 1024 | xarray_regrid_nearest | fused | 0.0018 | 0.0466 | 0.0484 | 0.0449–0.0510 | 0.000653 | 100.00% |
 | gaussian | 1024 | xesmf_bilinear | split | 83.5311 | 0.7507 | 84.2818 | 80.0440–91.0428 | 1.02e-06 | 100.00% |
 | gaussian | 1024 | xesmf_conservative | split | 113.0621 | 0.5963 | 113.6585 | 101.5799–119.9830 | 1.51e-06 | 100.00% |
 | gaussian | 1024 | xesmf_nearest_s2d | split | 20.9952 | 0.1807 | 21.1759 | 20.5351–22.1827 | 0.000653 | 100.00% |
@@ -131,6 +143,10 @@ Times are seconds. `fused` means setup is API preparation and some weight/geomet
 | rectilinear | 512 | pyresample_nearest | split | 0.1631 | 0.0035 | 0.1666 | 0.1618–0.1705 | 0.000323 | 100.00% |
 | rectilinear | 512 | scipy | fused | 0.0013 | 0.0257 | 0.0269 | 0.0212–0.0352 | 7.87e-07 | 100.00% |
 | rectilinear | 512 | xarray | fused | 0.0008 | 0.0353 | 0.0361 | 0.0279–0.0467 | 7.87e-07 | 100.00% |
+| rectilinear | 512 | xarray_axes | fused | 0.0009 | 0.0166 | 0.0174 | 0.0113–0.0230 | 7.87e-07 | 100.00% |
+| rectilinear | 512 | xarray_regrid_conservative | fused | 0.0018 | 0.0671 | 0.0689 | 0.0599–0.0855 | 6.73e-05 | 100.00% |
+| rectilinear | 512 | xarray_regrid_linear | fused | 0.0019 | 0.0206 | 0.0225 | 0.0202–0.0247 | 7.87e-07 | 100.00% |
+| rectilinear | 512 | xarray_regrid_nearest | fused | 0.0019 | 0.0145 | 0.0164 | 0.0140–0.0196 | 0.000323 | 100.00% |
 | rectilinear | 512 | xesmf_bilinear | split | 8.6324 | 0.1237 | 8.7561 | 7.8955–9.5604 | 7.8e-07 | 100.00% |
 | rectilinear | 512 | xesmf_conservative | split | 11.6960 | 0.0960 | 11.7920 | 10.7258–13.3125 | 6.73e-05 | 100.00% |
 | rectilinear | 512 | xesmf_nearest_s2d | split | 2.3757 | 0.0323 | 2.4081 | 2.1313–2.6564 | 0.000323 | 100.00% |
@@ -142,6 +158,10 @@ Times are seconds. `fused` means setup is API preparation and some weight/geomet
 | rectilinear | 1024 | pyresample_nearest | split | 0.7321 | 0.0138 | 0.7459 | 0.7069–0.7682 | 0.000161 | 100.00% |
 | rectilinear | 1024 | scipy | fused | 0.0047 | 0.0735 | 0.0782 | 0.0675–0.0929 | 1.96e-07 | 100.00% |
 | rectilinear | 1024 | xarray | fused | 0.0008 | 0.0951 | 0.0958 | 0.0846–0.1095 | 1.96e-07 | 100.00% |
+| rectilinear | 1024 | xarray_axes | fused | 0.0010 | 0.0317 | 0.0328 | 0.0275–0.0381 | 1.96e-07 | 100.00% |
+| rectilinear | 1024 | xarray_regrid_conservative | fused | 0.0021 | 0.2085 | 0.2106 | 0.1691–0.2625 | 3.35e-05 | 100.00% |
+| rectilinear | 1024 | xarray_regrid_linear | fused | 0.0016 | 0.0594 | 0.0610 | 0.0476–0.0823 | 1.96e-07 | 100.00% |
+| rectilinear | 1024 | xarray_regrid_nearest | fused | 0.0016 | 0.0195 | 0.0211 | 0.0203–0.0224 | 0.000161 | 100.00% |
 | rectilinear | 1024 | xesmf_bilinear | split | 37.9897 | 0.4474 | 38.4370 | 36.9055–41.0559 | 1.95e-07 | 100.00% |
 | rectilinear | 1024 | xesmf_conservative | split | 54.8396 | 0.4253 | 55.2649 | 53.4222–57.8141 | 3.35e-05 | 100.00% |
 | rectilinear | 1024 | xesmf_nearest_s2d | split | 11.9923 | 0.0993 | 12.0916 | 11.9844–12.1781 | 0.000161 | 100.00% |

@@ -2,9 +2,9 @@
 
 ## Scope and interpretation
 
-A bounded in-memory experiment on 4 × 512 × 512 float64 cubes with layouts `(time, y, x)` of `(1,128,128)`, `(1,256,256)`, and `(4,512,512)`. Every layout within a profile uses exactly the same source geometry, target geometry, values, and missing-data patch; their SHA-256 hashes are in the raw records. The rectilinear xarray and xESMF profiles share the same fixture. CRS profiles use the existing fixed 4326→2056 or 4326→3857 geometry. Cross-method timings are not a ranking: algorithms, geometry and execution models differ.
+A bounded in-memory experiment on 4 × 512 × 512 float64 cubes with layouts `(time, y, x)` of `(1,128,128)`, `(1,256,256)`, and `(4,512,512)`. Every layout within a profile uses exactly the same source geometry, target geometry, values, and missing-data patch; their SHA-256 hashes are in the raw records. The rectilinear xarray, xESMF and xarray-regrid profiles share the same fixture. CRS profiles use the existing fixed 4326→2056 or 4326→3857 geometry. Cross-method timings are not a ranking: algorithms, geometry and execution models differ.
 
-Three complete runs per layout used a single-thread Dask synchronous scheduler and one thread for OMP/BLAS/Numba. Input was an in-memory NumPy cube wrapped in Dask chunks, not an out-of-core read. Graph construction and `.compute()` are timed separately; compute includes the complete resulting array. Setup is measured once per profile, excludes explicit engine imports and is not added to each application. xESMF weights are built once and reused across layouts. For xarray interpolation and odc-geo warping no reusable weights are exposed by these adapters; their interpolation/warp machinery is included in application. Eager-reference time is one complete eager application on the same four-slice cube, not a repeated benchmark. Timings are wall-clock seconds; no warmup or statistical uncertainty is claimed. Each compute attempt has a 60-second alarm, with checkpointed repetitions.
+Three complete runs per layout used a single-thread Dask synchronous scheduler and one thread for OMP/BLAS/Numba. Input was an in-memory NumPy cube wrapped in Dask chunks, not an out-of-core read. Graph construction and `.compute()` are timed separately; compute includes the complete resulting array. Setup is measured once per profile, excludes explicit engine imports and is not added to each application. xESMF weights are built once and reused across layouts. For xarray/xarray-regrid interpolation and odc-geo warping no reusable weights are exposed by these adapters; their interpolation/warp machinery is included in application. Eager-reference time is one complete eager application on the same four-slice cube, not a repeated benchmark. Timings are wall-clock seconds; no warmup or statistical uncertainty is claimed. Each compute attempt has a 60-second alarm, with checkpointed repetitions.
 
 xESMF requests `output_chunks={"y": 512, "x": 512}` explicitly to bound graph growth; outputs have full horizontal chunks and do not demonstrate tiled-output distribution. xarray output has a full longitude chunk and its two spatially chunked layouts include rechunk layers. odc-geo output retains spatial chunks for the two tiled layouts. Actual input/output tuples, task counts, and graph layer names are in the JSON; output laziness alone is not proof of efficient blockwise processing.
 
@@ -30,6 +30,10 @@ Medians of three complete computations, with graph construction shown separately
 | xesmf | roms | 1×256×256 | 9.876 | 0.402 | 0.048 | 1.781 | 57 |
 | xesmf | roms | 4×512×512 | 9.876 | 0.402 | 0.041 | 0.119 | 6 |
 
+## xarray-regrid extension
+
+The added linear, nearest and conservative accessors use the same cube and all three layouts: 9 new profiles and 27 measurements. All outputs matched their own eager references exactly, including finite masks. Conservative retained native spatial output chunks; linear/nearest rechunked through xarray interpolation. Conservative uses `skipna=True, nan_threshold=1.0` and meridian/parallel cell geometry; this differs from the bilinear xESMF control. Its formatting and weight work occur per call in graph/compute, not the shared API setup. Runtime warnings for invalid divide occurred around missing cells without a discrepancy against the eager reference. See [the extension report](XARRAY_REGRID_REPORT.md) for the full added timing table and usability controls.
+
 ## Correctness and seams
 
 Each result was compared with the same tool’s eager output, not with another algorithm. A NaN island at source rows/columns 124–131 crosses a 128-cell input boundary. For each layout the report stores the worst finite-mask mismatch count, finite-value maximum absolute difference, and maximum error on target-index rows/columns adjacent to multiples of 128 across all three repetitions. Those target-index bands are a useful screen, not an exact map of transformed input chunk boundaries, especially for CRS warps.
@@ -52,6 +56,9 @@ Run each profile serially in a fresh process, then run the storage and graph-onl
 compiled/bin/python chunked_bench.py xesmf rectilinear
 compiled/bin/python chunked_bench.py xesmf roms
 .venv/bin/python chunked_bench.py xarray rectilinear
+.venv/bin/python chunked_bench.py xarray_regrid_linear rectilinear
+.venv/bin/python chunked_bench.py xarray_regrid_nearest rectilinear
+.venv/bin/python chunked_bench.py xarray_regrid_conservative rectilinear
 .venv/bin/python chunked_bench.py odc_geo crs_2056
 .venv/bin/python chunked_bench.py odc_geo crs_3857
 .venv/bin/python chunked_storage.py
@@ -59,4 +66,4 @@ compiled/bin/python chunked_diagnostic.py
 python chunked_combine.py
 ```
 
-Raw per-profile files, storage control, graph diagnostic, and combined summary live in `chunked_results/`. The combined file contains 15 summaries, 45 in-memory run records, zero failed attempts, plus three storage-control runs. Fixture generation is inherited from `large_bench.py`; setup and inputs are not part of measured compute times.
+Raw per-profile files, storage control, graph diagnostic, and combined summary live in `chunked_results/`. The combined file contains 24 summaries, 72 in-memory run records, zero failed attempts, plus three storage-control runs. Fixture generation is inherited from `large_bench.py`; setup and inputs are not part of measured compute times.

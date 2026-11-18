@@ -29,7 +29,7 @@ result={'records':records,'summary':summary,'failures':failures,'configuration':
 if records:
  keys=sorted(set().union(*(r.keys() for r in records)))
  with (out/'measurements.csv').open('w') as f:
-  w=csv.DictWriter(f,fieldnames=keys);w.writeheader();w.writerows(records)
+  w=csv.DictWriter(f,fieldnames=keys,lineterminator='\n');w.writeheader();w.writerows(records)
 print('Recorded repeats:',len(records),'profiles:',len(summary),'errors:',len(failures),'same-input hashes: verified')
 for r in summary:
  if r['total_seconds_mean']>=5:print(r['package'],r['grid'],r['scale'],round(r['setup_seconds_mean'],2),round(r['apply_seconds_mean'],2))

@@ -1,5 +1,5 @@
 {
-  "date_utc": "2026-11-17T20:01:56Z",
+  "date_utc": "2026-11-17T21:36:45Z",
   "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
   "cpu_quota": "2 vCPU",
   "threads_per_worker": 1,
@@ -29,6 +29,46 @@
     ],
     [
       "xarray",
+      "gaussian",
+      false
+    ],
+    [
+      "xarray_axes",
+      "rectilinear",
+      false
+    ],
+    [
+      "xarray_axes",
+      "gaussian",
+      false
+    ],
+    [
+      "xarray_regrid_linear",
+      "rectilinear",
+      false
+    ],
+    [
+      "xarray_regrid_linear",
+      "gaussian",
+      false
+    ],
+    [
+      "xarray_regrid_nearest",
+      "rectilinear",
+      false
+    ],
+    [
+      "xarray_regrid_nearest",
+      "gaussian",
+      false
+    ],
+    [
+      "xarray_regrid_conservative",
+      "rectilinear",
+      false
+    ],
+    [
+      "xarray_regrid_conservative",
       "gaussian",
       false
     ],
@@ -339,6 +379,19 @@
         "rioxarray",
         "odc_geo",
         "pyproj"
+      ],
+      "repeats": 3
+    },
+    {
+      "scales": [
+        512,
+        1024
+      ],
+      "only": [
+        "xarray_regrid_linear",
+        "xarray_regrid_nearest",
+        "xarray_regrid_conservative",
+        "xarray_axes"
       ],
       "repeats": 3
     }

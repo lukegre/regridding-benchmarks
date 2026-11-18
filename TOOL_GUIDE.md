@@ -9,7 +9,7 @@ Choose by data meaning and geometry before comparing speed. A method that return
 | Source / task | Starting point | Required decision |
 | --- | --- | --- |
 | Geolocated swath / scattered centres | Pyresample nearest or Gaussian; GDAL geolocation warp where suitable | Centre sampling does not conserve cell integrals; select radius and footprint policy. |
-| Rectilinear 1-D axes or full Gaussian | SciPy/xarray for point interpolation; xESMF or CDO for appropriate conservative grids; MIR for supported Gaussian grids | Handle longitude seam; use actual cell bounds for conservation. |
+| Rectilinear 1-D axes or full Gaussian | Xarray axis-based or SciPy point interpolation; xarray-regrid for meridian/parallel conservative cells; xESMF/CDO for their supported spherical geometry; MIR for native Gaussian workflows | Handle longitude seam; use actual cell bounds for conservation. |
 | Curvilinear / ROMS | xESMF or CDO with correct centres and real corners | Use separate rho/u/v geometries; rotate vector components separately. |
 | Affine raster with CRS change | Rasterio/GDAL, rioxarray or odc-geo | Specify source and destination CRS, transform, shape, nodata and kernel. |
 | Global spherical unstructured mesh | ESMPy or TempestRemap for overlap; UXarray or Pyresample for centre-based nearest sampling | Topology-aware area overlap needs valid nodes and faces; planar lon/lat is not spherical geometry. |
@@ -33,36 +33,42 @@ Chunked choice: use xarray linear for separable rectilinear data, xESMF for curv
 
 Non-float preferences follow semantics below: nearest for nominal classes, explicit mode for an area-majority class, conservative density/area conversion for counts, and explicit logical rules for flags. The smooth-field RMSE ranking supplies no evidence that bilinear is suitable for these variables.
 
-External benchmark comparison: CNES reverses our SciPy/xarray ordering on a different target grid; xarray-regrid changes order with chunk layout; cloud tile readers can change Rasterio/rioxarray/odc-geo performance. Consult the External benchmarks page. pyinterp, xarray-regrid and MBTempest are untested local candidates, not measured local winners.
+External benchmark comparison: CNES reverses our historical SciPy/2-D-query xarray ordering; the new 1-D-target control now shows xarray faster locally too; xarray-regrid changes order with chunk layout; cloud tile readers can change Rasterio/rioxarray/odc-geo performance. Consult the External benchmarks page. pyinterp and MBTempest remain untested local candidates, not measured local winners.
+
+xarray-regrid is now measured locally. The new xarray_axes control uses the same canonical destination via 1-D axes, while the historical xarray adapter uses 2-D point queries. All physical grid sizes and hashes remain shared. Conservative xarray-regrid cell edges follow meridians/parallels; ESMF edges are great circles. Its public accessor combines construction and application, so no separate reusable-weight speedup is claimed.
 
 ### Rectilinear continuous fields
 
-**Preferred: SciPy linear; xarray linear when labelled arrays matter.** SciPy is the fastest measured linear point interpolator here, with effectively the same smooth-field RMSE as xarray and CDO. Prefer CDO conservative when preserving cell integrals is the requirement; linear point interpolation cannot replace it. For many fields on fixed geometry, Iris has faster measured conservative application than CDO despite slower construction; the illustrative mean-time crossover is about 242 fields, assuming weights are reused. CNES reports the opposite SciPy/xarray ordering on another structured target grid; validate the exact API and query layout. This preference is local, not a portable package ranking.
+**Preferred: Xarray with 1-D target axes for linear point interpolation; xarray-regrid conservative for meridian/parallel cells.** The added xarray_axes control is fastest among the measured rectilinear linear adapters, with effectively equal smooth-field RMSE. xarray-regrid linear uses this axis-based xarray machinery with additional formatting; the original xarray adapter used 2-D point queries. All share the same physical grid and values. xarray-regrid conservative has much lower one-call time than CDO/ESMF here, but uses different cell-edge geometry and includes construction on every call. Use CDO/ESMF when their spherical cell representation is required; long fixed-grid series can amortize reusable weights. Do not interpret point-interpolation RMSE as a conservation ranking.
 
 Measured family: `rectilinear`, shared scale 1024.
 
 | Tool / method | Setup mean (s) | Apply mean (s) | Total mean (min–max), s | Accuracy | Finite coverage |
 | --- | --- | --- | --- | --- | --- |
+| xarray_axes | 0.00101 | 0.0317 | 0.0328 (0.0275–0.0381) | RMSE 1.96e-07 | 100.000% |
+| xarray_regrid_linear | 0.00164 | 0.0594 | 0.061 (0.0476–0.0823) | RMSE 1.96e-07 | 100.000% |
 | scipy | 0.00474 | 0.0735 | 0.0782 (0.0675–0.0929) | RMSE 1.96e-07 | 100.000% |
 | xarray | 0.000769 | 0.0951 | 0.0958 (0.0846–0.109) | RMSE 1.96e-07 | 100.000% |
-| cdo_bilinear | 1.75 | 0.223 | 1.97 (1.87–2.11) | RMSE 1.96e-07 | 100.000% |
-| xesmf_bilinear | 38 | 0.447 | 38.4 (36.9–41.1) | RMSE 1.95e-07 | 100.000% |
+| xarray_regrid_nearest | 0.0016 | 0.0195 | 0.0211 (0.0203–0.0224) | RMSE 0.000161 | 100.000% |
+| xarray_regrid_conservative | 0.00214 | 0.208 | 0.211 (0.169–0.262) | RMSE 3.35e-05 | 100.000% |
 | cdo_conservative | 12.7 | 0.267 | 12.9 (12.4–13.5) | RMSE 3.35e-05 | 100.000% |
 | iris | 61.7 | 0.0642 | 61.8 (52.7–67.9) | RMSE 3.35e-05 | 100.000% |
 
 ### Full Gaussian continuous fields
 
-**Preferred: SciPy/xarray for separable point interpolation; CDO conservative for cell averages.** The tested full Gaussian grid has separable latitude/longitude axes: SciPy is much faster at similar smooth-field RMSE. This recommendation does not cover reduced Gaussian grids. Use MIR for supported native meteorological grid workflows, rather than assuming reduced grids can be reshaped.
+**Preferred: Xarray 1-D target axes for full Gaussian point interpolation; choose conservative geometry explicitly.** The full Gaussian source has separable axes. The xarray_axes control and xarray-regrid linear are faster here than SciPy with effectively equal smooth-field RMSE. Reduced Gaussian grids are outside this adapter. xarray-regrid conservative is fast and passes a separate meridian/parallel global integral control, but has higher smooth-field RMSE on this Gaussian fixture than CDO/ESMF conservative; centre samples are not exact cell averages, and cell geometry differs. Select by the required integral and geometry rather than one RMSE. MIR remains a candidate for supported native meteorological workflows.
 
 Measured family: `gaussian`, shared scale 1024.
 
 | Tool / method | Setup mean (s) | Apply mean (s) | Total mean (min–max), s | Accuracy | Finite coverage |
 | --- | --- | --- | --- | --- | --- |
+| xarray_axes | 0.00408 | 0.062 | 0.0661 (0.0626–0.072) | RMSE 1.02e-06 | 100.000% |
+| xarray_regrid_linear | 0.00159 | 0.0752 | 0.0768 (0.0708–0.0861) | RMSE 1.02e-06 | 100.000% |
 | scipy | 0.016 | 0.136 | 0.152 (0.149–0.158) | RMSE 1.02e-06 | 100.000% |
-| xarray | 0.00363 | 0.181 | 0.185 (0.177–0.193) | RMSE 1.02e-06 | 100.000% |
-| cdo_bilinear | 2.82 | 0.405 | 3.22 (3.05–3.35) | RMSE 1.02e-06 | 100.000% |
-| earthkit_mir | 0.0263 | 16.2 | 16.2 (15.1–17.2) | RMSE 1.02e-06 | 100.000% |
+| xarray_regrid_conservative | 0.00211 | 0.498 | 0.501 (0.477–0.52) | RMSE 2.65e-06 | 100.000% |
 | cdo_conservative | 24.7 | 0.344 | 25.1 (24.7–25.7) | RMSE 1.51e-06 | 100.000% |
+| xesmf_conservative | 113 | 0.596 | 114 (102–120) | RMSE 1.51e-06 | 100.000% |
+| earthkit_mir | 0.0263 | 16.2 | 16.2 (15.1–17.2) | RMSE 1.02e-06 | 100.000% |
 
 ### ROMS / curvilinear continuous fields
 
@@ -404,4 +410,16 @@ result[valid_at(query) == 0] = -1  # explicit unknown; -1 is not a valid class
 - **Non-float method choices:** No value interpolation method: transform the coordinates, then choose a separate nearest, categorical aggregation or conservative remapper according to semantics.
 - **Limits and fallback:** Does not resample raster values, calculate overlap, or conserve totals; combine with an appropriate raster or mesh remapper.
 - **Primary documentation:** [https://pyproj4.github.io/pyproj/stable/api/transformer.html](https://pyproj4.github.io/pyproj/stable/api/transformer.html)
+
+### xarray-regrid
+
+- **Use for:** Rectilinear labelled arrays with separable 1-D axes; linear/nearest interpolation, meridian/parallel conservative remapping, and categorical coarsening.
+- **Required input:** xarray DataArray/Dataset with distinct source and target 1-D coordinate axes matching field dimensions. Geographic axes should be named lat/latitude and lon/longitude for native spherical formatting. Most-common coarsening requires a named DataArray in the tested 0.4.2 workflow and an explicit array of expected labels.
+- **Geometry and units:** The tested accessor accepts separable axes, not general ROMS/swath/HEALPix/icosahedral geometry or CRS warps. Conservative bounds are inferred from centres; latitude correction is explicit. Meridian/parallel cells differ from ESMF great-circle cells. Verify inferred edge cells, longitude seam and domain before integral claims.
+- **Mask and missing data:** Conservative tests use skipna=True and nan_threshold=1.0. Thresholding is sequential per dimension; missing-cell normalization differs from a geometry mask. Linear/nearest missingness follows xarray interpolation. Preserve a separate validity policy for categorical output.
+- **Execution and chunking:** Public accessor calls construct formatting/interpolation machinery and conservative weights during each call; no reusable weight-construction timer is exposed. Large results are labelled fused. Dask graph construction and complete synchronous compute are separate in chunk tests. Conservative retained spatial chunks in tested layouts; linear/nearest rechunked. Lazy input is not a general out-of-core guarantee.
+- **Tested adapter:** Version 0.4.2 with acceleration dependencies. Linear, nearest and conservative at shared 512/1024 rectilinear and full Gaussian sizes; all three at common 4×512×512 chunk layouts. Nine small adversarial scenarios per family/method. Separate global integral, count-mode, unnamed-array and integer-ID controls.
+- **Non-float method choices:** Use .regrid.nearest(target) with compact category codes and a reversible lookup: our direct int64 IDs above 2^53 lost precision, while compact codes decoded exactly. For categorical coarsening use .regrid.most_common(target, values=labels, fill_value=unknown) on a named DataArray; 0.4.2 documents nondeterministic ties, so supply a different explicit reducer when deterministic ties are required. This is count-based mode, not an area-weighted-mode guarantee. Never linear/conservative-interpolate class IDs; convert extensive totals to density with consistent areas before conservative remapping.
+- **Limits and fallback:** No implicit scattered or curvilinear fallback. Bad nonseparable coordinate probes are rejected by our adapter before entering the accessor. Mode is for substantial coarsening, not generic near-resolution interpolation; its documented ties are nondeterministic. Same smooth-field RMSE does not imply identical conservative cell geometry.
+- **Primary documentation:** [https://xarray-regrid.readthedocs.io/en/stable/](https://xarray-regrid.readthedocs.io/en/stable/) · [https://xarray-regrid.readthedocs.io/en/stable/autoapi/xarray_regrid/index.html](https://xarray-regrid.readthedocs.io/en/stable/autoapi/xarray_regrid/index.html)
 

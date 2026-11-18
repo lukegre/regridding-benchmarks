@@ -1,7 +1,7 @@
 import os,subprocess,concurrent.futures,json,time
 from pathlib import Path
 root=Path(__file__).parent
-packages=['scipy','xarray','pyresample_nearest','pyresample_gauss','healpy','astropy_healpix','rasterio','rioxarray','odc_geo','earthkit_mir']
+packages=['xarray_regrid_linear','xarray_regrid_nearest','xarray_regrid_conservative','scipy','xarray','pyresample_nearest','pyresample_gauss','healpy','astropy_healpix','rasterio','rioxarray','odc_geo','earthkit_mir']
 def run(p):
  env=os.environ.copy();env.update(OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1',NUMBA_NUM_THREADS='1',NUMBA_CACHE_DIR='/tmp/geobench-numba',MPLCONFIGDIR='/tmp/geobench-mpl')
  with (root/'results'/f'{p}.log').open('w') as f:

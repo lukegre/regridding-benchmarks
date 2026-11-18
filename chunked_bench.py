@@ -58,11 +58,16 @@ def run(tool,grid):
         import_start=time.perf_counter()
         if tool=='xesmf':
             import xesmf as xe
+        elif tool.startswith('xarray_regrid_'):
+            import xarray_regrid
         elif tool=='odc_geo':
             import rioxarray
             from odc.geo import GeoBox
             from odc.geo.xr import xr_reproject
         result['import_seconds']=time.perf_counter()-import_start
+        if tool.startswith('xarray_regrid_'):
+            from importlib.metadata import version
+            result['engine_version']=version('xarray-regrid')
         start=time.perf_counter()
         if tool=='xesmf':
             src=xr.Dataset({'lon':(('y','x'),lo),'lat':(('y','x'),la)})
@@ -77,6 +82,15 @@ def run(tool,grid):
             def apply(data):return data.interp(lat=ty[:,0],lon=tx[0],method='linear')
             nnz=None
             note='Interpolation machinery is constructed during each application; no reusable weights exposed.'
+        elif tool.startswith('xarray_regrid_'):
+            if grid!='rectilinear':raise ValueError('Chunked xarray-regrid adapter requires rectilinear axes')
+            da=xr.DataArray(cube,dims=('time','lat','lon'),coords={'lat':la[:,0],'lon':lo[0]})
+            dst=xr.Dataset(coords={'lat':ty[:,0],'lon':tx[0]})
+            method=tool.removeprefix('xarray_regrid_')
+            kwargs={'latitude_coord':'lat','skipna':True,'nan_threshold':1.0} if method=='conservative' else {}
+            def apply(data):return getattr(data.regrid,method)(dst,**kwargs)
+            nnz=None
+            note='Public accessor; machinery/weights constructed per call, not shared setup. Native output chunking retained. Conservative: skipna=True, nan_threshold=1.0, latitude correction lat; cells follow meridians/parallels. Linear/nearest delegate to xarray interpolation.'
         elif tool=='odc_geo':
             da=xr.DataArray(cube,dims=('time','y','x'),coords={'x':lo[0],'y':la[:,0]}).rio.write_crs(4326).rio.write_nodata(np.nan)
             box=GeoBox(tx.shape,info['dst_transform'],f"EPSG:{info['dst_crs']}")
@@ -127,4 +141,4 @@ def run(tool,grid):
     print(tool,grid,len(result['summary']),'summaries',len(result['records']),'runs',len(result['failures']),'failures',flush=True)
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('tool',choices=['xesmf','xarray','odc_geo']);p.add_argument('grid',choices=['rectilinear','roms','crs_2056','crs_3857']);a=p.parse_args();run(a.tool,a.grid)
+    p=argparse.ArgumentParser();p.add_argument('tool',choices=['xesmf','xarray','odc_geo','xarray_regrid_linear','xarray_regrid_nearest','xarray_regrid_conservative']);p.add_argument('grid',choices=['rectilinear','roms','crs_2056','crs_3857']);a=p.parse_args();run(a.tool,a.grid)

@@ -8,7 +8,7 @@ Synthetic interoperability and numerical-suitability tests for geospatial remapp
 
 The home page presents larger shared-grid timings and chunked-array experiments. Setup, lazy graph construction and completed interpolation are reported separately where applicable. Interactive filters and per-repeat inspection expose the recorded evidence.
 
-The separate small-grid survey covers satellite swaths, rectilinear grids, ROMS-style curvilinear grids, icosahedral meshes, HEALPix and Gaussian grids. It includes 519 attempted operations (484 returned outputs and 35 errors) and 405 combinations outside the tested adapter scope. An output is not a correctness verdict; errors include deliberately malformed inputs. Its diagnostic timings include startup and other overheads and are not a controlled performance ranking.
+The separate small-grid survey covers satellite swaths, rectilinear grids, ROMS-style curvilinear grids, icosahedral meshes, HEALPix and Gaussian grids. It includes 578 attempted operations (536 returned outputs and 42 errors) and 513 combinations outside the tested adapter scope. An output is not a correctness verdict; errors include deliberately malformed inputs. Its diagnostic timings include startup and other overheads and are not a controlled performance ranking.
 
 The [tool guide](TOOL_GUIDE.md) describes data requirements, geometry and missing-value contracts, chunking constraints and interpolation choices for categories, packed integers, counts, booleans, flags and timestamps. [Agent skill in Markdown](skills/regridding-tool-selection/SKILL.md) gives a decision workflow and evidence-based preferences. [Machine-readable contracts](tool_contracts.json) support future agents; these advisory contracts require version-specific validation.
 
@@ -25,9 +25,13 @@ The larger tier is separate from the original small adversarial survey. Every ad
 
 If environments are stored elsewhere, set `BENCH_ENV_ROOT` to the directory containing `.venv/` and `compiled/`. The runner resumes completed profiles. See the [larger-run report](LARGE_REPORT.md) and [large-tier methodology](large_results/README.md). This tier includes WGS84 → Swiss LV95 and WGS84 → Web Mercator, separately comparing coordinate transformation and raster value reprojection.
 
+## xarray-regrid extension
+
+[xarray-regrid 0.4.2 results and reproduction](XARRAY_REGRID_REPORT.md) include linear, nearest and conservative methods on the shared 512/1024 rectilinear and full Gaussian grids, all three chunk layouts, small adversarial probes and targeted conservation/category controls. The new `xarray_axes` control uses 1-D target axes while the historical `xarray` adapter uses 2-D point queries; their physical grids and values are identical. Public accessor machinery and weight work are included in application. Conservative cell geometry differs from ESMF. The updated tool guide and external comparison reflect these local results.
+
 ## Chunked-array tier
 
-[Chunked methodology and results](CHUNKED_REPORT.md) cover a common 4 × 512 × 512 cube, three chunk layouts and three repeats per profile: 45 in-memory measurements across xESMF, xarray and odc-geo, plus three warm-cache NetCDF4 read measurements. Rectilinear, ROMS and two CRS reprojections are included. The larger unchunked tier remains the primary performance comparison. Chunked tests use a common smaller spatial size after expensive 1024-grid pilots; those incomplete pilots are reported separately, not as completed timings.
+[Chunked methodology and results](CHUNKED_REPORT.md) cover a common 4 × 512 × 512 cube, three chunk layouts and three repeats per profile: 72 in-memory measurements across xESMF, xarray, xarray-regrid and odc-geo, plus three warm-cache NetCDF4 read measurements. Rectilinear, ROMS and two CRS reprojections are included. The larger unchunked tier remains the primary performance comparison. Chunked tests use a common smaller spatial size after expensive 1024-grid pilots; those incomplete pilots are reported separately, not as completed timings.
 
 Weights are constructed once per profile and reused across layouts. Complete compute is timed separately from graph construction. xESMF explicitly uses full-horizontal output chunks, so this is not a demonstration of distributed spatial output. One odc-geo LV95 layout has four finite-mask differences against the eager reference; inspect the accuracy column before assuming equivalence.
 

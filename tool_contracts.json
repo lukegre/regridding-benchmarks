@@ -340,6 +340,27 @@
         "coordinate_and_topology": "Use Transformer.from_crs(..., always_xy=True) when passing x,y or lon,lat; longitude/latitude degrees for geographic CRS, projected coordinates in CRS units.",
         "validity": "Check input validity and transformation errors (errcheck=True); propagate validity independently."
       }
+    },
+    {
+      "name": "xarray-regrid",
+      "fit": "Rectilinear labelled arrays with separable 1-D axes; linear/nearest interpolation, meridian/parallel conservative remapping, and categorical coarsening.",
+      "inputs": "xarray DataArray/Dataset with distinct source and target 1-D coordinate axes matching field dimensions. Geographic axes should be named lat/latitude and lon/longitude for native spherical formatting. Most-common coarsening requires a named DataArray in the tested 0.4.2 workflow and an explicit array of expected labels.",
+      "geometry": "The tested accessor accepts separable axes, not general ROMS/swath/HEALPix/icosahedral geometry or CRS warps. Conservative bounds are inferred from centres; latitude correction is explicit. Meridian/parallel cells differ from ESMF great-circle cells. Verify inferred edge cells, longitude seam and domain before integral claims.",
+      "missing": "Conservative tests use skipna=True and nan_threshold=1.0. Thresholding is sequential per dimension; missing-cell normalization differs from a geometry mask. Linear/nearest missingness follows xarray interpolation. Preserve a separate validity policy for categorical output.",
+      "execution": "Public accessor calls construct formatting/interpolation machinery and conservative weights during each call; no reusable weight-construction timer is exposed. Large results are labelled fused. Dask graph construction and complete synchronous compute are separate in chunk tests. Conservative retained spatial chunks in tested layouts; linear/nearest rechunked. Lazy input is not a general out-of-core guarantee.",
+      "tested_adapter": "Version 0.4.2 with acceleration dependencies. Linear, nearest and conservative at shared 512/1024 rectilinear and full Gaussian sizes; all three at common 4×512×512 chunk layouts. Nine small adversarial scenarios per family/method. Separate global integral, count-mode, unnamed-array and integer-ID controls.",
+      "unsupported_or_fallback": "No implicit scattered or curvilinear fallback. Bad nonseparable coordinate probes are rejected by our adapter before entering the accessor. Mode is for substantial coarsening, not generic near-resolution interpolation; its documented ties are nondeterministic. Same smooth-field RMSE does not imply identical conservative cell geometry.",
+      "nonfloat_method": "Use .regrid.nearest(target) with compact category codes and a reversible lookup: our direct int64 IDs above 2^53 lost precision, while compact codes decoded exactly. For categorical coarsening use .regrid.most_common(target, values=labels, fill_value=unknown) on a named DataArray; 0.4.2 documents nondeterministic ties, so supply a different explicit reducer when deterministic ties are required. This is count-based mode, not an area-weighted-mode guarantee. Never linear/conservative-interpolate class IDs; convert extensive totals to density with consistent areas before conservative remapping.",
+      "documentation": [
+        "https://xarray-regrid.readthedocs.io/en/stable/",
+        "https://xarray-regrid.readthedocs.io/en/stable/autoapi/xarray_regrid/index.html"
+      ],
+      "required_input_fields": {
+        "container_and_shape": "xarray DataArray/Dataset with distinct source and target 1-D coordinate axes matching field dimensions. Geographic axes should be named lat/latitude and lon/longitude for native spherical formatting. Most-common coarsening requires a named DataArray in the tested 0.4.2 workflow and an explicit array of expected labels.",
+        "coordinate_and_topology": "The tested accessor accepts separable axes, not general ROMS/swath/HEALPix/icosahedral geometry or CRS warps. Conservative bounds are inferred from centres; latitude correction is explicit. Meridian/parallel cells differ from ESMF great-circle cells. Verify inferred edge cells, longitude seam and domain before integral claims.",
+        "validity": "Conservative tests use skipna=True and nan_threshold=1.0. Thresholding is sequential per dimension; missing-cell normalization differs from a geometry mask. Linear/nearest missingness follows xarray interpolation. Preserve a separate validity policy for categorical output.",
+        "method_options": "Method, latitude_coord, skipna, nan_threshold, expected labels/fill for mode, output chunk policy, source/target axis order, and version."
+      }
     }
   ],
   "recommendations_file": "tool_recommendations.json"

@@ -1,0 +1,120 @@
+[
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "rectilinear",
+    "case": "closed_global_integral",
+    "engine_version": "0.4.2",
+    "source_shape": [
+      36,
+      72
+    ],
+    "target_shape": [
+      18,
+      36
+    ],
+    "finite_fraction": 1.0,
+    "relative_integral_error": 0.0,
+    "source_integral": 25.132741228718345,
+    "target_integral": 25.132741228718345,
+    "flags": [],
+    "note": "Closed global meridian/parallel cells, sphere radius one, complete coverage. Values are treated as cell means; this validates this geometry, not ESMF great-circle equivalence.",
+    "status": "completed",
+    "seconds": 1.2547263609994843
+  },
+  {
+    "package": "xarray_regrid_most_common",
+    "grid": "rectilinear",
+    "case": "categorical_coarsening_unnamed_input",
+    "engine_version": "0.4.2",
+    "status": "error",
+    "error": "ValueError('Cannot group by unnamed DataArrays.')",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/regridding-benchmarks/xarray_regrid_controls.py\", line 15, in record\n    try:row.update(func(),status='completed')\n                   ^^^^^^\n  File \"/workspace/regridding-benchmarks/xarray_regrid_controls.py\", line 40, in <lambda>\n    record('xarray_regrid_most_common','categorical_coarsening_unnamed_input',lambda:mode(False))\n                                                                                     ^^^^^^^^^^^\n  File \"/workspace/regridding-benchmarks/xarray_regrid_controls.py\", line 30, in mode\n    out=a.regrid.most_common(dst,values=np.array([0,1]),fill_value=-1)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray_regrid/regrid.py\", line 176, in most_common\n    return flox_reduce.compute_mode(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/xarray_regrid/methods/flox_reduce.py\", line 174, in compute_mode\n    result: xr.DataArray = flox.xarray.xarray_reduce(\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/flox/xarray.py\", line 226, in xarray_reduce\n    raise ValueError(\"Cannot group by unnamed DataArrays.\")\nValueError: Cannot group by unnamed DataArrays.\n",
+    "seconds": 0.007583381000586087
+  },
+  {
+    "package": "xarray_regrid_most_common",
+    "grid": "rectilinear",
+    "case": "categorical_coarsening_no_ties",
+    "engine_version": "0.4.2",
+    "source_shape": [
+      4,
+      4
+    ],
+    "target_shape": [
+      2,
+      2
+    ],
+    "output": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "finite_fraction": 1.0,
+    "max_error": 0.0,
+    "flags": [],
+    "note": "Count-based mode on equally spaced 2\u00d72 source blocks with no ties. Does not test area-weighted mode; version 0.4.2 documents nondeterministic ties.",
+    "status": "completed",
+    "seconds": 0.024869259003025945
+  },
+  {
+    "package": "xarray_regrid_nearest",
+    "grid": "rectilinear",
+    "case": "large_integer_ids_native",
+    "engine_version": "0.4.2",
+    "input_dtype": "int64",
+    "output_dtype": "float64",
+    "input_ids": [
+      9007199254740993,
+      9007199254740995
+    ],
+    "decoded_ids": [
+      [
+        9007199254740992,
+        9007199254740996
+      ],
+      [
+        9007199254740992,
+        9007199254740996
+      ]
+    ],
+    "integer_id_mismatches": 4,
+    "flags": [
+      "integer_precision_loss"
+    ],
+    "note": "Probe native nearest preservation of IDs above 2^53; a returned output is not a correctness verdict.",
+    "status": "completed",
+    "seconds": 0.11181922499963548
+  },
+  {
+    "package": "xarray_regrid_nearest",
+    "grid": "rectilinear",
+    "case": "large_integer_ids_compact_codes",
+    "engine_version": "0.4.2",
+    "input_dtype": "int64",
+    "output_dtype": "float64",
+    "input_ids": [
+      9007199254740993,
+      9007199254740995
+    ],
+    "decoded_ids": [
+      [
+        9007199254740993,
+        9007199254740995
+      ],
+      [
+        9007199254740993,
+        9007199254740995
+      ]
+    ],
+    "integer_id_mismatches": 0,
+    "flags": [],
+    "note": "Compact-code output is decoded through the original int64 lookup.",
+    "status": "completed",
+    "seconds": 0.008569540997996228
+  }
+]

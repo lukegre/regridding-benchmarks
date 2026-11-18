@@ -5,31 +5,35 @@
   "recommendations": [
     {
       "task": "Rectilinear continuous fields",
-      "preferred": "SciPy linear; xarray linear when labelled arrays matter",
-      "reason": "SciPy is the fastest measured linear point interpolator here, with effectively the same smooth-field RMSE as xarray and CDO. Prefer CDO conservative when preserving cell integrals is the requirement; linear point interpolation cannot replace it. For many fields on fixed geometry, Iris has faster measured conservative application than CDO despite slower construction; the illustrative mean-time crossover is about 242 fields, assuming weights are reused. CNES reports the opposite SciPy/xarray ordering on another structured target grid; validate the exact API and query layout. This preference is local, not a portable package ranking.",
+      "preferred": "Xarray with 1-D target axes for linear point interpolation; xarray-regrid conservative for meridian/parallel cells",
+      "reason": "The added xarray_axes control is fastest among the measured rectilinear linear adapters, with effectively equal smooth-field RMSE. xarray-regrid linear uses this axis-based xarray machinery with additional formatting; the original xarray adapter used 2-D point queries. All share the same physical grid and values. xarray-regrid conservative has much lower one-call time than CDO/ESMF here, but uses different cell-edge geometry and includes construction on every call. Use CDO/ESMF when their spherical cell representation is required; long fixed-grid series can amortize reusable weights. Do not interpret point-interpolation RMSE as a conservation ranking.",
       "scale": 1024,
       "grid": "rectilinear",
       "packages": [
+        "xarray_axes",
+        "xarray_regrid_linear",
         "scipy",
         "xarray",
-        "cdo_bilinear",
-        "xesmf_bilinear",
+        "xarray_regrid_nearest",
+        "xarray_regrid_conservative",
         "cdo_conservative",
         "iris"
       ]
     },
     {
       "task": "Full Gaussian continuous fields",
-      "preferred": "SciPy/xarray for separable point interpolation; CDO conservative for cell averages",
-      "reason": "The tested full Gaussian grid has separable latitude/longitude axes: SciPy is much faster at similar smooth-field RMSE. This recommendation does not cover reduced Gaussian grids. Use MIR for supported native meteorological grid workflows, rather than assuming reduced grids can be reshaped.",
+      "preferred": "Xarray 1-D target axes for full Gaussian point interpolation; choose conservative geometry explicitly",
+      "reason": "The full Gaussian source has separable axes. The xarray_axes control and xarray-regrid linear are faster here than SciPy with effectively equal smooth-field RMSE. Reduced Gaussian grids are outside this adapter. xarray-regrid conservative is fast and passes a separate meridian/parallel global integral control, but has higher smooth-field RMSE on this Gaussian fixture than CDO/ESMF conservative; centre samples are not exact cell averages, and cell geometry differs. Select by the required integral and geometry rather than one RMSE. MIR remains a candidate for supported native meteorological workflows.",
       "scale": 1024,
       "grid": "gaussian",
       "packages": [
+        "xarray_axes",
+        "xarray_regrid_linear",
         "scipy",
-        "xarray",
-        "cdo_bilinear",
-        "earthkit_mir",
-        "cdo_conservative"
+        "xarray_regrid_conservative",
+        "cdo_conservative",
+        "xesmf_conservative",
+        "earthkit_mir"
       ]
     },
     {
@@ -148,6 +152,7 @@
     "For repeated fields on fixed grids, estimate setup + N × application rather than multiplying total time by N. Reuse weights only when coordinates, bounds, masks, method and periodicity match. The crossover estimate is illustrative, not a new measured multi-field benchmark.",
     "Chunked choice: use xarray linear for separable rectilinear data, xESMF for curvilinear reusable weights, and odc-geo for the tested tiled lazy CRS workflow. All use the common 4 × 512 × 512 cube. xESMF compute changes from 5.36 s to 0.084 s between (1,128,128) and full-cube chunks, but uses full-horizontal output chunks in both; this is not evidence of distributed spatial output. odc-geo LV95 has four mask differences at (1,256,256). The NetCDF control is warm-cache only. See the chunked results for graph timings and full accuracy checks.",
     "Non-float preferences follow semantics below: nearest for nominal classes, explicit mode for an area-majority class, conservative density/area conversion for counts, and explicit logical rules for flags. The smooth-field RMSE ranking supplies no evidence that bilinear is suitable for these variables.",
-    "External benchmark comparison: CNES reverses our SciPy/xarray ordering on a different target grid; xarray-regrid changes order with chunk layout; cloud tile readers can change Rasterio/rioxarray/odc-geo performance. Consult the External benchmarks page. pyinterp, xarray-regrid and MBTempest are untested local candidates, not measured local winners."
+    "External benchmark comparison: CNES reverses our historical SciPy/2-D-query xarray ordering; the new 1-D-target control now shows xarray faster locally too; xarray-regrid changes order with chunk layout; cloud tile readers can change Rasterio/rioxarray/odc-geo performance. Consult the External benchmarks page. pyinterp and MBTempest remain untested local candidates, not measured local winners.",
+    "xarray-regrid is now measured locally. The new xarray_axes control uses the same canonical destination via 1-D axes, while the historical xarray adapter uses 2-D point queries. All physical grid sizes and hashes remain shared. Conservative xarray-regrid cell edges follow meridians/parallels; ESMF edges are great circles. Its public accessor combines construction and application, so no separate reusable-weight speedup is claimed."
   ]
 }

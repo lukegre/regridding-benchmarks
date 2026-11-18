@@ -1,0 +1,540 @@
+[
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "rectilinear",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.001383555479344488,
+    "max_error": 0.003990546347813595,
+    "output_min": 2.77439937401069,
+    "output_max": 3.1837841021666344,
+    "warnings": [
+      "The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead.",
+      "The 'generic' unit for NumPy timedelta is deprecated, and will raise an error in the future. This includes implicit conversion of bare integers (e.g. `+ 1`). Please use a specific unit instead."
+    ],
+    "flags": [],
+    "seconds": 2.435453575999418
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "rectilinear",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 3.3569988834012605e-16,
+    "max_error": 8.881784197001252e-16,
+    "output_min": 7.0,
+    "output_max": 7.000000000000001,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.01956809799958137
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "rectilinear",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.9985994397759104,
+    "rmse": 0.0025828514645988383,
+    "max_error": 0.01819262973939395,
+    "output_min": 2.774431876386036,
+    "output_max": 3.1837841021666344,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.02021386899650679
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "rectilinear",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.9985994397759104,
+    "rmse": 0.0025828514645988383,
+    "max_error": 0.01819262973939395,
+    "output_min": 2.774431876386036,
+    "output_max": 3.1837841021666344,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.019476663001114503
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "rectilinear",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.001383555479344488,
+    "max_error": 0.003990546347813595,
+    "output_min": 2.77439937401069,
+    "output_max": 3.1837841021666344,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.02107290799904149
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "rectilinear",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.001383555479344488,
+    "max_error": 0.003990546347813595,
+    "output_min": 2.77439937401069,
+    "output_max": 3.1837841021666344,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.5263145059980161
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "rectilinear",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.001383555479344488,
+    "max_error": 0.003990546347813595,
+    "output_min": 2.77439937401069,
+    "output_max": 3.1837841021666344,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.01973688300131471
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "rectilinear",
+    "scenario": "bad_lat",
+    "status": "error",
+    "error": "ValueError: Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/regridding-benchmarks/suite.py\", line 222, in run\n    warnings.simplefilter('always');res=apply(pkg,kind,scenario,*args[:-1])\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/regridding-benchmarks/suite.py\", line 92, in apply\n    raise ValueError('Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes')\nValueError: Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes\n",
+    "seconds": 0.0010018129978561774
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "rectilinear",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.14291548761875736,
+    "max_error": 0.8333333333333334,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [],
+    "flags": [
+      "fractional_categories",
+      "large_error"
+    ],
+    "seconds": 0.018266019000293454
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "roms",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0004291990007914137
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "roms",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.00029017700217082165
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "roms",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.00029921399982413277
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "roms",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0002761450014077127
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "roms",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0002631370007293299
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "roms",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.00022291400091489777
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "roms",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.00032187200122280046
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "roms",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0003657080014818348
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "roms",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.00027864000003319234
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "satellite_swath",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.00035461399966152385
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "satellite_swath",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0002857139988918789
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "satellite_swath",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0003265940031269565
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "satellite_swath",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.00031732100251247175
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "satellite_swath",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0003379379995749332
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "satellite_swath",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0003317030023026746
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "satellite_swath",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0002855830025509931
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "satellite_swath",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0005233549964032136
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "satellite_swath",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0003635540015238803
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "icosahedral",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.30173072300021886
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "icosahedral",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0009464300019317307
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "icosahedral",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0009033169990289025
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "icosahedral",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.001310486000875244
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "icosahedral",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0010838220005098265
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "icosahedral",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0014994809971540235
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "icosahedral",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0009362510027131066
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "icosahedral",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0009088090009754524
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "icosahedral",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.001038648002577247
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "healpix",
+    "scenario": "smooth",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.9504374339994683
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "healpix",
+    "scenario": "constant",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0006168239997350611
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "healpix",
+    "scenario": "nan_hole",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0005081460003566463
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "healpix",
+    "scenario": "mask_hole",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.00028564899912453257
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "healpix",
+    "scenario": "reverse",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.00039076199755072594
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "healpix",
+    "scenario": "lon360",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.00035386799936532043
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "healpix",
+    "scenario": "duplicate",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0003967100019508507
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "healpix",
+    "scenario": "bad_lat",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0004371069990156684
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "healpix",
+    "scenario": "categorical",
+    "status": "not_exercised",
+    "error": "This accessor requires separable 1-D axes; no mesh/swath/curvilinear or CRS-warp adapter",
+    "seconds": 0.0003975729996454902
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "gaussian",
+    "scenario": "smooth",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.003257198381075525,
+    "max_error": 0.014582826976806018,
+    "output_min": 0.8173250883691223,
+    "output_max": 3.182674911630878,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.02577765800015186
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "gaussian",
+    "scenario": "constant",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 4.1869132231567334e-16,
+    "max_error": 1.7763568394002505e-15,
+    "output_min": 7.0,
+    "output_max": 7.000000000000002,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.021624286000587745
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "gaussian",
+    "scenario": "nan_hole",
+    "status": "completed",
+    "finite_fraction": 0.9995659722222222,
+    "rmse": 0.008662974063884738,
+    "max_error": 0.07995957335855786,
+    "output_min": 0.8173250883691223,
+    "output_max": 3.1789361135603413,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.022492394000437343
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "gaussian",
+    "scenario": "mask_hole",
+    "status": "completed",
+    "finite_fraction": 0.9995659722222222,
+    "rmse": 0.008662974063884738,
+    "max_error": 0.07995957335855786,
+    "output_min": 0.8173250883691223,
+    "output_max": 3.1789361135603413,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.024989194000227144
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "gaussian",
+    "scenario": "reverse",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.003257198381075525,
+    "max_error": 0.014582826976806018,
+    "output_min": 0.8173250883691223,
+    "output_max": 3.182674911630878,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.020073559000593377
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "gaussian",
+    "scenario": "lon360",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.003257198381075525,
+    "max_error": 0.014582826976806018,
+    "output_min": 0.8173250883691223,
+    "output_max": 3.182674911630878,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.018995130998519016
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "gaussian",
+    "scenario": "duplicate",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.00348794122495465,
+    "max_error": 0.017956201189691434,
+    "output_min": 0.8173250883691223,
+    "output_max": 3.1863904976885524,
+    "warnings": [],
+    "flags": [],
+    "seconds": 0.02045157999964431
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "gaussian",
+    "scenario": "bad_lat",
+    "status": "error",
+    "error": "ValueError: Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes",
+    "traceback": "Traceback (most recent call last):\n  File \"/workspace/regridding-benchmarks/suite.py\", line 222, in run\n    warnings.simplefilter('always');res=apply(pkg,kind,scenario,*args[:-1])\n                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/regridding-benchmarks/suite.py\", line 92, in apply\n    raise ValueError('Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes')\nValueError: Non-separable or malformed coordinate arrays cannot be losslessly represented as 1-D axes\n",
+    "seconds": 0.0014765470004931558
+  },
+  {
+    "package": "xarray_regrid_conservative",
+    "grid": "gaussian",
+    "scenario": "categorical",
+    "status": "completed",
+    "finite_fraction": 1.0,
+    "rmse": 0.09375,
+    "max_error": 0.5625,
+    "output_min": 0.0,
+    "output_max": 1.0,
+    "warnings": [],
+    "flags": [
+      "fractional_categories"
+    ],
+    "seconds": 0.023719061999145197
+  }
+]

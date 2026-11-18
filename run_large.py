@@ -6,7 +6,8 @@ ENVROOT=Path(os.environ.get('BENCH_ENV_ROOT',ROOT))
 CASES=[]
 def add(pkg,grids,compiled=False):
  for grid in grids:CASES.append((pkg,grid,compiled))
-add('scipy',['rectilinear','gaussian']);add('xarray',['rectilinear','gaussian'])
+add('scipy',['rectilinear','gaussian']);add('xarray',['rectilinear','gaussian']);add('xarray_axes',['rectilinear','gaussian'])
+for p in ['xarray_regrid_linear','xarray_regrid_nearest','xarray_regrid_conservative']:add(p,['rectilinear','gaussian'])
 for p in ['pyresample_nearest','pyresample_gauss']:add(p,['rectilinear','roms','satellite_swath','icosahedral','healpix','gaussian'])
 for p in ['healpy','astropy_healpix']:add(p,['healpix'])
 for p in ['rasterio','rioxarray','odc_geo','pyproj']:add(p,['crs_4326_to_2056','crs_4326_to_3857'])

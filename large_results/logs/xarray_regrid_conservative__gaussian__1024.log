@@ -1,0 +1,1 @@
+{"status": "completed", "package": "xarray_regrid_conservative", "grid": "gaussian", "scale": 1024, "peak_rss_mib": 625.16796875, "worker_seconds": 4.9940693079988705}

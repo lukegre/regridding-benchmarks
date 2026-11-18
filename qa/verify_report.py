@@ -10,6 +10,8 @@ with sync_playwright() as p:
  page.set_content((root/'docs/index.html').read_text());page.wait_for_selector('#large-table tr')
  def expected(group,size):return len([r for r in payload['summary'] if r['comparison_group']==group and r['scale']==size])
  assert page.locator('#large-table tr').count()==expected('rectilinear',512)
+ for adapter in ['xarray_regrid_linear','xarray_regrid_nearest','xarray_regrid_conservative','xarray_axes']:
+  assert adapter in page.locator('#large-table').inner_text()
  assert '262,144' in page.locator('#large-profile').inner_text()
  page.locator('#large-scale').select_option('1024');assert '1,048,576' in page.locator('#large-profile').inner_text()
  page.locator('.large-bar').first.click();assert page.locator('#large-detail').get_attribute('open') is not None
@@ -30,6 +32,12 @@ with sync_playwright() as p:
  assert page.locator('nav[aria-label="Report pages"] a[aria-current="page"]').get_attribute('href')=='index.html'
  chunk=json.loads((root/'chunked_results/combined.json').read_text())
  assert page.locator('#chunk-table tr').count()==len(chunk['summary'])
+ added=[r for r in chunk['summary'] if r['tool'].startswith('xarray_regrid_')]
+ assert len(added)==9 and all(r['repeats']==3 for r in added)
+ assert all(r['correctness']['finite_mask_mismatches']==0 and r['correctness']['max_abs_error']==0 for r in added)
+ page.locator('#chunk-tool').select_option('xarray_regrid_conservative')
+ assert page.locator('#chunk-table tr').count()==3
+ page.locator('#chunk-tool').select_option('')
  assert 'including reads' in page.locator('#chunk-storage').inner_text()
  assert '42,497' in page.locator('#chunk-diagnostic').inner_text()
  assert 'no computation completed' in page.locator('#chunk-diagnostic').inner_text()
@@ -47,19 +55,23 @@ with sync_playwright() as p:
  page.set_content((root/'docs/small-data.html').read_text());page.wait_for_selector('#results tr')
  assert page.locator('#large-timings').count()==0
  assert page.locator('nav[aria-label="Report pages"] a[aria-current="page"]').get_attribute('href')=='small-data.html'
- page.locator('#figure-scenario').select_option('constant');assert page.locator('#coverage-figure button').count()==96
- page.locator('#pkg').select_option('astropy_healpix');assert '54 of 924' in page.locator('#count').inner_text()
+ page.locator('#figure-scenario').select_option('constant')
+ small=json.loads((root/'all_results.json').read_text())
+ assert page.locator('#coverage-figure button').count()==sum(r.get('scenario')=='constant' for r in small)
+ page.locator('#pkg').select_option('astropy_healpix');assert f"54 of {len(small)}" in page.locator('#count').inner_text()
  page.set_content((root/'docs/tool-guide.html').read_text())
  assert page.locator('nav[aria-label="Report pages"] a[aria-current="page"]').get_attribute('href')=='tool-guide.html'
  contracts=json.loads((root/'docs/tool_contracts.json').read_text())
- assert len(contracts['tools'])==15
- assert page.locator('#contracts details').count()==15
+ assert len(contracts['tools'])==16
+ assert page.locator('#contracts details').count()==16
+ assert any(t['name']=='xarray-regrid' for t in contracts['tools'])
  assert page.locator('#recommendations article').count()==11
  assert page.locator('a[href="tool-selection-skill.md"]').count()==1
  skill=(root/'skills/regridding-tool-selection/SKILL.md').read_text()
  assert skill==(root/'docs/tool-selection-skill.md').read_text()
  assert skill.startswith('---\nname: select-geospatial-regridding-tool\n')
  assert '## Workflow' in skill and '## Non-float rules' in skill
+ assert 'xarray-regrid conservative' in skill
  assert '257 fields' in page.locator('#recommendations').inner_text()
  assert 'Finite coverage' in page.locator('#recommendations').inner_text()
  rules=json.loads((root/'tool_recommendations.json').read_text())
