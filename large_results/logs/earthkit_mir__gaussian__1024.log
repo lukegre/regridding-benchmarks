@@ -1,1 +1,0 @@
-{"status": "completed", "package": "earthkit_mir", "grid": "gaussian", "scale": 1024, "peak_rss_mib": 1367.32421875, "cache_policy": "fresh_process_and_cache_per_repeat", "worker_seconds": 59.26123104300132}

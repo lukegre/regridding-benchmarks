@@ -1,3 +1,0 @@
-/workspace/geospatial-benchmarks/.venv/lib/python3.12/site-packages/uxarray/remap/utils.py:87: UserWarning: No spatial coordinate variables found in `source`.
-  output_coords = coords_remapper.construct_output_coords()
-{"status": "completed", "package": "uxarray", "grid": "icosahedral", "scale": 512, "peak_rss_mib": 442.21484375, "worker_seconds": 5.646713785000429}

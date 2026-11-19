@@ -1,7 +1,0 @@
-Cache file /tmp/cache/mir/weights/18/linear/H16/LL-5.625x5.625-90:0:-90:354.375-a49ffd69dffa09c5d4cffe4ba8237f97.mat does not exist
-Creating cache file /tmp/cache/mir/weights/18/linear/H16/LL-5.625x5.625-90:0:-90:354.375-a49ffd69dffa09c5d4cffe4ba8237f97.mat
-CacheManager creating file /tmp/cache/mir/weights/18/linear/H16/LL-5.625x5.625-90:0:-90:354.375-a49ffd69dffa09c5d4cffe4ba8237f97.mat
-Cache file /tmp/cache/mir/weights/18/linear/H32/LL-2.8125x2.8125-90:0:-90:357.188-4fb2ec3d510fa4276668a72883c751dd.mat does not exist
-Creating cache file /tmp/cache/mir/weights/18/linear/H32/LL-2.8125x2.8125-90:0:-90:357.188-4fb2ec3d510fa4276668a72883c751dd.mat
-CacheManager creating file /tmp/cache/mir/weights/18/linear/H32/LL-2.8125x2.8125-90:0:-90:357.188-4fb2ec3d510fa4276668a72883c751dd.mat
-{"status": "completed", "package": "earthkit_mir", "grid": "healpix", "scale": 64, "peak_rss_mib": 302.140625, "worker_seconds": 2.032836082999893}

@@ -1,1 +1,0 @@
-{"status": "error", "package": "nco", "grid": "icosahedral", "scale": 64, "error": "\u274c ABORT DUE TO NON-ZERO COMMAND EXIT CODE\nFailed Command: 'which ncks'\nLine Number   : 511\nExit Status   : 1\n\u274c ABORT DUE TO NON-ZERO COMMAND EXIT CODE\nFailed Command: 'nco_exe=$(which ncks)'\nLine Number   : 511\nExit Status   : 1\n", "worker_seconds": 0.9453655009992872}

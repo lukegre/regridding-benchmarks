@@ -1,5 +1,14 @@
 # Legacy edition
 
+[`archive/`](archive) contains the original runners, recorded results, and reports. The
+registry adapters reuse its benchmark kernels. The original results manifest and edition
+source manifest use paths relative to `archive/`. The exported edition retains those paths.
+
+The GitHub Pages files remain in [`docs/`](../../docs) for the current URLs. To run the
+original reproduction or report-generation scripts, use a separate checkout of
+`e4a4d263877433859d14dd6c6d91924127dbd54c`. Those scripts can rewrite recorded outputs.
+Use the registry CLI for new measurements and checkout-local legacy exports.
+
 The source manifest pins the original checkout revision and SHA-256 hashes for the historical small, shared-grid, chunked and storage results, their logs and supporting artifacts, and the tool guide. `results-manifest.json` is the original checksum manifest; all 1,184 entries were verified against the checkout. `sources.manifest` also pins the other edition files. The current registry is an inventory of observed cases; it does not turn historical errors into expected rejections or establish numerical parity.
 
 `regridding_benchmarks.legacy.build_edition(repo, output)` verifies both manifests and copies the original bytes to an empty output directory. `validate_edition(output)` verifies the copies and index references. `manifest.json` names the guide and index. Each record in `index.json` links to its original JSON file by relative `source` and RFC 6901 `pointer` (empty means the whole document). Summary files are retained but excluded from the index where they duplicate individual chunked records. Diagnostic and interrupted pilots are retained without treating them as completed timings. The output can be served as a static edition without benchmark libraries.

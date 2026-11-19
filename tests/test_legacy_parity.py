@@ -5,8 +5,20 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 
 from regridding_benchmarks.legacy_adapter import run
+from regridding_benchmarks.legacy import ARCHIVE_DIR, build_edition, validate_edition
 
 ROOT = Path(__file__).resolve().parents[1]
+ARCHIVE = ROOT / ARCHIVE_DIR
+
+
+class LegacyEdition(unittest.TestCase):
+    def test_archived_evidence_exports_with_original_paths(self):
+        with TemporaryDirectory() as tmp:
+            output = Path(tmp)
+            manifest = build_edition(ROOT, output)
+            self.assertEqual(validate_edition(output), manifest)
+            self.assertEqual((output / 'all_results.json').read_bytes(),
+                             (ARCHIVE / 'all_results.json').read_bytes())
 
 
 class LegacyParity(unittest.TestCase):
@@ -21,7 +33,7 @@ class LegacyParity(unittest.TestCase):
         cls.cases = json.loads((ROOT / 'benchmarks/legacy/cases.json').read_text())['cases']
 
     def test_small_numerics(self):
-        history = json.loads((ROOT / 'all_results.json').read_text())
+        history = json.loads((ARCHIVE / 'all_results.json').read_text())
         for package, grid, scenario in [('scipy', 'rectilinear', 'smooth'),
                                         ('scipy', 'rectilinear', 'constant'),
                                         ('xarray', 'gaussian', 'smooth'),
@@ -37,7 +49,7 @@ class LegacyParity(unittest.TestCase):
                     self.assertAlmostEqual(result['metrics'][metric], historical[metric], delta=1e-12)
 
     def test_longitude_control(self):
-        history = json.loads((ROOT / 'results/controls_python.json').read_text())
+        history = json.loads((ARCHIVE / 'results/controls_python.json').read_text())
         for wrapped in ('False', 'True'):
             name = 'longitude_wrapped_' + wrapped
             case = next(c for c in self.cases if c['family'] == 'control'

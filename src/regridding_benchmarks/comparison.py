@@ -16,7 +16,9 @@ def arrays_digest(np, *arrays):
 def run(case, context):
     import sys
 
-    sys.path.insert(0, str(context["repo"]))
+    from .legacy import ARCHIVE_DIR
+
+    sys.path.insert(0, str(context["repo"] / ARCHIVE_DIR))
     try:
         start = perf_counter()
         import numpy as np

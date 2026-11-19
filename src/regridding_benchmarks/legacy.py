@@ -7,6 +7,7 @@ import shutil
 from pathlib import Path
 
 SOURCE_REVISION = 'e4a4d263877433859d14dd6c6d91924127dbd54c'
+ARCHIVE_DIR = Path('benchmarks/legacy/archive')
 
 
 def _digest(path: Path) -> str:
@@ -39,25 +40,26 @@ def build_edition(repo: Path, output: Path) -> dict:
     """
     repo, output = Path(repo).resolve(), Path(output).resolve()
     sources = json.loads((repo / 'benchmarks/legacy/sources.manifest').read_text())
+    archive = repo / ARCHIVE_DIR
     if sources['source_revision'] != SOURCE_REVISION:
         raise ValueError('Unexpected source revision in legacy source manifest')
-    _verify(repo, sources['files'])
-    historical = json.loads((repo / 'results-manifest.json').read_text())
-    _verify(repo, historical)
+    _verify(archive, sources['files'])
+    historical = json.loads((archive / 'results-manifest.json').read_text())
+    _verify(archive, historical)
     if output.exists() and any(output.iterdir()):
         raise ValueError(f'Edition output must be empty: {output}')
     output.mkdir(parents=True, exist_ok=True)
     for name in sources['files']:
         dest = _safe(output, name)
         dest.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copyfile(_safe(repo, name), dest)
+        shutil.copyfile(_safe(archive, name), dest)
     records = []
-    small = json.loads((repo / 'all_results.json').read_text())
+    small = json.loads((archive / 'all_results.json').read_text())
     for i, row in enumerate(small):
         records.append({'family': 'small', 'source': 'all_results.json', 'pointer': f'/{i}',
                         'status': row.get('status'), 'package': row.get('package'),
                         'grid': row.get('grid'), 'scenario': row.get('scenario')})
-    for path in sorted((repo / 'results').glob('*.json')):
+    for path in sorted((archive / 'results').glob('*.json')):
         if not (path.name.startswith(('native_', 'controls_')) or path.name == 'xarray_regrid_controls.json'):
             continue
         rows = json.loads(path.read_text())
@@ -68,14 +70,14 @@ def build_edition(repo: Path, output: Path) -> dict:
                             'source': f'results/{path.name}', 'pointer': f'/{i}',
                             'status': row.get('status'), 'package': row.get('package'),
                             'grid': row.get('grid'), 'case': row.get('case')})
-    for path in sorted((repo / 'large_results').glob('*.json')):
+    for path in sorted((archive / 'large_results').glob('*.json')):
         row = json.loads(path.read_text())
         if not isinstance(row, dict) or 'status' not in row:
             continue
         records.append({'family': 'shared-grid', 'source': f'large_results/{path.name}',
                         'pointer': '', 'status': row['status'], 'package': row.get('package'),
                         'grid': row.get('grid'), 'scale': row.get('scale')})
-    for path in sorted((repo / 'chunked_results').glob('*.json')):
+    for path in sorted((archive / 'chunked_results').glob('*.json')):
         if path.name == 'combined.json':
             continue  # summary duplicates individual files
         row = json.loads(path.read_text())

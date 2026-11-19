@@ -1,7 +1,0 @@
-Input : /workspace/geospatial-benchmarks/results/cli/constant.nc
-MapWgt: weights.nc
-Output: constant_nco.nc
-
-ncks: INFO Reducing user-requested thread number = 2 to maximum thread number omp_get_max_threads() allows = 1
-ncks: WARNING NC_DOUBLE version of "_FillValue" attribute for z is NaN and this value fails isfinite(). Therefore valid values cannot be arithmetically compared to the _FillValue, and this can lead to unpredictable results.
-HINT: If arithmetic results (e.g., from regridding) fails or values seem weird, retry after first converting _FillValue to a normal number with, e.g., "ncatted --type_match -a _FillValue,z,m,f,1.0e36 -a _FillValue,z,m,d,1.0e36 in.nc out.nc"

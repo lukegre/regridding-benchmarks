@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import importlib
+import os
 import shutil
 import sys
 import time
@@ -9,21 +10,27 @@ import warnings
 from pathlib import Path
 
 from .comparison import arrays_digest
+from .legacy import ARCHIVE_DIR
 
 
 def run(case: dict, context: dict) -> dict:
     opts = case['options']
     family = opts['legacy_family']
-    sys.path.insert(0, str(context['repo']))
+    repo = Path(context['repo'])
+    archive = repo / ARCHIVE_DIR
+    environment_root = Path(os.environ.get('BENCH_ENV_ROOT', repo))
+    old_path = os.environ.get('PATH')
+    os.environ['PATH'] = os.pathsep.join(filter(None, (str(environment_root / 'compiled/bin'), old_path)))
+    sys.path.insert(0, str(archive))
     try:
         if family == 'small':
             return _small(opts, context['scratch'])
         if family == 'shared-grid':
-            return _large(opts)
+            return _large(opts, environment_root)
         if family == 'native-control':
             return _native(opts)
         if family == 'control':
-            return _control(opts, Path(context['repo']))
+            return _control(opts, archive)
         if family in ('chunked', 'storage'):
             return _chunked(opts, Path(context['scratch']))
         return {'status': 'unsupported', 'timings': {}, 'metrics': {},
@@ -33,6 +40,10 @@ def run(case: dict, context: dict) -> dict:
                 'reason': f'Engine dependency unavailable: {exc}'}
     finally:
         sys.path.pop(0)
+        if old_path is None:
+            os.environ.pop('PATH', None)
+        else:
+            os.environ['PATH'] = old_path
 
 
 def _small(opts: dict, scratch: Path) -> dict:
@@ -111,8 +122,9 @@ def _small(opts: dict, scratch: Path) -> dict:
     }}
 
 
-def _large(opts: dict) -> dict:
+def _large(opts: dict, environment_root: Path) -> dict:
     module = importlib.import_module('large_bench')
+    module.ENVROOT = environment_root
     result = module.run(opts['package'], opts['grid'], opts['scale'], 1)
     row = result['runs'][0]
     timings = {'imports': row['import_seconds'], 'fixture': row['input_preparation_seconds'],

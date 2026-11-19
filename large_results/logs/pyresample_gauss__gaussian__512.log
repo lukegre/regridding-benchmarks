@@ -1,3 +1,0 @@
-/workspace/regridding-benchmarks/large_bench.py:123: UserWarning: Possible more than 8 neighbours within 900000 m for some data points
-  a,b,idx,dist=kd_tree.get_neighbour_info(src,dst,radius_of_influence=radius,neighbours=1 if pkg.endswith('nearest') else 8,nprocs=1)
-{"status": "completed", "package": "pyresample_gauss", "grid": "gaussian", "scale": 512, "peak_rss_mib": 390.046875, "worker_seconds": 3.675720186000035}

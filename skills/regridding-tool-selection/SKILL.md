@@ -210,4 +210,4 @@ Measured family: `crs_4326_to_2056`, shared scale 4096.
 - [xarray-regrid extension and usability controls](https://lukegre.github.io/regridding-benchmarks/xarray-regrid-report.md)
 - [Small-grid adversarial survey](https://lukegre.github.io/regridding-benchmarks/small-data.html)
 
-In a checkout of lukegre/regridding-benchmarks, the source files are tool_recommendations.json, tool_contracts.json, large_results/combined.json and chunked_results/combined.json. Rebuild this skill and the guide with build_guide.py, or regenerate all Pages output with build_pages.py using the documented Python environment. Do not hand-edit generated recommendations or reinterpret advisory contracts as a formal validator.
+In a checkout of lukegre/regridding-benchmarks, the historical source files are under `benchmarks/legacy/archive/`. Use `regridding-benchmarks import-legacy` to verify and export the evidence. Consult the archived recommendations and contracts as advisory guidance.

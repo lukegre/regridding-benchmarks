@@ -1,8 +1,0 @@
-astropy-healpix longitude_wrapped_False completed
-SciPy longitude_wrapped_False completed
-Pyresample healpix_longitude_wrapped_False completed
-Pyresample gaussian_longitude_wrapped_False completed
-astropy-healpix longitude_wrapped_True completed
-SciPy longitude_wrapped_True completed
-Pyresample healpix_longitude_wrapped_True completed
-Pyresample gaussian_longitude_wrapped_True completed
