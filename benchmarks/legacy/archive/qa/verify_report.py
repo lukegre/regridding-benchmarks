@@ -31,7 +31,7 @@ with sync_playwright() as p:
  assert page.locator('#explorer').count()==0, 'Small-grid evidence must not remain on home'
  assert page.locator('#chunked-timings').count()==1
  assert page.locator('nav[aria-label="Report pages"] a[aria-current="page"]').get_attribute('href')=='index.html'
- chunk=json.loads((root/'chunked_results/combined.json').read_text())
+ chunk=json.loads((archive/'chunked_results/combined.json').read_text())
  assert page.locator('#chunk-table tr').count()==len(chunk['summary'])
  added=[r for r in chunk['summary'] if r['tool'].startswith('xarray_regrid_')]
  assert len(added)==9 and all(r['repeats']==3 for r in added)
@@ -57,7 +57,7 @@ with sync_playwright() as p:
  assert page.locator('#large-timings').count()==0
  assert page.locator('nav[aria-label="Report pages"] a[aria-current="page"]').get_attribute('href')=='small-data.html'
  page.locator('#figure-scenario').select_option('constant')
- small=json.loads((root/'all_results.json').read_text())
+ small=json.loads((archive/'all_results.json').read_text())
  assert page.locator('#coverage-figure button').count()==sum(r.get('scenario')=='constant' for r in small)
  page.locator('#pkg').select_option('astropy_healpix');assert f"54 of {len(small)}" in page.locator('#count').inner_text()
  page.set_content((root/'docs/tool-guide.html').read_text())
@@ -75,7 +75,7 @@ with sync_playwright() as p:
  assert 'xarray-regrid conservative' in skill
  assert '257 fields' in page.locator('#recommendations').inner_text()
  assert 'Finite coverage' in page.locator('#recommendations').inner_text()
- rules=json.loads((root/'tool_recommendations.json').read_text())
+ rules=json.loads((archive/'tool_recommendations.json').read_text())
  for rule,article in zip(rules['recommendations'],page.locator('#recommendations article').all()):
   assert rule['preferred'] in article.inner_text()
   assert article.locator('tbody tr').count()==len(rule['packages'])
@@ -85,7 +85,7 @@ with sync_playwright() as p:
  assert 'nearest_s2d' in page.locator('body').inner_text()
  for width in [390,700,1360]:
   page.set_viewport_size({'width':width,'height':900});assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'),f'Guide overflow at {width}'
- comparison=json.loads((root/'external_comparisons.json').read_text())
+ comparison=json.loads((archive/'external_comparisons.json').read_text())
  page.set_content((root/'docs/comparison.html').read_text())
  assert page.locator('nav[aria-label="Report pages"] a[aria-current="page"]').get_attribute('href')=='comparison.html'
  assert page.locator('.source-card').count()==len(comparison['sources'])

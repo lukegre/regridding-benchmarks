@@ -3,6 +3,7 @@
 import re
 
 from .io import read_json
+from .legacy import ARCHIVE_DIR
 
 ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,159}\Z")
 DIGEST = re.compile(r"[0-9a-f]{64}\Z")
@@ -12,9 +13,9 @@ OUTCOMES = frozenset({
 })
 
 
-def items(directory, key, exclude=()):
+def items(directory, key, exclude=(), *, archive=None):
     for path in sorted(directory.rglob("*.json")):
-        if path.name in exclude:
+        if path.name in exclude or (archive is not None and path.is_relative_to(archive)):
             continue
         value = read_json(path)
         yield from (value[key] if isinstance(value, dict) else value)
@@ -80,7 +81,8 @@ def load(repo):
     for identifier, dataset in datasets.items():
         if dataset.get("sha256") is not None and not DIGEST.fullmatch(dataset["sha256"]):
             raise ValueError(f"Invalid checksum for {identifier}")
-    cases = index(items(repo / "benchmarks", "cases", ("profiles.json",)), "case")
+    cases = index(items(repo / "benchmarks", "cases", ("profiles.json",), archive=repo / ARCHIVE_DIR),
+                  "case")
     for case in cases.values():
         validate_case(case, datasets, profiles)
     return profiles, cases, datasets
