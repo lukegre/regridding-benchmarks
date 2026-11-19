@@ -1,0 +1,36 @@
+name: Build benchmark image
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  packages: write
+jobs:
+  build:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and smoke-test image
+        env:
+          BASE: ${{ vars.BENCHMARK_BASE_IMAGE }}
+        run: |
+          set -euo pipefail
+          base_args=()
+          if [[ -n "$BASE" ]]; then
+            [[ "$BASE" =~ @sha256:[0-9a-f]{64}$ ]] || { echo 'BENCHMARK_BASE_IMAGE must be pinned by digest' >&2; exit 1; }
+            base_args+=(--build-arg "MAMBA_IMAGE=$BASE")
+          fi
+          docker build --platform linux/amd64 "${base_args[@]}" --build-arg BENCH_SOURCE_REV="$GITHUB_SHA" -f environments/Dockerfile -t benchmark-test .
+          docker run --rm -e BENCH_VERIFY_DGGS=true benchmark-test /opt/benchmark/source/environments/smoke-image.sh
+          docker image inspect --format '{{.Id}}' benchmark-test
+      - name: Push tested image to GHCR
+        if: vars.BENCHMARK_PUSH_IMAGE == 'true'
+        env:
+          GHCR_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          printf '%s' "$GHCR_TOKEN" | docker login ghcr.io --username "$GITHUB_ACTOR" --password-stdin
+          tag="ghcr.io/${GITHUB_REPOSITORY,,}:sha-$GITHUB_SHA"
+          docker tag benchmark-test "$tag"
+          docker push "$tag"
+          docker image inspect --format '{{range .RepoDigests}}{{println .}}{{end}}' "$tag" >> "$GITHUB_STEP_SUMMARY"

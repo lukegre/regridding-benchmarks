@@ -1,0 +1,1894 @@
+{
+  "cases": [
+    {
+      "id": "published-dask-xarray-regrid-pancake-small-zero-fill-smoke",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "python",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xarray-regrid conservative",
+      "mask": "Fill missing contributors with zero and retain the full target area (xarray-regrid skipna=False)",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "profiles": [
+        "smoke"
+      ],
+      "options": {
+        "engine": "xarray-regrid",
+        "skipna": false,
+        "times": 2,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ],
+        "chunks": [
+          1,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        }
+      }
+    },
+    {
+      "id": "published-dask-xarray-regrid-pancake-small-skip-smoke",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "python",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xarray-regrid conservative",
+      "mask": "Skip and renormalize finite contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "profiles": [
+        "smoke"
+      ],
+      "options": {
+        "engine": "xarray-regrid",
+        "skipna": true,
+        "times": 2,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ],
+        "chunks": [
+          1,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        }
+      }
+    },
+    {
+      "id": "published-dask-xesmf-pancake-small-propagate-smoke",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "compiled",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xesmf conservative",
+      "mask": "Propagate missing contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "profiles": [
+        "smoke"
+      ],
+      "options": {
+        "engine": "xesmf",
+        "skipna": false,
+        "times": 2,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ],
+        "chunks": [
+          1,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        },
+        "fully_covered_geometry_fraction": {
+          "min": 0.5
+        }
+      }
+    },
+    {
+      "id": "published-dask-xesmf-pancake-small-skip-smoke",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "compiled",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xesmf conservative",
+      "mask": "Skip and renormalize finite contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "profiles": [
+        "smoke"
+      ],
+      "options": {
+        "engine": "xesmf",
+        "skipna": true,
+        "times": 2,
+        "extent": [
+          20,
+          24,
+          0,
+          5
+        ],
+        "chunks": [
+          1,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        },
+        "fully_covered_geometry_fraction": {
+          "min": 0.5
+        }
+      }
+    },
+    {
+      "id": "published-dask-xarray-regrid-pancake-small-zero-fill-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "python",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xarray-regrid conservative",
+      "mask": "Fill missing contributors with zero and retain the full target area (xarray-regrid skipna=False)",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xarray-regrid",
+        "skipna": false,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          1,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        }
+      }
+    },
+    {
+      "id": "published-dask-xarray-regrid-pancake-large-zero-fill-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "python",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xarray-regrid conservative",
+      "mask": "Fill missing contributors with zero and retain the full target area (xarray-regrid skipna=False)",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xarray-regrid",
+        "skipna": false,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          25,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        }
+      }
+    },
+    {
+      "id": "published-dask-xarray-regrid-churro-small-zero-fill-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "python",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xarray-regrid conservative",
+      "mask": "Fill missing contributors with zero and retain the full target area (xarray-regrid skipna=False)",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xarray-regrid",
+        "skipna": false,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          -1,
+          32,
+          32
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        }
+      }
+    },
+    {
+      "id": "published-dask-xarray-regrid-churro-large-zero-fill-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "python",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xarray-regrid conservative",
+      "mask": "Fill missing contributors with zero and retain the full target area (xarray-regrid skipna=False)",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xarray-regrid",
+        "skipna": false,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          -1,
+          160,
+          160
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        }
+      }
+    },
+    {
+      "id": "published-dask-xarray-regrid-pancake-small-skip-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "python",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xarray-regrid conservative",
+      "mask": "Skip and renormalize finite contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xarray-regrid",
+        "skipna": true,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          1,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        }
+      }
+    },
+    {
+      "id": "published-dask-xarray-regrid-pancake-large-skip-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "python",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xarray-regrid conservative",
+      "mask": "Skip and renormalize finite contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xarray-regrid",
+        "skipna": true,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          25,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        }
+      }
+    },
+    {
+      "id": "published-dask-xarray-regrid-churro-small-skip-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "python",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xarray-regrid conservative",
+      "mask": "Skip and renormalize finite contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xarray-regrid",
+        "skipna": true,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          -1,
+          32,
+          32
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        }
+      }
+    },
+    {
+      "id": "published-dask-xarray-regrid-churro-large-skip-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "python",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xarray-regrid conservative",
+      "mask": "Skip and renormalize finite contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xarray-regrid",
+        "skipna": true,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          -1,
+          160,
+          160
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        }
+      }
+    },
+    {
+      "id": "published-dask-xesmf-pancake-small-propagate-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "compiled",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xesmf conservative",
+      "mask": "Propagate missing contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xesmf",
+        "skipna": false,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          1,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        },
+        "fully_covered_geometry_fraction": {
+          "min": 0.5
+        }
+      }
+    },
+    {
+      "id": "published-dask-xesmf-pancake-large-propagate-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "compiled",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xesmf conservative",
+      "mask": "Propagate missing contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xesmf",
+        "skipna": false,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          25,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        },
+        "fully_covered_geometry_fraction": {
+          "min": 0.5
+        }
+      }
+    },
+    {
+      "id": "published-dask-xesmf-churro-small-propagate-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "compiled",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xesmf conservative",
+      "mask": "Propagate missing contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xesmf",
+        "skipna": false,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          -1,
+          32,
+          32
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        },
+        "fully_covered_geometry_fraction": {
+          "min": 0.5
+        }
+      }
+    },
+    {
+      "id": "published-dask-xesmf-churro-large-propagate-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "compiled",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xesmf conservative",
+      "mask": "Propagate missing contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xesmf",
+        "skipna": false,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          -1,
+          160,
+          160
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        },
+        "fully_covered_geometry_fraction": {
+          "min": 0.5
+        }
+      }
+    },
+    {
+      "id": "published-dask-xesmf-pancake-small-skip-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "compiled",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xesmf conservative",
+      "mask": "Skip and renormalize finite contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xesmf",
+        "skipna": true,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          1,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        },
+        "fully_covered_geometry_fraction": {
+          "min": 0.5
+        }
+      }
+    },
+    {
+      "id": "published-dask-xesmf-pancake-large-skip-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "compiled",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xesmf conservative",
+      "mask": "Skip and renormalize finite contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xesmf",
+        "skipna": true,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          25,
+          -1,
+          -1
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        },
+        "fully_covered_geometry_fraction": {
+          "min": 0.5
+        }
+      }
+    },
+    {
+      "id": "published-dask-xesmf-churro-small-skip-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "compiled",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xesmf conservative",
+      "mask": "Skip and renormalize finite contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xesmf",
+        "skipna": true,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          -1,
+          32,
+          32
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        },
+        "fully_covered_geometry_fraction": {
+          "min": 0.5
+        }
+      }
+    },
+    {
+      "id": "published-dask-xesmf-churro-large-skip-full",
+      "version": 1,
+      "family": "published_workloads",
+      "fixture": "aligned-dask-conservative",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_xesmf.html",
+      "deviations": [
+        "Use a deterministic analytic field with one masked cell instead of random input.",
+        "Use aligned in-domain cell bounds and explicit spherical area checks.",
+        "Time lazy source evaluation with compute. Use a single-threaded scheduler and retain raw repeats."
+      ],
+      "adapter": "regridding_benchmarks.dask_conservative:run",
+      "python_env": "compiled",
+      "source_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 0.25,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "target_geometry": {
+        "type": "spherical bounds",
+        "step_degrees": 1,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ]
+      },
+      "quantity": "intensive analytic cell averages",
+      "method": "xesmf conservative",
+      "mask": "Skip and renormalize finite contributors",
+      "phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "source_graph",
+        "remap_graph",
+        "compute",
+        "weights"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 3600
+      },
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "engine": "xesmf",
+        "skipna": true,
+        "times": 1000,
+        "extent": [
+          -90,
+          90,
+          -180,
+          180
+        ],
+        "chunks": [
+          -1,
+          160,
+          160
+        ]
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.9,
+          "max": 1
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_support_max_error": {
+          "max": 0.001
+        },
+        "complete_cell_relative_integral_error": {
+          "max": 0.0005
+        },
+        "fully_covered_geometry_fraction": {
+          "min": 0.5
+        }
+      }
+    }
+  ]
+}

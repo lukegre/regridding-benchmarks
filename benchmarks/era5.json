@@ -1,0 +1,445 @@
+{
+  "cases": [
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.era5:run",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+      "source_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.25,
+        "crs": "geographic"
+      },
+      "quantity": "2 m dewpoint in kelvin (float64)",
+      "mask": "Require common finite coverage",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "fixture": "affine-dewpoint-smoke",
+      "id": "era5-dewpoint-xarray-regrid-smoke",
+      "target_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.17,
+        "origin_lat_lon": [
+          45,
+          90
+        ],
+        "shape": [
+          12,
+          12
+        ]
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "method": "xarray-regrid bilinear",
+      "profiles": [
+        "smoke"
+      ],
+      "python_env": "python",
+      "options": {
+        "smoke": true,
+        "engine": "xarray-regrid"
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.99
+        },
+        "common_coverage": {
+          "min": 0.99
+        },
+        "common_rmse_k": {
+          "max": 0.001
+        },
+        "output_dtype": {
+          "equals": "float64"
+        }
+      },
+      "deviations": [
+        "Use a bounded affine fixture for the smoke variant",
+        "Force float64 and compare with SciPy point interpolation."
+      ]
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.era5:run",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+      "source_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.25,
+        "crs": "geographic"
+      },
+      "quantity": "2 m dewpoint in kelvin (float64)",
+      "mask": "Require common finite coverage",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "dataset": "era5-dewpoint-2000-monthly",
+      "id": "era5-dewpoint-xarray-regrid-full",
+      "target_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.17,
+        "origin_lat_lon": [
+          45,
+          90
+        ],
+        "shape": [
+          265,
+          530
+        ]
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "method": "xarray-regrid bilinear",
+      "profiles": [
+        "standard",
+        "extended"
+      ],
+      "python_env": "python",
+      "options": {
+        "smoke": false,
+        "engine": "xarray-regrid"
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.99
+        },
+        "common_coverage": {
+          "min": 0.99
+        },
+        "common_rmse_k": {
+          "max": 0.001
+        },
+        "output_dtype": {
+          "equals": "float64"
+        }
+      },
+      "deviations": [
+        "Accept a verified regional CDS replacement if original notebook data are unavailable",
+        "Force float64 and compare with SciPy point interpolation."
+      ]
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.era5:run",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+      "source_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.25,
+        "crs": "geographic"
+      },
+      "quantity": "2 m dewpoint in kelvin (float64)",
+      "mask": "Require common finite coverage",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "fixture": "affine-dewpoint-smoke",
+      "id": "era5-dewpoint-xesmf-smoke",
+      "target_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.17,
+        "origin_lat_lon": [
+          45,
+          90
+        ],
+        "shape": [
+          12,
+          12
+        ]
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "weights",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "weights",
+        "application"
+      ],
+      "method": "xesmf bilinear",
+      "profiles": [
+        "smoke"
+      ],
+      "python_env": "compiled",
+      "options": {
+        "smoke": true,
+        "engine": "xesmf"
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.99
+        },
+        "common_coverage": {
+          "min": 0.99
+        },
+        "common_rmse_k": {
+          "max": 0.5
+        },
+        "output_dtype": {
+          "equals": "float64"
+        }
+      },
+      "deviations": [
+        "Use a bounded affine fixture for the smoke variant",
+        "Force float64 and compare with SciPy point interpolation."
+      ]
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.era5:run",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+      "source_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.25,
+        "crs": "geographic"
+      },
+      "quantity": "2 m dewpoint in kelvin (float64)",
+      "mask": "Require common finite coverage",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "dataset": "era5-dewpoint-2000-monthly",
+      "id": "era5-dewpoint-xesmf-full",
+      "target_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.17,
+        "origin_lat_lon": [
+          45,
+          90
+        ],
+        "shape": [
+          265,
+          530
+        ]
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "weights",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "weights",
+        "application"
+      ],
+      "method": "xesmf bilinear",
+      "profiles": [
+        "standard",
+        "extended"
+      ],
+      "python_env": "compiled",
+      "options": {
+        "smoke": false,
+        "engine": "xesmf"
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.99
+        },
+        "common_coverage": {
+          "min": 0.99
+        },
+        "common_rmse_k": {
+          "max": 0.5
+        },
+        "output_dtype": {
+          "equals": "float64"
+        }
+      },
+      "deviations": [
+        "Accept a verified regional CDS replacement if original notebook data are unavailable",
+        "Force float64 and compare with SciPy point interpolation."
+      ]
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.era5:run",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+      "source_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.25,
+        "crs": "geographic"
+      },
+      "quantity": "2 m dewpoint in kelvin (float64)",
+      "mask": "Require common finite coverage",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "fixture": "affine-dewpoint-smoke",
+      "id": "era5-dewpoint-cdo-smoke",
+      "target_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.17,
+        "origin_lat_lon": [
+          45,
+          90
+        ],
+        "shape": [
+          12,
+          12
+        ]
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "cli_prepare",
+        "cli_remap_io",
+        "output_read"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "cli_prepare",
+        "cli_remap_io",
+        "output_read"
+      ],
+      "method": "cdo bilinear",
+      "profiles": [
+        "smoke"
+      ],
+      "python_env": "compiled",
+      "options": {
+        "smoke": true,
+        "engine": "cdo"
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.99
+        },
+        "common_coverage": {
+          "min": 0.99
+        },
+        "common_rmse_k": {
+          "max": 0.001
+        },
+        "output_dtype": {
+          "equals": "float64"
+        }
+      },
+      "deviations": [
+        "Use a bounded affine fixture for the smoke variant",
+        "Force float64 and compare with SciPy point interpolation."
+      ]
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.era5:run",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+      "source_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.25,
+        "crs": "geographic"
+      },
+      "quantity": "2 m dewpoint in kelvin (float64)",
+      "mask": "Require common finite coverage",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "dataset": "era5-dewpoint-2000-monthly",
+      "id": "era5-dewpoint-cdo-full",
+      "target_geometry": {
+        "type": "regular latitude longitude",
+        "step_degrees": 0.17,
+        "origin_lat_lon": [
+          45,
+          90
+        ],
+        "shape": [
+          265,
+          530
+        ]
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "cli_prepare",
+        "cli_remap_io",
+        "output_read"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "cli_prepare",
+        "cli_remap_io",
+        "output_read"
+      ],
+      "method": "cdo bilinear",
+      "profiles": [
+        "standard",
+        "extended"
+      ],
+      "python_env": "compiled",
+      "options": {
+        "smoke": false,
+        "engine": "cdo"
+      },
+      "gates": {
+        "coverage": {
+          "min": 0.99
+        },
+        "common_coverage": {
+          "min": 0.99
+        },
+        "common_rmse_k": {
+          "max": 0.001
+        },
+        "output_dtype": {
+          "equals": "float64"
+        }
+      },
+      "deviations": [
+        "Accept a verified regional CDS replacement if original notebook data are unavailable",
+        "Force float64 and compare with SciPy point interpolation."
+      ]
+    }
+  ]
+}

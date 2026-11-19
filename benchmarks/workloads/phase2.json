@@ -1,0 +1,388 @@
+{
+  "cases": [
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.workloads:run",
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "quantity": "cell values",
+      "method": "identity",
+      "mask": "preserve missing values",
+      "phases": [
+        "apply"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "id": "healpix-ring-nested-identity",
+      "fixture": "deterministic-small-healpix",
+      "options": {
+        "operation": "indexing"
+      }
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.workloads:run",
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "quantity": "cell values",
+      "method": "identity",
+      "mask": "preserve missing values",
+      "phases": [
+        "apply"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "id": "xdggs-cf-roundtrip",
+      "fixture": "deterministic-small-healpix",
+      "options": {
+        "operation": "cf"
+      }
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.workloads:run",
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "quantity": "cell values",
+      "method": "identity",
+      "mask": "preserve missing values",
+      "phases": [
+        "apply"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "id": "xdggs-zarr-roundtrip",
+      "fixture": "deterministic-small-healpix",
+      "options": {
+        "operation": "zarr"
+      }
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.workloads:run",
+      "source_geometry": {
+        "type": "healpix",
+        "nside": 128,
+        "ordering": "nested"
+      },
+      "target_geometry": {
+        "type": "latitude_longitude",
+        "resolution_degrees": 1
+      },
+      "quantity": "surface ocean temperature",
+      "method": "pyicon sampling, baseline pending verification",
+      "mask": "wet-cell coverage and common support",
+      "phases": [
+        "apply"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "expected": [
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "id": "icon-ngc3028-pyicon",
+      "dataset": "icon-ngc3028-zoom7-surface-temperature",
+      "options": {
+        "operation": "icon"
+      }
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.workloads:run",
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "quantity": "cell values",
+      "method": "index lookup",
+      "mask": "preserve missing values",
+      "phases": [
+        "apply"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "id": "xdggs-healpy-index-agreement",
+      "fixture": "deterministic-small-healpix",
+      "options": {
+        "operation": "xdggs_indexing",
+        "level": 3
+      }
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.workloads:run",
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "quantity": "cell values",
+      "method": "compressed range index construction",
+      "mask": "preserve missing values",
+      "phases": [
+        "apply"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke"
+      ],
+      "id": "xdggs-range-memory-smoke",
+      "fixture": "deterministic-small-healpix",
+      "options": {
+        "operation": "range_memory",
+        "level": 8
+      }
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.workloads:run",
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "quantity": "cell values",
+      "method": "compressed range index construction",
+      "mask": "preserve missing values",
+      "phases": [
+        "apply"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "standard",
+        "extended"
+      ],
+      "id": "xdggs-range-memory-full",
+      "fixture": "deterministic-small-healpix",
+      "options": {
+        "operation": "range_memory",
+        "level": 15
+      }
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.workloads:run",
+      "source_geometry": {
+        "type": "healpix",
+        "ellipsoid": "WGS84",
+        "ordering": "nested",
+        "level": 3
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "quantity": "cell values",
+      "method": "geodetic indexing and cell centres against authalic-sphere healpy reference",
+      "mask": "preserve missing values",
+      "phases": [
+        "apply"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "id": "healpix-geo-wgs84-reference",
+      "fixture": "deterministic-small-healpix",
+      "options": {
+        "operation": "wgs84",
+        "level": 3
+      }
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.workloads:run",
+      "source_geometry": {
+        "type": "regional_latitude_longitude",
+        "spacing_degrees": 2,
+        "bounds_degrees": [
+          -40,
+          40,
+          -40,
+          40
+        ]
+      },
+      "target_geometry": {
+        "type": "healpix",
+        "level": 4,
+        "nside": 16,
+        "ordering": "nested",
+        "centres_in_degrees": [
+          -35,
+          35,
+          -35,
+          35
+        ]
+      },
+      "quantity": "analytic scalar intensity",
+      "method": "planar bilinear, masked vertices renormalized when at least three valid",
+      "mask": "circular synthetic land with masked sentinel; min_vertices=3",
+      "phases": [
+        "setup",
+        "apply"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "id": "xhealpixify-masked-analytic",
+      "fixture": "regional-masked-analytic",
+      "options": {
+        "operation": "xhealpixify",
+        "source_revision": "8ebd09eb7db4ee4bc9b12f8dd05ccd436986a93c"
+      },
+      "python_env": "xhealpixify"
+    },
+    {
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.workloads:run",
+      "source_geometry": {
+        "type": "latitude_longitude",
+        "spacing_degrees": 0.01,
+        "bounds_degrees": [
+          35,
+          39,
+          -124,
+          -120
+        ],
+        "shape": [
+          401,
+          401
+        ]
+      },
+      "target_geometry": {
+        "type": "healpix",
+        "level": 9,
+        "nside": 512,
+        "ordering": "nested",
+        "selection": "centres within 35.1\u201338.9 N and -123.9\u2013-120.1 E"
+      },
+      "quantity": "MUR analysed sea surface temperature, degree_C",
+      "method": "planar bilinear, masked vertices renormalized when at least three valid",
+      "mask": "finite SST and open sea bit 1, excluding land and ice bits 2, 8, 16; min_vertices=3",
+      "phases": [
+        "load",
+        "setup",
+        "apply"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "id": "xhealpixify-mur-coast",
+      "options": {
+        "operation": "xhealpixify_mur",
+        "source_revision": "8ebd09eb7db4ee4bc9b12f8dd05ccd436986a93c"
+      },
+      "dataset": "mur-sst-california-20200101",
+      "python_env": "xhealpixify"
+    }
+  ]
+}

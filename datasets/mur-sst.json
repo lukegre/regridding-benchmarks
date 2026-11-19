@@ -1,0 +1,32 @@
+{
+  "datasets": [
+    {
+      "id": "mur-sst-california-20200101",
+      "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.csv?analysed_sst%5B(2020-01-01T09%3A00%3A00Z)%5D%5B(35)%3A1%3A(39)%5D%5B(-124)%3A1%3A(-120)%5D,mask%5B(2020-01-01T09%3A00%3A00Z)%5D%5B(35)%3A1%3A(39)%5D%5B(-124)%3A1%3A(-120)%5D",
+      "sha256": "6fc27fc35967cfc87cbbfddcddaafd640d8d571ae7cad932b4b7deb9b1a588c6",
+      "protocol": "https://coastwatch.pfeg.noaa.gov/erddap/info/jplMURSST41/index.html",
+      "selection": {
+        "time": "2020-01-01T09:00:00Z",
+        "latitude": [
+          35,
+          39
+        ],
+        "longitude": [
+          -124,
+          -120
+        ],
+        "stride": 1,
+        "variables": [
+          "analysed_sst",
+          "mask"
+        ],
+        "shape": [
+          401,
+          401
+        ],
+        "units": "degree_C"
+      },
+      "reason": "Pinned NOAA ERDDAP response is absent from the input cache; fetch it explicitly. Historical data or server serialization may change, in which case checksum verification rejects the response."
+    }
+  ]
+}

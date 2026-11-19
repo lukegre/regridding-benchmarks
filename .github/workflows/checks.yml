@@ -1,0 +1,45 @@
+name: Offline checks
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --no-deps .
+      - run: python -m unittest discover -s tests
+      - name: Generate and load an offline report
+        run: |
+          set -euo pipefail
+          regridding-benchmarks run --profile smoke --case icon-ngc3028-pyicon --run-id ci-report --output-dir "$RUNNER_TEMP/runs"
+          regridding-benchmarks validate-bundle "$RUNNER_TEMP/runs/ci-report"
+          regridding-benchmarks build-report "$RUNNER_TEMP/runs/ci-report" --output-dir "$RUNNER_TEMP/site"
+          google-chrome --headless --no-sandbox --disable-gpu --dump-dom "file://$RUNNER_TEMP/site/editions/ci-report.html" > "$RUNNER_TEMP/rendered.html"
+          python -c 'from pathlib import Path; import os; dom=(Path(os.environ["RUNNER_TEMP"])/"rendered.html").read_text(); assert "icon-ngc3028-pyicon" in dom and "unavailable" in dom'
+  tiny-adapters:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          set -euo pipefail
+          rg '^(numpy|scipy|xarray|dask|netcdf4|xarray-regrid)==' requirements-python.lock > "$RUNNER_TEMP/tiny.lock"
+          python -m pip install . -r "$RUNNER_TEMP/tiny.lock"
+      - run: python -m unittest discover -s tests -p test_legacy_parity.py
+      - name: Check analytic cases through the CLI
+        run: |
+          set -euo pipefail
+          regridding-benchmarks run --profile smoke --run-id ci-python --output-dir "$RUNNER_TEMP/runs" \
+            --case masked-rectilinear-common-support --case era5-dewpoint-xarray-regrid-smoke \
+            --case published-dask-xarray-regrid-pancake-small-skip-smoke \
+            --case published-dask-xarray-regrid-pancake-small-zero-fill-smoke
+          python -c 'import json, os; from pathlib import Path; samples=list((Path(os.environ["RUNNER_TEMP"])/"runs/ci-python/samples").glob("*.json")); assert len(samples)==4; assert all(json.loads(p.read_text())["result"]["status"]=="ok" for p in samples)'

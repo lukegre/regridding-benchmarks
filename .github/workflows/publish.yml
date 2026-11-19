@@ -1,0 +1,121 @@
+name: Publish or roll back an edition
+on:
+  workflow_run:
+    workflows: [Controlled benchmark refresh]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      operation:
+        type: choice
+        options: [publish, rollback]
+        required: true
+      candidate_run_id:
+        description: Actions workflow run ID containing the candidate (publish)
+        required: false
+      candidate_attempt:
+        description: Candidate workflow attempt number (publish)
+        default: '1'
+        required: false
+      previous_tag:
+        description: Previous site release tag, required except at initial cutover (publish)
+        required: false
+      target_tag:
+        description: Existing snapshot release tag to restore (rollback)
+        required: false
+permissions:
+  contents: read
+concurrency:
+  group: pages-publication
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || (vars.BENCHMARK_AUTO_PUBLISH == 'true' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_repository.full_name == github.repository && github.event.workflow_run.head_branch == 'main' && (github.event.workflow_run.event == 'schedule' || github.event.workflow_run.event == 'workflow_dispatch')))
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --no-deps .
+      - name: Prepare publication or rollback snapshot
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OPERATION: ${{ inputs.operation || 'publish' }}
+          CANDIDATE: ${{ github.event.workflow_run.id || inputs.candidate_run_id }}
+          ATTEMPT: ${{ github.event.workflow_run.run_attempt || inputs.candidate_attempt }}
+          PREVIOUS: ${{ inputs.previous_tag }}
+          TARGET: ${{ inputs.target_tag }}
+          IMMUTABLE_RELEASES: ${{ vars.BENCHMARK_IMMUTABLE_RELEASES }}
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          set -euo pipefail
+          mkdir -p site snapshot
+          fetch_snapshot() {
+            local tag="$1"
+            [[ "$tag" =~ ^benchmark-edition-[A-Za-z0-9._-]+$ ]] || { echo 'Invalid release tag' >&2; exit 1; }
+            gh release verify "$tag"
+            gh release download "$tag" --pattern site.tar.gz --pattern SHA256SUMS --dir snapshot
+            gh release verify-asset "$tag" snapshot/site.tar.gz
+            (cd snapshot && sha256sum -c SHA256SUMS)
+          }
+          if [[ "$OPERATION" == rollback ]]; then
+            fetch_snapshot "$TARGET"
+            python -c 'from pathlib import Path; import sys; sys.path.insert(0,"deploy/publication"); from snapshot import extract; extract(Path("snapshot/site.tar.gz"), Path("site"))'
+          else
+            [[ "$IMMUTABLE_RELEASES" == true ]] || { echo 'Enable immutable releases and set BENCHMARK_IMMUTABLE_RELEASES=true after verifying repository settings' >&2; exit 1; }
+            latest=$(gh release list --limit 1000 --json tagName,isDraft,publishedAt --jq '[.[] | select(.isDraft == false and (.tagName | startswith("benchmark-edition-")))] | sort_by(.publishedAt) | last | .tagName // ""')
+            if [[ "$EVENT_NAME" == workflow_run ]]; then PREVIOUS="$latest"; fi
+            [[ "$PREVIOUS" == "$latest" ]] || { echo "Previous tag must be the latest edition release: $latest" >&2; exit 1; }
+            [[ "$CANDIDATE" =~ ^[0-9]+$ && "$ATTEMPT" =~ ^[0-9]+$ ]] || { echo 'Invalid candidate run or attempt' >&2; exit 1; }
+            gh api "repos/$GITHUB_REPOSITORY/actions/runs/$CANDIDATE" > candidate-run.json
+            python -c 'import json; r=json.load(open("candidate-run.json")); assert r["conclusion"] == "success" and r["head_branch"] == "main" and r["path"] == ".github/workflows/refresh.yml" and r["event"] in ("schedule", "workflow_dispatch") and r["head_repository"]["full_name"] == __import__("os").environ["GITHUB_REPOSITORY"], "Candidate must be a successful trusted refresh"'
+            source_sha=$(python -c 'import json; print(json.load(open("candidate-run.json"))["head_sha"])')
+            [[ "$source_sha" =~ ^[0-9a-f]{40}$ ]] || exit 1
+            git fetch --no-tags origin "$source_sha"
+            git worktree add --detach "$RUNNER_TEMP/candidate-source" "$source_sha"
+            gh run download "$CANDIDATE" --name "benchmark-$CANDIDATE-$ATTEMPT" --dir candidate
+            mapfile -t manifests < <(find candidate -name manifest.json -type f)
+            [[ ${#manifests[@]} == 1 ]] || { echo 'Expected exactly one bundle' >&2; exit 1; }
+            bundle=$(dirname "${manifests[0]}")
+            regridding-benchmarks validate-bundle "$bundle" --publication --check-roster --repo "$RUNNER_TEMP/candidate-source"
+            run_id=$(python -c 'import json,sys; print(json.load(open(sys.argv[1]))["run_id"])' "$bundle/manifest.json")
+            [[ "$run_id" =~ ^[A-Za-z0-9][A-Za-z0-9._-]*$ ]] || exit 1
+            [[ "$run_id" == "gha-$CANDIDATE-$ATTEMPT" ]] || { echo "Bundle run ID does not match workflow run and attempt" >&2; exit 1; }
+            tag="benchmark-edition-$run_id"
+            if [[ "$latest" =~ ^benchmark-edition-gha-([0-9]+)-([0-9]+)$ ]]; then
+              latest_run=${BASH_REMATCH[1]}; latest_attempt=${BASH_REMATCH[2]}
+              (( CANDIDATE > latest_run || (CANDIDATE == latest_run && ATTEMPT > latest_attempt) )) || { echo 'Stale or duplicate candidate' >&2; exit 1; }
+            fi
+            if gh release view "$tag" >/dev/null 2>&1; then echo 'Edition already exists' >&2; exit 1; fi
+            if [[ -n "$PREVIOUS" ]]; then
+              fetch_snapshot "$PREVIOUS"
+              python deploy/publication/snapshot.py snapshot/site.tar.gz previous site
+            fi
+            regridding-benchmarks import-legacy --output-dir "$RUNNER_TEMP/legacy-edition"
+            regridding-benchmarks build-report "$bundle" --output-dir site --legacy-dir docs --legacy-edition "$RUNNER_TEMP/legacy-edition"
+            tar -C site -czf site.tar.gz .
+            sha256sum site.tar.gz > SHA256SUMS
+            gh release create "$tag" site.tar.gz SHA256SUMS --target "$GITHUB_SHA" --title "Benchmark edition $run_id" --notes 'Validated site snapshot and historical editions.' --draft
+            gh release edit "$tag" --draft=false
+            gh release verify "$tag"
+            gh release verify-asset "$tag" site.tar.gz
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: prepare
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deploy

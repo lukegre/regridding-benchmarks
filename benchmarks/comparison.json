@@ -1,0 +1,101 @@
+{
+  "cases": [
+    {
+      "id": "masked-rectilinear-common-support",
+      "version": 1,
+      "family": "common-support",
+      "adapter": "regridding_benchmarks.comparison:run",
+      "fixture": "legacy-rectilinear-mask-hole",
+      "source_geometry": {
+        "type": "rectilinear",
+        "coordinate_units": "degrees"
+      },
+      "target_geometry": {
+        "type": "rectilinear",
+        "coordinate_units": "degrees"
+      },
+      "quantity": "analytic continuous point sample",
+      "method": "SciPy and xarray linear interpolation",
+      "mask": "Remove flagged samples before interpolation. Compare only finite values on common support.",
+      "phases": [
+        "imports",
+        "fixture",
+        "scipy_application",
+        "xarray_application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "scipy_application",
+        "xarray_application"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "gates": {
+        "common_coverage": {
+          "min": 0.6,
+          "max": 0.99
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "common_max_difference": {
+          "max": 1e-12
+        },
+        "scipy_common_rmse": {
+          "max": 0.005
+        },
+        "xarray_common_rmse": {
+          "max": 0.005
+        }
+      }
+    },
+    {
+      "id": "rectilinear-duplicate-axis-rejection",
+      "version": 1,
+      "family": "adversarial",
+      "adapter": "regridding_benchmarks.comparison:run",
+      "fixture": "legacy-rectilinear-duplicate",
+      "source_geometry": {
+        "type": "rectilinear",
+        "defect": "duplicate longitude"
+      },
+      "target_geometry": {
+        "type": "rectilinear"
+      },
+      "quantity": "analytic continuous point sample",
+      "method": "SciPy linear interpolation",
+      "mask": "Finite fixture",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "expected": [
+        "expected_rejection",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "options": {
+        "duplicate_axis": true
+      }
+    }
+  ]
+}

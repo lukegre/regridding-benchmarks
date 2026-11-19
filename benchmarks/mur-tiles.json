@@ -1,0 +1,257 @@
+{
+  "cases": [
+    {
+      "id": "mur-coast-cog-loopback-z7",
+      "version": 1,
+      "family": "published_workloads",
+      "dataset": "mur-sst-california-20200101",
+      "protocol": "https://developmentseed.org/warp-resample-profiling/examples/summarize-results.html",
+      "adapter": "regridding_benchmarks.mur_tiles:run",
+      "source_geometry": {
+        "type": "regular lat/lon",
+        "crs": "EPSG:4326",
+        "step_degrees": 0.01
+      },
+      "target_geometry": {
+        "type": "XYZ Web Mercator",
+        "crs": "EPSG:3857",
+        "shape": [
+          256,
+          256
+        ],
+        "tile": [
+          7,
+          20,
+          49
+        ]
+      },
+      "quantity": "MUR SST in degrees Celsius",
+      "method": "GDAL bilinear",
+      "mask": "Finite open-sea cells only. Preserve nodata across both read paths.",
+      "phases": [
+        "imports",
+        "fixture",
+        "file_read",
+        "file_warp",
+        "file_total",
+        "http_read",
+        "http_warp",
+        "http_total"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "file_read",
+        "file_warp",
+        "file_total",
+        "http_read",
+        "http_warp",
+        "http_total"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "extended"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "options": {
+        "tile": [
+          7,
+          20,
+          49
+        ]
+      },
+      "deviations": [
+        "Create a regional COG from the verified NOAA CSV with no overviews.",
+        "Compare local and loopback HTTP Range reads on the same warm file; omit WAN and object-store latency."
+      ],
+      "gates": {
+        "coverage": {
+          "min": 0.05
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "max_common_difference": {
+          "equals": 0
+        },
+        "range_requests": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "id": "mur-coast-cog-loopback-z8",
+      "version": 1,
+      "family": "published_workloads",
+      "dataset": "mur-sst-california-20200101",
+      "protocol": "https://developmentseed.org/warp-resample-profiling/examples/summarize-results.html",
+      "adapter": "regridding_benchmarks.mur_tiles:run",
+      "source_geometry": {
+        "type": "regular lat/lon",
+        "crs": "EPSG:4326",
+        "step_degrees": 0.01
+      },
+      "target_geometry": {
+        "type": "XYZ Web Mercator",
+        "crs": "EPSG:3857",
+        "shape": [
+          256,
+          256
+        ],
+        "tile": [
+          8,
+          41,
+          99
+        ]
+      },
+      "quantity": "MUR SST in degrees Celsius",
+      "method": "GDAL bilinear",
+      "mask": "Finite open-sea cells only. Preserve nodata across both read paths.",
+      "phases": [
+        "imports",
+        "fixture",
+        "file_read",
+        "file_warp",
+        "file_total",
+        "http_read",
+        "http_warp",
+        "http_total"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "file_read",
+        "file_warp",
+        "file_total",
+        "http_read",
+        "http_warp",
+        "http_total"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke",
+        "extended"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "options": {
+        "tile": [
+          8,
+          41,
+          99
+        ]
+      },
+      "deviations": [
+        "Create a regional COG from the verified NOAA CSV with no overviews.",
+        "Compare local and loopback HTTP Range reads on the same warm file; omit WAN and object-store latency."
+      ],
+      "gates": {
+        "coverage": {
+          "min": 0.05
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "max_common_difference": {
+          "equals": 0
+        },
+        "range_requests": {
+          "min": 1
+        }
+      }
+    },
+    {
+      "id": "mur-coast-cog-loopback-z9",
+      "version": 1,
+      "family": "published_workloads",
+      "dataset": "mur-sst-california-20200101",
+      "protocol": "https://developmentseed.org/warp-resample-profiling/examples/summarize-results.html",
+      "adapter": "regridding_benchmarks.mur_tiles:run",
+      "source_geometry": {
+        "type": "regular lat/lon",
+        "crs": "EPSG:4326",
+        "step_degrees": 0.01
+      },
+      "target_geometry": {
+        "type": "XYZ Web Mercator",
+        "crs": "EPSG:3857",
+        "shape": [
+          256,
+          256
+        ],
+        "tile": [
+          9,
+          82,
+          198
+        ]
+      },
+      "quantity": "MUR SST in degrees Celsius",
+      "method": "GDAL bilinear",
+      "mask": "Finite open-sea cells only. Preserve nodata across both read paths.",
+      "phases": [
+        "imports",
+        "fixture",
+        "file_read",
+        "file_warp",
+        "file_total",
+        "http_read",
+        "http_warp",
+        "http_total"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "file_read",
+        "file_warp",
+        "file_total",
+        "http_read",
+        "http_warp",
+        "http_total"
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "extended"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "options": {
+        "tile": [
+          9,
+          82,
+          198
+        ]
+      },
+      "deviations": [
+        "Create a regional COG from the verified NOAA CSV with no overviews.",
+        "Compare local and loopback HTTP Range reads on the same warm file; omit WAN and object-store latency."
+      ],
+      "gates": {
+        "coverage": {
+          "min": 0.05
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "max_common_difference": {
+          "equals": 0
+        },
+        "range_requests": {
+          "min": 1
+        }
+      }
+    }
+  ]
+}

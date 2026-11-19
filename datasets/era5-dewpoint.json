@@ -1,0 +1,20 @@
+{
+  "datasets": [
+    {
+      "id": "era5-dewpoint-2000-monthly",
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+      "source": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means",
+      "notebook_filename": "era5_2m_dewpoint_temperature_2000_monthly.nc",
+      "selection": {
+        "variable": "2m_dewpoint_temperature",
+        "year": "2000",
+        "month": ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"],
+        "product_type": "monthly_averaged_reanalysis",
+        "time": "00:00",
+        "data_format": "netcdf",
+        "area": [90, 89.75, 44.75, 180]
+      },
+      "reason": "The notebook NetCDF checksum is unavailable. The CDS regional request is a replacement recipe and needs an authenticated download, inspection and checksum before use."
+    }
+  ]
+}

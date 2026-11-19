@@ -1,0 +1,758 @@
+{
+  "cases": [
+    {
+      "id": "cnes-pyinterp-regrid-smoke-one-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 5,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "structured",
+        "step_degrees": 1,
+        "points": null
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke"
+      ],
+      "options": {
+        "operation": "regrid",
+        "smoke": true,
+        "num_threads": 1
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing.",
+        "Bounded smoke source spacing 5 degrees, 1-degree structured targets or 1,024 scattered targets; not a performance comparison."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-regrid-smoke-all-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 5,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "structured",
+        "step_degrees": 1,
+        "points": null
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke"
+      ],
+      "options": {
+        "operation": "regrid",
+        "smoke": true,
+        "num_threads": 0
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing.",
+        "Bounded smoke source spacing 5 degrees, 1-degree structured targets or 1,024 scattered targets; not a performance comparison."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-regrid-full-one-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 0.25,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "structured",
+        "step_degrees": 0.1,
+        "points": null
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "operation": "regrid",
+        "smoke": false,
+        "num_threads": 1
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-regrid-full-all-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 0.25,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "structured",
+        "step_degrees": 0.1,
+        "points": null
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "operation": "regrid",
+        "smoke": false,
+        "num_threads": 0
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-points-smoke-one-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 5,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "scattered targets",
+        "step_degrees": null,
+        "points": 1024
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke"
+      ],
+      "options": {
+        "operation": "points",
+        "smoke": true,
+        "num_threads": 1
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing.",
+        "Bounded smoke source spacing 5 degrees, 1-degree structured targets or 1,024 scattered targets; not a performance comparison."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-points-smoke-all-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 5,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "scattered targets",
+        "step_degrees": null,
+        "points": 1024
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke"
+      ],
+      "options": {
+        "operation": "points",
+        "smoke": true,
+        "num_threads": 0
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing.",
+        "Bounded smoke source spacing 5 degrees, 1-degree structured targets or 1,024 scattered targets; not a performance comparison."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-points-full-one-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 0.25,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "scattered targets",
+        "step_degrees": null,
+        "points": 1000000
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "operation": "points",
+        "smoke": false,
+        "num_threads": 1
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-points-full-all-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 0.25,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "scattered targets",
+        "step_degrees": null,
+        "points": 1000000
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "operation": "points",
+        "smoke": false,
+        "num_threads": 0
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-periodic-smoke-one-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 5,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "periodic boundary control",
+        "step_degrees": null,
+        "points": null
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke"
+      ],
+      "options": {
+        "operation": "periodic",
+        "smoke": true,
+        "num_threads": 1
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing.",
+        "Bounded smoke source spacing 5 degrees, 1-degree structured targets or 1,024 scattered targets; not a performance comparison.",
+        "Dedicated periodic cosine control is adapted from the benchmark documentation, not its timed comparison."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-periodic-smoke-all-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 5,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "periodic boundary control",
+        "step_degrees": null,
+        "points": null
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "smoke"
+      ],
+      "options": {
+        "operation": "periodic",
+        "smoke": true,
+        "num_threads": 0
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing.",
+        "Bounded smoke source spacing 5 degrees, 1-degree structured targets or 1,024 scattered targets; not a performance comparison.",
+        "Dedicated periodic cosine control is adapted from the benchmark documentation, not its timed comparison."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-periodic-full-one-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 0.25,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "periodic boundary control",
+        "step_degrees": null,
+        "points": null
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "operation": "periodic",
+        "smoke": false,
+        "num_threads": 1
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing.",
+        "Dedicated periodic cosine control is adapted from the benchmark documentation, not its timed comparison."
+      ]
+    },
+    {
+      "id": "cnes-pyinterp-periodic-full-all-threads",
+      "version": 1,
+      "family": "published_workloads",
+      "adapter": "regridding_benchmarks.pyinterp_case:run",
+      "fixture": "cnes-pyinterp-seed42",
+      "source_geometry": {
+        "type": "global periodic rectilinear longitude latitude",
+        "step_degrees": 0.25,
+        "longitude": "[0,360)",
+        "latitude": "cell centers"
+      },
+      "target_geometry": {
+        "type": "periodic boundary control",
+        "step_degrees": null,
+        "points": null
+      },
+      "quantity": "smooth synthetic scalar with seeded Gaussian perturbation; periodic control uses cosine longitude",
+      "method": "pyinterp bilinear",
+      "mask": "require all finite outputs and finite reference sample",
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 300
+      },
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "profiles": [
+        "extended"
+      ],
+      "options": {
+        "operation": "periodic",
+        "smoke": false,
+        "num_threads": 0
+      },
+      "gates": {
+        "coverage": {
+          "equals": 1.0
+        },
+        "oracle_coverage": {
+          "equals": 1.0
+        },
+        "oracle_max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "protocol": "https://github.com/CNES/pangeo-pyinterp/blob/5523ac1e4b8e85ec52f20ae6bc7cb1f79c13aa20/benchmarks/compare.py",
+      "deviations": [
+        "Explicit independent bilinear oracle and coverage gates; sampled verification is outside application timing.",
+        "Runs record individual samples rather than upstream best-of-at-least-three timing.",
+        "Dedicated periodic cosine control is adapted from the benchmark documentation, not its timed comparison."
+      ]
+    }
+  ]
+}

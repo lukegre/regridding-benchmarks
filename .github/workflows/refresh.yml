@@ -1,0 +1,48 @@
+name: Controlled benchmark refresh
+on:
+  workflow_dispatch:
+    inputs:
+      profile:
+        description: Benchmark profile
+        type: choice
+        options: [standard, extended]
+        required: true
+  schedule:
+    - cron: '23 3 3 * *'
+permissions:
+  contents: read
+concurrency:
+  group: benchmark-refresh
+  cancel-in-progress: false
+jobs:
+  benchmark:
+    # This repository variable must be set only after provisioning an isolated runner.
+    if: github.ref == 'refs/heads/main' && vars.BENCHMARK_REFRESH_ENABLED == 'true'
+    runs-on: [self-hosted, linux, x64, regridding-benchmark]
+    timeout-minutes: 1440
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run pinned image on dedicated host
+        env:
+          IMAGE: ${{ vars.BENCHMARK_IMAGE }}
+          PROFILE: ${{ inputs.profile || 'standard' }}
+          RUN_ID: gha-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          [[ "$IMAGE" =~ @sha256:[0-9a-f]{64}$ ]] || { echo 'BENCHMARK_IMAGE must be pinned by digest' >&2; exit 1; }
+          mkdir -p "$RUNNER_TEMP/bench-results" "$RUNNER_TEMP/bench-cache" "$RUNNER_TEMP/bench-work"
+          docker run --rm --user "$(id -u):$(id -g)" \
+            -v "$GITHUB_WORKSPACE:/source:ro" -v "$RUNNER_TEMP/bench-results:/results" \
+            -v "$RUNNER_TEMP/bench-cache:/cache" -v "$RUNNER_TEMP/bench-work:/work" \
+            -e BENCH_REPO=/source -e BENCH_SOURCE_REV="$GITHUB_SHA" \
+            -e BENCH_OUTPUT_ROOT=/results -e BENCH_CACHE_DIR=/cache -e BENCH_SCRATCH_DIR=/work \
+            -e BENCH_RUN_ID="$RUN_ID" -e BENCH_PROFILE="$PROFILE" -e BENCH_SERIES=controlled-linux \
+            -e BENCH_IMAGE_DIGEST="${IMAGE##*@}" \
+            "$IMAGE" /source/deploy/renku/job.sh
+      - name: Retain candidate and diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: benchmark-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/bench-results
+          if-no-files-found: warn

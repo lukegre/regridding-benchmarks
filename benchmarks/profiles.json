@@ -1,0 +1,5 @@
+{
+  "smoke": {"repeats": 1, "publishable": false},
+  "standard": {"repeats": 3, "publishable": true},
+  "extended": {"repeats": 3, "publishable": true}
+}

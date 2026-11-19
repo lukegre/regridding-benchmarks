@@ -9,3 +9,6 @@ publication.json
 
 /PET*.ESMF_LogFile
 /finish_large.py
+/build/
+/dist/
+*.egg-info/

@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "When citing measured results, include the edition ID, source revision, and case ID."
+title: "Regridding benchmarks"
+type: software
+authors:
+  - name: "Regridding Benchmarks contributors"
+repository-code: "https://github.com/lukegre/regridding-benchmarks"
+url: "https://lukegre.github.io/regridding-benchmarks/"
