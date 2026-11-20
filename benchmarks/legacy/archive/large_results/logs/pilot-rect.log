@@ -1,0 +1,1 @@
+{"status": "error", "package": "xesmf_conservative", "grid": "rectilinear", "scale": 256, "error": "dict() got multiple values for keyword argument 'grid'", "worker_seconds": 4.977836131999538}

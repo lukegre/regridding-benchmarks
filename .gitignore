@@ -13,3 +13,6 @@ publication.json
 /dist/
 *.egg-info/
 .renku-config/
+
+# Archived evidence logs are pinned by hash; keep them tracked despite global *.log ignores
+!benchmarks/legacy/archive/**/*.log

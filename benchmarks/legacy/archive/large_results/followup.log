@@ -1,0 +1,66 @@
+Waiting for production scheduler 8460
+CONTINUE ['run_large.py', '--scales', '512', '--repeats', '3', '--only', 'earthkit_mir', 'tempest', 'nco']
+START earthkit_mir__healpix__512
+DONE earthkit_mir__healpix__512 completed [5.425, 4.417, 4.313] 
+START earthkit_mir__gaussian__512
+DONE earthkit_mir__gaussian__512 completed [3.616, 3.566, 3.432] 
+START tempest__icosahedral__512
+DONE tempest__icosahedral__512 error [] Command '['/workspace/geospatial-benchmarks/compiled/bin/GenerateOverlapMesh', '--a', '/tmp/regrid-large-rwxjb4if/src.g', '--b', '/tmp/regrid-large-rw
+START nco__icosahedral__512
+DONE nco__icosahedral__512 error [] Command '['/workspace/geospatial-benchmarks/compiled/bin/GenerateOverlapMesh', '--a', '/tmp/regrid-large-8pnom52v/src.g', '--b', '/tmp/regrid-large-8p
+CONTINUE ['run_large.py', '--scales', '4096', '--repeats', '3', '--only', 'rasterio', 'rioxarray', 'odc_geo', 'pyproj']
+START rasterio__crs_4326_to_2056__4096
+DONE rasterio__crs_4326_to_2056__4096 completed [2.03, 2.041, 2.416] 
+START rasterio__crs_4326_to_3857__4096
+DONE rasterio__crs_4326_to_3857__4096 completed [1.269, 1.236, 1.191] 
+START rioxarray__crs_4326_to_2056__4096
+DONE rioxarray__crs_4326_to_2056__4096 completed [2.085, 2.011, 2.06] 
+START rioxarray__crs_4326_to_3857__4096
+DONE rioxarray__crs_4326_to_3857__4096 completed [1.422, 1.363, 1.378] 
+START odc_geo__crs_4326_to_2056__4096
+DONE odc_geo__crs_4326_to_2056__4096 completed [3.725, 3.723, 3.588] 
+START odc_geo__crs_4326_to_3857__4096
+DONE odc_geo__crs_4326_to_3857__4096 completed [1.913, 1.887, 1.845] 
+START pyproj__crs_4326_to_2056__4096
+DONE pyproj__crs_4326_to_2056__4096 completed [9.234, 8.562, 8.46] 
+START pyproj__crs_4326_to_3857__4096
+DONE pyproj__crs_4326_to_3857__4096 completed [1.808, 1.948, 1.872] 
+CONTINUE ['summarize_large.py']
+Recorded repeats: 378 profiles: 126 errors: 4 same-input hashes: verified
+pyproj crs_4326_to_2056 4096 0.01 8.75
+cdo_conservative gaussian 512 6.18 0.18
+xesmf_bilinear gaussian 512 17.67 0.18
+xesmf_conservative gaussian 512 24.36 0.1
+cdo_conservative gaussian 1024 24.74 0.34
+earthkit_mir gaussian 1024 0.03 16.22
+xesmf_bilinear gaussian 1024 83.53 0.75
+xesmf_conservative gaussian 1024 113.06 0.6
+xesmf_nearest_s2d gaussian 1024 21.0 0.18
+earthkit_mir healpix 1024 0.01 18.14
+esmpy icosahedral 512 15.72 0.01
+cdo_conservative icosahedral 1024 18.71 0.28
+esmpy icosahedral 1024 77.86 0.05
+uxarray icosahedral 1024 1.1 3.92
+iris rectilinear 512 11.15 0.01
+xesmf_bilinear rectilinear 512 8.63 0.12
+xesmf_conservative rectilinear 512 11.7 0.1
+cdo_conservative rectilinear 1024 12.68 0.27
+iris rectilinear 1024 61.72 0.06
+xesmf_bilinear rectilinear 1024 37.99 0.45
+xesmf_conservative rectilinear 1024 54.84 0.43
+xesmf_nearest_s2d rectilinear 1024 11.99 0.1
+xesmf_bilinear roms 512 8.96 0.15
+xesmf_conservative roms 512 13.02 0.11
+cdo_conservative roms 1024 13.43 0.28
+xesmf_bilinear roms 1024 35.41 0.6
+xesmf_conservative roms 1024 58.11 0.56
+xesmf_nearest_s2d roms 1024 12.57 0.16
+xugrid roms_mesh 512 8.29 0.02
+xugrid roms_mesh 1024 39.88 0.07
+cdo_conservative satellite_swath 512 6.6 0.16
+xesmf_bilinear satellite_swath 512 15.08 0.22
+xesmf_nearest_s2d satellite_swath 512 5.24 0.06
+cdo_conservative satellite_swath 1024 28.8 0.66
+xesmf_bilinear satellite_swath 1024 68.92 1.0
+xesmf_nearest_s2d satellite_swath 1024 39.26 0.25
+LARGE QUEUE FINISHED

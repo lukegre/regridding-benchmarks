@@ -1,0 +1,2 @@
+
+cdo    remapbil (Abort): Bilinear/bicubic interpolation doesn't support unstructured source grids!

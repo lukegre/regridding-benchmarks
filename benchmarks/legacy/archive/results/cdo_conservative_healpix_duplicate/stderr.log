@@ -1,0 +1,3 @@
+cdo    remapcon (Warning): HEALPix cell edges are not located on great circles. This leads to inaccuracies in the calculation of cell areas.
+
+cdo    remapcon (Abort): Use the CDO option --force to perform this operation.

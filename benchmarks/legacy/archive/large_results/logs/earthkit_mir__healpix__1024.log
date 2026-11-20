@@ -1,0 +1,1 @@
+{"status": "completed", "package": "earthkit_mir", "grid": "healpix", "scale": 1024, "peak_rss_mib": 1834.3359375, "cache_policy": "fresh_process_and_cache_per_repeat", "worker_seconds": 67.4090386049993}
