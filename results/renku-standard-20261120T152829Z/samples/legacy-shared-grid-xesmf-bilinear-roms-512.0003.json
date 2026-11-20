@@ -1,0 +1,100 @@
+{
+  "case_id": "legacy-shared-grid-xesmf-bilinear-roms-512",
+  "finished_at": "2026-11-20T15:29:41.075032+00:00",
+  "geometry": {
+    "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+    "source_geometry_sha256": "00eef14bad1b1fbd66d5c599040ba0caeceb0008153441d5fe2afe04395cd9ce",
+    "values_sha256": "b49b17ebcb7c9934a8c7e62fef17f5c14695f5f9711e8995d7126d81aefd54e3"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 3,
+  "result": {
+    "geometry": {
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "source_geometry_sha256": "00eef14bad1b1fbd66d5c599040ba0caeceb0008153441d5fe2afe04395cd9ce",
+      "values_sha256": "b49b17ebcb7c9934a8c7e62fef17f5c14695f5f9711e8995d7126d81aefd54e3"
+    },
+    "metrics": {
+      "actual_output_cells": 262144,
+      "apply_seconds": 0.09435058500002924,
+      "apply_wall_seconds": 0.09435058500002924,
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "finite_fraction": 1.0,
+      "grid": "roms",
+      "import_seconds": 0.6394181499999831,
+      "input_preparation_seconds": 0.044120022999777575,
+      "max_error": 1.3616995149234867e-06,
+      "output_sample": [
+        2.7769444263912426,
+        2.947305933661344,
+        2.8177628983984238,
+        2.9700213881147803,
+        2.8575052759577892,
+        2.9902723973242185,
+        2.8969450342681418,
+        3.0083125710451846,
+        2.9337626837608126,
+        3.023529885403837,
+        2.9696839604357343,
+        3.036577481443553,
+        3.0026504309507103,
+        3.0471048368982836,
+        3.034148664388737,
+        3.0544395877057324,
+        3.06243271203349,
+        3.0598103375629173,
+        3.088722083082704,
+        3.0618551295895235,
+        3.1116263055486306,
+        3.0621590842134423,
+        3.1316717444684086,
+        3.059094220728638,
+        3.1490630525943812,
+        3.0545615265374684,
+        3.162991702705,
+        3.0466988933108468,
+        3.173933257492853,
+        3.037674798665703,
+        3.1814840160328495,
+        3.0254312186354175
+      ],
+      "package": "xesmf_bilinear",
+      "repeat": 0,
+      "rmse": 7.847770168800251e-07,
+      "scale": 512,
+      "setup_seconds": 5.3620440099994084,
+      "setup_wall_seconds": 5.3620440099994084,
+      "source_cells": 262144,
+      "source_geometry_sha256": "00eef14bad1b1fbd66d5c599040ba0caeceb0008153441d5fe2afe04395cd9ce",
+      "source_shape": [
+        512,
+        512
+      ],
+      "target_cells": 262144,
+      "target_shape": [
+        512,
+        512
+      ],
+      "timing_mode": "split",
+      "total_seconds": 5.456394594999438,
+      "values_sha256": "b49b17ebcb7c9934a8c7e62fef17f5c14695f5f9711e8995d7126d81aefd54e3",
+      "warmup": "One complete 32-scale operation before recorded repetitions",
+      "warnings": [],
+      "weights_nnz": 1048576
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 1007144960
+    },
+    "status": "ok",
+    "timings": {
+      "application": 0.09435058500002924,
+      "fixture": 0.044120022999777575,
+      "imports": 0.6394181499999831,
+      "setup": 5.3620440099994084
+    }
+  },
+  "run_fingerprint": "0f37ed600d10d6b7e4a2804e618bda40a23bbef500b26bd7749a73d22293bbfd",
+  "sample_id": "legacy-shared-grid-xesmf-bilinear-roms-512.0003",
+  "started_at": "2026-11-20T15:29:33.290351+00:00"
+}

@@ -1,0 +1,101 @@
+{
+  "case_id": "legacy-shared-grid-xarray-regrid-linear-rectilinear-512",
+  "finished_at": "2026-11-20T15:29:14.278112+00:00",
+  "geometry": {
+    "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+    "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+    "values_sha256": "2f316dda2915e14ea1a5a0b4f621d156e1797e84271f6dbf8c923f619085789a"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "geometry": {
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "values_sha256": "2f316dda2915e14ea1a5a0b4f621d156e1797e84271f6dbf8c923f619085789a"
+    },
+    "metrics": {
+      "actual_output_cells": 262144,
+      "apply_seconds": 0.0113942660000248,
+      "apply_wall_seconds": 0.0113942660000248,
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "engine_version": "0.4.2",
+      "finite_fraction": 1.0,
+      "grid": "rectilinear",
+      "import_seconds": 0.6371411970003464,
+      "input_preparation_seconds": 0.039129306999711844,
+      "max_error": 1.327615216428768e-06,
+      "output_sample": [
+        2.776944178038035,
+        2.9473056940129325,
+        2.817762491611443,
+        2.9700214666430984,
+        2.8575057280253144,
+        2.9902729681233398,
+        2.8969447381859004,
+        3.0083120652092696,
+        2.933762494546264,
+        3.0235296772060156,
+        2.9696840206895687,
+        3.0365776369275457,
+        3.002650630033597,
+        3.0471052290015894,
+        3.0341491320013745,
+        3.0544404483368286,
+        3.0624332230831737,
+        3.0598103175361784,
+        3.0887221932946316,
+        3.0618549814606775,
+        3.1116264749897304,
+        3.062159105312169,
+        3.1316714177464235,
+        3.059094005063578,
+        3.149063433451422,
+        3.054561705366524,
+        3.162991646783021,
+        3.046699063809559,
+        3.173933346889018,
+        3.0376743543550146,
+        3.1814843131556945,
+        3.0254310387962633
+      ],
+      "package": "xarray_regrid_linear",
+      "repeat": 0,
+      "rmse": 7.869903319914673e-07,
+      "scale": 512,
+      "setup_note": "Public xarray-regrid accessor with 1-D source and target axes. Formatting, seam handling and weight/machinery construction occur inside apply on every call; no reusable weight-construction API is exposed. Conservative uses meridian/parallel cells and skipna=True, nan_threshold=1.0; not the great-circle cell geometry of ESMF.",
+      "setup_seconds": 0.0012638329999390407,
+      "setup_wall_seconds": 0.0012638329999390407,
+      "source_cells": 262144,
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "source_shape": [
+        512,
+        512
+      ],
+      "target_cells": 262144,
+      "target_shape": [
+        512,
+        512
+      ],
+      "timing_mode": "fused",
+      "total_seconds": 0.01265809899996384,
+      "values_sha256": "2f316dda2915e14ea1a5a0b4f621d156e1797e84271f6dbf8c923f619085789a",
+      "warmup": "One complete 32-scale operation before recorded repetitions",
+      "warnings": []
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 285118464
+    },
+    "status": "ok",
+    "timings": {
+      "application": 0.0113942660000248,
+      "fixture": 0.039129306999711844,
+      "imports": 0.6371411970003464,
+      "setup": 0.0012638329999390407
+    }
+  },
+  "run_fingerprint": "0f37ed600d10d6b7e4a2804e618bda40a23bbef500b26bd7749a73d22293bbfd",
+  "sample_id": "legacy-shared-grid-xarray-regrid-linear-rectilinear-512.0001",
+  "started_at": "2026-11-20T15:29:12.700787+00:00"
+}

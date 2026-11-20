@@ -1,0 +1,1809 @@
+{
+  "cases": [
+    {
+      "adapter": "regridding_benchmarks.era5:run",
+      "dataset": "era5-dewpoint-2000-monthly",
+      "deviations": [
+        "Accept a verified regional CDS replacement if original notebook data are unavailable",
+        "Force float64 and compare with SciPy point interpolation."
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "gates": {
+        "common_coverage": {
+          "min": 0.99
+        },
+        "common_rmse_k": {
+          "max": 0.001
+        },
+        "coverage": {
+          "min": 0.99
+        },
+        "output_dtype": {
+          "equals": "float64"
+        }
+      },
+      "id": "era5-dewpoint-cdo-full",
+      "mask": "Require common finite coverage",
+      "method": "cdo bilinear",
+      "options": {
+        "engine": "cdo",
+        "smoke": false
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "cli_prepare",
+        "cli_remap_io",
+        "output_read"
+      ],
+      "profiles": [
+        "standard",
+        "extended"
+      ],
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+      "python_env": "compiled",
+      "quantity": "2 m dewpoint in kelvin (float64)",
+      "required_phases": [
+        "imports",
+        "fixture",
+        "cli_prepare",
+        "cli_remap_io",
+        "output_read"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "source_geometry": {
+        "crs": "geographic",
+        "step_degrees": 0.25,
+        "type": "regular latitude longitude"
+      },
+      "target_geometry": {
+        "origin_lat_lon": [
+          45,
+          90
+        ],
+        "shape": [
+          265,
+          530
+        ],
+        "step_degrees": 0.17,
+        "type": "regular latitude longitude"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.era5:run",
+      "dataset": "era5-dewpoint-2000-monthly",
+      "deviations": [
+        "Accept a verified regional CDS replacement if original notebook data are unavailable",
+        "Force float64 and compare with SciPy point interpolation."
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "gates": {
+        "common_coverage": {
+          "min": 0.99
+        },
+        "common_rmse_k": {
+          "max": 0.001
+        },
+        "coverage": {
+          "min": 0.99
+        },
+        "output_dtype": {
+          "equals": "float64"
+        }
+      },
+      "id": "era5-dewpoint-xarray-regrid-full",
+      "mask": "Require common finite coverage",
+      "method": "xarray-regrid bilinear",
+      "options": {
+        "engine": "xarray-regrid",
+        "smoke": false
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "profiles": [
+        "standard",
+        "extended"
+      ],
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+      "python_env": "python",
+      "quantity": "2 m dewpoint in kelvin (float64)",
+      "required_phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "source_geometry": {
+        "crs": "geographic",
+        "step_degrees": 0.25,
+        "type": "regular latitude longitude"
+      },
+      "target_geometry": {
+        "origin_lat_lon": [
+          45,
+          90
+        ],
+        "shape": [
+          265,
+          530
+        ],
+        "step_degrees": 0.17,
+        "type": "regular latitude longitude"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.era5:run",
+      "dataset": "era5-dewpoint-2000-monthly",
+      "deviations": [
+        "Accept a verified regional CDS replacement if original notebook data are unavailable",
+        "Force float64 and compare with SciPy point interpolation."
+      ],
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "gates": {
+        "common_coverage": {
+          "min": 0.99
+        },
+        "common_rmse_k": {
+          "max": 0.5
+        },
+        "coverage": {
+          "min": 0.99
+        },
+        "output_dtype": {
+          "equals": "float64"
+        }
+      },
+      "id": "era5-dewpoint-xesmf-full",
+      "mask": "Require common finite coverage",
+      "method": "xesmf bilinear",
+      "options": {
+        "engine": "xesmf",
+        "smoke": false
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "weights",
+        "application"
+      ],
+      "profiles": [
+        "standard",
+        "extended"
+      ],
+      "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+      "python_env": "compiled",
+      "quantity": "2 m dewpoint in kelvin (float64)",
+      "required_phases": [
+        "imports",
+        "fixture",
+        "weights",
+        "application"
+      ],
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "source_geometry": {
+        "crs": "geographic",
+        "step_degrees": 0.25,
+        "type": "regular latitude longitude"
+      },
+      "target_geometry": {
+        "origin_lat_lon": [
+          45,
+          90
+        ],
+        "shape": [
+          265,
+          530
+        ],
+        "step_degrees": 0.17,
+        "type": "regular latitude longitude"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.workloads:run",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "fixture": "deterministic-small-healpix",
+      "id": "healpix-geo-wgs84-reference",
+      "mask": "preserve missing values",
+      "method": "geodetic indexing and cell centres against authalic-sphere healpy reference",
+      "options": {
+        "level": 3,
+        "operation": "wgs84"
+      },
+      "phases": [
+        "apply"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "quantity": "cell values",
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "source_geometry": {
+        "ellipsoid": "WGS84",
+        "level": 3,
+        "ordering": "nested",
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.workloads:run",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "fixture": "deterministic-small-healpix",
+      "id": "healpix-ring-nested-identity",
+      "mask": "preserve missing values",
+      "method": "identity",
+      "options": {
+        "operation": "indexing"
+      },
+      "phases": [
+        "apply"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "quantity": "cell values",
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.workloads:run",
+      "dataset": "icon-ngc3028-zoom7-surface-temperature",
+      "expected": [
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "id": "icon-ngc3028-pyicon",
+      "mask": "wet-cell coverage and common support",
+      "method": "pyicon sampling, baseline pending verification",
+      "options": {
+        "operation": "icon"
+      },
+      "phases": [
+        "apply"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "quantity": "surface ocean temperature",
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "source_geometry": {
+        "nside": 128,
+        "ordering": "nested",
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "resolution_degrees": 1,
+        "type": "latitude_longitude"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.legacy_adapter:run",
+      "expected": [
+        "ok",
+        "unsupported",
+        "unavailable"
+      ],
+      "family": "chunked",
+      "fixture": "legacy-synthetic",
+      "gates": {
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "finite_values_min": {
+          "min": 1
+        },
+        "max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "id": "legacy-chunked-xarray-rectilinear-xarray-rectilinear.json",
+      "mask": {
+        "policy": "legacy adapter"
+      },
+      "method": "xarray",
+      "options": {
+        "grid": "rectilinear",
+        "legacy_family": "chunked",
+        "package": "xarray",
+        "source": "xarray_rectilinear.json"
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "setup",
+        "application",
+        "io_prepare",
+        "output_read"
+      ],
+      "profiles": [
+        "extended",
+        "standard"
+      ],
+      "quantity": {
+        "kind": "synthetic",
+        "units": "unknown"
+      },
+      "resources": {
+        "timeout_seconds": 240
+      },
+      "source_geometry": {
+        "kind": "rectilinear"
+      },
+      "target_geometry": {
+        "kind": "legacy-target"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.legacy_adapter:run",
+      "expected": [
+        "ok",
+        "unsupported",
+        "unavailable"
+      ],
+      "family": "shared-grid",
+      "fixture": "legacy-synthetic",
+      "id": "legacy-shared-grid-cdo-bilinear-rectilinear-512",
+      "mask": {
+        "policy": "legacy adapter"
+      },
+      "method": "cdo_bilinear",
+      "options": {
+        "grid": "rectilinear",
+        "legacy_family": "shared-grid",
+        "package": "cdo_bilinear",
+        "scale": 512
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "setup",
+        "application",
+        "io_prepare",
+        "output_read"
+      ],
+      "profiles": [
+        "extended",
+        "standard"
+      ],
+      "python_env": "compiled",
+      "quantity": {
+        "kind": "synthetic",
+        "units": "unknown"
+      },
+      "resources": {
+        "timeout_seconds": 900
+      },
+      "source_geometry": {
+        "kind": "rectilinear"
+      },
+      "target_geometry": {
+        "kind": "legacy-target"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.legacy_adapter:run",
+      "expected": [
+        "ok",
+        "unsupported",
+        "unavailable"
+      ],
+      "family": "shared-grid",
+      "fixture": "legacy-synthetic",
+      "id": "legacy-shared-grid-pyresample-nearest-satellite-swath-512",
+      "mask": {
+        "policy": "legacy adapter"
+      },
+      "method": "pyresample_nearest",
+      "options": {
+        "grid": "satellite_swath",
+        "legacy_family": "shared-grid",
+        "package": "pyresample_nearest",
+        "scale": 512
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "setup",
+        "application",
+        "io_prepare",
+        "output_read"
+      ],
+      "profiles": [
+        "extended",
+        "standard"
+      ],
+      "quantity": {
+        "kind": "synthetic",
+        "units": "unknown"
+      },
+      "resources": {
+        "timeout_seconds": 900
+      },
+      "source_geometry": {
+        "kind": "satellite_swath"
+      },
+      "target_geometry": {
+        "kind": "legacy-target"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.legacy_adapter:run",
+      "expected": [
+        "ok",
+        "unsupported",
+        "unavailable"
+      ],
+      "family": "shared-grid",
+      "fixture": "legacy-synthetic",
+      "id": "legacy-shared-grid-rasterio-crs-4326-to-2056-512",
+      "mask": {
+        "policy": "legacy adapter"
+      },
+      "method": "rasterio",
+      "options": {
+        "grid": "crs_4326_to_2056",
+        "legacy_family": "shared-grid",
+        "package": "rasterio",
+        "scale": 512
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "setup",
+        "application",
+        "io_prepare",
+        "output_read"
+      ],
+      "profiles": [
+        "extended",
+        "standard"
+      ],
+      "quantity": {
+        "kind": "synthetic",
+        "units": "unknown"
+      },
+      "resources": {
+        "timeout_seconds": 900
+      },
+      "source_geometry": {
+        "kind": "crs_4326_to_2056"
+      },
+      "target_geometry": {
+        "kind": "legacy-target"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.legacy_adapter:run",
+      "expected": [
+        "ok",
+        "unsupported",
+        "unavailable"
+      ],
+      "family": "shared-grid",
+      "fixture": "legacy-synthetic",
+      "id": "legacy-shared-grid-scipy-gaussian-512",
+      "mask": {
+        "policy": "legacy adapter"
+      },
+      "method": "scipy",
+      "options": {
+        "grid": "gaussian",
+        "legacy_family": "shared-grid",
+        "package": "scipy",
+        "scale": 512
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "setup",
+        "application",
+        "io_prepare",
+        "output_read"
+      ],
+      "profiles": [
+        "extended",
+        "standard"
+      ],
+      "quantity": {
+        "kind": "synthetic",
+        "units": "unknown"
+      },
+      "resources": {
+        "timeout_seconds": 900
+      },
+      "source_geometry": {
+        "kind": "gaussian"
+      },
+      "target_geometry": {
+        "kind": "legacy-target"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.legacy_adapter:run",
+      "expected": [
+        "ok",
+        "unsupported",
+        "unavailable"
+      ],
+      "family": "shared-grid",
+      "fixture": "legacy-synthetic",
+      "id": "legacy-shared-grid-scipy-rectilinear-512",
+      "mask": {
+        "policy": "legacy adapter"
+      },
+      "method": "scipy",
+      "options": {
+        "grid": "rectilinear",
+        "legacy_family": "shared-grid",
+        "package": "scipy",
+        "scale": 512
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "setup",
+        "application",
+        "io_prepare",
+        "output_read"
+      ],
+      "profiles": [
+        "extended",
+        "standard"
+      ],
+      "quantity": {
+        "kind": "synthetic",
+        "units": "unknown"
+      },
+      "resources": {
+        "timeout_seconds": 900
+      },
+      "source_geometry": {
+        "kind": "rectilinear"
+      },
+      "target_geometry": {
+        "kind": "legacy-target"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.legacy_adapter:run",
+      "expected": [
+        "ok",
+        "unsupported",
+        "unavailable"
+      ],
+      "family": "shared-grid",
+      "fixture": "legacy-synthetic",
+      "id": "legacy-shared-grid-xarray-gaussian-512",
+      "mask": {
+        "policy": "legacy adapter"
+      },
+      "method": "xarray",
+      "options": {
+        "grid": "gaussian",
+        "legacy_family": "shared-grid",
+        "package": "xarray",
+        "scale": 512
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "setup",
+        "application",
+        "io_prepare",
+        "output_read"
+      ],
+      "profiles": [
+        "extended",
+        "standard"
+      ],
+      "quantity": {
+        "kind": "synthetic",
+        "units": "unknown"
+      },
+      "resources": {
+        "timeout_seconds": 900
+      },
+      "source_geometry": {
+        "kind": "gaussian"
+      },
+      "target_geometry": {
+        "kind": "legacy-target"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.legacy_adapter:run",
+      "expected": [
+        "ok",
+        "unsupported",
+        "unavailable"
+      ],
+      "family": "shared-grid",
+      "fixture": "legacy-synthetic",
+      "id": "legacy-shared-grid-xarray-regrid-linear-rectilinear-512",
+      "mask": {
+        "policy": "legacy adapter"
+      },
+      "method": "xarray_regrid_linear",
+      "options": {
+        "grid": "rectilinear",
+        "legacy_family": "shared-grid",
+        "package": "xarray_regrid_linear",
+        "scale": 512
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "setup",
+        "application",
+        "io_prepare",
+        "output_read"
+      ],
+      "profiles": [
+        "extended",
+        "standard"
+      ],
+      "quantity": {
+        "kind": "synthetic",
+        "units": "unknown"
+      },
+      "resources": {
+        "timeout_seconds": 900
+      },
+      "source_geometry": {
+        "kind": "rectilinear"
+      },
+      "target_geometry": {
+        "kind": "legacy-target"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.legacy_adapter:run",
+      "expected": [
+        "ok",
+        "unsupported",
+        "unavailable"
+      ],
+      "family": "shared-grid",
+      "fixture": "legacy-synthetic",
+      "id": "legacy-shared-grid-xesmf-bilinear-roms-512",
+      "mask": {
+        "policy": "legacy adapter"
+      },
+      "method": "xesmf_bilinear",
+      "options": {
+        "grid": "roms",
+        "legacy_family": "shared-grid",
+        "package": "xesmf_bilinear",
+        "scale": 512
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "setup",
+        "application",
+        "io_prepare",
+        "output_read"
+      ],
+      "profiles": [
+        "extended",
+        "standard"
+      ],
+      "python_env": "compiled",
+      "quantity": {
+        "kind": "synthetic",
+        "units": "unknown"
+      },
+      "resources": {
+        "timeout_seconds": 900
+      },
+      "source_geometry": {
+        "kind": "roms"
+      },
+      "target_geometry": {
+        "kind": "legacy-target"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.legacy_adapter:run",
+      "expected": [
+        "ok",
+        "unsupported",
+        "unavailable"
+      ],
+      "family": "storage",
+      "fixture": "legacy-synthetic",
+      "gates": {
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "finite_values_min": {
+          "min": 1
+        },
+        "max_abs_error": {
+          "max": 1e-10
+        }
+      },
+      "id": "legacy-storage-xarray-rectilinear-storage-netcdf4.json",
+      "mask": {
+        "policy": "legacy adapter"
+      },
+      "method": "xarray",
+      "options": {
+        "grid": "rectilinear",
+        "legacy_family": "storage",
+        "package": "xarray",
+        "source": "storage_netcdf4.json"
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "setup",
+        "application",
+        "io_prepare",
+        "output_read"
+      ],
+      "profiles": [
+        "extended",
+        "standard"
+      ],
+      "quantity": {
+        "kind": "synthetic",
+        "units": "unknown"
+      },
+      "resources": {
+        "timeout_seconds": 240
+      },
+      "source_geometry": {
+        "kind": "rectilinear"
+      },
+      "target_geometry": {
+        "kind": "legacy-target"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.comparison:run",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "common-support",
+      "fixture": "legacy-rectilinear-mask-hole",
+      "gates": {
+        "common_coverage": {
+          "max": 0.99,
+          "min": 0.6
+        },
+        "common_max_difference": {
+          "max": 1e-12
+        },
+        "finite_mask_mismatches": {
+          "equals": 0
+        },
+        "scipy_common_rmse": {
+          "max": 0.005
+        },
+        "xarray_common_rmse": {
+          "max": 0.005
+        }
+      },
+      "id": "masked-rectilinear-common-support",
+      "mask": "Remove flagged samples before interpolation. Compare only finite values on common support.",
+      "method": "SciPy and xarray linear interpolation",
+      "phases": [
+        "imports",
+        "fixture",
+        "scipy_application",
+        "xarray_application"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "quantity": "analytic continuous point sample",
+      "required_phases": [
+        "imports",
+        "fixture",
+        "scipy_application",
+        "xarray_application"
+      ],
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "source_geometry": {
+        "coordinate_units": "degrees",
+        "type": "rectilinear"
+      },
+      "target_geometry": {
+        "coordinate_units": "degrees",
+        "type": "rectilinear"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.comparison:run",
+      "expected": [
+        "expected_rejection",
+        "unavailable"
+      ],
+      "family": "adversarial",
+      "fixture": "legacy-rectilinear-duplicate",
+      "id": "rectilinear-duplicate-axis-rejection",
+      "mask": "Finite fixture",
+      "method": "SciPy linear interpolation",
+      "options": {
+        "duplicate_axis": true
+      },
+      "phases": [
+        "imports",
+        "fixture",
+        "application"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "quantity": "analytic continuous point sample",
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "source_geometry": {
+        "defect": "duplicate longitude",
+        "type": "rectilinear"
+      },
+      "target_geometry": {
+        "type": "rectilinear"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.workloads:run",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "fixture": "deterministic-small-healpix",
+      "id": "xdggs-cf-roundtrip",
+      "mask": "preserve missing values",
+      "method": "identity",
+      "options": {
+        "operation": "cf"
+      },
+      "phases": [
+        "apply"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "quantity": "cell values",
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.workloads:run",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "fixture": "deterministic-small-healpix",
+      "id": "xdggs-healpy-index-agreement",
+      "mask": "preserve missing values",
+      "method": "index lookup",
+      "options": {
+        "level": 3,
+        "operation": "xdggs_indexing"
+      },
+      "phases": [
+        "apply"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "quantity": "cell values",
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.workloads:run",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "fixture": "deterministic-small-healpix",
+      "id": "xdggs-range-memory-full",
+      "mask": "preserve missing values",
+      "method": "compressed range index construction",
+      "options": {
+        "level": 15,
+        "operation": "range_memory"
+      },
+      "phases": [
+        "apply"
+      ],
+      "profiles": [
+        "standard",
+        "extended"
+      ],
+      "quantity": "cell values",
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.workloads:run",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "fixture": "deterministic-small-healpix",
+      "id": "xdggs-zarr-roundtrip",
+      "mask": "preserve missing values",
+      "method": "identity",
+      "options": {
+        "operation": "zarr"
+      },
+      "phases": [
+        "apply"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "quantity": "cell values",
+      "resources": {
+        "timeout_seconds": 120
+      },
+      "source_geometry": {
+        "type": "healpix"
+      },
+      "target_geometry": {
+        "type": "healpix"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.workloads:run",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "fixture": "regional-masked-analytic",
+      "id": "xhealpixify-masked-analytic",
+      "mask": "circular synthetic land with masked sentinel; min_vertices=3",
+      "method": "planar bilinear, masked vertices renormalized when at least three valid",
+      "options": {
+        "operation": "xhealpixify",
+        "source_revision": "8ebd09eb7db4ee4bc9b12f8dd05ccd436986a93c"
+      },
+      "phases": [
+        "setup",
+        "apply"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "python_env": "xhealpixify",
+      "quantity": "analytic scalar intensity",
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "source_geometry": {
+        "bounds_degrees": [
+          -40,
+          40,
+          -40,
+          40
+        ],
+        "spacing_degrees": 2,
+        "type": "regional_latitude_longitude"
+      },
+      "target_geometry": {
+        "centres_in_degrees": [
+          -35,
+          35,
+          -35,
+          35
+        ],
+        "level": 4,
+        "nside": 16,
+        "ordering": "nested",
+        "type": "healpix"
+      },
+      "version": 1
+    },
+    {
+      "adapter": "regridding_benchmarks.workloads:run",
+      "dataset": "mur-sst-california-20200101",
+      "expected": [
+        "ok",
+        "unavailable"
+      ],
+      "family": "published_workloads",
+      "id": "xhealpixify-mur-coast",
+      "mask": "finite SST and open sea bit 1, excluding land and ice bits 2, 8, 16; min_vertices=3",
+      "method": "planar bilinear, masked vertices renormalized when at least three valid",
+      "options": {
+        "operation": "xhealpixify_mur",
+        "source_revision": "8ebd09eb7db4ee4bc9b12f8dd05ccd436986a93c"
+      },
+      "phases": [
+        "load",
+        "setup",
+        "apply"
+      ],
+      "profiles": [
+        "smoke",
+        "standard",
+        "extended"
+      ],
+      "python_env": "xhealpixify",
+      "quantity": "MUR analysed sea surface temperature, degree_C",
+      "resources": {
+        "timeout_seconds": 180
+      },
+      "source_geometry": {
+        "bounds_degrees": [
+          35,
+          39,
+          -124,
+          -120
+        ],
+        "shape": [
+          401,
+          401
+        ],
+        "spacing_degrees": 0.01,
+        "type": "latitude_longitude"
+      },
+      "target_geometry": {
+        "level": 9,
+        "nside": 512,
+        "ordering": "nested",
+        "selection": "centres within 35.1\u201338.9 N and -123.9\u2013-120.1 E",
+        "type": "healpix"
+      },
+      "version": 1
+    }
+  ],
+  "environment": {
+    "cache_policy": {
+      "inputs": "SHA-256 verified files",
+      "os_page_cache": "uncontrolled",
+      "worker": "fresh process and scratch per sample"
+    },
+    "executables": {
+      "cdo": {
+        "path": "/opt/benchmark/compiled/bin/cdo",
+        "version": "Climate Data Operators version 2.6.5 (https://mpimet.mpg.de/cdo)"
+      }
+    },
+    "image_digest": null,
+    "interpreters": {
+      "/opt/benchmark/.venv/bin/python": {
+        "packages": {
+          "Cartopy": "0.26.0",
+          "Jinja2": "3.1.6",
+          "MarkupSafe": "3.0.4",
+          "Pint": "0.26.2",
+          "PyYAML": "6.0.3",
+          "Pygments": "2.21.0",
+          "Send2Trash": "2.2.0",
+          "affine": "3.0.1",
+          "antimeridian": "0.4.9",
+          "anyio": "4.16.0",
+          "anywidget": "0.11.0",
+          "argon2-cffi": "25.1.0",
+          "argon2-cffi-bindings": "26.2.0",
+          "array-api-compat": "1.16.0",
+          "arro3-compute": "0.9.1",
+          "arro3-core": "0.9.1",
+          "arro3-io": "0.9.1",
+          "arrow": "1.4.0",
+          "astropy": "8.0.2",
+          "astropy-iers-data": "0.2026.11.16.0.37.44",
+          "astropy_healpix": "2.0.1",
+          "asttokens": "3.0.2",
+          "async-lru": "2.4.0",
+          "atlaslib-ecmwf": "0.47.0.33",
+          "attrs": "26.1.0",
+          "babel": "2.18.0",
+          "beautifulsoup4": "4.15.0",
+          "bleach": "6.4.0",
+          "cachetools": "8.0.0",
+          "certifi": "2026.10.23",
+          "cf-units": "3.3.1",
+          "cf_xarray": "0.11.3",
+          "cffi": "2.1.1",
+          "cftime": "1.6.6.1",
+          "charset-normalizer": "3.5.2",
+          "click": "8.5.1",
+          "cloudpickle": "3.1.2",
+          "comm": "0.2.3",
+          "configobj": "5.0.9",
+          "contourpy": "1.4.0",
+          "cycler": "0.12.1",
+          "dask": "2026.8.0",
+          "debugpy": "1.8.22",
+          "defusedxml": "0.7.1",
+          "distributed": "2026.8.0",
+          "donfig": "0.8.1.post1",
+          "earthkit-geo": "1.2.0",
+          "earthkit-utils": "1.0.4",
+          "eccodeslib": "2.50.0.33",
+          "eckit": "2.5.0.33",
+          "eckitlib": "2.5.0.33",
+          "esmf_regrid": "0.16.0",
+          "executing": "2.3.0",
+          "fastjsonschema": "2.22.3",
+          "filelock": "4.2.11",
+          "findlibs": "0.1.5",
+          "flexcache": "0.3",
+          "flexparser": "0.4",
+          "flox": "0.11.2",
+          "fonttools": "4.68.0",
+          "fqdn": "1.6.0",
+          "fsspec": "2026.9.0",
+          "geoarrow-rust-core": "0.6.3",
+          "google-crc32c": "1.9.0",
+          "h11": "0.16.0",
+          "h3ronpy": "0.22.0",
+          "h5netcdf": "1.8.3",
+          "healpix-geo": "0.5.0",
+          "healpy": "1.20.1",
+          "httpcore": "1.0.9",
+          "httpx": "0.28.1",
+          "idna": "3.20",
+          "ipykernel": "7.4.0",
+          "ipython": "9.18.1",
+          "ipython_pygments_lexers": "1.1.1",
+          "ipywidgets": "8.1.9",
+          "isoduration": "20.11.0",
+          "jedi": "0.20.1",
+          "joblib": "1.6.0",
+          "json5": "0.17.3",
+          "jsonpointer": "3.12",
+          "jsonschema": "4.26.0",
+          "jsonschema-specifications": "2025.9.1",
+          "jupyter-events": "0.12.1",
+          "jupyter-lsp": "2.3.1",
+          "jupyter_client": "8.10.0",
+          "jupyter_core": "5.9.1",
+          "jupyter_server": "2.21.1",
+          "jupyter_server_terminals": "0.5.4",
+          "jupyterlab": "4.4.10",
+          "jupyterlab_pygments": "0.3.0",
+          "jupyterlab_server": "2.28.1",
+          "jupyterlab_widgets": "3.0.17",
+          "kiwisolver": "1.5.1",
+          "lark": "1.3.1",
+          "llvmlite": "0.50.0",
+          "locket": "1.0.0",
+          "lonboard": "0.17.0",
+          "marray": "0.0.12",
+          "matplotlib": "3.11.2",
+          "matplotlib-inline": "0.2.2",
+          "mir-python": "1.30.2.33",
+          "mirlib": "1.30.2.33",
+          "mistune": "3.4.0",
+          "msgpack": "1.2.4",
+          "msgspec": "0.22.0",
+          "multiurl": "0.3.10",
+          "nanobind-backend": "1.0.0",
+          "narwhals": "2.29.0",
+          "nbclient": "0.11.0",
+          "nbconvert": "7.17.2",
+          "nbformat": "5.11.1",
+          "nest-asyncio2": "1.7.4",
+          "netCDF4": "1.7.5.1.post1",
+          "notebook_shim": "0.2.4",
+          "numba": "0.68.1",
+          "numba_celltree": "0.4.2",
+          "numcodecs": "0.17.1",
+          "numpy": "2.5.5",
+          "numpy-groupies": "0.16.7",
+          "odc-geo": "0.5.4",
+          "opt_einsum": "3.4.0",
+          "packaging": "26.3",
+          "pandas": "3.1.1",
+          "pandocfilters": "1.5.1",
+          "parso": "0.8.7",
+          "partd": "1.4.2",
+          "pexpect": "4.9.0",
+          "pillow": "13.0.0",
+          "pip": "25.0.1",
+          "platformdirs": "4.14.5",
+          "polars": "2.1.0",
+          "polars-runtime-32": "2.1.0",
+          "pooch": "1.9.0",
+          "prometheus_client": "0.26.0",
+          "prompt_toolkit": "3.0.53",
+          "psutil": "7.2.2",
+          "psygnal": "0.17.0",
+          "ptyprocess": "0.7.0",
+          "pure_eval": "0.2.4",
+          "pyarrow": "26.0.1",
+          "pycparser": "3.12",
+          "pyerfa": "2.0.1.5",
+          "pyinterp": "2026.11.0",
+          "pykdtree": "1.4.3",
+          "pyparsing": "3.3.3",
+          "pyproj": "3.8.0",
+          "pyresample": "1.35.0",
+          "pyshp": "3.1.9",
+          "python-dateutil": "4.0.0",
+          "python-json-logger": "4.2.0",
+          "pytz": "2026.6",
+          "pyzmq": "27.3.0",
+          "rasterio": "1.5.2",
+          "referencing": "0.37.0",
+          "regridding-benchmarks": "0.1.0",
+          "requests": "2.34.2",
+          "rfc3339-validator": "0.1.4",
+          "rfc3986-validator": "0.1.1",
+          "rfc3987-syntax": "1.1.0",
+          "rioxarray": "0.23.0",
+          "rpds-py": "2026.9.1",
+          "scikit-learn": "1.9.1",
+          "scipy": "1.18.1",
+          "scitools-iris": "3.16.2",
+          "setuptools": "84.2.1",
+          "shapely": "2.2.0",
+          "six": "1.17.0",
+          "sortedcontainers": "2.4.0",
+          "soupsieve": "4.1.2",
+          "sparse": "0.19.3",
+          "stack-data": "0.6.3",
+          "tblib": "3.2.2",
+          "terminado": "0.18.1",
+          "threadpoolctl": "3.8.0",
+          "tinycss2": "1.5.1",
+          "toolz": "1.2.0",
+          "tornado": "6.6.1",
+          "tqdm": "4.70.1",
+          "traitlets": "5.16.1",
+          "trimesh": "5.2.1",
+          "typing_extensions": "4.16.0",
+          "tzdata": "2026.6",
+          "uri-template": "1.3.0",
+          "urllib3": "2.8.0",
+          "uxarray": "2026.10.1",
+          "wcwidth": "0.9.4",
+          "webcolors": "25.10.0",
+          "webencodings": "0.6.1",
+          "websocket-client": "1.9.2",
+          "widgetsnbextension": "4.0.16",
+          "xarray": "2026.9.0",
+          "xarray-regrid": "0.4.2",
+          "xdggs": "0.7.0",
+          "xesmf": "0.9.2",
+          "xugrid": "0.15.3",
+          "xxhash": "4.1.0",
+          "zarr": "3.4.2",
+          "zict": "3.0.0"
+        },
+        "python": "3.12.16"
+      },
+      "/opt/benchmark/compiled/bin/python": {
+        "packages": {
+          "Cartopy": "0.26.0",
+          "Jinja2": "3.1.6",
+          "Magics": "1.5.8",
+          "MarkupSafe": "3.0.4",
+          "PyYAML": "6.0.3",
+          "astropy": "8.0.3",
+          "astropy-iers-data": "0.2026.11.16.0.37.44",
+          "bokeh": "3.10.0",
+          "certifi": "2026.10.23",
+          "cf-units": "3.3.1",
+          "cf_xarray": "0.11.3",
+          "cftime": "1.6.5",
+          "click": "8.5.1",
+          "cloudpickle": "3.1.2",
+          "contourpy": "1.4.0",
+          "cycler": "0.12.1",
+          "cytoolz": "1.2.0",
+          "dask": "2026.8.0",
+          "distributed": "2026.8.0",
+          "esmf_regrid": "0.16.0",
+          "esmpy": "8.9.1",
+          "findlibs": "0.1.5",
+          "fonttools": "4.68.0",
+          "fsspec": "2026.9.0",
+          "healpy": "1.20.1",
+          "importlib_metadata": "10.0.0",
+          "kiwisolver": "1.5.1",
+          "llvmlite": "0.50.0",
+          "locket": "1.0.0",
+          "lz4": "4.4.5",
+          "matplotlib": "3.11.2",
+          "msgpack": "1.2.4",
+          "munkres": "1.1.4",
+          "narwhals": "2.28.0",
+          "netCDF4": "1.7.5",
+          "numba": "0.68.1",
+          "numpy": "2.5.5",
+          "packaging": "26.3",
+          "pandas": "3.1.1",
+          "partd": "1.4.2",
+          "pillow": "13.0.0",
+          "pip": "26.2.2",
+          "psutil": "7.2.2",
+          "pyarrow": "26.0.1",
+          "pyerfa": "2.0.1.5",
+          "pyparsing": "3.3.3",
+          "pyproj": "3.8.0",
+          "pyshp": "3.1.9",
+          "python-dateutil": "4.0.0",
+          "scipy": "1.18.1",
+          "scitools-iris": "3.16.2",
+          "setuptools": "84.2.1",
+          "shapely": "2.2.0",
+          "simplejson": "4.3.0",
+          "sortedcontainers": "2.4.0",
+          "sparse": "0.19.3",
+          "tblib": "3.2.2",
+          "toolz": "1.2.0",
+          "tornado": "6.6.1",
+          "trimesh": "5.2.1",
+          "tzdata": "2026.6",
+          "unicodedata2": "18.0.0",
+          "wheel": "0.48.0",
+          "xarray": "2026.9.0",
+          "xesmf": "0.9.2",
+          "xxhash": "3.7.0",
+          "xyzservices": "2026.9.1",
+          "zict": "3.0.0",
+          "zipp": "4.1.2"
+        },
+        "python": "3.12.16"
+      },
+      "/opt/benchmark/xhealpixify/bin/python": {
+        "packages": {
+          "PyYAML": "6.0.3",
+          "astropy": "8.0.2",
+          "astropy-iers-data": "0.2026.11.16.0.37.44",
+          "cdshealpix": "0.9.0",
+          "click": "8.5.1",
+          "cloudpickle": "3.1.2",
+          "dask": "2026.8.0",
+          "fsspec": "2026.9.0",
+          "healpy": "1.20.1",
+          "joblib": "1.6.0",
+          "llvmlite": "0.50.0",
+          "locket": "1.0.0",
+          "narwhals": "2.29.0",
+          "numba": "0.68.1",
+          "numpy": "2.3.5",
+          "opt_einsum": "3.4.0",
+          "packaging": "26.3",
+          "pandas": "3.1.1",
+          "partd": "1.4.2",
+          "pip": "25.0.1",
+          "pyerfa": "2.0.1.5",
+          "python-dateutil": "4.0.0",
+          "scikit-learn": "1.9.1",
+          "scipy": "1.18.1",
+          "setuptools": "84.2.1",
+          "setuptools-scm": "10.3.4",
+          "shapely": "2.2.0",
+          "sparse": "0.19.3",
+          "threadpoolctl": "3.8.0",
+          "toolz": "1.2.0",
+          "tzdata": "2026.6",
+          "vcs-versioning": "2.6.0",
+          "xarray": "2026.9.0",
+          "xhealpixify": "2025.3.4.dev1+g8ebd09eb7"
+        },
+        "python": "3.12.16"
+      }
+    },
+    "lock_sha256": {
+      "environments/requirements-workloads-linux-x86_64.lock": "4a05e5683deb428ccffe81f10942b068278ee190a64730b63862d7bdf2c7181b",
+      "environments/requirements-xhealpixify-linux-x86_64.lock": "2b84cb34bb918925e4d4e4200e99692063b1fa1ad8884c10123180a4257e471c",
+      "requirements-compiled-extras.lock": "9bc6e7ad5b215fe049e939bb8c122a9c905f1adf33eaa6bd53553c048728cd12",
+      "requirements-compiled.lock": "18b1f60460b01df82ef30ef891be0b91c6ba3613aae7ebba5a61b08f0ebfd0f8",
+      "requirements-python.lock": "e519490ca2d8893ddb0456e20b739781afd456544ee9ae6db4615fee2dbfa735"
+    },
+    "resources": {
+      "affinity": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31
+      ],
+      "cpu_model": "Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz",
+      "cpu_period_v1": null,
+      "cpu_quota": "max 100000",
+      "host_memory": "131894048 kB",
+      "logical_cpus": 32,
+      "memory_limit": "30064771072",
+      "platform": "Linux-5.15.0-1123-azure-x86_64-with-glibc2.41",
+      "resource_class": null
+    },
+    "threads": {
+      "BLIS_NUM_THREADS": "1",
+      "GDAL_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "NUMBA_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "finished_at": "2026-11-20T15:31:02.626220+00:00",
+  "full_profile": true,
+  "inputs": {
+    "era5-dewpoint-cdo-full": {
+      "dataset": {
+        "id": "era5-dewpoint-2000-monthly",
+        "notebook_filename": "era5_2m_dewpoint_temperature_2000_monthly.nc",
+        "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+        "reason": "The notebook NetCDF checksum is unavailable. The CDS regional request is a replacement recipe and needs an authenticated download, inspection and checksum before use.",
+        "selection": {
+          "area": [
+            90,
+            89.75,
+            44.75,
+            180
+          ],
+          "data_format": "netcdf",
+          "month": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "product_type": "monthly_averaged_reanalysis",
+          "time": "00:00",
+          "variable": "2m_dewpoint_temperature",
+          "year": "2000"
+        },
+        "source": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means"
+      },
+      "reason": "The notebook NetCDF checksum is unavailable. The CDS regional request is a replacement recipe and needs an authenticated download, inspection and checksum before use.",
+      "verified": false
+    },
+    "era5-dewpoint-xarray-regrid-full": {
+      "dataset": {
+        "id": "era5-dewpoint-2000-monthly",
+        "notebook_filename": "era5_2m_dewpoint_temperature_2000_monthly.nc",
+        "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+        "reason": "The notebook NetCDF checksum is unavailable. The CDS regional request is a replacement recipe and needs an authenticated download, inspection and checksum before use.",
+        "selection": {
+          "area": [
+            90,
+            89.75,
+            44.75,
+            180
+          ],
+          "data_format": "netcdf",
+          "month": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "product_type": "monthly_averaged_reanalysis",
+          "time": "00:00",
+          "variable": "2m_dewpoint_temperature",
+          "year": "2000"
+        },
+        "source": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means"
+      },
+      "reason": "The notebook NetCDF checksum is unavailable. The CDS regional request is a replacement recipe and needs an authenticated download, inspection and checksum before use.",
+      "verified": false
+    },
+    "era5-dewpoint-xesmf-full": {
+      "dataset": {
+        "id": "era5-dewpoint-2000-monthly",
+        "notebook_filename": "era5_2m_dewpoint_temperature_2000_monthly.nc",
+        "protocol": "https://xarray-regrid.readthedocs.io/en/stable/notebooks/benchmarks/benchmarking_bilinear.html",
+        "reason": "The notebook NetCDF checksum is unavailable. The CDS regional request is a replacement recipe and needs an authenticated download, inspection and checksum before use.",
+        "selection": {
+          "area": [
+            90,
+            89.75,
+            44.75,
+            180
+          ],
+          "data_format": "netcdf",
+          "month": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "product_type": "monthly_averaged_reanalysis",
+          "time": "00:00",
+          "variable": "2m_dewpoint_temperature",
+          "year": "2000"
+        },
+        "source": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels-monthly-means"
+      },
+      "reason": "The notebook NetCDF checksum is unavailable. The CDS regional request is a replacement recipe and needs an authenticated download, inspection and checksum before use.",
+      "verified": false
+    },
+    "healpix-geo-wgs84-reference": {
+      "fixture": "deterministic-small-healpix"
+    },
+    "healpix-ring-nested-identity": {
+      "fixture": "deterministic-small-healpix"
+    },
+    "icon-ngc3028-pyicon": {
+      "dataset": {
+        "geometry": {
+          "cells": 196608,
+          "grid": "HEALPix",
+          "nside": 128,
+          "ordering": "nested"
+        },
+        "id": "icon-ngc3028-zoom7-surface-temperature",
+        "protocol": "https://easy.gems.dkrz.de/Processing/healpix/pyicon_healpix.html",
+        "reason": "The catalog and remote store are mutable. A source revision and checksum for an exported slice have not been established; this entry must not be fetched as a pinned dataset.",
+        "selection": {
+          "catalog": [
+            "ICON",
+            "ngc3028"
+          ],
+          "depth_full_index": 0,
+          "time_index": 0,
+          "variable": "to",
+          "zoom": 7
+        },
+        "url": "https://data.nextgems-h2020.eu/catalog.yaml"
+      },
+      "reason": "The catalog and remote store are mutable. A source revision and checksum for an exported slice have not been established; this entry must not be fetched as a pinned dataset.",
+      "verified": false
+    },
+    "legacy-chunked-xarray-rectilinear-xarray-rectilinear.json": {
+      "fixture": "legacy-synthetic"
+    },
+    "legacy-shared-grid-cdo-bilinear-rectilinear-512": {
+      "fixture": "legacy-synthetic"
+    },
+    "legacy-shared-grid-pyresample-nearest-satellite-swath-512": {
+      "fixture": "legacy-synthetic"
+    },
+    "legacy-shared-grid-rasterio-crs-4326-to-2056-512": {
+      "fixture": "legacy-synthetic"
+    },
+    "legacy-shared-grid-scipy-gaussian-512": {
+      "fixture": "legacy-synthetic"
+    },
+    "legacy-shared-grid-scipy-rectilinear-512": {
+      "fixture": "legacy-synthetic"
+    },
+    "legacy-shared-grid-xarray-gaussian-512": {
+      "fixture": "legacy-synthetic"
+    },
+    "legacy-shared-grid-xarray-regrid-linear-rectilinear-512": {
+      "fixture": "legacy-synthetic"
+    },
+    "legacy-shared-grid-xesmf-bilinear-roms-512": {
+      "fixture": "legacy-synthetic"
+    },
+    "legacy-storage-xarray-rectilinear-storage-netcdf4.json": {
+      "fixture": "legacy-synthetic"
+    },
+    "masked-rectilinear-common-support": {
+      "fixture": "legacy-rectilinear-mask-hole"
+    },
+    "rectilinear-duplicate-axis-rejection": {
+      "fixture": "legacy-rectilinear-duplicate"
+    },
+    "xdggs-cf-roundtrip": {
+      "fixture": "deterministic-small-healpix"
+    },
+    "xdggs-healpy-index-agreement": {
+      "fixture": "deterministic-small-healpix"
+    },
+    "xdggs-range-memory-full": {
+      "fixture": "deterministic-small-healpix"
+    },
+    "xdggs-zarr-roundtrip": {
+      "fixture": "deterministic-small-healpix"
+    },
+    "xhealpixify-masked-analytic": {
+      "fixture": "regional-masked-analytic"
+    },
+    "xhealpixify-mur-coast": {
+      "dataset": {
+        "id": "mur-sst-california-20200101",
+        "protocol": "https://coastwatch.pfeg.noaa.gov/erddap/info/jplMURSST41/index.html",
+        "reason": "Pinned NOAA ERDDAP response is absent from the input cache; fetch it explicitly. Historical data or server serialization may change, in which case checksum verification rejects the response.",
+        "selection": {
+          "latitude": [
+            35,
+            39
+          ],
+          "longitude": [
+            -124,
+            -120
+          ],
+          "shape": [
+            401,
+            401
+          ],
+          "stride": 1,
+          "time": "2020-01-01T09:00:00Z",
+          "units": "degree_C",
+          "variables": [
+            "analysed_sst",
+            "mask"
+          ]
+        },
+        "sha256": "6fc27fc35967cfc87cbbfddcddaafd640d8d571ae7cad932b4b7deb9b1a588c6",
+        "url": "https://coastwatch.pfeg.noaa.gov/erddap/griddap/jplMURSST41.csv?analysed_sst%5B(2020-01-01T09%3A00%3A00Z)%5D%5B(35)%3A1%3A(39)%5D%5B(-124)%3A1%3A(-120)%5D,mask%5B(2020-01-01T09%3A00%3A00Z)%5D%5B(35)%3A1%3A(39)%5D%5B(-124)%3A1%3A(-120)%5D"
+      },
+      "sha256": "6fc27fc35967cfc87cbbfddcddaafd640d8d571ae7cad932b4b7deb9b1a588c6",
+      "verified": true
+    }
+  },
+  "profile": "standard",
+  "publishable_profile": true,
+  "repeats": 3,
+  "run_fingerprint": "0f37ed600d10d6b7e4a2804e618bda40a23bbef500b26bd7749a73d22293bbfd",
+  "run_id": "renku-standard-20261120T152829Z",
+  "schema_version": 1,
+  "series": "renkulab",
+  "source": {
+    "commit": "bc438511907a4683bccf913edb28d76c2a6d167a",
+    "dirty": false,
+    "working_tree_sha256": null
+  },
+  "started_at": "2026-11-20T15:28:32.709261+00:00",
+  "state": "complete"
+}
