@@ -1,6 +1,19 @@
 {
-  "updated_at": "2026-11-20T16:18:56+00:00",
+  "updated_at": "2026-11-20T16:28:30+00:00",
   "runs": [
+    {
+      "run_id": "renku-standard-20261120T162526Z",
+      "profile": "standard",
+      "series": "renkulab",
+      "started_at": "2026-11-20T16:25:56.225607+00:00",
+      "n_samples": 72,
+      "status_counts": {
+        "unavailable": 12,
+        "ok": 57,
+        "expected_rejection": 3
+      },
+      "file": "runs/renku-standard-20261120T162526Z.json"
+    },
     {
       "run_id": "renku-standard-20261120T155209Z",
       "profile": "standard",
