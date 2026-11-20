@@ -15,10 +15,15 @@ out="$scratch/runs"
 mkdir -p "$out" "$scratch/cache"
 export TMPDIR="$scratch"
 
-# Install the package into a venv that reuses the image's numpy/scipy/xarray.
-uv venv --quiet --system-site-packages "$scratch/venv"
-uv pip install --quiet --python "$scratch/venv/bin/python" -e "$repo"
-export PATH="$scratch/venv/bin:$PATH"
+if [[ -n "${BENCH_ENV_ROOT:-}" ]]; then
+  # Benchmark image: engines and interpreters are preinstalled; run the checkout's code.
+  export PYTHONPATH="$repo/src${PYTHONPATH:+:$PYTHONPATH}"
+else
+  # Build-from-code image: install the package into a venv that reuses its numpy/scipy/xarray.
+  uv venv --quiet --system-site-packages "$scratch/venv"
+  uv pip install --quiet --python "$scratch/venv/bin/python" -e "$repo"
+  export PATH="$scratch/venv/bin:$PATH"
+fi
 
 status=0
 regridding-benchmarks fetch --profile "$profile" --cache-dir "$scratch/cache" --repo "$repo" || status=$?
