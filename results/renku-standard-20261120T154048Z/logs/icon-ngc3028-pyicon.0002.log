@@ -1,0 +1,1 @@
+The catalog and remote store are mutable. A source revision and checksum for an exported slice have not been established; this entry must not be fetched as a pinned dataset.

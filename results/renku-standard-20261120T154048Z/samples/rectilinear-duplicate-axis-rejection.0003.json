@@ -1,0 +1,31 @@
+{
+  "case_id": "rectilinear-duplicate-axis-rejection",
+  "finished_at": "2026-11-20T15:42:23.553797+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "93760243888f07ed74901c06a601f49dab8150be8c510ee9399d906f0c055a45"
+    },
+    "target": {
+      "specification_sha256": "ac1cc636519390cece6d19ea6d27558f2883fc253f1c2a2ba8a385d9d63c3b8b"
+    }
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 3,
+  "result": {
+    "metrics": {},
+    "reason": "The points in dimension 1 must be strictly ascending or descending",
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 169943040
+    },
+    "status": "expected_rejection",
+    "timings": {
+      "application": 7.323899990296923e-05,
+      "fixture": 0.0002862029996322235,
+      "imports": 0.5180401679999704
+    }
+  },
+  "run_fingerprint": "248a72d113031f7703dfccb764e82bb95d51cb37f9f245a65ae06753167446d7",
+  "sample_id": "rectilinear-duplicate-axis-rejection.0003",
+  "started_at": "2026-11-20T15:42:22.879506+00:00"
+}
