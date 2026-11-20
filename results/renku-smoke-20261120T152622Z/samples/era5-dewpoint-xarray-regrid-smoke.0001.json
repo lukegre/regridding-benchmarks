@@ -1,0 +1,43 @@
+{
+  "case_id": "era5-dewpoint-xarray-regrid-smoke",
+  "finished_at": "2026-11-20T15:26:33.333738+00:00",
+  "geometry": {
+    "source_sha256": "6fe2e7e63988b52afedc6152f6eaa5f13a063b524877b9790c5e0cb722f2cfbc",
+    "target_sha256": "6662c88f0939c02cbc00f3715df3a63581c2e02c010001d02fb787820c3b07ef"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "environment": {},
+    "geometry": {
+      "source_sha256": "6fe2e7e63988b52afedc6152f6eaa5f13a063b524877b9790c5e0cb722f2cfbc",
+      "target_sha256": "6662c88f0939c02cbc00f3715df3a63581c2e02c010001d02fb787820c3b07ef"
+    },
+    "metrics": {
+      "common_coverage": 1.0,
+      "common_max_difference_k": 5.684341886080802e-14,
+      "common_rmse_k": 2.4153808499215685e-14,
+      "coverage": 1.0,
+      "finite_mask_mismatches": 0,
+      "output_dtype": "float64",
+      "output_shape": [
+        1,
+        12,
+        12
+      ]
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 253231104
+    },
+    "status": "ok",
+    "timings": {
+      "application": 0.00817361100052949,
+      "fixture": 0.06843706999643473,
+      "imports": 1.2186123999999836
+    }
+  },
+  "run_fingerprint": "8e09e0cdfe90386ec406ca1327707a0ec943c4d39599b48710aba16db29c58e4",
+  "sample_id": "era5-dewpoint-xarray-regrid-smoke.0001",
+  "started_at": "2026-11-20T15:26:31.757072+00:00"
+}
