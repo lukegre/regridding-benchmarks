@@ -1,0 +1,33 @@
+{
+  "case_id": "xdggs-cf-roundtrip",
+  "finished_at": "2026-11-20T15:38:15.676678+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    },
+    "target": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    }
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 2,
+  "result": {
+    "metrics": {
+      "cells": 4,
+      "grid_metadata_preserved": true,
+      "sparse_ids_preserved": true,
+      "values_and_mask_preserved": true
+    },
+    "resources": {
+      "child_peak_rss_bytes": 19836928,
+      "worker_peak_rss_bytes": 272916480
+    },
+    "status": "ok",
+    "timings": {
+      "apply": 0.17814493000059883
+    }
+  },
+  "run_fingerprint": "a72393ec1932493e6567727dae9b58c258a0dde7c0c22479ddabe5042e634671",
+  "sample_id": "xdggs-cf-roundtrip.0002",
+  "started_at": "2026-11-20T15:38:14.299996+00:00"
+}

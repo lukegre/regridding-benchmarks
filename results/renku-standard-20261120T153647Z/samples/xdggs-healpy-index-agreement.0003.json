@@ -1,0 +1,32 @@
+{
+  "case_id": "xdggs-healpy-index-agreement",
+  "finished_at": "2026-11-20T15:38:22.517846+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    },
+    "target": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    }
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 3,
+  "result": {
+    "metrics": {
+      "cells_per_order": 768,
+      "healpy_index_agreement": true,
+      "orders": 2
+    },
+    "resources": {
+      "child_peak_rss_bytes": 87408640,
+      "worker_peak_rss_bytes": 295804928
+    },
+    "status": "ok",
+    "timings": {
+      "apply": 0.0005237850000412436
+    }
+  },
+  "run_fingerprint": "a72393ec1932493e6567727dae9b58c258a0dde7c0c22479ddabe5042e634671",
+  "sample_id": "xdggs-healpy-index-agreement.0003",
+  "started_at": "2026-11-20T15:38:20.689066+00:00"
+}
