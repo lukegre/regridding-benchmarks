@@ -1,0 +1,99 @@
+{
+  "case_id": "legacy-shared-grid-pyresample-nearest-satellite-swath-512",
+  "finished_at": "2026-11-20T15:26:13.510437+00:00",
+  "geometry": {
+    "destination_geometry_sha256": "e940a6b542f024a0a67ff60c87e80c422122cd89cd5c713b9fd38bb1f2568f58",
+    "source_geometry_sha256": "80d5c8e5cdacb4a178dd37640f8f2f7c949a0c68aed0a86d0a1611d4f9fdd728",
+    "values_sha256": "aed449b5a5972cb8e22f7c626005897b6cdd1b61afb22a9d68e3bd24e65e78ae"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 3,
+  "result": {
+    "geometry": {
+      "destination_geometry_sha256": "e940a6b542f024a0a67ff60c87e80c422122cd89cd5c713b9fd38bb1f2568f58",
+      "source_geometry_sha256": "80d5c8e5cdacb4a178dd37640f8f2f7c949a0c68aed0a86d0a1611d4f9fdd728",
+      "values_sha256": "aed449b5a5972cb8e22f7c626005897b6cdd1b61afb22a9d68e3bd24e65e78ae"
+    },
+    "metrics": {
+      "actual_output_cells": 524288,
+      "apply_seconds": 0.004554199999802222,
+      "apply_wall_seconds": 0.004554199999802222,
+      "destination_geometry_sha256": "e940a6b542f024a0a67ff60c87e80c422122cd89cd5c713b9fd38bb1f2568f58",
+      "finite_fraction": 0.9267711639404297,
+      "grid": "satellite_swath",
+      "import_seconds": 0.3692515020002247,
+      "input_preparation_seconds": 0.09754829299981793,
+      "max_error": 0.009729310335168884,
+      "output_sample": [
+        1.0071596603902535,
+        0.9675999742664074,
+        0.9322169799018882,
+        0.9023694151669399,
+        0.876151168771107,
+        0.85512521222346,
+        0.8381590408049625,
+        0.8259351605734884,
+        0.8185561418306622,
+        0.8157149802216325,
+        0.8173874586277157,
+        0.8235082408135527,
+        0.8334660018489853,
+        0.8478613700702109,
+        0.8662443306428156,
+        0.8874745092472531,
+        0.9128983206222547,
+        0.9415683811472813,
+        0.973180651434314,
+        1.0061445033726182,
+        1.0426604211738586,
+        1.081207150241061,
+        1.1201265875073152,
+        1.161739959954307,
+        1.2044300722838133,
+        1.2466767961153538,
+        1.2905941138519228,
+        1.335094413988735,
+        1.3777161952869572,
+        1.4217981747915454,
+        1.465081984214633,
+        1.506473499902835
+      ],
+      "package": "pyresample_nearest",
+      "repeat": 0,
+      "rmse": 0.0014098543173613476,
+      "scale": 512,
+      "setup_seconds": 0.3093946489998416,
+      "setup_wall_seconds": 0.3093946489998416,
+      "source_cells": 524288,
+      "source_geometry_sha256": "80d5c8e5cdacb4a178dd37640f8f2f7c949a0c68aed0a86d0a1611d4f9fdd728",
+      "source_shape": [
+        1024,
+        512
+      ],
+      "target_cells": 524288,
+      "target_shape": [
+        1024,
+        512
+      ],
+      "timing_mode": "split",
+      "total_seconds": 0.3139488489996438,
+      "values_sha256": "aed449b5a5972cb8e22f7c626005897b6cdd1b61afb22a9d68e3bd24e65e78ae",
+      "warmup": "One complete 32-scale operation before recorded repetitions",
+      "warnings": []
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 346943488
+    },
+    "status": "ok",
+    "timings": {
+      "application": 0.004554199999802222,
+      "fixture": 0.09754829299981793,
+      "imports": 0.3692515020002247,
+      "setup": 0.3093946489998416
+    }
+  },
+  "run_fingerprint": "26529e1b9f5c407f3c535f28067d992c40189b2ce3e36be6cfb849d3a9ee4608",
+  "sample_id": "legacy-shared-grid-pyresample-nearest-satellite-swath-512.0003",
+  "started_at": "2026-11-20T15:26:11.849586+00:00"
+}

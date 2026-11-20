@@ -1,0 +1,23 @@
+{
+  "case_id": "era5-dewpoint-cdo-full",
+  "finished_at": "2026-11-20T15:25:36.055529+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "11ee64d2a6c6f46407c3099112c40af1b6f657ef9c317b812b33251fe055c7ee"
+    },
+    "target": {
+      "specification_sha256": "16b4f94be675ab04a95e73103ed5b1d7457e8cc624f883bcef5e144346a1c5fe"
+    }
+  },
+  "log_sha256": "3da555f4048c186f1b90be271acb1a8f5d5ad1b7a572420b2efb0888f9454b61",
+  "repeat": 3,
+  "result": {
+    "metrics": {},
+    "reason": "The notebook NetCDF checksum is unavailable. The CDS regional request is a replacement recipe and needs an authenticated download, inspection and checksum before use.",
+    "status": "unavailable",
+    "timings": {}
+  },
+  "run_fingerprint": "26529e1b9f5c407f3c535f28067d992c40189b2ce3e36be6cfb849d3a9ee4608",
+  "sample_id": "era5-dewpoint-cdo-full.0003",
+  "started_at": "2026-11-20T15:25:36.009069+00:00"
+}

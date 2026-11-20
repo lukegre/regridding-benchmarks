@@ -1,0 +1,105 @@
+{
+  "case_id": "legacy-shared-grid-cdo-bilinear-rectilinear-512",
+  "finished_at": "2026-11-20T15:26:08.204227+00:00",
+  "geometry": {
+    "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+    "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+    "values_sha256": "2f316dda2915e14ea1a5a0b4f621d156e1797e84271f6dbf8c923f619085789a"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 3,
+  "result": {
+    "geometry": {
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "values_sha256": "2f316dda2915e14ea1a5a0b4f621d156e1797e84271f6dbf8c923f619085789a"
+    },
+    "metrics": {
+      "actual_output_cells": 262144,
+      "apply_seconds": 0.0522442950000368,
+      "apply_wall_seconds": 0.05802313799995318,
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "finite_fraction": 1.0,
+      "grid": "rectilinear",
+      "import_seconds": 2.002999735850608e-06,
+      "input_preparation_seconds": 0.03938546500012308,
+      "io_prepare_seconds": 0.006944836999991821,
+      "max_error": 1.3276152159846788e-06,
+      "native_weight_command_seconds": 0.2534448619999239,
+      "output_read_seconds": 0.005778842999916378,
+      "output_sample": [
+        2.776944178038035,
+        2.947305694012932,
+        2.8177624916114423,
+        2.970021466643099,
+        2.8575057280253153,
+        2.990272968123341,
+        2.8969447381859,
+        3.008312065209271,
+        2.933762494546264,
+        3.0235296772060174,
+        2.969684020689569,
+        3.0365776369275475,
+        3.002650630033598,
+        3.047105229001591,
+        3.0341491320013745,
+        3.054440448336831,
+        3.0624332230831746,
+        3.0598103175361815,
+        3.0887221932946325,
+        3.061854981460681,
+        3.1116264749897313,
+        3.0621591053121726,
+        3.131671417746424,
+        3.0590940050635815,
+        3.1490634334514223,
+        3.0545617053665284,
+        3.162991646783021,
+        3.0466990638095632,
+        3.1739333468890187,
+        3.037674354355019,
+        3.1814843131556945,
+        3.0254310387962677
+      ],
+      "package": "cdo_bilinear",
+      "repeat": 0,
+      "rmse": 7.869903306358791e-07,
+      "scale": 512,
+      "setup_note": "CDO setup includes writing source/target files; core setup subtracts input I/O. Native commands include process launch and native file I/O.",
+      "setup_seconds": 0.253541567999946,
+      "setup_wall_seconds": 0.2604864049999378,
+      "source_cells": 262144,
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "source_shape": [
+        512,
+        512
+      ],
+      "target_cells": 262144,
+      "target_shape": [
+        512,
+        512
+      ],
+      "timing_mode": "split",
+      "total_seconds": 0.3057858629999828,
+      "values_sha256": "2f316dda2915e14ea1a5a0b4f621d156e1797e84271f6dbf8c923f619085789a",
+      "warmup": "One complete 32-scale operation before recorded repetitions",
+      "warnings": []
+    },
+    "resources": {
+      "child_peak_rss_bytes": 273674240,
+      "worker_peak_rss_bytes": 273674240
+    },
+    "status": "ok",
+    "timings": {
+      "application": 0.0522442950000368,
+      "fixture": 0.03938546500012308,
+      "imports": 2.002999735850608e-06,
+      "io_prepare": 0.006944836999991821,
+      "output_read": 0.005778842999916378,
+      "setup": 0.253541567999946
+    }
+  },
+  "run_fingerprint": "26529e1b9f5c407f3c535f28067d992c40189b2ce3e36be6cfb849d3a9ee4608",
+  "sample_id": "legacy-shared-grid-cdo-bilinear-rectilinear-512.0003",
+  "started_at": "2026-11-20T15:26:05.559644+00:00"
+}

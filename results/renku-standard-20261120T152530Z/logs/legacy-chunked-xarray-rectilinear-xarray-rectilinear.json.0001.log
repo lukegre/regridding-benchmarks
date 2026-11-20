@@ -1,0 +1,10 @@
+xarray rectilinear (1, 128, 128) repeat 1 compute 0.332
+xarray rectilinear (1, 128, 128) repeat 2 compute 0.337
+xarray rectilinear (1, 128, 128) repeat 3 compute 0.33
+xarray rectilinear (1, 256, 256) repeat 1 compute 0.064
+xarray rectilinear (1, 256, 256) repeat 2 compute 0.063
+xarray rectilinear (1, 256, 256) repeat 3 compute 0.065
+xarray rectilinear (4, 512, 512) repeat 1 compute 0.026
+xarray rectilinear (4, 512, 512) repeat 2 compute 0.026
+xarray rectilinear (4, 512, 512) repeat 3 compute 0.026
+xarray rectilinear 3 summaries 9 runs 0 failures

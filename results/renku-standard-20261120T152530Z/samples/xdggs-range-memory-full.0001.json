@@ -1,0 +1,35 @@
+{
+  "case_id": "xdggs-range-memory-full",
+  "finished_at": "2026-11-20T15:27:26.912066+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    },
+    "target": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    }
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "metrics": {
+      "covered_cells": 2147483648,
+      "dense_uint64_equivalent_bytes": 17179869184,
+      "index_nbytes": 32,
+      "input_ranges": 2,
+      "level": 15,
+      "process_peak_rss_bytes": 257376256
+    },
+    "resources": {
+      "child_peak_rss_bytes": 19591168,
+      "worker_peak_rss_bytes": 257376256
+    },
+    "status": "ok",
+    "timings": {
+      "apply": 0.00012964899997314205
+    }
+  },
+  "run_fingerprint": "26529e1b9f5c407f3c535f28067d992c40189b2ce3e36be6cfb849d3a9ee4608",
+  "sample_id": "xdggs-range-memory-full.0001",
+  "started_at": "2026-11-20T15:27:25.736429+00:00"
+}
