@@ -1,0 +1,41 @@
+{
+  "case_id": "cnes-pyinterp-regrid-smoke-all-threads",
+  "finished_at": "2026-11-20T15:23:58.866059+00:00",
+  "geometry": {
+    "source_axes_sha256": "f0cb20665ef1fdf988e4db7b6ed89fc6f3dac15b80cdbbb02c59a4996bfa76f8",
+    "source_values_sha256": "6f9aca3d83b0979ded1a416778ccbf87bdc514a1a88f1ac65c40831d82a060d8",
+    "target_coordinates_sha256": "eb6b8a36b8a4e660fd6668742ce95342de2fd67088783deae040e3105a4d66ef"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "geometry": {
+      "source_axes_sha256": "f0cb20665ef1fdf988e4db7b6ed89fc6f3dac15b80cdbbb02c59a4996bfa76f8",
+      "source_values_sha256": "6f9aca3d83b0979ded1a416778ccbf87bdc514a1a88f1ac65c40831d82a060d8",
+      "target_coordinates_sha256": "eb6b8a36b8a4e660fd6668742ce95342de2fd67088783deae040e3105a4d66ef"
+    },
+    "metrics": {
+      "coverage": 1.0,
+      "engine_version": "2026.11.0",
+      "num_threads_argument": 0,
+      "oracle_coverage": 1.0,
+      "oracle_max_abs_error": 1.1102230246251565e-15,
+      "oracle_samples": 4096,
+      "seed": 42,
+      "target_points": 57600
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 241553408
+    },
+    "status": "ok",
+    "timings": {
+      "application": 0.0030203980022633914,
+      "fixture": 0.5052768349996768,
+      "imports": 0.33796360199994524
+    }
+  },
+  "run_fingerprint": "2c17118c7a24ddbfdc759d9e11a4698218e54e0c0cf8f13f56c8df25e881063a",
+  "sample_id": "cnes-pyinterp-regrid-smoke-all-threads.0001",
+  "started_at": "2026-11-20T15:23:57.789262+00:00"
+}

@@ -1,0 +1,2 @@
+xarray rectilinear (1, 16, 16) repeat 1 compute 0.05
+xarray rectilinear 1 summaries 1 runs 0 failures

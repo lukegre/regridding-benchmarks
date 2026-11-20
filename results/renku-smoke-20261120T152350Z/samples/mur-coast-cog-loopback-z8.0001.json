@@ -1,0 +1,43 @@
+{
+  "case_id": "mur-coast-cog-loopback-z8",
+  "finished_at": "2026-11-20T15:24:13.711460+00:00",
+  "geometry": {
+    "source_sha256": "b1ba0020c4d9adec21804f6d6359f534aa819c0d2f5aa3d98b11caa39291ec71",
+    "target_sha256": "2c1b3d24003198f5cd6761eb96ff91efd948fcd4f1319260d2846f0fb62551f8"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "geometry": {
+      "source_sha256": "b1ba0020c4d9adec21804f6d6359f534aa819c0d2f5aa3d98b11caa39291ec71",
+      "target_sha256": "2c1b3d24003198f5cd6761eb96ff91efd948fcd4f1319260d2846f0fb62551f8"
+    },
+    "metrics": {
+      "body_bytes": 35522,
+      "cog_bytes": 142655,
+      "cog_sha256": "4655f5e7cacc6731d3ba1fe7379c3fcca5ddb422829fadfa2613744342ff0146",
+      "coverage": 0.15496826171875,
+      "finite_mask_mismatches": 0,
+      "max_common_difference": 0.0,
+      "range_requests": 3
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 178294784
+    },
+    "status": "ok",
+    "timings": {
+      "file_read": 0.0008808669990685303,
+      "file_total": 0.005340906001947587,
+      "file_warp": 0.004460039002879057,
+      "fixture": 0.07292167500054347,
+      "http_read": 0.0034570229981909506,
+      "http_total": 0.005819422000058694,
+      "http_warp": 0.002362399001867743,
+      "imports": 0.29414635799912503
+    }
+  },
+  "run_fingerprint": "2c17118c7a24ddbfdc759d9e11a4698218e54e0c0cf8f13f56c8df25e881063a",
+  "sample_id": "mur-coast-cog-loopback-z8.0001",
+  "started_at": "2026-11-20T15:24:13.136146+00:00"
+}
