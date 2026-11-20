@@ -1,0 +1,35 @@
+{
+  "case_id": "xdggs-range-memory-smoke",
+  "finished_at": "2026-11-20T15:22:36.928852+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    },
+    "target": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    }
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "metrics": {
+      "covered_cells": 131072,
+      "dense_uint64_equivalent_bytes": 1048576,
+      "index_nbytes": 32,
+      "input_ranges": 2,
+      "level": 8,
+      "process_peak_rss_bytes": 255094784
+    },
+    "resources": {
+      "child_peak_rss_bytes": 19415040,
+      "worker_peak_rss_bytes": 255094784
+    },
+    "status": "ok",
+    "timings": {
+      "apply": 0.00013621400285046548
+    }
+  },
+  "run_fingerprint": "d435563e3010e85a90ee8e772073f2ccd2da94ffb15ca27f269ad34e6bfae546",
+  "sample_id": "xdggs-range-memory-smoke.0001",
+  "started_at": "2026-11-20T15:22:35.649601+00:00"
+}

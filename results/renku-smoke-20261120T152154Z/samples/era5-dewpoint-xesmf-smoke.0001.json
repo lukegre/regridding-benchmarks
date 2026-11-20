@@ -1,0 +1,44 @@
+{
+  "case_id": "era5-dewpoint-xesmf-smoke",
+  "finished_at": "2026-11-20T15:22:09.436300+00:00",
+  "geometry": {
+    "source_sha256": "6fe2e7e63988b52afedc6152f6eaa5f13a063b524877b9790c5e0cb722f2cfbc",
+    "target_sha256": "6662c88f0939c02cbc00f3715df3a63581c2e02c010001d02fb787820c3b07ef"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "environment": {},
+    "geometry": {
+      "source_sha256": "6fe2e7e63988b52afedc6152f6eaa5f13a063b524877b9790c5e0cb722f2cfbc",
+      "target_sha256": "6662c88f0939c02cbc00f3715df3a63581c2e02c010001d02fb787820c3b07ef"
+    },
+    "metrics": {
+      "common_coverage": 1.0,
+      "common_max_difference_k": 1.3626150604295617e-05,
+      "common_rmse_k": 9.933128246259223e-06,
+      "coverage": 1.0,
+      "finite_mask_mismatches": 0,
+      "output_dtype": "float64",
+      "output_shape": [
+        1,
+        12,
+        12
+      ]
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 302567424
+    },
+    "status": "ok",
+    "timings": {
+      "application": 0.16468814900144935,
+      "fixture": 0.0017447520003770478,
+      "imports": 1.576157842999237,
+      "weights": 0.3719717460007814
+    }
+  },
+  "run_fingerprint": "d435563e3010e85a90ee8e772073f2ccd2da94ffb15ca27f269ad34e6bfae546",
+  "sample_id": "era5-dewpoint-xesmf-smoke.0001",
+  "started_at": "2026-11-20T15:22:07.007846+00:00"
+}

@@ -1,0 +1,41 @@
+{
+  "case_id": "cnes-pyinterp-periodic-smoke-all-threads",
+  "finished_at": "2026-11-20T15:21:59.314673+00:00",
+  "geometry": {
+    "source_axes_sha256": "f0cb20665ef1fdf988e4db7b6ed89fc6f3dac15b80cdbbb02c59a4996bfa76f8",
+    "source_values_sha256": "79aa77857ce60ed690a52e22ca07a898f5e82362cb955f0cc67ac311a9ee8c63",
+    "target_coordinates_sha256": "2e3225392663c375c9c79fd61f5fc9155eb9ecb3fab1aadc5e702cc7542b48d2"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "geometry": {
+      "source_axes_sha256": "f0cb20665ef1fdf988e4db7b6ed89fc6f3dac15b80cdbbb02c59a4996bfa76f8",
+      "source_values_sha256": "79aa77857ce60ed690a52e22ca07a898f5e82362cb955f0cc67ac311a9ee8c63",
+      "target_coordinates_sha256": "2e3225392663c375c9c79fd61f5fc9155eb9ecb3fab1aadc5e702cc7542b48d2"
+    },
+    "metrics": {
+      "coverage": 1.0,
+      "engine_version": "2026.11.0",
+      "num_threads_argument": 0,
+      "oracle_coverage": 1.0,
+      "oracle_max_abs_error": 0.0,
+      "oracle_samples": 4,
+      "seed": 42,
+      "target_points": 4
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 141266944
+    },
+    "status": "ok",
+    "timings": {
+      "application": 0.0008424859988735989,
+      "fixture": 0.000371804999304004,
+      "imports": 0.34499386199968285
+    }
+  },
+  "run_fingerprint": "d435563e3010e85a90ee8e772073f2ccd2da94ffb15ca27f269ad34e6bfae546",
+  "sample_id": "cnes-pyinterp-periodic-smoke-all-threads.0001",
+  "started_at": "2026-11-20T15:21:58.839985+00:00"
+}

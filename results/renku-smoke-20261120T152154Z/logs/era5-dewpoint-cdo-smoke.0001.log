@@ -1,0 +1,2 @@
+Climate Data Operators version 2.6.5 (https://mpimet.mpg.de/cdo)
+cdo    remapbil: Bilinear weights from lonlat (10x10) to lonlat (12x12)

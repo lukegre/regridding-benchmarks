@@ -1,0 +1,33 @@
+{
+  "case_id": "healpix-geo-wgs84-reference",
+  "finished_at": "2026-11-20T15:22:10.418002+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "fd42a6ce450375b88d3e50e3f37bbc5b608e316b0a5a94d9e9a0e625bfa85d22"
+    },
+    "target": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    }
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "metrics": {
+      "centres": 768,
+      "max_authalic_latitude_error_degrees": 1.2789769243681803e-13,
+      "max_longitude_error_degrees": 5.684341886080802e-14,
+      "reference_points": 7
+    },
+    "resources": {
+      "child_peak_rss_bytes": 89522176,
+      "worker_peak_rss_bytes": 107782144
+    },
+    "status": "ok",
+    "timings": {
+      "apply": 0.0031821919983485714
+    }
+  },
+  "run_fingerprint": "d435563e3010e85a90ee8e772073f2ccd2da94ffb15ca27f269ad34e6bfae546",
+  "sample_id": "healpix-geo-wgs84-reference.0001",
+  "started_at": "2026-11-20T15:22:09.442678+00:00"
+}
