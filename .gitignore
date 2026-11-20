@@ -12,3 +12,4 @@ publication.json
 /build/
 /dist/
 *.egg-info/
+.renku-config/
