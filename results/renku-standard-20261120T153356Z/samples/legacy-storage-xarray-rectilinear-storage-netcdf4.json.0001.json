@@ -1,0 +1,264 @@
+{
+  "case_id": "legacy-storage-xarray-rectilinear-storage-netcdf4.json",
+  "finished_at": "2026-11-20T15:35:09.796925+00:00",
+  "geometry": {
+    "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+    "missing_count": 256,
+    "shape": [
+      4,
+      512,
+      512
+    ],
+    "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+    "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+  },
+  "log_sha256": "bd52e6263887c4a0d0ef338520d4f4466e6cc08907cad78075f0f0535a217a92",
+  "repeat": 1,
+  "result": {
+    "geometry": {
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "missing_count": 256,
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+    },
+    "metrics": {
+      "finite_mask_mismatches": 0,
+      "finite_values_min": 1048048,
+      "fixture": {
+        "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+        "missing_count": 256,
+        "shape": [
+          4,
+          512,
+          512
+        ],
+        "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+        "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+      },
+      "grid": "rectilinear",
+      "group": "netcdf4_warm_cache",
+      "layout": [
+        1,
+        128,
+        128
+      ],
+      "max_abs_error": 0.0,
+      "median_compute_read_seconds": 0.3512883809999039,
+      "median_graph_seconds": 0.014253569000175048,
+      "note": "File creation and opening excluded; full compute includes warm-cache NetCDF reads. OS cache was not cleared; not a cold-disk benchmark.",
+      "reference_seconds": 0.09417663299973356,
+      "repeats": [
+        {
+          "compute_read_seconds": 0.3575190699993982,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "graph_seconds": 0.015064364000863861,
+          "graph_tasks": 2799,
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ]
+          ],
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              36,
+              36,
+              36,
+              36,
+              36,
+              36
+            ],
+            [
+              512
+            ]
+          ],
+          "rechunk_layers": [
+            "rechunk-merge-2a0c76fb99901e320c092e1fcba1a036",
+            "rechunk-merge-e268b4cbb8c2d5ca3d0188a5676cc831"
+          ],
+          "repeat": 1
+        },
+        {
+          "compute_read_seconds": 0.31133218700051657,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "graph_seconds": 0.014253569000175048,
+          "graph_tasks": 2799,
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ]
+          ],
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              36,
+              36,
+              36,
+              36,
+              36,
+              36
+            ],
+            [
+              512
+            ]
+          ],
+          "rechunk_layers": [
+            "rechunk-merge-2a0c76fb99901e320c092e1fcba1a036",
+            "rechunk-merge-e268b4cbb8c2d5ca3d0188a5676cc831"
+          ],
+          "repeat": 2
+        },
+        {
+          "compute_read_seconds": 0.3512883809999039,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "graph_seconds": 0.013802835999740637,
+          "graph_tasks": 2799,
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ]
+          ],
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              36,
+              36,
+              36,
+              36,
+              36,
+              36
+            ],
+            [
+              512
+            ]
+          ],
+          "rechunk_layers": [
+            "rechunk-merge-2a0c76fb99901e320c092e1fcba1a036",
+            "rechunk-merge-e268b4cbb8c2d5ca3d0188a5676cc831"
+          ],
+          "repeat": 3
+        }
+      ],
+      "scheduler": "synchronous",
+      "storage_chunks": [
+        1,
+        128,
+        128
+      ],
+      "tool": "xarray"
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 370053120
+    },
+    "status": "ok",
+    "timings": {}
+  },
+  "run_fingerprint": "6d1ea1e3cfe15bdef5a77915b2627ad8b7598e2a101140ee5cca1a4209c4e245",
+  "sample_id": "legacy-storage-xarray-rectilinear-storage-netcdf4.json.0001",
+  "started_at": "2026-11-20T15:35:07.312560+00:00"
+}

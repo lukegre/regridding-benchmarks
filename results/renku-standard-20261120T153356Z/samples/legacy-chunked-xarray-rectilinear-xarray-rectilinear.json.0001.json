@@ -1,0 +1,911 @@
+{
+  "case_id": "legacy-chunked-xarray-rectilinear-xarray-rectilinear.json",
+  "finished_at": "2026-11-20T15:34:07.853392+00:00",
+  "geometry": {
+    "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+    "missing_count": 256,
+    "shape": [
+      4,
+      512,
+      512
+    ],
+    "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+    "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+  },
+  "log_sha256": "c7c88945821338b9433343328b610acaaf642c4e94fc472c169faed890857597",
+  "repeat": 1,
+  "result": {
+    "geometry": {
+      "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+      "missing_count": 256,
+      "shape": [
+        4,
+        512,
+        512
+      ],
+      "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+      "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+    },
+    "metrics": {
+      "failures": [],
+      "finite_mask_mismatches": 0,
+      "finite_values_min": 1048048,
+      "fixture": {
+        "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+        "missing_count": 256,
+        "shape": [
+          4,
+          512,
+          512
+        ],
+        "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+        "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+      },
+      "grid": "rectilinear",
+      "import_seconds": 1.8669998098630458e-06,
+      "max_abs_error": 0.0,
+      "records": [
+        {
+          "compute_seconds": 0.3249479509995581,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+          "eager_application_seconds": null,
+          "graph_seconds": 0.15570380999997724,
+          "graph_tasks": 2798,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ]
+          ],
+          "layout": [
+            1,
+            128,
+            128
+          ],
+          "missing_count": 256,
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              36,
+              36,
+              36,
+              36,
+              36,
+              36
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [
+            "rechunk-merge-37b0c3a5bf337f787139698b37df2d21",
+            "rechunk-merge-7f46994214995166d4debd3d5f239c08"
+          ],
+          "repeat": 1,
+          "scheduler": "synchronous",
+          "setup_seconds_shared": 0.35735908199967525,
+          "shape": [
+            4,
+            512,
+            512
+          ],
+          "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+          "tool": "xarray",
+          "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+        },
+        {
+          "compute_seconds": 0.318761101999371,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+          "eager_application_seconds": null,
+          "graph_seconds": 0.013794751000204997,
+          "graph_tasks": 2798,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ]
+          ],
+          "layout": [
+            1,
+            128,
+            128
+          ],
+          "missing_count": 256,
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              36,
+              36,
+              36,
+              36,
+              36,
+              36
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [
+            "rechunk-merge-37b0c3a5bf337f787139698b37df2d21",
+            "rechunk-merge-7f46994214995166d4debd3d5f239c08"
+          ],
+          "repeat": 2,
+          "scheduler": "synchronous",
+          "setup_seconds_shared": 0.35735908199967525,
+          "shape": [
+            4,
+            512,
+            512
+          ],
+          "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+          "tool": "xarray",
+          "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+        },
+        {
+          "compute_seconds": 0.32183426299980056,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+          "eager_application_seconds": null,
+          "graph_seconds": 0.01388303800013091,
+          "graph_tasks": 2798,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ]
+          ],
+          "layout": [
+            1,
+            128,
+            128
+          ],
+          "missing_count": 256,
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              36,
+              36,
+              36,
+              36,
+              36,
+              36
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [
+            "rechunk-merge-37b0c3a5bf337f787139698b37df2d21",
+            "rechunk-merge-7f46994214995166d4debd3d5f239c08"
+          ],
+          "repeat": 3,
+          "scheduler": "synchronous",
+          "setup_seconds_shared": 0.35735908199967525,
+          "shape": [
+            4,
+            512,
+            512
+          ],
+          "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+          "tool": "xarray",
+          "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+        },
+        {
+          "compute_seconds": 0.06205332900026406,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+          "eager_application_seconds": null,
+          "graph_seconds": 0.007309082000574563,
+          "graph_tasks": 406,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              256,
+              256
+            ],
+            [
+              256,
+              256
+            ]
+          ],
+          "layout": [
+            1,
+            256,
+            256
+          ],
+          "missing_count": 256,
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [
+            "rechunk-merge-9c4d5064812f6d058ee63c7d9c656662",
+            "rechunk-merge-e7d33c54a8b3a0f0e37d347153df2a15"
+          ],
+          "repeat": 1,
+          "scheduler": "synchronous",
+          "setup_seconds_shared": 0.35735908199967525,
+          "shape": [
+            4,
+            512,
+            512
+          ],
+          "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+          "tool": "xarray",
+          "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+        },
+        {
+          "compute_seconds": 0.06233159200019145,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+          "eager_application_seconds": null,
+          "graph_seconds": 0.007534583000051498,
+          "graph_tasks": 406,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              256,
+              256
+            ],
+            [
+              256,
+              256
+            ]
+          ],
+          "layout": [
+            1,
+            256,
+            256
+          ],
+          "missing_count": 256,
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [
+            "rechunk-merge-9c4d5064812f6d058ee63c7d9c656662",
+            "rechunk-merge-e7d33c54a8b3a0f0e37d347153df2a15"
+          ],
+          "repeat": 2,
+          "scheduler": "synchronous",
+          "setup_seconds_shared": 0.35735908199967525,
+          "shape": [
+            4,
+            512,
+            512
+          ],
+          "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+          "tool": "xarray",
+          "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+        },
+        {
+          "compute_seconds": 0.0619218820002061,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+          "eager_application_seconds": null,
+          "graph_seconds": 0.0074512849996608566,
+          "graph_tasks": 406,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              256,
+              256
+            ],
+            [
+              256,
+              256
+            ]
+          ],
+          "layout": [
+            1,
+            256,
+            256
+          ],
+          "missing_count": 256,
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [
+            "rechunk-merge-9c4d5064812f6d058ee63c7d9c656662",
+            "rechunk-merge-e7d33c54a8b3a0f0e37d347153df2a15"
+          ],
+          "repeat": 3,
+          "scheduler": "synchronous",
+          "setup_seconds_shared": 0.35735908199967525,
+          "shape": [
+            4,
+            512,
+            512
+          ],
+          "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+          "tool": "xarray",
+          "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+        },
+        {
+          "compute_seconds": 0.024130371999490308,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+          "eager_application_seconds": null,
+          "graph_seconds": 0.0060967819999859785,
+          "graph_tasks": 19,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              4
+            ],
+            [
+              512
+            ],
+            [
+              512
+            ]
+          ],
+          "layout": [
+            4,
+            512,
+            512
+          ],
+          "missing_count": 256,
+          "output_chunks": [
+            [
+              4
+            ],
+            [
+              512
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [],
+          "repeat": 1,
+          "scheduler": "synchronous",
+          "setup_seconds_shared": 0.35735908199967525,
+          "shape": [
+            4,
+            512,
+            512
+          ],
+          "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+          "tool": "xarray",
+          "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+        },
+        {
+          "compute_seconds": 0.024622890000500774,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+          "eager_application_seconds": null,
+          "graph_seconds": 0.006205806000252778,
+          "graph_tasks": 19,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              4
+            ],
+            [
+              512
+            ],
+            [
+              512
+            ]
+          ],
+          "layout": [
+            4,
+            512,
+            512
+          ],
+          "missing_count": 256,
+          "output_chunks": [
+            [
+              4
+            ],
+            [
+              512
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [],
+          "repeat": 2,
+          "scheduler": "synchronous",
+          "setup_seconds_shared": 0.35735908199967525,
+          "shape": [
+            4,
+            512,
+            512
+          ],
+          "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+          "tool": "xarray",
+          "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+        },
+        {
+          "compute_seconds": 0.024575163000008615,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+          "eager_application_seconds": null,
+          "graph_seconds": 0.006237655000404629,
+          "graph_tasks": 19,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              4
+            ],
+            [
+              512
+            ],
+            [
+              512
+            ]
+          ],
+          "layout": [
+            4,
+            512,
+            512
+          ],
+          "missing_count": 256,
+          "output_chunks": [
+            [
+              4
+            ],
+            [
+              512
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [],
+          "repeat": 3,
+          "scheduler": "synchronous",
+          "setup_seconds_shared": 0.35735908199967525,
+          "shape": [
+            4,
+            512,
+            512
+          ],
+          "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+          "tool": "xarray",
+          "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+        }
+      ],
+      "reference_seconds": 0.09287701199991716,
+      "reference_was_lazy": false,
+      "setup_note": "Interpolation machinery is constructed during each application; no reusable weights exposed.",
+      "setup_seconds": 0.35735908199967525,
+      "summary": [
+        {
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "fixture": {
+            "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+            "missing_count": 256,
+            "shape": [
+              4,
+              512,
+              512
+            ],
+            "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+            "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+          },
+          "graph_tasks": 2798,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ]
+          ],
+          "layout": [
+            1,
+            128,
+            128
+          ],
+          "median_compute_seconds": 0.32183426299980056,
+          "median_eager_application_seconds": null,
+          "median_graph_seconds": 0.01388303800013091,
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              37,
+              36,
+              36,
+              36,
+              36,
+              36,
+              36
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [
+            "rechunk-merge-37b0c3a5bf337f787139698b37df2d21",
+            "rechunk-merge-7f46994214995166d4debd3d5f239c08"
+          ],
+          "reference_seconds": 0.09287701199991716,
+          "reference_was_lazy": false,
+          "repeats": 3,
+          "setup_note": "Interpolation machinery is constructed during each application; no reusable weights exposed.",
+          "setup_seconds_shared": 0.35735908199967525,
+          "tool": "xarray",
+          "weights_nnz": null
+        },
+        {
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "fixture": {
+            "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+            "missing_count": 256,
+            "shape": [
+              4,
+              512,
+              512
+            ],
+            "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+            "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+          },
+          "graph_tasks": 406,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              256,
+              256
+            ],
+            [
+              256,
+              256
+            ]
+          ],
+          "layout": [
+            1,
+            256,
+            256
+          ],
+          "median_compute_seconds": 0.06205332900026406,
+          "median_eager_application_seconds": null,
+          "median_graph_seconds": 0.0074512849996608566,
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128,
+              128,
+              128,
+              128
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [
+            "rechunk-merge-9c4d5064812f6d058ee63c7d9c656662",
+            "rechunk-merge-e7d33c54a8b3a0f0e37d347153df2a15"
+          ],
+          "reference_seconds": 0.09287701199991716,
+          "reference_was_lazy": false,
+          "repeats": 3,
+          "setup_note": "Interpolation machinery is constructed during each application; no reusable weights exposed.",
+          "setup_seconds_shared": 0.35735908199967525,
+          "tool": "xarray",
+          "weights_nnz": null
+        },
+        {
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 1048048,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": 0.0
+          },
+          "fixture": {
+            "destination_geometry_sha256": "cfefec4db5fe69d4cb18aceb581b9f0ae0286dc9fe80ed6b45abd81aa4f5acfc",
+            "missing_count": 256,
+            "shape": [
+              4,
+              512,
+              512
+            ],
+            "source_geometry_sha256": "e4c93d1a0fe581d3a180603fb70a3e4070c7ac31ba0831a65442cd7ddaa897e5",
+            "values_sha256": "b348db53e3c88872d51096d02d596936708c64f9686f81db92896be75129d9bf"
+          },
+          "graph_tasks": 19,
+          "grid": "rectilinear",
+          "input_chunks": [
+            [
+              4
+            ],
+            [
+              512
+            ],
+            [
+              512
+            ]
+          ],
+          "layout": [
+            4,
+            512,
+            512
+          ],
+          "median_compute_seconds": 0.024575163000008615,
+          "median_eager_application_seconds": null,
+          "median_graph_seconds": 0.006205806000252778,
+          "output_chunks": [
+            [
+              4
+            ],
+            [
+              512
+            ],
+            [
+              512
+            ]
+          ],
+          "output_lazy": true,
+          "rechunk_layers": [],
+          "reference_seconds": 0.09287701199991716,
+          "reference_was_lazy": false,
+          "repeats": 3,
+          "setup_note": "Interpolation machinery is constructed during each application; no reusable weights exposed.",
+          "setup_seconds_shared": 0.35735908199967525,
+          "tool": "xarray",
+          "weights_nnz": null
+        }
+      ],
+      "tool": "xarray",
+      "weights_nnz": null
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 369545216
+    },
+    "status": "ok",
+    "timings": {}
+  },
+  "run_fingerprint": "6d1ea1e3cfe15bdef5a77915b2627ad8b7598e2a101140ee5cca1a4209c4e245",
+  "sample_id": "legacy-chunked-xarray-rectilinear-xarray-rectilinear.json.0001",
+  "started_at": "2026-11-20T15:34:04.770353+00:00"
+}
