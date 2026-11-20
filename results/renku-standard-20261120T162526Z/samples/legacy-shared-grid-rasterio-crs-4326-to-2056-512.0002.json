@@ -1,0 +1,101 @@
+{
+  "case_id": "legacy-shared-grid-rasterio-crs-4326-to-2056-512",
+  "finished_at": "2026-11-20T16:26:26.017136+00:00",
+  "geometry": {
+    "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+    "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+    "values_sha256": "76a01bfa762b813f4316d2e110ed1fe24a0d52cd2fb992ad87a5af667c68e3f2"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 2,
+  "result": {
+    "geometry": {
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "values_sha256": "76a01bfa762b813f4316d2e110ed1fe24a0d52cd2fb992ad87a5af667c68e3f2"
+    },
+    "metrics": {
+      "actual_output_cells": 262144,
+      "apply_seconds": 0.02164519200050563,
+      "apply_wall_seconds": 0.02164519200050563,
+      "destination_geometry_sha256": "e72020d049d2e41403fa7df75d3d08698ccfcb31f8a428d23c5c4bc349b73740",
+      "dst_crs": 2056,
+      "finite_fraction": 0.9521369934082031,
+      "grid": "crs_4326_to_2056",
+      "import_seconds": 0.3796813299995847,
+      "input_preparation_seconds": 0.16750404800040997,
+      "max_error": 6.763664641828981e-05,
+      "output_sample": [
+        null,
+        2.9529822222960913,
+        2.9620635616535407,
+        2.956486431114456,
+        2.9656533649863532,
+        2.9598839730682465,
+        2.9691689721857313,
+        2.9632651003954003,
+        2.9726653586687966,
+        2.966578298233497,
+        2.9761085436290307,
+        2.9698807255745905,
+        2.979527866349599,
+        2.973133790800776,
+        2.9828701004522737,
+        2.9763012218549307,
+        2.9861940327860896,
+        2.979469816988601,
+        2.98943153388998,
+        2.9825358581834323,
+        2.992666616198262,
+        2.985608569343311,
+        2.9958522015810045,
+        2.988592907296051,
+        2.9989655505142103,
+        2.991581666731593,
+        3.002069088719007,
+        2.9944827569465633,
+        3.005090826297054,
+        2.9973718175427555,
+        3.008093567494911,
+        null
+      ],
+      "package": "rasterio",
+      "repeat": 0,
+      "rmse": 1.161483907763402e-05,
+      "scale": 512,
+      "setup_note": "GDAL warp geometry and resampling are fused during apply; separate reusable weights unavailable",
+      "setup_seconds": 5.398199937189929e-05,
+      "setup_wall_seconds": 5.398199937189929e-05,
+      "source_cells": 262144,
+      "source_geometry_sha256": "e1f1825204a3c2d6bd6262a43493235f9d6ca6968f9adc19399c48b024425c91",
+      "source_shape": [
+        512,
+        512
+      ],
+      "target_cells": 262144,
+      "target_shape": [
+        512,
+        512
+      ],
+      "timing_mode": "fused",
+      "total_seconds": 0.02169917399987753,
+      "values_sha256": "76a01bfa762b813f4316d2e110ed1fe24a0d52cd2fb992ad87a5af667c68e3f2",
+      "warmup": "One complete 32-scale operation before recorded repetitions",
+      "warnings": []
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 316747776
+    },
+    "status": "ok",
+    "timings": {
+      "application": 0.02164519200050563,
+      "fixture": 0.16750404800040997,
+      "imports": 0.3796813299995847,
+      "setup": 5.398199937189929e-05
+    }
+  },
+  "run_fingerprint": "d47ba2170e263bde0a5b65b01122c37615565e73ea6cc443b94cfcd487667297",
+  "sample_id": "legacy-shared-grid-rasterio-crs-4326-to-2056-512.0002",
+  "started_at": "2026-11-20T16:26:24.690836+00:00"
+}

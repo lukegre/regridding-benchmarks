@@ -1,0 +1,39 @@
+{
+  "case_id": "xhealpixify-masked-analytic",
+  "finished_at": "2026-11-20T16:28:01.204796+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "4b935623f0dab1ed829af05eecc8562b0d24b2e3a880becbfabe6f7bcc5f14c9"
+    },
+    "target": {
+      "specification_sha256": "ae3598d9971fd634e387de62958a5b82f31477cc09c72426fc25bd21e4c2acbd"
+    }
+  },
+  "log_sha256": "0a804915c7b08c02cd212ab469e7ae438214aed5dbcfe6fbab2cb9d26124e3a3",
+  "repeat": 3,
+  "result": {
+    "environment": {
+      "xhealpixify_version": "2025.3.4.dev1+g8ebd09eb7"
+    },
+    "metrics": {
+      "cell_ids_preserved": true,
+      "empty_target_cells": 24,
+      "max_common_support_difference": 1.1102230246251565e-16,
+      "partially_masked_target_cells": 4,
+      "target_cells": 338,
+      "wet_target_cells": 314
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 408780800
+    },
+    "status": "ok",
+    "timings": {
+      "apply": 1.9750226010000915,
+      "setup": 4.641949714000475
+    }
+  },
+  "run_fingerprint": "d47ba2170e263bde0a5b65b01122c37615565e73ea6cc443b94cfcd487667297",
+  "sample_id": "xhealpixify-masked-analytic.0003",
+  "started_at": "2026-11-20T16:27:52.761920+00:00"
+}
