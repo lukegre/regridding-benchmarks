@@ -13,7 +13,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python -m pip install --no-deps .
+      - uses: astral-sh/setup-uv@v6
+      - run: |
+          uv sync --locked
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
       - run: python -m unittest discover -s tests
       - name: Generate and load an offline report
         run: |
@@ -30,9 +33,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: astral-sh/setup-uv@v6
       - run: |
-          set -euo pipefail
-          rg '^(numpy|scipy|xarray|dask|netcdf4|xarray-regrid)==' requirements-python.lock > "$RUNNER_TEMP/tiny.lock"
+          uv sync --locked --group tiny
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
           python -m pip install . -r "$RUNNER_TEMP/tiny.lock"
       - run: python -m unittest discover -s tests -p test_legacy_parity.py
       - name: Check analytic cases through the CLI

@@ -5,16 +5,16 @@ Reproducible interoperability, numerical and performance benchmarks for geospati
 ## Run a benchmark
 
 Use the registry CLI from a checkout. The CLI also builds and validates reports in a Python
-environment without the scientific engines. Install the pinned benchmark dependencies to
+environment without the scientific engines. Install the pinned benchmark dependencies (`uv sync --group engines`, locked in `uv.lock`) to
 execute the numerical cases.
 
 ```sh
-python -m pip install -e .
-regridding-benchmarks list-cases --profile smoke
-regridding-benchmarks fetch --profile smoke
-regridding-benchmarks run --profile smoke --output-dir /tmp/regridding-runs --run-id smoke-local
-regridding-benchmarks validate-bundle /tmp/regridding-runs/smoke-local
-regridding-benchmarks build-report /tmp/regridding-runs/smoke-local --output-dir /tmp/regridding-site
+uv sync                      # add --group tiny or --group engines for the pinned engines
+uv run regridding-benchmarks list-cases --profile smoke
+uv run regridding-benchmarks fetch --profile smoke
+uv run regridding-benchmarks run --profile smoke --output-dir /tmp/regridding-runs --run-id smoke-local
+uv run regridding-benchmarks validate-bundle /tmp/regridding-runs/smoke-local
+uv run regridding-benchmarks build-report /tmp/regridding-runs/smoke-local --output-dir /tmp/regridding-site
 ```
 
 See the [reproduction handbook](docs/reproduction.md), [deployment guide](docs/deployment.md),

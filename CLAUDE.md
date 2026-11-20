@@ -8,12 +8,12 @@ Reproducible benchmarks for geospatial regridding/remapping tools (xESMF, CDO, x
 
 ## Commands
 
-Use **uv** for package management and for running everything (prefix commands with `uv run`; don't call `pip` directly).
+Use **uv** for package management and for running everything (prefix commands with `uv run`; don't call `pip` directly). Dependencies live in `pyproject.toml` dependency groups and are locked in `uv.lock` (Python >=3.12 only; the package itself still installs on 3.11). After changing a group, run `uv lock` and commit `uv.lock`. The conda/hashed Docker layers in `environments/` and the `requirements-*.lock` files are unchanged.
 
 ```sh
-uv venv                                         # creates .venv (gitignored)
-uv pip install -e .                             # CLI works without scientific engines
-uv pip install -r requirements-python.lock      # pinned engines for numerical cases
+uv sync                                         # creates .venv from uv.lock; CLI works without scientific engines
+uv sync --group tiny                            # numpy/scipy/xarray/dask/netcdf4/xarray-regrid (CI subset)
+uv sync --group engines                         # all pinned Python engines (mirrors requirements-python.lock)
 uv run python -m unittest discover -s tests     # offline tests (what CI runs)
 uv run python -m unittest tests.test_runner     # one test module
 uv run python -m unittest tests.test_runner.ClassName.test_name   # one test
@@ -26,7 +26,7 @@ uv run regridding-benchmarks build-report <dir>/local --output-dir <site>   # --
 uv run regridding-benchmarks import-legacy --output-dir <dir>
 ```
 
-No linter is configured. CI (`.github/workflows/checks.yml`) runs the unit tests, then an end-to-end smoke run → validate → build-report, plus a "tiny-adapters" job that installs only numpy/scipy/xarray/dask/netcdf4/xarray-regrid from `requirements-python.lock` and runs `tests/test_legacy_parity.py` and four analytic smoke cases. Many cases need engines not installed locally; those report `unavailable` rather than failing.
+No linter is configured. CI (`.github/workflows/checks.yml`) runs the unit tests, then an end-to-end smoke run → validate → build-report, plus a "tiny-adapters" job that runs `uv sync --locked --group tiny` and runs `tests/test_legacy_parity.py` and four analytic smoke cases. Many cases need engines not installed locally; those report `unavailable` rather than failing.
 
 ## Architecture
 
