@@ -1,0 +1,47 @@
+{
+  "case_id": "era5-dewpoint-cdo-smoke",
+  "finished_at": "2026-11-20T15:20:32.260677+00:00",
+  "geometry": {
+    "source_sha256": "6fe2e7e63988b52afedc6152f6eaa5f13a063b524877b9790c5e0cb722f2cfbc",
+    "target_sha256": "6662c88f0939c02cbc00f3715df3a63581c2e02c010001d02fb787820c3b07ef"
+  },
+  "log_sha256": "f6d2aaebb294d56dae74ccbdf4087c39890692cea5fa82323f43c9f944a7ce79",
+  "repeat": 1,
+  "result": {
+    "environment": {
+      "cdo": "/opt/benchmark/compiled/bin/cdo"
+    },
+    "geometry": {
+      "source_sha256": "6fe2e7e63988b52afedc6152f6eaa5f13a063b524877b9790c5e0cb722f2cfbc",
+      "target_sha256": "6662c88f0939c02cbc00f3715df3a63581c2e02c010001d02fb787820c3b07ef"
+    },
+    "metrics": {
+      "common_coverage": 1.0,
+      "common_max_difference_k": 8.526512829121202e-14,
+      "common_rmse_k": 2.7620936742992798e-14,
+      "coverage": 1.0,
+      "finite_mask_mismatches": 0,
+      "output_dtype": "float64",
+      "output_shape": [
+        1,
+        12,
+        12
+      ]
+    },
+    "resources": {
+      "child_peak_rss_bytes": 254058496,
+      "worker_peak_rss_bytes": 262606848
+    },
+    "status": "ok",
+    "timings": {
+      "cli_prepare": 0.47938128899841104,
+      "cli_remap_io": 0.028417928999260766,
+      "fixture": 0.5855158519989345,
+      "imports": 0.904166547999921,
+      "output_read": 0.020923231000779197
+    }
+  },
+  "run_fingerprint": "8df7656caa8e5107d3d51a42a34cb0768a1284a79081782ac1a312636c02bf46",
+  "sample_id": "era5-dewpoint-cdo-smoke.0001",
+  "started_at": "2026-11-20T15:20:29.930077+00:00"
+}
