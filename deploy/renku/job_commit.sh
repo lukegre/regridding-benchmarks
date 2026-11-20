@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Run a benchmark profile and commit the JSON run bundle to the `results` branch.
+# Also pushes a compact summary (docs/data) to main; remote override BENCH_MAIN_REMOTE.
 # Meant for a Renku job on the build-from-code image; unlike job.sh it does not need a pinned image.
 # GitHub push token: Renku project secret file, $BENCH_GITHUB_TOKEN_FILE or /secrets/github or /secrets/github_token.
 set -uo pipefail
@@ -54,23 +55,51 @@ mkdir -p "$push/results"
 rm -rf "$push/results/$run_id"
 cp -R "$out/$run_id" "$push/results/$run_id"
 [[ "$report_ok" == 1 ]] && cp "$scratch/site/editions/$run_id.html" "$push/results/$run_id.html"
+# Push with the token for https remotes (never printed); local remotes need none.
+# usage: push_branch <clone-dir> <remote-url> <ref> <exit-code-on-missing-token> <exit-code-on-failure>
+push_branch() {
+  local dir=$1 url=$2 ref=$3 no_token=$4 fail=$5
+  if [[ "$url" == https://* ]]; then
+    [[ -n "$token_file" && -r "$token_file" ]] || { echo "No GitHub token (looked for /secrets/github, /secrets/github_token); $ref committed locally only: $dir" >&2; return "$no_token"; }
+    local askpass="$scratch/askpass.sh"
+    printf '#!/bin/sh\ncase "$1" in Username*) echo x-access-token;; *) cat "%s";; esac\n' "$token_file" > "$askpass"
+    chmod 700 "$askpass"
+    GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 git -C "$dir" push --quiet origin "$ref" || { rm -f "$askpass"; return "$fail"; }
+    rm -f "$askpass"
+  else
+    git -C "$dir" push --quiet origin "$ref" || return "$fail"
+  fi
+}
+commit_as_job() { git -C "$1" -c user.name="renku-benchmark-job" -c user.email="noreply@renkulab.io" commit --quiet -m "$2"; }
+
 git -C "$push" add results
 if git -C "$push" diff --cached --quiet; then
-  echo "Nothing to commit"; [[ "$status" -eq 0 ]] && touch "$done_marker"; exit "$status"
-fi
-git -C "$push" -c user.name="renku-benchmark-job" -c user.email="noreply@renkulab.io" \
-  commit --quiet -m "Add benchmark results $run_id (profile $profile, exit status $status)"
-
-if [[ "$remote" == https://* ]]; then
-  [[ -n "$token_file" && -r "$token_file" ]] || { echo "No GitHub token (looked for /secrets/github, /secrets/github_token); results committed locally only: $push" >&2; exit 3; }
-  askpass="$scratch/askpass.sh"
-  printf '#!/bin/sh\ncase "$1" in Username*) echo x-access-token;; *) cat "%s";; esac\n' "$token_file" > "$askpass"
-  chmod 700 "$askpass"
-  GIT_ASKPASS="$askpass" GIT_TERMINAL_PROMPT=0 git -C "$push" push --quiet origin "$branch" || { rm -f "$askpass"; exit 4; }
-  rm -f "$askpass"
+  echo "Nothing to commit on $branch"
 else
-  git -C "$push" push --quiet origin "$branch"
+  commit_as_job "$push" "Add benchmark results $run_id (profile $profile, exit status $status)"
+  push_branch "$push" "$remote" "$branch" 3 4 || exit $?
+  echo "Pushed results/$run_id to $branch"
 fi
-echo "Pushed results/$run_id to $branch"
+
+# Compact JSON summary for the results page: docs/data on main (a push there rebuilds Pages).
+main_remote=${BENCH_MAIN_REMOTE:-$remote}
+main_branch=${BENCH_MAIN_BRANCH:-main}
+mainclone="$scratch/main-push"
+rm -rf "$mainclone"
+git clone --quiet --depth 1 --branch "$main_branch" "$main_remote" "$mainclone" || exit 5
+python -m regridding_benchmarks.summary "$out/$run_id" "$mainclone/docs/data" || exit 5
+git -C "$mainclone" add docs/data/runs/"$run_id".json docs/data/index.json
+if git -C "$mainclone" diff --cached --quiet; then
+  echo "No data changes for $main_branch"
+else
+  commit_as_job "$mainclone" "Add benchmark summary $run_id (profile $profile)"
+  # A concurrent push to main must not fail the job: rebase onto it and retry once.
+  for attempt in 1 2 3; do
+    git -C "$mainclone" fetch --quiet origin "$main_branch" && git -C "$mainclone" -c user.name="renku-benchmark-job" -c user.email="noreply@renkulab.io" rebase --quiet "origin/$main_branch" || exit 5
+    push_branch "$mainclone" "$main_remote" "HEAD:$main_branch" 5 6 && break
+    [[ "$attempt" == 3 ]] && exit 6
+  done
+  echo "Pushed docs/data/runs/$run_id.json and index.json to $main_branch"
+fi
 [[ "$status" -eq 0 ]] && touch "$done_marker"
 exit "$status"
