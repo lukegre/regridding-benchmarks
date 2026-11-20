@@ -1,0 +1,100 @@
+{
+  "case_id": "legacy-shared-grid-xarray-gaussian-512",
+  "finished_at": "2026-11-20T15:32:00.508194+00:00",
+  "geometry": {
+    "destination_geometry_sha256": "7e16c3206f3269c60c60cb36a8d2d2f45aac43414efa4947c189e67548888d51",
+    "source_geometry_sha256": "3070da7ff7c125330bb728e5a136f4259be9e707cce3452553dcc20a79fe071e",
+    "values_sha256": "23912b3452f4877043d7b813f20ecf10761ba451a37a5b5e235259107ed4fd3e"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "geometry": {
+      "destination_geometry_sha256": "7e16c3206f3269c60c60cb36a8d2d2f45aac43414efa4947c189e67548888d51",
+      "source_geometry_sha256": "3070da7ff7c125330bb728e5a136f4259be9e707cce3452553dcc20a79fe071e",
+      "values_sha256": "23912b3452f4877043d7b813f20ecf10761ba451a37a5b5e235259107ed4fd3e"
+    },
+    "metrics": {
+      "actual_output_cells": 465920,
+      "apply_seconds": 0.03435022699977708,
+      "apply_wall_seconds": 0.03435022699977708,
+      "destination_geometry_sha256": "7e16c3206f3269c60c60cb36a8d2d2f45aac43414efa4947c189e67548888d51",
+      "finite_fraction": 1.0,
+      "grid": "gaussian",
+      "import_seconds": 0.0772284459999355,
+      "input_preparation_seconds": 0.08478396099962993,
+      "max_error": 8.366512958879468e-06,
+      "output_sample": [
+        2.2672406555247138,
+        2.016737988702994,
+        1.9618100063357904,
+        2.6355477273541874,
+        2.1074128772270044,
+        1.8121676386218146,
+        2.869717281249729,
+        2.2186347940828304,
+        1.559649167770905,
+        2.902085593689981,
+        2.30549426507423,
+        1.2537143013039338,
+        2.7392682227306953,
+        2.36120708314599,
+        0.9877454996987143,
+        2.4568865798743857,
+        2.4032078421132868,
+        0.8521504512735363,
+        2.151425507148113,
+        2.435741966929621,
+        0.8858172634769337,
+        1.8945014025177513,
+        2.4342041377748913,
+        1.0649473114963255,
+        1.7259196854911139,
+        2.3696009765422876,
+        1.3316700975881772,
+        1.6747384999536898,
+        2.243722542941613,
+        1.631676969569046,
+        1.7677969668312319,
+        2.093030092352121
+      ],
+      "package": "xarray",
+      "repeat": 0,
+      "rmse": 4.0820641375976445e-06,
+      "scale": 512,
+      "setup_note": "xarray interp constructs interpolation machinery during apply; weights not exposed separately",
+      "setup_seconds": 0.0011346109995429288,
+      "setup_wall_seconds": 0.0011346109995429288,
+      "source_cells": 524288,
+      "source_geometry_sha256": "3070da7ff7c125330bb728e5a136f4259be9e707cce3452553dcc20a79fe071e",
+      "source_shape": [
+        512,
+        1024
+      ],
+      "target_cells": 465920,
+      "target_shape": [
+        455,
+        1024
+      ],
+      "timing_mode": "fused",
+      "total_seconds": 0.03548483799932001,
+      "values_sha256": "23912b3452f4877043d7b813f20ecf10761ba451a37a5b5e235259107ed4fd3e",
+      "warmup": "One complete 32-scale operation before recorded repetitions",
+      "warnings": []
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 316755968
+    },
+    "status": "ok",
+    "timings": {
+      "application": 0.03435022699977708,
+      "fixture": 0.08478396099962993,
+      "imports": 0.0772284459999355,
+      "setup": 0.0011346109995429288
+    }
+  },
+  "run_fingerprint": "b06517fd67e620136bc55e8cf8ff458ed266acea75534acf0ee7b3bf801ecb2a",
+  "sample_id": "legacy-shared-grid-xarray-gaussian-512.0001",
+  "started_at": "2026-11-20T15:31:59.131577+00:00"
+}

@@ -1,0 +1,1 @@
+Pinned NOAA ERDDAP response is absent from the input cache; fetch it explicitly. Historical data or server serialization may change, in which case checksum verification rejects the response.

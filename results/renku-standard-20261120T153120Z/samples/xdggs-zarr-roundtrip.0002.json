@@ -1,0 +1,33 @@
+{
+  "case_id": "xdggs-zarr-roundtrip",
+  "finished_at": "2026-11-20T15:33:00.688831+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    },
+    "target": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    }
+  },
+  "log_sha256": "ba8671841317c2803c422a75eb48e1360a4fc55ba6bcf7e4a869cefd2d06fb53",
+  "repeat": 2,
+  "result": {
+    "metrics": {
+      "cells": 4,
+      "grid_metadata_preserved": true,
+      "sparse_ids_preserved": true,
+      "values_and_mask_preserved": true
+    },
+    "resources": {
+      "child_peak_rss_bytes": 19656704,
+      "worker_peak_rss_bytes": 281538560
+    },
+    "status": "ok",
+    "timings": {
+      "apply": 0.19364468599997053
+    }
+  },
+  "run_fingerprint": "b06517fd67e620136bc55e8cf8ff458ed266acea75534acf0ee7b3bf801ecb2a",
+  "sample_id": "xdggs-zarr-roundtrip.0002",
+  "started_at": "2026-11-20T15:32:59.157434+00:00"
+}
