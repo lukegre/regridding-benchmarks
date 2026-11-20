@@ -1,0 +1,32 @@
+{
+  "case_id": "healpix-ring-nested-identity",
+  "finished_at": "2026-11-20T15:52:17.770286+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    },
+    "target": {
+      "specification_sha256": "82fe32b7bdaef43b6733f01ead8df2bddf2aa73cd05b1d9f47e3f54717401af7"
+    }
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "metrics": {
+      "cells": 768,
+      "centre_lookup_identity": true,
+      "permutation_identity": true
+    },
+    "resources": {
+      "child_peak_rss_bytes": 87638016,
+      "worker_peak_rss_bytes": 103346176
+    },
+    "status": "ok",
+    "timings": {
+      "apply": 0.0003770829998757108
+    }
+  },
+  "run_fingerprint": "321abb9b61e7e3a42e0174a1dc9716971150a63027aaf67a4b6a067a8087b6fd",
+  "sample_id": "healpix-ring-nested-identity.0001",
+  "started_at": "2026-11-20T15:52:16.844159+00:00"
+}

@@ -1,0 +1,2 @@
+/opt/benchmark/xhealpixify/lib/python3.12/site-packages/xhealpixify/interpolation/mask.py:22: RuntimeWarning: invalid value encountered in divide
+  return masked_weights / np.sum(masked_weights, axis=-1)[:, None]

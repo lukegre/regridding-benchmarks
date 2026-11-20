@@ -1,0 +1,41 @@
+{
+  "case_id": "xhealpixify-mur-coast",
+  "finished_at": "2026-11-20T15:54:45.333591+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "30441806e167cc278619aff289346393deac7747417c81408359aced328ae61c"
+    },
+    "target": {
+      "specification_sha256": "9ced450a454b4b9f6469f0ec03b05d48e023a52dbed58206b9b0b6cf71282962"
+    }
+  },
+  "log_sha256": "0a804915c7b08c02cd212ab469e7ae438214aed5dbcfe6fbab2cb9d26124e3a3",
+  "repeat": 3,
+  "result": {
+    "environment": {
+      "xhealpixify_version": "2025.3.4.dev1+g8ebd09eb7"
+    },
+    "metrics": {
+      "cell_ids_preserved": true,
+      "empty_target_cells": 472,
+      "max_common_support_difference_celsius": 3.552713678800501e-15,
+      "partially_masked_target_cells": 4,
+      "source_wet_cells": 75341,
+      "target_cells": 882,
+      "wet_target_cells": 410
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 417054720
+    },
+    "status": "ok",
+    "timings": {
+      "apply": 1.9868537800002741,
+      "load": 0.16709164700023393,
+      "setup": 4.689569281999866
+    }
+  },
+  "run_fingerprint": "321abb9b61e7e3a42e0174a1dc9716971150a63027aaf67a4b6a067a8087b6fd",
+  "sample_id": "xhealpixify-mur-coast.0003",
+  "started_at": "2026-11-20T15:54:36.790140+00:00"
+}
