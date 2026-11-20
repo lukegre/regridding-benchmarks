@@ -1,0 +1,23 @@
+{
+  "case_id": "xhealpixify-mur-coast",
+  "finished_at": "2026-11-20T15:17:57.562700+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "30441806e167cc278619aff289346393deac7747417c81408359aced328ae61c"
+    },
+    "target": {
+      "specification_sha256": "9ced450a454b4b9f6469f0ec03b05d48e023a52dbed58206b9b0b6cf71282962"
+    }
+  },
+  "log_sha256": "b91f0469eefd26c1cbf473d182c01fc7f9d977792641610113d4e317b1c11e63",
+  "repeat": 1,
+  "result": {
+    "metrics": {},
+    "reason": "Pinned NOAA ERDDAP response is absent from the input cache; fetch it explicitly. Historical data or server serialization may change, in which case checksum verification rejects the response.",
+    "status": "unavailable",
+    "timings": {}
+  },
+  "run_fingerprint": "6591505269f543f39235739750f4ce28212127595890caa2b6c057fa4ab73218",
+  "sample_id": "xhealpixify-mur-coast.0001",
+  "started_at": "2026-11-20T15:17:57.556515+00:00"
+}

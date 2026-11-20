@@ -1,0 +1,23 @@
+{
+  "case_id": "mur-coast-cog-loopback-z8",
+  "finished_at": "2026-11-20T15:17:26.254525+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "d013542966bcfeb3a0b7bf92cb07a284bd62bae1d85341724153c0c121f463b0"
+    },
+    "target": {
+      "specification_sha256": "4bd5afb3c530d35cd8f95de912706bc1a835630f1eed018d845cd4be8cd41bbb"
+    }
+  },
+  "log_sha256": "b91f0469eefd26c1cbf473d182c01fc7f9d977792641610113d4e317b1c11e63",
+  "repeat": 1,
+  "result": {
+    "metrics": {},
+    "reason": "Pinned NOAA ERDDAP response is absent from the input cache; fetch it explicitly. Historical data or server serialization may change, in which case checksum verification rejects the response.",
+    "status": "unavailable",
+    "timings": {}
+  },
+  "run_fingerprint": "6591505269f543f39235739750f4ce28212127595890caa2b6c057fa4ab73218",
+  "sample_id": "mur-coast-cog-loopback-z8.0001",
+  "started_at": "2026-11-20T15:17:26.248542+00:00"
+}
