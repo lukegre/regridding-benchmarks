@@ -14,6 +14,9 @@ if [[ -z "$token_file" ]]; then
   for f in /secrets/github /secrets/github_token; do [[ -r "$f" ]] && token_file=$f && break; done
 fi
 remote=${BENCH_RESULTS_REMOTE:-$(git -C "$repo" remote get-url origin)}
+# Renku restarts the container after a clean exit; the pod volume survives, so a marker stops reruns.
+done_marker=${BENCH_DONE_MARKER:-$(dirname "$repo")/.benchmark-done-$profile}
+[[ -e "$done_marker" ]] && { echo "Already completed in this pod ($done_marker); delete the job to rerun."; exit 0; }
 out="$scratch/runs"
 mkdir -p "$out" "$scratch/cache"
 export TMPDIR="$scratch"
@@ -48,7 +51,7 @@ rm -rf "$push/results/$run_id"
 cp -R "$out/$run_id" "$push/results/$run_id"
 git -C "$push" add results
 if git -C "$push" diff --cached --quiet; then
-  echo "Nothing to commit"; exit "$status"
+  echo "Nothing to commit"; [[ "$status" -eq 0 ]] && touch "$done_marker"; exit "$status"
 fi
 git -C "$push" -c user.name="renku-benchmark-job" -c user.email="noreply@renkulab.io" \
   commit --quiet -m "Add benchmark results $run_id (profile $profile, exit status $status)"
@@ -64,4 +67,5 @@ else
   git -C "$push" push --quiet origin "$branch"
 fi
 echo "Pushed results/$run_id to $branch"
+[[ "$status" -eq 0 ]] && touch "$done_marker"
 exit "$status"
