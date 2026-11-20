@@ -36,6 +36,10 @@ regridding-benchmarks fetch --profile "$profile" --cache-dir "$scratch/cache" --
 regridding-benchmarks run --profile "$profile" --output-dir "$out" --run-id "$run_id" \
   --cache-dir "$scratch/cache" --scratch-dir "$scratch/work" --series "${BENCH_SERIES:-renkulab}" --repo "$repo" || status=$?
 regridding-benchmarks validate-bundle "$out/$run_id" || status=$?
+# The edition page links to results/<run-id>/ beside it, so it is stored next to the bundle.
+report_ok=0
+regridding-benchmarks build-report "$out/$run_id" --output-dir "$scratch/site" --repo "$repo" && report_ok=1 \
+  || echo "build-report failed; committing the bundle without a page" >&2
 
 # Save whatever was produced, even after a failure, so the evidence is not lost.
 [[ -d "$out/$run_id" ]] || { echo "No bundle produced" >&2; exit "${status:-1}"; }
@@ -49,6 +53,7 @@ fi
 mkdir -p "$push/results"
 rm -rf "$push/results/$run_id"
 cp -R "$out/$run_id" "$push/results/$run_id"
+[[ "$report_ok" == 1 ]] && cp "$scratch/site/editions/$run_id.html" "$push/results/$run_id.html"
 git -C "$push" add results
 if git -C "$push" diff --cached --quiet; then
   echo "Nothing to commit"; [[ "$status" -eq 0 ]] && touch "$done_marker"; exit "$status"
