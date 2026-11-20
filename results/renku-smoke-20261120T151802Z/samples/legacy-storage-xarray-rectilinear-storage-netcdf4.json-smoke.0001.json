@@ -1,0 +1,116 @@
+{
+  "case_id": "legacy-storage-xarray-rectilinear-storage-netcdf4.json-smoke",
+  "finished_at": "2026-11-20T15:19:20.132408+00:00",
+  "geometry": {
+    "destination_geometry_sha256": "f997be29953406c8e775714c5f45f32c8f7586b7bb82a37a63da32667315e5b1",
+    "missing_count": 64,
+    "shape": [
+      4,
+      128,
+      128
+    ],
+    "source_geometry_sha256": "d8bee4b3ce216661dd3762071809d42c62fd810bcb7264ca24a7b7c435953aba",
+    "values_sha256": "e2bde1dbb96726f46f7e8ea620854955a3c60aed843d8efd60f950e195bc0a4a"
+  },
+  "log_sha256": "ccb2994c3e5b50a226b641522c4a8ae39720d89f4d16a9d7b67f31175032208c",
+  "repeat": 1,
+  "result": {
+    "geometry": {
+      "destination_geometry_sha256": "f997be29953406c8e775714c5f45f32c8f7586b7bb82a37a63da32667315e5b1",
+      "missing_count": 64,
+      "shape": [
+        4,
+        128,
+        128
+      ],
+      "source_geometry_sha256": "d8bee4b3ce216661dd3762071809d42c62fd810bcb7264ca24a7b7c435953aba",
+      "values_sha256": "e2bde1dbb96726f46f7e8ea620854955a3c60aed843d8efd60f950e195bc0a4a"
+    },
+    "metrics": {
+      "finite_mask_mismatches": 0,
+      "finite_values_min": 65536,
+      "fixture": {
+        "destination_geometry_sha256": "f997be29953406c8e775714c5f45f32c8f7586b7bb82a37a63da32667315e5b1",
+        "missing_count": 64,
+        "shape": [
+          4,
+          128,
+          128
+        ],
+        "source_geometry_sha256": "d8bee4b3ce216661dd3762071809d42c62fd810bcb7264ca24a7b7c435953aba",
+        "values_sha256": "e2bde1dbb96726f46f7e8ea620854955a3c60aed843d8efd60f950e195bc0a4a"
+      },
+      "grid": "rectilinear",
+      "group": "netcdf4_warm_cache",
+      "layout": [
+        1,
+        128,
+        128
+      ],
+      "max_abs_error": 0.0,
+      "median_compute_read_seconds": 0.013809992000460625,
+      "median_graph_seconds": 0.00711163500091061,
+      "note": "File creation and opening excluded; full compute includes warm-cache NetCDF reads. OS cache was not cleared; not a cold-disk benchmark.",
+      "reference_seconds": 0.07178930599911837,
+      "repeats": [
+        {
+          "compute_read_seconds": 0.013809992000460625,
+          "correctness": {
+            "finite_mask_mismatches": 0,
+            "finite_values": 65536,
+            "max_abs_error": 0.0,
+            "seam_max_abs_error": null
+          },
+          "graph_seconds": 0.00711163500091061,
+          "graph_tasks": 59,
+          "input_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128
+            ],
+            [
+              128
+            ]
+          ],
+          "output_chunks": [
+            [
+              1,
+              1,
+              1,
+              1
+            ],
+            [
+              128
+            ],
+            [
+              128
+            ]
+          ],
+          "rechunk_layers": [],
+          "repeat": 1
+        }
+      ],
+      "scheduler": "synchronous",
+      "storage_chunks": [
+        1,
+        128,
+        128
+      ],
+      "tool": "xarray"
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 283508736
+    },
+    "status": "ok",
+    "timings": {}
+  },
+  "run_fingerprint": "8957eb3bf601d0e91a00dddfdb6588fae5f9b5238aa284984df9f72c2e709c77",
+  "sample_id": "legacy-storage-xarray-rectilinear-storage-netcdf4.json-smoke.0001",
+  "started_at": "2026-11-20T15:19:18.751869+00:00"
+}

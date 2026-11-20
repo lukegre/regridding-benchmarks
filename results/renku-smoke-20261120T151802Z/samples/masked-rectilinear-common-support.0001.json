@@ -1,0 +1,43 @@
+{
+  "case_id": "masked-rectilinear-common-support",
+  "finished_at": "2026-11-20T15:19:21.315450+00:00",
+  "geometry": {
+    "input_sha256": "39d1dce38ec2262edb547b1824bade2c717164c73e83edc55947cafd4816ec8f",
+    "source_sha256": "bc44fb0acf1f40477c45f41b8069ee75f3570064b590fe2332ebb2576bd48523",
+    "target_sha256": "7a5e56405c41c8bf0526dba2a5112c029fe482f1957519c193bfdafd0d866646"
+  },
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "repeat": 1,
+  "result": {
+    "geometry": {
+      "input_sha256": "39d1dce38ec2262edb547b1824bade2c717164c73e83edc55947cafd4816ec8f",
+      "source_sha256": "bc44fb0acf1f40477c45f41b8069ee75f3570064b590fe2332ebb2576bd48523",
+      "target_sha256": "7a5e56405c41c8bf0526dba2a5112c029fe482f1957519c193bfdafd0d866646"
+    },
+    "metrics": {
+      "common_coverage": 0.7969187675070029,
+      "common_max_difference": 0.0,
+      "finite_mask_mismatches": 0,
+      "scipy_common_rmse": 0.0002851921079525505,
+      "scipy_coverage": 0.7969187675070029,
+      "scipy_rmse": 0.0002851921079525505,
+      "xarray_common_rmse": 0.0002851921079525505,
+      "xarray_coverage": 0.7969187675070029,
+      "xarray_rmse": 0.0002851921079525505
+    },
+    "resources": {
+      "child_peak_rss_bytes": 0,
+      "worker_peak_rss_bytes": 245608448
+    },
+    "status": "ok",
+    "timings": {
+      "fixture": 0.0003330060026200954,
+      "imports": 0.5639512339985231,
+      "scipy_application": 0.0002663810009835288,
+      "xarray_application": 0.3653742830028932
+    }
+  },
+  "run_fingerprint": "8957eb3bf601d0e91a00dddfdb6588fae5f9b5238aa284984df9f72c2e709c77",
+  "sample_id": "masked-rectilinear-common-support.0001",
+  "started_at": "2026-11-20T15:19:20.139156+00:00"
+}

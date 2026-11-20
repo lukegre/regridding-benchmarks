@@ -1,0 +1,23 @@
+{
+  "case_id": "icon-ngc3028-pyicon",
+  "finished_at": "2026-11-20T15:19:16.472080+00:00",
+  "geometry": {
+    "source": {
+      "specification_sha256": "7d65d4919af268724ed3170583fb408343ad0970e09bc68afc1c03ac9553341c"
+    },
+    "target": {
+      "specification_sha256": "19973c8281a6475716a2c43e08786a63f385e8a07c2e509094ee325ef807313e"
+    }
+  },
+  "log_sha256": "ac3668cfd4ed197dd959f89c9900810f60579444168f65e8a578768b9be2a843",
+  "repeat": 1,
+  "result": {
+    "metrics": {},
+    "reason": "The catalog and remote store are mutable. A source revision and checksum for an exported slice have not been established; this entry must not be fetched as a pinned dataset.",
+    "status": "unavailable",
+    "timings": {}
+  },
+  "run_fingerprint": "8957eb3bf601d0e91a00dddfdb6588fae5f9b5238aa284984df9f72c2e709c77",
+  "sample_id": "icon-ngc3028-pyicon.0001",
+  "started_at": "2026-11-20T15:19:16.465730+00:00"
+}
